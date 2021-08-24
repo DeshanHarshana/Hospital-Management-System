@@ -30,7 +30,7 @@ router.get('/', function(req,res){
     res.send('From api route!');
 })
 
-// add admin details
+// add admin details -- seeding
 router.get('/add-admin-data', function(req,res){
     let adminData={
         
@@ -48,7 +48,7 @@ router.get('/add-admin-data', function(req,res){
     })
 });
 
-// add admin details
+// add doctor details -- seeding
 router.get('/add-doctor-data', function(req,res){
     let doctorData={
         
@@ -66,7 +66,7 @@ router.get('/add-doctor-data', function(req,res){
     })
 });
 
-// add admin details
+// add patient details -- seeding
 router.get('/add-patient-data', function(req,res){
     let patientData={
         

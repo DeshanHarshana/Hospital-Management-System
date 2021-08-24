@@ -1,0 +1,40 @@
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Yinka Enoch Adedokun">
+	<title>Login Page</title>
+</head>
+<body>
+	<!-- Main Content -->
+	<div class="container-fluid " >
+		<div class="row main-content align-middle bg-success text-center">
+			<div class="col-md-4 text-center company__info">
+				<span class="company__logo"></span>
+
+			</div>
+			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+				<div class="container-fluid">
+					<div class="row" style="padding-top: 4%;">
+						<h1>{{ role }} Login</h1>
+					</div>
+					<div class="row">
+						<form class="form-group" [formGroup]="loginForm">
+							<div class="row">
+								<input type="text" formControlName="email"  class="form__input" placeholder="Username" required>
+							</div>
+							<div class="row">
+								<!-- <span class="fa fa-lock"></span> -->
+								<input type="password" formControlName="password"  class="form__input" placeholder="Password" required>
+							</div>
+							<div >
+								<button class="btn" (click)="loginUser(loginForm.value)" [disabled]="!loginForm.valid">Login</button>
+                <button class="btn" [hidden]="isPatient" routerLink="/signup">Signup</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

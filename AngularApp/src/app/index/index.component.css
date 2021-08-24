@@ -1,0 +1,106 @@
+
+
+body {
+  background-image: url("../../assets/background/background.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+.container .box {
+  width: 300px;
+  height: 300px;
+  line-height: 1.5;
+  color: #fff;
+  display: flex;
+  border-radius: 8px;
+  /* untuk 3 card */
+  margin-right: 40px;
+  transition: all .5s;
+}
+
+
+.box {
+  background-image: url("../../assets/index/admin.png");
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 10px 20px rgba(0,0,0,.7);
+  border-radius: 8px;
+}
+
+.box h1 {
+  font-size: 3rem;
+  padding-bottom: 20px;
+  font-family: 'Lemon';
+}
+
+.box p{
+  font-size: 12px;
+}
+
+.box .btn {
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  background: transparent;
+  cursor: pointer;
+  color: #fff;
+  margin: 10px 0 20px 0;
+  border: 1px solid #fff;
+  transition: all .5s;
+}
+
+.box .btn:hover {
+  padding: 5px 20px;
+}
+
+.text {
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+padding: 0 10px;
+  text-align: center;
+  border-radius: 8px;
+  transition: all .5s;
+}
+
+.text:hover {
+  opacity: 1;
+}
+
+.box:hover {
+  transform: translateY(20px);
+}
+
+.two {
+  background-image: url("../../assets/index/doctor.png");
+}
+
+
+.three {
+  background-image: url("../../assets/index/patient.jpg");
+}

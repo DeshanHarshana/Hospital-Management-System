@@ -1,0 +1,18 @@
+div{
+  text-align: center;
+
+
+}
+mat-card{
+  width: 100%;
+  text-align: center;
+  margin-top: 20%;
+  background-color: aquamarine;
+
+}
+mat-card-content{
+  height: 15rem;
+}
+h1{
+  font-size: 100px;
+}

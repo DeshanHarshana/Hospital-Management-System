@@ -12,6 +12,7 @@ const PORT=3000;
 //server2
 
 //server1
+//lllllllllllllll
 
 const app=express()
 app.use(cors())

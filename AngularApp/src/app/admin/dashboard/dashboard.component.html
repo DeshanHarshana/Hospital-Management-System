@@ -1,12 +1,4 @@
 <mat-toolbar class="mat-elevation-z8">
-  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-      <mat-icon *ngIf="!sidenav.opened">
-          menu
-      </mat-icon>
-      <mat-icon *ngIf="sidenav.opened">
-          close
-      </mat-icon>
-  </button>
   Admin Dashboard
   <span class="spacer"></span>
   <button routerLink="/" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
@@ -14,7 +6,7 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
 
       <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
 
@@ -23,7 +15,7 @@
 
       <mat-divider></mat-divider>
 
-      <button mat-button class="menu-button">
+      <button mat-button class="menu-button" (click)="gotoHome()">
           <mat-icon>home</mat-icon>
           <span>Home</span>
       </button>
@@ -39,8 +31,39 @@
 
 
   </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
 
-  </mat-sidenav-content>
+    <router-outlet></router-outlet>
+    <div class="content mat-elevation-z8">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4 x d-flex justify-content-center">
+      <div class="card doctor zoom">
+        </div>
+    </div>
+    <div class="col-4 x d-flex justify-content-center d-flex align-items-center">
+      <div class="card nurse zoom">
+        <div class="row xc">
+          <div class="col-5 pic">
+
+          </div>
+          <div class="col-7">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-4 x d-flex justify-content-center d-flex align-items-center">
+      <div class="card patient zoom">
+        kfbskjd
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+
+
 </mat-sidenav-container>

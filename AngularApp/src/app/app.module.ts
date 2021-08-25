@@ -32,7 +32,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
-
+import { TestComponent } from './test/test/test.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -48,9 +49,11 @@ import { SignupComponent } from './signup/signup.component';
     PatientDashboardComponent,
     LoginComponent,
     SignupComponent,
+    TestComponent,
 
     ],
   imports: [
+    MatAutocompleteModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

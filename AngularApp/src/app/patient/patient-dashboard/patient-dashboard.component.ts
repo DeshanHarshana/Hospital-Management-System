@@ -14,9 +14,18 @@ export class PatientDashboardComponent implements OnInit {
 
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(
+
+  ): void {
+
+
+  }
+  about(){
     this.router.navigate(['Patient-About'], {relativeTo : this.route});
 
   }
+  gotoHome(){
+    this.router.navigate(['Patient-dashboard']);
 
+  }
 }

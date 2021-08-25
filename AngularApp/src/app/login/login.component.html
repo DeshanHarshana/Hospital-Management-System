@@ -19,13 +19,13 @@
 						<h1>{{ role }} Login</h1>
 					</div>
 					<div class="row">
-						<form class="form-group" [formGroup]="loginForm">
+						<form class="form-group" [formGroup]="loginForm" autocomplete="on" >
 							<div class="row">
-								<input type="text" formControlName="email"  class="form__input" placeholder="Username" required>
+								<input  type="text"  formControlName="email" autocomplete="nope" class="form__input" placeholder="Username" required>
 							</div>
 							<div class="row">
 								<!-- <span class="fa fa-lock"></span> -->
-								<input type="password" formControlName="password"  class="form__input" placeholder="Password" required>
+								<input type="password" autocomplete="" formControlName="password"  class="form__input" placeholder="Password" required>
 							</div>
 							<div >
 								<button class="btn" (click)="loginUser(loginForm.value)" [disabled]="!loginForm.valid">Login</button>

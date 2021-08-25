@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   role:string="";
   id:number=0;
   isPatient:boolean=true;
+  dropdownId="jnl"
   loginForm=new FormGroup({
     no:new FormControl(''),
     email:new FormControl(''),

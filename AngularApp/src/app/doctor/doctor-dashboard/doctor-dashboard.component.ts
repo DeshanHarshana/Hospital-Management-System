@@ -15,11 +15,13 @@ export class DoctorDashboardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.router.navigate(['Doctor-About'], {relativeTo : this.route});
 
   }
   addPatient(){
     this.router.navigate(['Doctor-DoctorAddpatient'], {relativeTo : this.route});
 
+  }
+  gotoHome(){
+this.router.navigate(['Doctor-dashboard'])
   }
 }

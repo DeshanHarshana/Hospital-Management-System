@@ -18,14 +18,7 @@ mat-sidenav {
   height: calc(100vh - 98px);
   border-radius: 10px;
   margin: 16px;
-  margin-left: 32px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 2rem;
-  color: lightgray;
+  margin-left: 2.5rem;
 }
 
 mat-sidenav-container {
@@ -60,7 +53,7 @@ mat-icon {
 .designation {
   margin-top: 2px;
   font-size: 0.7rem;
-  color: lightgrey;
+  color: rgb(8, 3, 3);
 }
 
 mat-divider {
@@ -71,4 +64,62 @@ mat-divider {
 .spacer {
   flex: 1 1 auto;
 }
+
+.x{
+
+  height: 14rem;
+  padding-top: 2%;
+}
+.y{
+  height: 14rem;
+  }
+.z{
+  height: 14rem;
+  }
+.doctor{
+  height: 100%;
+  width: 80%;
+
+
+
+}
+
+.patient{
+  height: 100%;
+  width: 80%;
+
+}
+
+.nurse{
+  height: 100%;
+  width: 85%;
+
+}
+
+
+
+.zoom:hover{
+  transform: scale(1.05);
+box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.09);
+}
+
+.zoom{
+  cursor: pointer;
+  border-radius: 4px;
+
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+
+
+}
+
+
+
+
+
+
+
+
+
+
 

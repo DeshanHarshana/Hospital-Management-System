@@ -8,6 +8,7 @@ const PORT=3000;
 
 //start express server
 //server
+//server1
 const app=express()
 app.use(cors())
 app.use(bodyParser.json({limit:'50mb'}))

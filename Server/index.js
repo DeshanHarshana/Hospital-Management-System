@@ -6,13 +6,6 @@ const path=require('path')
 const PORT=3000;
 
 
-//start express server
-//server
-
-//server2
-
-//server1
-//lllllllllllllll
 
 const app=express()
 app.use(cors())

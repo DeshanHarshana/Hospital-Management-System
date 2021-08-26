@@ -64,7 +64,7 @@ mat-divider {
 }
 
 .x {
-  height: 14rem;
+  height: 15rem;
   padding-top: 2%;
 }
 .y {
@@ -79,10 +79,8 @@ mat-divider {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.705), rgb(184, 247, 238)), url("../../../assets/admin-dashboard/doctor.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-clip: content-box;
 
-}
-.doctor h1{
-  color:black
 
 }
 
@@ -92,12 +90,7 @@ mat-divider {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.253), rgb(238, 247, 184)), url("../../../assets/admin-dashboard/patient.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-
-}
-.patient h1{
-
-}
-.appointment h1{
+  background-clip: content-box;
 
 }
 
@@ -107,6 +100,7 @@ mat-divider {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.356), rgb(219, 184, 247)), url("../../../assets/admin-dashboard/appointment.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-clip: content-box;
 
 }
 
@@ -123,4 +117,34 @@ mat-divider {
   transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
     0.3s box-shadow,
     0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+}
+
+.wards{
+  padding:3%;
+
+
+}
+.wards .wardlist{
+  height: fit-content;
+  padding-bottom: 5%;
+  border-radius: 10px;
+
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+
+}
+.labs{
+  padding:3%;
+
+}
+.labs .lablist{
+  height: fit-content;
+  padding-bottom: 5%;
+  border-radius: 10px;
+
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+
+}
+.pqrs{
+  margin: 1rem;
+  height: 8rem;
 }

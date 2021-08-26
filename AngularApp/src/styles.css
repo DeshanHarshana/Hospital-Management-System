@@ -8,3 +8,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-family: "Lemon";
   src: url(./assets/fonts/LemonMilkBold-gx2B3.otf);
 }
+@font-face {
+  font-family: "Alloyink";
+  src: url(./assets/fonts/AlloyInk-nRLyO.ttf);
+}
+@font-face {
+  font-family: "Quartzo";
+  src: url(./assets/fonts/QuartzoBold-W9lv.ttf);
+}

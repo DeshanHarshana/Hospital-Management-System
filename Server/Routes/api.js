@@ -6,8 +6,7 @@ const Doctor = require('../Models/Doctor');
 const Patient = require('../Models/Patient');
 
 //database connection String
-const db="mongodb+srv://deshan:deshan2233@cluster0.1ape7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-
+const db="mongodb+srv://deshan:deshan2233@cluster0.1ape7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 //connect with database
 mongoose.connect(db, {
@@ -29,6 +28,8 @@ mongoose.connect(db, {
 router.get('/', function(req,res){
     res.send('From api route!');
 })
+
+
 
 // add admin details -- seeding
 router.get('/add-admin-data', function(req,res){

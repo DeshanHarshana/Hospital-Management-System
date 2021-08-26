@@ -31,12 +31,10 @@ mat-sidenav-container {
   align-items: center;
   justify-content: flex-start;
   font-size: 1rem;
-
-
 }
 mat-icon {
-      margin-right: 8px;
-  }
+  margin-right: 8px;
+}
 
 .avatar {
   margin-top: 16px;
@@ -65,61 +63,64 @@ mat-divider {
   flex: 1 1 auto;
 }
 
-.x{
-
+.x {
   height: 14rem;
   padding-top: 2%;
 }
-.y{
+.y {
   height: 14rem;
-  }
-.z{
+}
+.z {
   height: 14rem;
-  }
-.doctor{
-  height: 100%;
-  width: 80%;
-
-
-
 }
-
-.patient{
-  height: 100%;
-  width: 80%;
-
-}
-
-.nurse{
+.doctor {
   height: 100%;
   width: 85%;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.705), rgb(184, 247, 238)), url("../../../assets/admin-dashboard/doctor.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+.doctor h1{
+  color:black
 
 }
 
+.patient {
+  height: 100%;
+  width: 85%;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.253), rgb(238, 247, 184)), url("../../../assets/admin-dashboard/patient.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 
+}
+.patient h1{
 
-.zoom:hover{
+}
+.appointment h1{
+
+}
+
+.appointment {
+  height: 100%;
+  width: 85%;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.356), rgb(219, 184, 247)), url("../../../assets/admin-dashboard/appointment.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.zoom:hover {
   transform: scale(1.05);
-box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.09);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.09);
 }
 
-.zoom{
+.zoom {
   cursor: pointer;
   border-radius: 4px;
 
-    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
-
-
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
+    0.3s box-shadow,
+    0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
 }
-
-
-
-
-
-
-
-
-
-
-

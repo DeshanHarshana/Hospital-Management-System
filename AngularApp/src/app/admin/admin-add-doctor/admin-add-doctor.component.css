@@ -13,8 +13,7 @@ mat-sidenav-container {
 }
 .pic-div{
   margin-top: 0.5rem;
-  border-left: solid black 1px;
-}
+  }
 
 .hidden{
   color: white;
@@ -40,6 +39,17 @@ mat-sidenav-container {
   width: 300px;
   height: 300px;
   border-radius: 8%;
+
+  }
+  .reg{
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+    padding: 3%;
+    margin-right: 5%;
+    height: fit-content;
+  }
+  .reg .col{
+    padding-top: 3%;
+    padding-bottom: 3%;
 
   }
 

@@ -87,7 +87,7 @@
           </div>
           <div class="col">
             <label for="level">Educational Level</label>
-            <input type="text" id="level" class="form-control" placeholder="Eduction Level" formControlName="eduAdditional">
+            <input type="text" id="level" class="form-control" placeholder="Eduction Level" formControlName="edulevel">
           </div>
         </div>
 
@@ -126,9 +126,66 @@
         <button (click)="hiddenfileinput.click()"  class="btn btn-warning d-flex justify-content-center"><i class="material-icons left"></i>Select Image</button>
       </section>
     </div>
+    <div class="row d-flex justify-content-center">
+      <form [formGroup]="doctor">
+        <div class="card reg">
+        <div class="col">
 
+            <label for="SLMC">SLMC Number</label>
+            <input type="text" id="SLMC" class="form-control" placeholder="SLMC No" formControlName="SLMC">
+</div>
+        <div class="col">
+            <label for="experiance">Experiance Year</label>
+            <input type="text" id="experiance" class="form-control" placeholder="Experiance Years" formControlName="experiance">
+
+          </div>
+          <div class="col">
+            <label for="type">Type of Doctor</label>
+            <select id="type" class="form-control" formControlName="type">
+              <option selected>Choose...</option>
+              <option>Audiologist</option>
+              <option>Epidemiologist</option>
+              <option>Podiatrist</option>
+              <option>Pediatrician</option>
+              <option>Rheumatologist</option>
+              <option>Dentist</option>
+              <option>Oncologist</option>
+              <option>Obstetrics and gynecology physician</option>
+              <option>Urologist</option>
+              <option>Psychiatrist</option>
+              <option>Dermatologist</option>
+              <option>Orthopedist</option>
+              <option>Endocrinologist</option>
+              <option>Neurologist</option>
+              <option>Plastic surgeon</option>
+              <option>Nephrologist</option>
+              <option>Radiologist</option>
+              <option>Gastroenterologist</option>
+              <option>Neonatologist</option>
+              <option>Cardiologist</option>
+<option>Geriatric physician</option>
+            </select></div>
+
+          <div class="col">
+            <label for="position">Position</label>
+            <select id="position" class="form-control" formControlName="position">
+              <option selected>Choose...</option>
+              <option>Senior</option>
+              <option>Trainning</option>
+              <option>Consultant</option>
+
+            </select></div>
+
+        </div>
+      </form>
+
+    <button class="myButton "  (click)="addDoctor(doctor.value)" >Add Doctor</button>
+
+    </div>
   </div>
 
+
 </div>
+
 </div>
 </div>

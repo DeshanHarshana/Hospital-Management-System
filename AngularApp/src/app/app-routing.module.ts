@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminAboutComponent } from './admin/admin-about/admin-about.component';
+import { AdminAddDoctorComponent } from './admin/admin-add-doctor/admin-add-doctor.component';
 
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { DoctorDetailsComponent } from './admin/doctor-details/doctor-details.component';
@@ -27,8 +28,8 @@ const routes: Routes = [
     component:DashboardComponent,
     children:[
       {path : 'Admin-About', component:AdminAboutComponent},
-      {path : 'Admin-Doctor-Details', component:DoctorDetailsComponent},
-      {path : 'Admin-Patient-Details', component:PatientDetailsComponent}
+      {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent}
+
     ]
 
   },

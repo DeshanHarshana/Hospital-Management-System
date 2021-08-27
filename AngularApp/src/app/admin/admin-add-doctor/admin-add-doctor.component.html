@@ -1,0 +1,134 @@
+<div class="content mat-elevation-z8" style="height: fit-content;">
+<div class="container-fluid" style="height: fit-content; margin-bottom:5%">
+<div class="row">
+  <div class="col-8">
+    <div class="container-fluid">
+      <div class="card details" style="height: fit-content;">
+        <h1 style="font-family: 'Lemon';">Add a new doctor</h1>
+        <form [formGroup]="doctor">
+          <div class="card" style="padding: 3%; padding-bottom:4%; margin-bottom:5%">
+            <h2><u>Personal Information</u></h2>
+          <div class="row" >
+            <div class="col">
+              <label for="inputState">Name Title</label>
+              <select id="inputState" class="form-control" formControlName="title">
+                <option selected>Choose...</option>
+                <option>Mr</option>
+                <option>Mrs</option>
+                <option>Ms</option>
+                <option>Miss</option>
+              </select>
+            </div>
+            <div class="col">
+              <label for="fullname">Full Name</label>
+              <input type="text" id="fullname" class="form-control" placeholder="Full Name" formControlName="fullname">
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col">
+              <label for="email">Email</label>
+              <input type="text" id="email" class="form-control" placeholder="Email" formControlName="email">
+                       </div>
+            <div class="col">
+              <label for="phone">Phone No</label>
+              <input type="number" id="phone" class="form-control" placeholder="Phone No" formControlName="phone">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="age">Age</label>
+              <input type="number" id="age" class="form-control" placeholder="Age" formControlName="age">
+                       </div>
+            <div class="col">
+              <label for="city">Current City</label>
+              <input type="text" id="city" class="form-control" placeholder="Current City" formControlName="currentCity">
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="hospital">Current Hospital</label>
+              <input type="text" id="hospital" class="form-control" placeholder="Current Hospital" formControlName="currentHospital">
+                       </div>
+            <div class="col">
+              <label for="relationship">Marital Status</label>
+              <select id="relationship" class="form-control" formControlName="maritalStatus">
+                <option selected>Choose...</option>
+                <option>Single</option>
+                <option>Married</option>
+                <option>Widowed</option>
+                <option>Divorced</option>
+              </select></div>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="exampleFormControlTextarea1">Additional Details</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="personalAdditional"></textarea>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+
+
+        <div class="card" style="padding: 3%; padding-bottom:4%; margin-bottom:5%">
+          <h2><u>Educational Information</u></h2>
+        <div class="row" >
+          <div class="col">
+            <label for="degree">Degree</label>
+            <input type="text" id="degree" class="form-control" placeholder="Degree" formControlName="degree">
+          </div>
+          <div class="col">
+            <label for="level">Educational Level</label>
+            <input type="text" id="level" class="form-control" placeholder="Eduction Level" formControlName="eduAdditional">
+          </div>
+        </div>
+
+
+
+          <div class="row">
+            <div class="col">
+              <label for="exampleFormControlTextarea2">Additional Details</label>
+    <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" formControlName="eduAdditional"></textarea>
+            </div>
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-4 pic-div ">
+    <div class="row d-flex justify-content-center">
+      <img class="img-class" [src]="imageData">
+
+    </div>
+
+    <div class="row">
+      <section class="d-flex justify-content-center">
+        <input style="display: none" type="file" (change)="onFileSelect($event)" #hiddenfileinput>
+
+        <button (click)="hiddenfileinput.click()"  class="btn btn-warning d-flex justify-content-center"><i class="material-icons left"></i>Select Image</button>
+      </section>
+    </div>
+
+  </div>
+
+</div>
+</div>
+</div>

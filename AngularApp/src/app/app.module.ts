@@ -34,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { TestComponent } from './test/test/test.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { AdminAddDoctorComponent } from './admin/admin-add-doctor/admin-add-doctor.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     LoginComponent,
     SignupComponent,
     TestComponent,
+    AdminAddDoctorComponent,
 
     ],
   imports: [

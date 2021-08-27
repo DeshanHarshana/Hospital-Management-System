@@ -24,4 +24,6 @@ export class IndexComponent implements OnInit {
   Patient(){
     this.router.navigate(['login/'+3])
   }
+
+
 }

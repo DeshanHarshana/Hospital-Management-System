@@ -1,0 +1,94 @@
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 2.5rem;
+
+  display: flex;
+  justify-content: center;
+
+}
+.pic-div{
+  margin-top: 0.5rem;
+  border-left: solid black 1px;
+}
+
+.hidden{
+  color: white;
+}
+.details{
+  margin-top: 3%;
+  height: 50vh;
+  padding: 5%;
+
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+
+}
+.details .card{
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+
+}
+.details .card .row{
+  padding-top: 2%;
+}
+.img-class{
+  margin-top: 4%;
+
+  width: 300px;
+  height: 300px;
+  border-radius: 8%;
+
+  }
+
+.myButton {
+	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	background-color:#33bdef;
+	border-radius:6px;
+	border:1px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:7px 24px;
+	text-decoration:none;
+	text-shadow:0px 3px 0px #5b6178;
+  width: fit-content;
+  margin-top: 2rem;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	background-color:#019ad2;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+section {
+  margin: 20px;
+}
+
+input::-webkit-file-upload-button {
+  position: absolute;
+  padding: 10px 20px;
+  background-color: peru;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  text-transform: uppercase;
+  box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+  transition: 100ms ease-out;
+  width: max-content;
+  cursor: pointer;
+}
+
+input::-webkit-file-upload-button:hover {
+  background-color: #bd6e1f;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12)
+}
+

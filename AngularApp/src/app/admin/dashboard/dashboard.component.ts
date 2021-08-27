@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  main:boolean=true;
   constructor(
     private router:Router,
     private route:ActivatedRoute
@@ -16,13 +16,13 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  doctorDetails(){
-    this.router.navigate(['Admin-Doctor-Details'], {relativeTo : this.route});
-  }
-  patientDetails(){
-    this.router.navigate(['Admin-Patient-Details'], {relativeTo : this.route});
-  }
+
   gotoHome(){
+    this.main=true;
     this.router.navigate(['Admin-dashboard'])
+  }
+  doctorDetails(){
+    this.main=false;
+    this.router.navigate(['Admin-Add-Doctor'], {relativeTo:this.route});
   }
 }

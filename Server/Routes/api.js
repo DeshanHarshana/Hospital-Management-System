@@ -51,23 +51,7 @@ router.get('/add-admin-data', function(req,res){
     })
 });
 
-// add doctor details -- seeding
-router.get('/add-doctor-data', function(req,res){
-    let doctorData={
-        
-        email:"doctor@gmail.com",
-        password:"1234",
-        }
-    let doctor= new Doctor(doctorData)
-    doctor.save((error, result)=>{
-        if(error){
-            console.log(error);
-        }
-        else{
-            res.send(result);
-        }
-    })
-});
+
 
 // add patient details -- seeding
 router.get('/add-patient-data', function(req,res){
@@ -187,6 +171,37 @@ router.post('/signup', function(req, res){
                     }
                 });
             }
+        }
+    })
+});
+
+//Add Doctor
+router.get('/add-new-doctor', function(req,res){
+    let doctorData={
+        title:req.body.title,
+    fullname:req.body.fullname,
+    email:req.body.email,
+    password:req.body.password,
+    age:req.body.age,
+    phone:req.body.phone,
+    currentHospital:req.body.currentHospital,
+    currentCity:req.body.currentCity,
+    maritalStatus:req.body.maritalStatus,
+    personalAdditional:req.body.personalAdditional,
+
+
+    degree:req.body.degree,
+    eduLevel:req.body.eduLevel,
+    eduAdditional:req.body.eduAdditional,
+    displayImage:req.body.displayImage
+        }
+    let doctor= new Doctor(doctorData)
+    doctor.save((error, result)=>{
+        if(error){
+            console.log(error);
+        }
+        else{
+            res.send(result);
         }
     })
 });

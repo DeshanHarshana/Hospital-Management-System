@@ -176,34 +176,51 @@ router.post('/signup', function(req, res){
 });
 
 //Add Doctor
-router.get('/add-new-doctor', function(req,res){
-    let doctorData={
-        title:req.body.title,
-    fullname:req.body.fullname,
-    email:req.body.email,
-    password:req.body.password,
-    age:req.body.age,
-    phone:req.body.phone,
-    currentHospital:req.body.currentHospital,
-    currentCity:req.body.currentCity,
-    maritalStatus:req.body.maritalStatus,
-    personalAdditional:req.body.personalAdditional,
-
-
-    degree:req.body.degree,
-    eduLevel:req.body.eduLevel,
-    eduAdditional:req.body.eduAdditional,
-    displayImage:req.body.displayImage
-        }
-    let doctor= new Doctor(doctorData)
-    doctor.save((error, result)=>{
+router.post('/add-new-doctor', function(req,res){
+    
+    
+    Doctor.findOne({email:req.body.email}, (error, result)=>{
         if(error){
-            console.log(error);
-        }
-        else{
-            res.send(result);
+            res.send(error);
+        }else{
+            if(result){
+                res.send({'exist':'yes'})
+            }else{
+                let doctorData={
+                    title:req.body.title,
+                    fullname:req.body.fullname,
+                    email:req.body.email,
+                    password:req.body.password,
+                    age:req.body.age,
+                    phone:req.body.phone,
+                    currentHospital:req.body.currentHospital,
+                    currentCity:req.body.currentCity,
+                    maritalStatus:req.body.maritalStatus,
+                    personalAdditional:req.body.personalAdditional,
+                
+                
+                    degree:req.body.degree,
+                    edulevel:req.body.edulevel,
+                    eduAdditional:req.body.eduAdditional,
+                    displayImage:req.body.displayImage,
+                    SLMC:req.body.SLMC,
+                    experiance:req.body.experiance,
+                    position:req.body.position,
+                    type:req.body.type
+                }
+                let doctor= new Doctor(doctorData)
+                 doctor.save((error, result)=>{
+                    if(error){
+                        console.log(error);
+                    }
+                    else{
+                        res.send({'message':"Doctor Added Successfully"});
+                    }
+                })
+            }
         }
     })
+    
 });
 
 

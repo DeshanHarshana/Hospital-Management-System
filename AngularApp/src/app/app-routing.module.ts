@@ -5,6 +5,7 @@ import { AdminAddDoctorComponent } from './admin/admin-add-doctor/admin-add-doct
 
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { DoctorDetailsComponent } from './admin/doctor-details/doctor-details.component';
+import { DoctorlistComponent } from './admin/doctorlist/doctorlist.component';
 import { PatientDetailsComponent } from './admin/patient-details/patient-details.component';
 
 import { DoctorAddPatientsComponent } from './doctor/doctor-add-patients/doctor-add-patients.component';
@@ -28,8 +29,8 @@ const routes: Routes = [
     component:DashboardComponent,
     children:[
       {path : 'Admin-About', component:AdminAboutComponent},
-      {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent}
-
+      {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent},
+      {path : 'Admin-show-doctorlist', component:DoctorlistComponent}
     ]
 
   },

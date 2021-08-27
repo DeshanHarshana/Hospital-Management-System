@@ -17,12 +17,16 @@ const doctor = mongoose.Schema({
 
 
     degree:String,
-    eduLevel:String,
+    edulevel:String,
     eduAdditional:String,
     displayImage:{
         type:String,
         default:''
-    }
+    },
+    SLMC:String,
+    experience:String,
+    type:String,
+    position:String
 });
 
 module.exports=mongoose.model('Doctor', doctor, "Doctor");

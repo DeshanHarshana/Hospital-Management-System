@@ -35,6 +35,9 @@ import { SignupComponent } from './signup/signup.component';
 import { TestComponent } from './test/test/test.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AdminAddDoctorComponent } from './admin/admin-add-doctor/admin-add-doctor.component';
+import { DoctorshowComponent } from './admin/doctorshow/doctorshow.component';
+import { DoctorlistComponent } from './admin/doctorlist/doctorlist.component';
+import { AngularTiltModule } from 'angular-tilt';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,8 @@ import { AdminAddDoctorComponent } from './admin/admin-add-doctor/admin-add-doct
     SignupComponent,
     TestComponent,
     AdminAddDoctorComponent,
+    DoctorshowComponent,
+    DoctorlistComponent,
 
     ],
   imports: [
@@ -78,7 +83,8 @@ import { AdminAddDoctorComponent } from './admin/admin-add-doctor/admin-add-doct
   MatSelectModule,
   MatOptionModule,
   MatProgressSpinnerModule,
-  ToastrModule.forRoot()
+  ToastrModule.forRoot(),
+  AngularTiltModule
   ],
   providers: [],
   bootstrap: [AppComponent]

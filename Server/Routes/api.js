@@ -6,7 +6,7 @@ const Doctor = require('../Models/Doctor');
 const Patient = require('../Models/Patient');
 
 //deshan harshana
-//Haseen
+//power
 //database connection String
 const db="mongodb+srv://deshan:deshan2233@cluster0.1ape7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 

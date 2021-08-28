@@ -20,9 +20,7 @@
   background-size: cover;
 
 }
-.fa-android{
-	font-size:3em;
-}
+
 @media screen and (max-width: 640px) {
 	.main-content{width: 90%;}
 	.company__info{
@@ -33,9 +31,7 @@
 		border-bottom-left-radius:20px;
 	}
 }
-@media screen and (min-width: 642px) and (max-width:800px){
-	.main-content{width: 70%;}
-}
+
 .row > h1{
 	color:#008080;
 }

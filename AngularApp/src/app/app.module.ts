@@ -30,7 +30,7 @@ import { AdminAboutComponent } from './admin/admin-about/admin-about.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { TestComponent } from './test/test/test.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -38,6 +38,7 @@ import { AdminAddDoctorComponent } from './admin/admin-add-doctor/admin-add-doct
 import { DoctorshowComponent } from './admin/doctorshow/doctorshow.component';
 import { DoctorlistComponent } from './admin/doctorlist/doctorlist.component';
 import { AngularTiltModule } from 'angular-tilt';
+import { InterceptorService } from './loader/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,13 @@ import { AngularTiltModule } from 'angular-tilt';
   ToastrModule.forRoot(),
   AngularTiltModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:InterceptorService,
+      multi:true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

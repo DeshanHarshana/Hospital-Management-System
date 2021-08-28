@@ -9,7 +9,10 @@
 
       <div class="col-4" *ngFor="let d of data">
         <div  class="card cd  d-flex align-items-center" >
-         <img src="https://www.clipartmax.com/png/small/430-4305378_512-x-492-5-cartoon-dog-face-happy.png" class="rounded-circle r">
+         <img src="{{ d.displayImage }}" class="rounded-circle r">
+         <h1>{{ d.fullname }}</h1>
+         <h3>{{ d.currentHospital }}</h3>
+        <h2 class="strokeme">{{ d.type }}</h2>
         </div>
       </div>
     </div>

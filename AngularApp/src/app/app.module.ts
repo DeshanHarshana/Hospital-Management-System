@@ -39,7 +39,7 @@ import { DoctorshowComponent } from './admin/doctorshow/doctorshow.component';
 import { DoctorlistComponent } from './admin/doctorlist/doctorlist.component';
 import { AngularTiltModule } from 'angular-tilt';
 import { InterceptorService } from './loader/interceptor.service';
-
+import { ImageCropperModule } from 'ngx-image-cropper';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +61,7 @@ import { InterceptorService } from './loader/interceptor.service';
 
     ],
   imports: [
+    ImageCropperModule,
     MatAutocompleteModule,
     HttpClientModule,
     BrowserModule,

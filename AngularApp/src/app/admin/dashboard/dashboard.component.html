@@ -28,7 +28,7 @@
 
   </mat-sidenav>
 
-    <router-outlet></router-outlet>
+    <router-outlet [hidden]="main"></router-outlet>
     <div class="content mat-elevation-z8" [hidden]="!main" style="height:max-content;">
 <div class="container-fluid">
   <div class="row">

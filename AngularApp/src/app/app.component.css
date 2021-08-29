@@ -16,3 +16,11 @@ mat-card-content{
 h1{
   font-size: 100px;
 }
+.loader-container{
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background: black;
+  opacity: 0.3;
+
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DoctorService } from 'src/app/services/doctor.service';
 
 @Component({
   selector: 'app-doctorlist',
@@ -7,39 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorlistComponent implements OnInit {
 
-  data=[
-    {
-      displayImage:"assets/add-doctor/pic.jpg",
-
-      fullname:"deshan",
-      currentHospital:"Kurunagala",
-      type:"Dermetology"
-
-    },
-    {
-      displayImage:"https://www.clipartmax.com/png/small/430-4305378_512-x-492-5-cartoon-dog-face-happy.png",
-      fullname:"deshan",
-      currentHospital:"Kurunagala",
-      type:"Dermetology"
-
-    },{
-      displayImage:"https://www.clipartmax.com/png/small/430-4305378_512-x-492-5-cartoon-dog-face-happy.png",
-      fullname:"deshan",
-      currentHospital:"Kurunagala",
-      type:"Dermetology"
-
-    },{
-      displayImage:"https://www.clipartmax.com/png/small/430-4305378_512-x-492-5-cartoon-dog-face-happy.png",
-      fullname:"deshan",
-      currentHospital:"Kurunagala",
-      type:"Dermetology"
-
-    },
-  ]
-  constructor() { }
+  data:any=[];
+  constructor(
+    private doctorService:DoctorService
+  ) { }
 
   ngOnInit(): void {
-
+    setTimeout(() => {
+      this.doctorService.getAllDoctors().subscribe(
+        res=>{
+          this.data=res;
+        }
+      )
+  });
   }
+
 
 }

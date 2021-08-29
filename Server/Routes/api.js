@@ -4,6 +4,7 @@ const mongoose=require('mongoose');
 const Admin = require('../Models/Admin');
 const Doctor = require('../Models/Doctor');
 const Patient = require('../Models/Patient');
+const imageUpload = require('../healper/storageDoctor');
 
 //deshan harshana
 //power
@@ -176,9 +177,7 @@ router.post('/signup', function(req, res){
 });
 
 //Add Doctor
-router.post('/add-new-doctor', function(req,res){
-    
-    
+router.post('/add-new-doctor', function(req,res, next){
     Doctor.findOne({email:req.body.email}, (error, result)=>{
         if(error){
             res.send(error);
@@ -214,7 +213,7 @@ router.post('/add-new-doctor', function(req,res){
                         console.log(error);
                     }
                     else{
-                        res.send({'message':"Doctor Added Successfully"});
+                        res.send({'message':"Doctor Added Successfully", 'id':result._id});
                     }
                 })
             }
@@ -222,6 +221,39 @@ router.post('/add-new-doctor', function(req,res){
     })
     
 });
+const sharp = require('sharp');
+router.post('/doctor/:postid/uploadPhoto', imageUpload.uploadImage().single('doctorImage'), async (req, res, next)=>{
+    
+    console.log("Doctor Iamge Name" + req.file.filename);
+    let imagePath = 'http://localhost:3000/images/doctors/' + req.file.filename;
+
+
+     if(req.file){
+       console.log("Image Found");
+       console.log(req.params.postid)
+        Doctor.findByIdAndUpdate(req.params.postid,
+            {
+              $set:{
+                     displayImage:imagePath
+              }
+            },
+              {
+                new :true
+              },
+              function(err,Postdata){
+                if(err){
+                  res.send("Error update displayImage field");
+                }else{
+                  res.json(Postdata);
+                  console.log("Doctor profile image upload successfully");
+              
+                }
+              }
+        
+            );
+
+    }
+})
 
 
 

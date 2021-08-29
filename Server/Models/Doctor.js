@@ -21,7 +21,7 @@ const doctor = mongoose.Schema({
     eduAdditional:String,
     displayImage:{
         type:String,
-        default:''
+        default:'https://global4business.com/wp-content/uploads/2020/09/Global4Business-Respizorn-medical-face-masks-instructions-5-512.png'
     },
     SLMC:String,
     experience:String,

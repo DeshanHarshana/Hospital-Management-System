@@ -1,1 +1,8 @@
+
+<div class="loader-container d-flex justify-content-center d-flex align-items-center" *ngIf="loaderService.isLoading|async">
+
+  <mat-progress-spinner color="warn" mode="indeterminate"></mat-progress-spinner>
+
+</div>
 <router-outlet></router-outlet>
+

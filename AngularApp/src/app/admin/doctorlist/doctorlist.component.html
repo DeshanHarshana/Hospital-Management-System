@@ -1,0 +1,20 @@
+<div class="content mat-elevation-z8" style="height: fit-content;">
+  <div class='container-fluid' style="margin-top: 2%; margin-bottom:5%">
+    <div class="row">
+      <div class="col-12">
+        selected bar
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-4" *ngFor="let d of data">
+        <div  class="card cd  d-flex align-items-center" >
+         <img src="{{ d.displayImage }}" class="rounded-circle r">
+         <h1>{{ d.fullname }}</h1>
+         <h3>{{ d.currentHospital }}</h3>
+        <h2 class="strokeme">{{ d.type }}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

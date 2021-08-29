@@ -17,12 +17,16 @@ const doctor = mongoose.Schema({
 
 
     degree:String,
-    eduLevel:String,
+    edulevel:String,
     eduAdditional:String,
     displayImage:{
         type:String,
-        default:''
-    }
+        default:'https://global4business.com/wp-content/uploads/2020/09/Global4Business-Respizorn-medical-face-masks-instructions-5-512.png'
+    },
+    SLMC:String,
+    experience:String,
+    type:String,
+    position:String
 });
 
 module.exports=mongoose.model('Doctor', doctor, "Doctor");

@@ -16,4 +16,9 @@ export class DoctorService {
   addDoctor(doctor:any){
     return this._http.post<any>("http://localhost:3000/add-new-doctor", doctor);
   }
+  doctorImage(id:string,image:any){
+
+    return this._http.post<any>("http://localhost:3000/doctor/"+id+"/uploadPhoto", image);
+  }
+
 }

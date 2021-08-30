@@ -187,6 +187,23 @@ router.get('/get-all-doctors', function(req,res){
     });
 });
 
+
+
+
+router.get('/get-one-doctor/:id', function(req,res){
+
+    Doctor.findById({_id:req.params.id}, function(error, result){
+        if(error){
+            console.log(error);
+        }
+        else{
+            res.send(result);
+        }
+    });
+});
+
+
+
 //Add Doctor
 router.post('/add-new-doctor', function(req,res, next){
     Doctor.findOne({email:req.body.email}, (error, result)=>{
@@ -214,7 +231,7 @@ router.post('/add-new-doctor', function(req,res, next){
                     eduAdditional:req.body.eduAdditional,
                     displayImage:req.body.displayImage,
                     SLMC:req.body.SLMC,
-                    experiance:req.body.experiance,
+                    ex:req.body.experiance,
                     position:req.body.position,
                     type:req.body.type
                 }

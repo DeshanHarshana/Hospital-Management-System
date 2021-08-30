@@ -8,7 +8,7 @@ import { DoctorService } from 'src/app/services/doctor.service';
   styleUrls: ['./doctorlist.component.css']
 })
 export class DoctorlistComponent implements OnInit {
-  main:boolean=false;
+
   data:any=[];
   constructor(
     private doctorService:DoctorService,
@@ -26,8 +26,12 @@ export class DoctorlistComponent implements OnInit {
   });
   }
   testroute(){
-    this.main=true;
-this.router.navigate(['Admin-edit-doctor-details/2'], {relativeTo:this.route})
+
+this.router.navigate(['Admin-edit-doctor-details'])
   }
 
+  logout(){
+    localStorage.removeItem('access');
+    this.router.navigate(['/']);
+  }
 }

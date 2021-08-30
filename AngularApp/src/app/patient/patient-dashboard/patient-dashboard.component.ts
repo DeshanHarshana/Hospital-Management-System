@@ -20,12 +20,5 @@ export class PatientDashboardComponent implements OnInit {
 
 
   }
-  about(){
-    this.router.navigate(['Patient-About'], {relativeTo : this.route});
 
-  }
-  gotoHome(){
-    this.router.navigate(['Patient-dashboard']);
-
-  }
 }

@@ -1,5 +1,5 @@
 <mat-toolbar class="mat-elevation-z8">
-  Patient Dashboard
+  <h1 routerLink="/Patient-dashboard" class="logoclass">Patient</h1>
   <span class="spacer"></span>
   <button routerLink="/" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
 
@@ -15,20 +15,16 @@
 
       <mat-divider></mat-divider>
 
-      <button mat-button class="menu-button" (click)="gotoHome()">
+      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
           <mat-icon>home</mat-icon>
           <span>Home</span>
-      </button>
-      <button mat-button class="menu-button" (click)="about()">
-          <mat-icon>person</mat-icon>
-          <span>Doctors</span>
       </button>
 
 
 
   </mat-sidenav>
 
-    <router-outlet></router-outlet>
+
     <div class="content mat-elevation-z8">
 <div class="container-fluid">
   <div class="row">

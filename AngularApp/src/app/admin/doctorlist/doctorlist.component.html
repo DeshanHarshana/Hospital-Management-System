@@ -1,8 +1,41 @@
-<div class="content mat-elevation-z8" style="height: fit-content;">
+<mat-toolbar class="mat-elevation-z8">
+  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+  <span class="spacer"></span>
+  <button routerLink="/" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+      <h4 class="name">Deshan Harshana</h4>
+      <p class="designation">Hospital Admin</p>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" routerLink="/Admin-dashboard">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+          <mat-icon>person</mat-icon>
+          <span>Add Doctor</span>
+      </button>
+
+
+
+  </mat-sidenav>
+
+
+
+<router-outlet [hidden]="!main"></router-outlet>
+<div class="content mat-elevation-z8" [hidden]="main" style="height: fit-content;">
   <div class='container-fluid' style="margin-top: 2%; margin-bottom:5%">
     <div class="row">
       <div class="col-12">
-        selected bar
+        <button (click)="testroute()">test</button>
       </div>
     </div>
     <div class="row">
@@ -10,7 +43,7 @@
       <div class="col-4" *ngFor="let d of data">
         <div  class="card cd  d-flex align-items-center" >
          <img src="{{ d.displayImage }}" class="rounded-circle r">
-         <h1>{{ d.fullname }}</h1>
+         <h4>{{ d.fullname }}</h4>
          <h3>{{ d.currentHospital }}</h3>
         <h2 class="strokeme">{{ d.type }}</h2>
         </div>
@@ -18,3 +51,4 @@
     </div>
   </div>
 </div>
+</mat-sidenav-container>

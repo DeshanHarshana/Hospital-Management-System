@@ -176,6 +176,17 @@ router.post('/signup', function(req, res){
     })
 });
 
+router.get('/get-all-doctors', function(req,res){
+    Doctor.find({}, function(error, result){
+        if(error){
+            console.log(error);
+        }
+        else{
+            res.send(result);
+        }
+    });
+});
+
 //Add Doctor
 router.post('/add-new-doctor', function(req,res, next){
     Doctor.findOne({email:req.body.email}, (error, result)=>{
@@ -222,6 +233,7 @@ router.post('/add-new-doctor', function(req,res, next){
     
 });
 const sharp = require('sharp');
+const e = require('express');
 router.post('/doctor/:postid/uploadPhoto', imageUpload.uploadImage().single('doctorImage'), async (req, res, next)=>{
     
     console.log("Doctor Iamge Name" + req.file.filename);

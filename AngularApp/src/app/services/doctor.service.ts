@@ -25,5 +25,7 @@ export class DoctorService {
   getAllDoctors():Observable<any>{
     return this._http.get<any>("http://localhost:3000/get-all-doctors");
   }
-
+  getoneDoctor(id:string){
+    return this._http.get<any>("http://localhost:3000/get-one-doctor/"+id);
+  }
 }

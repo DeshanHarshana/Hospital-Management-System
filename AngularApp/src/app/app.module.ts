@@ -43,6 +43,9 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { ShowDoctorDetailsComponent } from './admin/show-doctor-details/show-doctor-details.component';
 import { EditDoctorDetailsComponent } from './admin/edit-doctor-details/edit-doctor-details.component';
 import { DoctorAddPatientsComponent } from './doctor/doctor-add-patients/doctor-add-patients.component';
+import { AuthGuard } from './guards/auth.guard';
+import { DoctorGuard } from './guards/doctor.guard';
+import { PatientGuard } from './guards/patient.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,6 +103,9 @@ import { DoctorAddPatientsComponent } from './doctor/doctor-add-patients/doctor-
       useClass:InterceptorService,
       multi:true
     },
+    AuthGuard,
+    DoctorGuard,
+    PatientGuard
   ],
   bootstrap: [AppComponent]
 })

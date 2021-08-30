@@ -1,7 +1,7 @@
 <mat-toolbar class="mat-elevation-z8">
   <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
   <span class="spacer"></span>
-  <button routerLink="/" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
 
 </mat-toolbar>
 
@@ -30,8 +30,8 @@
 
 
 
-<router-outlet [hidden]="!main"></router-outlet>
-<div class="content mat-elevation-z8" [hidden]="main" style="height: fit-content;">
+
+<div class="content mat-elevation-z8"  style="height: fit-content;">
   <div class='container-fluid' style="margin-top: 2%; margin-bottom:5%">
     <div class="row">
       <div class="col-12">
@@ -41,7 +41,7 @@
     <div class="row">
 
       <div class="col-4" *ngFor="let d of data">
-        <div  class="card cd  d-flex align-items-center" >
+        <div  class="card cd  d-flex align-items-center" routerLink="/Admin-edit-doctor-detais/{{ d._id }}">
          <img src="{{ d.displayImage }}" class="rounded-circle r">
          <h4>{{ d.fullname }}</h4>
          <h3>{{ d.currentHospital }}</h3>

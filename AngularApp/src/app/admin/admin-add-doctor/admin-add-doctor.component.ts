@@ -48,6 +48,7 @@ export class AdminAddDoctorComponent implements OnInit {
     this.imageData="../../../assets/add-doctor/nopic.png";
   }
 
+
   addDoctor(doctor:any){
     doctor.displayImage="";
     console.log(doctor);

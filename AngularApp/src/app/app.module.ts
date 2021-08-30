@@ -42,6 +42,7 @@ import { InterceptorService } from './loader/interceptor.service';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ShowDoctorDetailsComponent } from './admin/show-doctor-details/show-doctor-details.component';
 import { EditDoctorDetailsComponent } from './admin/edit-doctor-details/edit-doctor-details.component';
+import { DoctorAddPatientsComponent } from './doctor/doctor-add-patients/doctor-add-patients.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,7 @@ import { EditDoctorDetailsComponent } from './admin/edit-doctor-details/edit-doc
     AdminAddDoctorComponent,
     DoctorshowComponent,
     DoctorlistComponent,
+    DoctorAddPatientsComponent,
     ShowDoctorDetailsComponent,
     EditDoctorDetailsComponent,
 

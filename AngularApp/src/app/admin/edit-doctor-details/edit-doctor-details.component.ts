@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DoctorService } from 'src/app/services/doctor.service';
@@ -11,12 +11,31 @@ import { DoctorService } from 'src/app/services/doctor.service';
 })
 export class EditDoctorDetailsComponent implements OnInit {
   doctor=new FormGroup({
+    title:new FormControl(''),
+    fullname:new FormControl(''),
+    email:new FormControl(''),
+    phone:new FormControl(''),
+    age:new FormControl(''),
+    currentCity:new FormControl(''),
+    currentHospital:new FormControl(''),
+    maritalStatus:new FormControl(''),
+    personalAdditional:new FormControl(''),
+    degree:new FormControl(''),
 
-  });
+    edulevel:new FormControl(''),
+    eduAdditional:new FormControl(''),
+    displayImage:new FormControl(''),
+    SLMC:new FormControl(''),
+    experiance:new FormControl(''),
+    position:new FormControl(''),
+    type:new FormControl(''),
+
+
+  })
   imageData:string='';
   image:any;
   isImageselected:boolean=false;
-  test=""
+  data:any=[];
   constructor(
     private doctorService:DoctorService,
     public toastr:ToastrService,
@@ -25,17 +44,74 @@ export class EditDoctorDetailsComponent implements OnInit {
 
   ) { }
 
+  logout(){
+    localStorage.removeItem('access');
+    this.router.navigate(['/']);
+  }
   ngOnInit(): void {
-    this.test=this.route.snapshot.params.id
     this.isImageselected=false;
     this.imageData="../../../assets/add-doctor/nopic.png";
+    setTimeout(()=>{
+      this.doctorService.getoneDoctor(this.route.snapshot.params.id).subscribe(
+        res=>{
+          this.data=res;
+          this.imageData=res.displayImage;
+        }
+      )
 
+    });
 
   }
 
-  editDoctor(data:any){
+
+  addDoctor(doctor:any){
+    doctor.displayImage="";
+    console.log(doctor);
+    if(!this.isImageselected){
+      this.toastr.warning("Select Image", "Before Adding Doctor");
+    }else{
+
+
+    this.doctorService.addDoctor(doctor).subscribe(res=>{
+      if(res.exist=="yes"){
+        this.toast('You added this doctor already')
+      }
+      else{
+        this.toastr.success(res.message.toString(), "Adding Doctor");
+        console.log(res.id);
+        this.uploadImage(res.id);
+        this.router.navigate(['Admin-Add-Doctor']);
+    this.doctor.get('title')?.setValue('');
+    this.doctor.get('fullname')?.setValue('');
+    this.doctor.get('email')?.setValue('');
+    this.doctor.get('phone')?.setValue('');
+    this.doctor.get('age')?.setValue('');
+    this.doctor.get('currentCity')?.setValue('');
+    this.doctor.get('currentHospital')?.setValue('');
+    this.doctor.get('maritalStatus')?.setValue('');
+    this.doctor.get('personalAdditional')?.setValue('');
+    this.doctor.get('degree')?.setValue('');
+    this.doctor.get('edulevel')?.setValue('');
+    this.doctor.get('eduAdditional')?.setValue('');
+    this.doctor.get('displayImage')?.setValue('');
+    this.doctor.get('SLMC')?.setValue('');
+    this.doctor.get('experiance')?.setValue('');
+    this.doctor.get('position')?.setValue('');
+    this.doctor.get('type')?.setValue('');
+    this.imageData="../../../assets/add-doctor/nopic.png";
+    this.image=null
+    this.isImageselected=false;
+
+
+      }
+    })
 
   }
+  }
+  toast(message:String) {
+    this.toastr.warning(message.toString(), "Adding Doctor");
+   }
+
   onFileSelect(event : Event){
     const target= event.target as HTMLInputElement;
     const file: File = (target.files as FileList)[0];
@@ -51,8 +127,17 @@ export class EditDoctorDetailsComponent implements OnInit {
     }
   }
 
-  gotoMain(){
-    this.router.navigate(['Admin-dashboard'])
 
+  uploadImage(id:string){
+
+    let fd=new FormData();
+    if(this.image){
+      fd.append("doctorImage", this.image, this.image.name);
+
+      this.doctorService.doctorImage(id,fd).subscribe((res)=>{
+        console.log(res);
+
+      })
+    }
   }
 }

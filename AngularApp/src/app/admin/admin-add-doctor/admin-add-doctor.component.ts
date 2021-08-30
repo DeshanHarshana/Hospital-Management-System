@@ -43,6 +43,11 @@ export class AdminAddDoctorComponent implements OnInit {
 
   ) { }
 
+  logout(){
+    localStorage.removeItem('access');
+    this.router.navigate(['/']);
+  }
+
   ngOnInit(): void {
     this.isImageselected=false;
     this.imageData="../../../assets/add-doctor/nopic.png";
@@ -65,7 +70,7 @@ export class AdminAddDoctorComponent implements OnInit {
         this.toastr.success(res.message.toString(), "Adding Doctor");
         console.log(res.id);
         this.uploadImage(res.id);
-        this.router.navigate(['Admin-dashboard/Admin-Add-Doctor']);
+        this.router.navigate(['Admin-Add-Doctor']);
     this.doctor.get('title')?.setValue('');
     this.doctor.get('fullname')?.setValue('');
     this.doctor.get('email')?.setValue('');

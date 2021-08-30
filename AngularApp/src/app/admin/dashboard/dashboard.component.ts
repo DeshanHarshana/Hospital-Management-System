@@ -14,6 +14,10 @@ export class DashboardComponent implements OnInit {
   ) {
      }
 
+     logout(){
+      localStorage.removeItem('access');
+      this.router.navigate(['/']);
+    }
   ngOnInit(): void {
 
 

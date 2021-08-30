@@ -18,4 +18,8 @@ export class DoctorDashboardComponent implements OnInit {
 
   }
 
+  logout(){
+    localStorage.removeItem('access');
+    this.router.navigate(['/']);
+  }
 }

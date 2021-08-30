@@ -12,6 +12,9 @@ import { ShowDoctorDetailsComponent } from './admin/show-doctor-details/show-doc
 
 import { DoctorAddPatientsComponent } from './doctor/doctor-add-patients/doctor-add-patients.component';
 import { DoctorDashboardComponent } from './doctor/doctor-dashboard/doctor-dashboard.component';
+import { AuthGuard } from './guards/auth.guard';
+import { DoctorGuard } from './guards/doctor.guard';
+import { PatientGuard } from './guards/patient.guard';
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -26,22 +29,22 @@ const routes: Routes = [
   { path: '', redirectTo:'/index', pathMatch:'full'},
   { path: 'login/:id', component:LoginComponent},
   { path: 'signup', component:SignupComponent},
-  {path:'Admin-dashboard',component:DashboardComponent},
-  {path : 'Admin-show-doctorlist',component:DoctorlistComponent},
-  {path : 'Admin-About', component:AdminAboutComponent},
-  {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent},
-  {path : 'Admin-show-doctor-details/:id', component:ShowDoctorDetailsComponent},
-  {path : 'Admin-edit-doctor-details/:id', component:EditDoctorDetailsComponent},
+  {path:'Admin-dashboard',component:DashboardComponent, canActivate : [AuthGuard]},
+  {path : 'Admin-show-doctorlist',component:DoctorlistComponent, canActivate : [AuthGuard]},
+  {path : 'Admin-About', component:AdminAboutComponent, canActivate : [AuthGuard]},
+  {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent, canActivate : [AuthGuard]},
+  {path : 'Admin-show-doctor-details/:id', component:ShowDoctorDetailsComponent, canActivate : [AuthGuard]},
+  {path : 'Admin-edit-doctor-detais/:id', component:EditDoctorDetailsComponent, canActivate : [AuthGuard]},
 
 
   //doctor
-  {path:'Doctor-dashboard', component:DoctorDashboardComponent},
-  {path : 'Doctor-DoctorAddpatient', component:DoctorAddPatientsComponent},
+  {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},
+  {path : 'Doctor-DoctorAddpatient', component:DoctorAddPatientsComponent, canActivate:[DoctorGuard]},
 
 
   //patient
-  {path:'Patient-dashboard',component:PatientDashboardComponent},
-  {path : 'Patient-About', component:PatientAboutComponent},
+  {path:'Patient-dashboard',component:PatientDashboardComponent, canActivate:[PatientGuard]},
+  {path : 'Patient-About', component:PatientAboutComponent, canActivate:[PatientGuard]},
 
 
   //others

@@ -21,4 +21,8 @@ export class PatientDashboardComponent implements OnInit {
 
   }
 
+  logout(){
+    localStorage.removeItem('access');
+    this.router.navigate(['/']);
+  }
 }

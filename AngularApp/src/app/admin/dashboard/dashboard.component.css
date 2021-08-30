@@ -148,3 +148,7 @@ mat-divider {
   margin: 1rem;
   height: 8rem;
 }
+
+.adminlogo{
+  cursor:pointer
+}

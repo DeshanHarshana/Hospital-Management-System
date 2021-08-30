@@ -6,7 +6,9 @@ import { AdminAddDoctorComponent } from './admin/admin-add-doctor/admin-add-doct
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { DoctorDetailsComponent } from './admin/doctor-details/doctor-details.component';
 import { DoctorlistComponent } from './admin/doctorlist/doctorlist.component';
+import { EditDoctorDetailsComponent } from './admin/edit-doctor-details/edit-doctor-details.component';
 import { PatientDetailsComponent } from './admin/patient-details/patient-details.component';
+import { ShowDoctorDetailsComponent } from './admin/show-doctor-details/show-doctor-details.component';
 
 import { DoctorAddPatientsComponent } from './doctor/doctor-add-patients/doctor-add-patients.component';
 import { DoctorDashboardComponent } from './doctor/doctor-dashboard/doctor-dashboard.component';
@@ -24,38 +26,29 @@ const routes: Routes = [
   { path: '', redirectTo:'/index', pathMatch:'full'},
   { path: 'login/:id', component:LoginComponent},
   { path: 'signup', component:SignupComponent},
-  {
-    path:'Admin-dashboard',
-    component:DashboardComponent,
-    children:[
-      {path : 'Admin-About', component:AdminAboutComponent},
-      {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent},
-      {path : 'Admin-show-doctorlist', component:DoctorlistComponent}
-    ]
+  {path:'Admin-dashboard',component:DashboardComponent},
+  {path : 'Admin-show-doctorlist',component:DoctorlistComponent},
+  {path : 'Admin-About', component:AdminAboutComponent},
+  {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent},
+  {path : 'Admin-show-doctor-details/:id', component:ShowDoctorDetailsComponent},
+  {path : 'Admin-edit-doctor-details/:id', component:EditDoctorDetailsComponent},
 
-  },
-  {
-    path:'Doctor-dashboard',
-    component:DoctorDashboardComponent,
 
-    children:[
+  //doctor
+  {path:'Doctor-dashboard', component:DoctorDashboardComponent},
+  {path : 'Doctor-DoctorAddpatient', component:DoctorAddPatientsComponent},
 
-      {path : 'Doctor-DoctorAddpatient', component:DoctorAddPatientsComponent},
-      ]
 
-  },
-  {
-    path:'Patient-dashboard',
-    component:PatientDashboardComponent,
-    children:[
-      {path : 'Patient-About', component:PatientAboutComponent},
-      ]
+  //patient
+  {path:'Patient-dashboard',component:PatientDashboardComponent},
+  {path : 'Patient-About', component:PatientAboutComponent},
 
-  },
+
+  //others
   {path : 'test', component:TestComponent},
+  { path : '**', component:PageNotFoundComponent }
 
 
-    { path : '**', component:PageNotFoundComponent }
 ];
 
 @NgModule({

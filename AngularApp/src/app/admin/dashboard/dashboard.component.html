@@ -1,5 +1,5 @@
 <mat-toolbar class="mat-elevation-z8">
-  Admin Dashboard
+  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
   <span class="spacer"></span>
   <button routerLink="/" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
 
@@ -15,11 +15,11 @@
 
       <mat-divider></mat-divider>
 
-      <button mat-button class="menu-button" (click)="gotoHome()">
+      <button mat-button class="menu-button" routerLink="/Admin-dashboard">
           <mat-icon>home</mat-icon>
           <span>Home</span>
       </button>
-      <button mat-button class="menu-button" (click)="doctorDetails()">
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
           <mat-icon>person</mat-icon>
           <span>Add Doctor</span>
       </button>
@@ -28,12 +28,12 @@
 
   </mat-sidenav>
 
-    <router-outlet [hidden]="main"></router-outlet>
-    <div class="content mat-elevation-z8" [hidden]="!main" style="height:max-content;">
+
+    <div class="content mat-elevation-z8"  style="height:max-content;">
 <div class="container-fluid">
   <div class="row">
     <div class="col-4 x d-flex justify-content-center">
-      <div class="card doctor zoom" (click)="listofDoctors()">
+      <div class="card doctor zoom" routerLink="/Admin-show-doctorlist">
         <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">10</h1>
         <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:7%; font-size:3.5rem;">Doctors</h1>
       </div>

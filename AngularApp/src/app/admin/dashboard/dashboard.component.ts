@@ -11,22 +11,11 @@ export class DashboardComponent implements OnInit {
   constructor(
     private router:Router,
     private route:ActivatedRoute
-  ) { }
+  ) {
+     }
 
   ngOnInit(): void {
-    this.main=true;
-  }
 
-  gotoHome(){
-    this.main=true;
-    this.router.navigate(['Admin-dashboard'])
-  }
-  doctorDetails(){
-    this.main=false;
-    this.router.navigate(['Admin-Add-Doctor'], {relativeTo:this.route});
-  }
-  listofDoctors(){
-    this.main=false;
-    this.router.navigate(['Admin-show-doctorlist'], {relativeTo:this.route})
+
   }
 }

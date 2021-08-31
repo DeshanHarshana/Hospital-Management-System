@@ -43,7 +43,7 @@
           <div class="row" >
             <div class="col">
               <label for="inputState">Name Title</label>
-              <select id="inputState" class="form-control" [value]="data.title" formControlName="title">
+              <select id="inputState" class="form-control"  formControlName="title">
                 <option selected>Choose...</option>
                 <option>Mr</option>
                 <option>Mrs</option>
@@ -53,7 +53,7 @@
             </div>
             <div class="col">
               <label for="fullname">Name</label>
-              <input type="text" id="fullname" class="form-control" [value]="data.fullname" placeholder="Name" formControlName="fullname">
+              <input type="text" id="fullname" class="form-control" placeholder="Name" formControlName="fullname">
             </div>
           </div>
 
@@ -61,33 +61,33 @@
           <div class="row">
             <div class="col">
               <label for="email">Email</label>
-              <input type="text" id="email" class="form-control" [value]="data.email" required placeholder="Email" formControlName="email">
+              <input type="text" id="email" class="form-control"  required placeholder="Email" formControlName="email">
                        </div>
             <div class="col">
               <label for="phone">Phone No</label>
-              <input type="number" id="phone" class="form-control" [value]="data.phone" placeholder="Phone No" formControlName="phone">
+              <input type="number" id="phone" class="form-control" placeholder="Phone No" formControlName="phone">
             </div>
           </div>
 
           <div class="row">
             <div class="col">
               <label for="age">Age</label>
-              <input type="number" id="age" class="form-control" [value]="data.age" placeholder="Age" formControlName="age">
+              <input type="number" id="age" class="form-control"  placeholder="Age" formControlName="age">
                        </div>
             <div class="col">
               <label for="city">Current City</label>
-              <input type="text" id="city" class="form-control" [value]="data.currentCity" placeholder="Current City" formControlName="currentCity">
+              <input type="text" id="city" class="form-control"  placeholder="Current City" formControlName="currentCity">
             </div>
 
           </div>
           <div class="row">
             <div class="col">
               <label for="hospital">Current Hospital</label>
-              <input type="text" id="hospital" class="form-control" [value]="data.currentHospital" placeholder="Current Hospital" formControlName="currentHospital">
+              <input type="text" id="hospital" class="form-control"  placeholder="Current Hospital" formControlName="currentHospital">
                        </div>
             <div class="col">
               <label for="relationship">Marital Status</label>
-              <select id="relationship" class="form-control" [value]="data.maritalStatus" formControlName="maritalStatus">
+              <select id="relationship" class="form-control" formControlName="maritalStatus">
                 <option selected>Choose...</option>
                 <option>Single</option>
                 <option>Married</option>
@@ -99,7 +99,7 @@
           <div class="row">
             <div class="col">
               <label for="exampleFormControlTextarea1">Additional Details</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" [value]="data.personalAdditional" rows="3" formControlName="personalAdditional"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="personalAdditional"></textarea>
             </div>
           </div>
 
@@ -115,11 +115,11 @@
         <div class="row" >
           <div class="col">
             <label for="degree">Degree</label>
-            <input type="text" id="degree" class="form-control" [value]="data.degree" placeholder="Degree" formControlName="degree">
+            <input type="text" id="degree" class="form-control"  placeholder="Degree" formControlName="degree">
           </div>
           <div class="col">
             <label for="level">Educational Level</label>
-            <input type="text" id="level" class="form-control" placeholder="Eduction Level" [value]="data.edulevel" formControlName="edulevel">
+            <input type="text" id="level" class="form-control" placeholder="Eduction Level"  formControlName="edulevel">
           </div>
         </div>
 
@@ -128,7 +128,7 @@
           <div class="row">
             <div class="col">
               <label for="exampleFormControlTextarea2">Additional Details</label>
-    <textarea class="form-control" id="exampleFormControlTextarea2" rows="3" [value]="data.edulevel" formControlName="eduAdditional"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"  formControlName="eduAdditional"></textarea>
             </div>
 
 
@@ -164,16 +164,16 @@
         <div class="col">
 
             <label for="SLMC">SLMC Number</label>
-            <input type="text" id="SLMC" [value]="data.SLMC" class="form-control" placeholder="SLMC No" formControlName="SLMC">
+            <input type="text" id="SLMC"  class="form-control" placeholder="SLMC No" formControlName="SLMC">
 </div>
         <div class="col">
-            <label for="experiance">Experiance Year</label>
-            <input type="text" id="experiance" [value]="data.ex" class="form-control" placeholder="Experiance Years" formControlName="experiance">
+            <label for="ex">Experiance Year</label>
+            <input type="text" id="experiance"  class="form-control" placeholder="Experiance Years" formControlName="ex">
 
           </div>
           <div class="col">
             <label for="type">Type of Doctor</label>
-            <select id="type" class="form-control" [value]="data.type" formControlName="type">
+            <select id="type" class="form-control"  formControlName="type">
               <option selected>Choose...</option>
               <option>Audiologist</option>
               <option>Epidemiologist</option>
@@ -200,7 +200,7 @@
 
           <div class="col">
             <label for="position">Position</label>
-            <select id="position" class="form-control" [value]="data.position" formControlName="position">
+            <select id="position" class="form-control"  formControlName="position">
               <option selected>Choose...</option>
               <option>Senior</option>
               <option>Trainning</option>

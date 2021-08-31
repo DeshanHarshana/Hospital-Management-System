@@ -21,11 +21,19 @@ export class DoctorService {
 
     return this._http.post<any>("http://localhost:3000/doctor/"+id+"/uploadPhoto", image);
   }
+  updateImage(id:string,image:any){
+
+    return this._http.post<any>("http://localhost:3000/doctor/"+id+"/updatePhoto", image);
+  }
 
   getAllDoctors():Observable<any>{
     return this._http.get<any>("http://localhost:3000/get-all-doctors");
   }
   getoneDoctor(id:string){
     return this._http.get<any>("http://localhost:3000/get-one-doctor/"+id);
+  }
+
+  updateDoctor(doctor:any, id:string){
+    return this._http.put<any>("http://localhost:3000/update-doctor/"+id, doctor);
   }
 }

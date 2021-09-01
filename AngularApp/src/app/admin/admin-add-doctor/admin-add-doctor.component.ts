@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ToastrService } from 'ngx-toastr';
+import { LoaderService } from 'src/app/loader/loader.service';
 import { DoctorService } from 'src/app/services/doctor.service';
 
 @Component({
@@ -39,7 +40,8 @@ export class AdminAddDoctorComponent implements OnInit {
   constructor(
     private doctorService:DoctorService,
     public toastr:ToastrService,
-    public router:Router
+    public router:Router,
+    public loaderService:LoaderService,
 
   ) { }
 

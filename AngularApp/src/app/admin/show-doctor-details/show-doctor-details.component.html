@@ -1,6 +1,265 @@
-<p>show-doctor-details works!</p>
+
+
+<mat-toolbar class="mat-elevation-z8">
+  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+  <span class="spacer"></span>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+      <h4 class="name">Deshan Harshana</h4>
+      <p class="designation">Hospital Admin</p>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" routerLink="/Admin-dashboard">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+          <mat-icon>person</mat-icon>
+          <span>Add Doctor</span>
+      </button>
+
+
+
+  </mat-sidenav>
+
+
 <div class="content mat-elevation-z8" style="height: fit-content;">
-  <div class='container-fluid' style="margin-top: 2%; margin-bottom:5%">
+  <div class="container-fluid">
+<div class="row">
+        <div class="col-4">
+           <div class="profile-card-4">
+            <div class="card" class="imgCard">
+              <div class="card-body text-center rounded-top">
+               <div class="user-box">
+                <img src="{{ data.displayImage }}" alt="user avatar">
+              </div>
+
+             </div>
+              <div class="card-body">
+
+                <li class="d-flex justify-content-center">
+                  <h1 class="type">{{ data.type }}</h1>
+
+                </li>
+                <li class="d-flex justify-content-center">
+                  <h2>{{ data.fullname }}</h2>
+
+
+                </li>
+
+
+              </div>
+
+
+
+             </div>
+             <div class="card imgCard" style="padding: 5%;">
+               <div class="row">
+                 <div class="col-6">
+                  <label for="name">Current Patient</label>
+                  <h3 id="name">10</h3>
+
+                  <label for="name">Current Ward</label>
+                  <h3 id="name">Ward 10</h3>
+
+
+                  <label for="name">Current Ward</label>
+                  <h3 id="name">Ward 10</h3>
+
+
+                 </div>
+                 <div class="col-6">
+                  <label for="name">Pending Appoinment</label>
+                  <h3 id="name">4</h3>
+
+                  <label for="name">Availabe Time</label>
+                  <h3 id="name">10AM - 13PM</h3>
+
+
+                  <label for="name">Current Ward</label>
+                  <h3 id="name">Ward 10</h3>
+
+
+                 </div>
+               </div>
+
+             </div>
+           </div>
+        </div>
+        <div class="col-lg-8">
+           <div class="card details">
+            <div class="card-body">
+<div class="row">
+  <div class="col-6">
+     <label for="name">Doctor Name</label>
+    <h3 id="name">{{ data.fullname }}</h3>
+
+  </div>
+  <div class="col-6">
+    <label for="name">Working Hospital</label>
+    <h3 id="name">{{ data.currentHospital }}</h3>
 
   </div>
 </div>
+<div class="row">
+  <div class="col-6">
+     <label for="name">Doctor Age</label>
+    <h3 id="name">{{ data.age }}</h3>
+
+  </div>
+  <div class="col-6">
+    <label for="name">Living</label>
+    <h3 id="name">{{ data.currentCity }}</h3>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+     <label for="name">Email Address</label>
+    <h3 id="name">{{ data.email }}</h3>
+
+  </div>
+  <div class="col-6">
+    <label for="name">Mobile Phone Number</label>
+    <h3 id="name">{{ data.phone }}</h3>
+
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-6">
+     <label for="name">Marital Status</label>
+    <h3 id="name">{{ data.maritalStatus }}</h3>
+
+  </div>
+  <div class="col-6">
+    <label for="name">Education Level</label>
+    <h3 id="name">{{ data.edulevel }}</h3>
+
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-6">
+     <label for="name">Degree</label>
+    <h3 id="name">{{ data.degree }}</h3>
+
+  </div>
+  <div class="col-6">
+    <label for="name">Experiance</label>
+    <h3 id="name">{{ data.ex}}</h3>
+
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-6">
+     <label for="name">SLMC Number</label>
+    <h3 id="name">{{ data.SLMC }}</h3>
+
+  </div>
+  <div class="col-6">
+    <label for="name">Position</label>
+    <h3 id="name">{{ data.position }}</h3>
+
+  </div>
+
+</div>
+
+        </div>
+      </div>
+
+      <div class="card details">
+        <h2 style="padding-left: 2%; padding-top:1%">Patients</h2>
+        <div class="card-body">
+          <div class="row" style="font-size: 1.1rem; border-bottom:black solid 1px">
+            <div class="col-3">
+              Patient Name
+            </div>
+            <div class="col-3">
+              Disease
+            </div>
+            <div class="col-3">
+              Appointment Time
+            </div>
+            <div class="col-3">
+              More Details
+            </div>
+
+          </div>
+          <div class="row d-flex align-items-center d-flex justify-content-center" style="font-size: 1rem; margin-top:1%;  ">
+            <div class="col-3">
+              <img class="patientImage" src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg">
+
+            </div>
+            <div class="col-3">
+              Fever
+            </div>
+            <div class="col-3">
+              10.30 AM
+            </div>
+            <div class="col-3">
+              <a href="">Show More</a>
+            </div>
+
+          </div>
+          <div class="row d-flex align-items-center d-flex justify-content-center" style="font-size: 1rem; margin-top:1%;  ">
+            <div class="col-3">
+              <img class="patientImage" src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg">
+
+            </div>
+            <div class="col-3">
+              Fever
+            </div>
+            <div class="col-3">
+              10.30 AM
+            </div>
+            <div class="col-3">
+              <a href="">Show More</a>
+            </div>
+
+          </div>
+          <div class="row d-flex align-items-center d-flex justify-content-center" style="font-size: 1rem; margin-top:1%;  ">
+            <div class="col-3">
+              <img class="patientImage" src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg">
+
+            </div>
+            <div class="col-3">
+              Fever
+            </div>
+            <div class="col-3">
+              10.30 AM
+            </div>
+            <div class="col-3">
+              <a href="">Show More</a>
+            </div>
+
+          </div>
+          <div class="row " style="font-size: 1rem; margin-top:1%; margin-bottom:1%  ">
+            <div class=" d-flex align-items-center d-flex justify-content-center"><a href="">Show All Patient</a></div>
+          </div>
+          </div>
+      </div>
+
+
+
+
+
+
+
+
+      </div>
+
+
+    </div>
+</div>
+</div>
+</mat-sidenav-container>

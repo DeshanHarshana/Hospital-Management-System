@@ -98,10 +98,25 @@ mat-divider {
   height: 100%;
 }
 .patient{
-  height: 90%;
+  height: 100%;
   width: 85%;
 
 }
+
+.patient .pic{
+
+  background-image: url("../../../assets/index/patient.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.patient .xc{
+  height: 100%;
+}
+
+
 
 .nurse{
   height: 100%;

@@ -4,10 +4,9 @@ import { AdminAboutComponent } from './admin/admin-about/admin-about.component';
 import { AdminAddDoctorComponent } from './admin/admin-add-doctor/admin-add-doctor.component';
 
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { DoctorDetailsComponent } from './admin/doctor-details/doctor-details.component';
+
 import { DoctorlistComponent } from './admin/doctorlist/doctorlist.component';
 import { EditDoctorDetailsComponent } from './admin/edit-doctor-details/edit-doctor-details.component';
-import { PatientDetailsComponent } from './admin/patient-details/patient-details.component';
 import { ShowDoctorDetailsComponent } from './admin/show-doctor-details/show-doctor-details.component';
 
 import { DoctorAddPatientsComponent } from './doctor/doctor-add-patients/doctor-add-patients.component';

@@ -39,18 +39,18 @@
             <div class="card" class="imgCard">
               <div class="card-body text-center rounded-top">
                <div class="user-box">
-                <img src="http://localhost:3000/images/doctors/b.jpg" alt="user avatar">
+                <img src="{{ data.displayImage }}" alt="user avatar">
               </div>
 
              </div>
               <div class="card-body">
 
                 <li class="d-flex justify-content-center">
-                  <h1 class="type">Surgern</h1>
+                  <h1 class="type">{{ data.type }}</h1>
 
                 </li>
                 <li class="d-flex justify-content-center">
-                  <h2>Deshan Harshana</h2>
+                  <h2>{{ data.fullname }}</h2>
 
 
                 </li>
@@ -100,36 +100,36 @@
 <div class="row">
   <div class="col-6">
      <label for="name">Doctor Name</label>
-    <h3 id="name">Mr Deshan Harshana</h3>
+    <h3 id="name">{{ data.fullname }}</h3>
 
   </div>
   <div class="col-6">
     <label for="name">Working Hospital</label>
-    <h3 id="name">Kuliyaitiya</h3>
+    <h3 id="name">{{ data.currentHospital }}</h3>
 
   </div>
 </div>
 <div class="row">
   <div class="col-6">
      <label for="name">Doctor Age</label>
-    <h3 id="name">48</h3>
+    <h3 id="name">{{ data.age }}</h3>
 
   </div>
   <div class="col-6">
     <label for="name">Living</label>
-    <h3 id="name">Kurunagala</h3>
+    <h3 id="name">{{ data.currentCity }}</h3>
 
   </div>
 </div>
 <div class="row">
   <div class="col-6">
      <label for="name">Email Address</label>
-    <h3 id="name">deshan@gmailcom</h3>
+    <h3 id="name">{{ data.email }}</h3>
 
   </div>
   <div class="col-6">
     <label for="name">Mobile Phone Number</label>
-    <h3 id="name">0774837373</h3>
+    <h3 id="name">{{ data.phone }}</h3>
 
   </div>
 
@@ -137,12 +137,12 @@
 <div class="row">
   <div class="col-6">
      <label for="name">Marital Status</label>
-    <h3 id="name">Single</h3>
+    <h3 id="name">{{ data.maritalStatus }}</h3>
 
   </div>
   <div class="col-6">
     <label for="name">Education Level</label>
-    <h3 id="name">NVQ8</h3>
+    <h3 id="name">{{ data.edulevel }}</h3>
 
   </div>
 
@@ -150,12 +150,12 @@
 <div class="row">
   <div class="col-6">
      <label for="name">Degree</label>
-    <h3 id="name">MBBS SRLC</h3>
+    <h3 id="name">{{ data.degree }}</h3>
 
   </div>
   <div class="col-6">
     <label for="name">Experiance</label>
-    <h3 id="name">10 Years</h3>
+    <h3 id="name">{{ data.ex}}</h3>
 
   </div>
 
@@ -163,12 +163,12 @@
 <div class="row">
   <div class="col-6">
      <label for="name">SLMC Number</label>
-    <h3 id="name">CS-232KP</h3>
+    <h3 id="name">{{ data.SLMC }}</h3>
 
   </div>
   <div class="col-6">
     <label for="name">Position</label>
-    <h3 id="name">Senior</h3>
+    <h3 id="name">{{ data.position }}</h3>
 
   </div>
 

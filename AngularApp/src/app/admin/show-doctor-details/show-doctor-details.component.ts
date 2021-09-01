@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DoctorService } from 'src/app/services/doctor.service';
 
 @Component({
   selector: 'app-show-doctor-details',
@@ -7,12 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./show-doctor-details.component.css']
 })
 export class ShowDoctorDetailsComponent implements OnInit {
-
+  data:any=[];
+  id:string=""
   constructor(
-    private router:Router
+    private router:Router,
+    private route:ActivatedRoute,
+    private doctorService:DoctorService
   ) { }
 
   ngOnInit(): void {
+    this.id=this.route.snapshot.params.id;
+    this.doctorService.getoneDoctor(this.id).subscribe((res)=>{
+      this.data=res;
+    })
   }
   logout(){
     localStorage.removeItem('access');

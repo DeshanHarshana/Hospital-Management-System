@@ -388,6 +388,47 @@ router.put('/update-doctor/:id', function(req,res){
         );
 })
 
+router.delete('/delete-doctor/:id', function(req, res){
+    const oldlink="";
+    Doctor.findById(req.params.id),function(error,user){
+        if(error){
+            console.log(error)
+        }else{
+            console.log(user.displayImage)
+            oldlink=user.displayImage.split('/')[5];
+            console.log(oldlink)
+        }
+    }
+
+
+    
+    setTimeout(()=>{
+    const path = "./images/doctors/"+ oldlink;
+    console.log("THis is image " + path) 
+    try {
+      fs.unlink(path, (err) => {
+          if (err) {
+            console.error(err)
+            return;
+          }
+        
+         console.log("old image deleted");
+        })
+    } catch (error) {
+        console.log(error);
+    }
+   
+    Doctor.deleteOne({_id:req.params.id}, function(err,data){
+        if(err){
+            res.send(err)
+        } else {
+            res.send(data);
+            console.log("delete success")
+        }
+     });
+    },100);
+})
+
 
 //export model
 module.exports=router;

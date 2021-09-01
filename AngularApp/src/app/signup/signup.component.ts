@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LoaderService } from '../loader/loader.service';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
@@ -23,8 +24,8 @@ export class SignupComponent implements OnInit {
     private route:ActivatedRoute,
     public toastr:ToastrService,
     public _auth:AuthenticationService,
-    private location: LocationStrategy
-
+    private location: LocationStrategy,
+    public loaderService:LoaderService,
   ) { }
 
   ngOnInit(): void {

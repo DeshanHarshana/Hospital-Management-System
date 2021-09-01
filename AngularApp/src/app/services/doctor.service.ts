@@ -36,4 +36,7 @@ export class DoctorService {
   updateDoctor(doctor:any, id:string){
     return this._http.put<any>("http://localhost:3000/update-doctor/"+id, doctor);
   }
+  deleteDoctor(id:string){
+    return this._http.delete<any>('http://localhost:3000/delete-doctor/'+id);
+  }
 }

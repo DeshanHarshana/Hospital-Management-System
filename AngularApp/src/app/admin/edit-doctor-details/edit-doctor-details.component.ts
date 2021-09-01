@@ -94,8 +94,8 @@ export class EditDoctorDetailsComponent implements OnInit {
 
           this.uploadImage(this.route.snapshot.params.id);
           setTimeout(()=>{
-            this.router.navigate(['Admin-show-doctorlist']);
-          },1000);
+            this.router.navigate(['Admin-dashboard']);
+          });
 
 
 
@@ -109,7 +109,7 @@ export class EditDoctorDetailsComponent implements OnInit {
           this.toastr.success("Update Successfully", "Updating Doctor");
 
 
-          this.router.navigate(['Admin-show-doctorlist']);
+          this.router.navigate(['Admin-dashboard']);
 
 
 
@@ -120,6 +120,14 @@ export class EditDoctorDetailsComponent implements OnInit {
 
 
 
+  }
+  removeDoctor(value:any){
+    const c = this.data._id;
+    this.doctorService.deleteDoctor(c).subscribe(res=>{
+      this.toastr.success("Deleting Successfully", "Delete Doctor");
+
+      this.router.navigate(['Admin-dashboard']);
+    })
   }
   toast(message:String) {
     this.toastr.warning(message.toString(), "Adding Doctor");

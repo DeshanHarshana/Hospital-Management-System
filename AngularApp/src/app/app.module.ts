@@ -46,6 +46,15 @@ import { DoctorAddPatientsComponent } from './doctor/doctor-add-patients/doctor-
 import { AuthGuard } from './guards/auth.guard';
 import { DoctorGuard } from './guards/doctor.guard';
 import { PatientGuard } from './guards/patient.guard';
+import { PatientShowProfileComponent } from './patient/patient-show-profile/patient-show-profile.component';
+import { PatientEditProfileComponent } from './patient/patient-edit-profile/patient-edit-profile.component';
+import { AllPatientListComponent } from './patient/all-patient-list/all-patient-list.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +76,9 @@ import { PatientGuard } from './guards/patient.guard';
     DoctorAddPatientsComponent,
     ShowDoctorDetailsComponent,
     EditDoctorDetailsComponent,
+    PatientShowProfileComponent,
+    PatientEditProfileComponent,
+    AllPatientListComponent,
 
     ],
   imports: [
@@ -95,7 +107,12 @@ import { PatientGuard } from './guards/patient.guard';
   MatOptionModule,
   MatProgressSpinnerModule,
   ToastrModule.forRoot(),
-  AngularTiltModule
+  AngularTiltModule,
+  MatPaginatorModule,
+  Ng2SearchPipeModule,
+  Ng2OrderModule,
+  NgxPaginationModule,
+  FontAwesomeModule
   ],
   providers: [
     {

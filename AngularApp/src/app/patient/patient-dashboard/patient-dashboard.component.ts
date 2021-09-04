@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-patient-dashboard',
@@ -10,7 +11,8 @@ export class PatientDashboardComponent implements OnInit {
 
   constructor(
     private router:Router,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private auth:AuthenticationService
 
   ) { }
 
@@ -22,7 +24,8 @@ export class PatientDashboardComponent implements OnInit {
   }
 
   logout(){
-    localStorage.removeItem('access');
-    this.router.navigate(['/']);
-  }
+
+    this.auth.logout();
+      }
+
 }

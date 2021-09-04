@@ -78,7 +78,7 @@
               <br>
 
               <div class="form-group">
-                <label class="col-md-4 control-label" for="Father">Parent/Guardian Name</label>
+                <label class="col-md-4 control-label" for="Father">Guardian Name</label>
                 <div class="col">
                   <div class="input-group">
                     <div class="input-group-addon">
@@ -118,12 +118,21 @@
                 <div class="col">
                   <label class="radio-inline" for="radios-0">
                     <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
-                    Married &nbsp;
+                    Single &nbsp;
                   </label>
                   <label class="radio-inline" for="radios-1">
                     <input type="radio" name="radios" id="radios-1" value="2">
-                    Unmarried
+                    Married &nbsp;
                   </label>
+                  <label class="radio-inline" for="radios-0">
+                    <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+                    Widowed &nbsp;
+                  </label>
+                  <label class="radio-inline" for="radios-0">
+                    <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+                    Divorced &nbsp;
+                  </label>
+                  
                 </div>
               </div>
               <br>
@@ -219,10 +228,215 @@
                         <div class="form-group">
                           <label class="col-md-4 control-label col-xs-12" for="">Weight </label>  
                           <div class="col-md-10  col-xs-4">
-                          <input id="Weight" name="Weight" type="text" placeholder="Weight" class="form-control input-md ">
+                          <input id="Weight" name="Weight" type="text" placeholder="Weight" class="form-control input-md "> <br>
                           </div>
                       </div>
                       </div>
+                      
+
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Medical History">Past Medical History</label> 
+                       <table>
+                         <tr>
+                           <td><div class="checkbox">
+                            <label for="Medical History-1">
+                              <input type="checkbox" name="Medical History" id="Medical History-1" value="1">
+                              Heart disease &nbsp; &nbsp;
+                            </label>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="checkbox">
+                              <label for="Medical History-2">
+                                <input type="checkbox" name="Medical History" id="Medical History-2" value="2">
+                                Diabetes &nbsp; &nbsp;
+                              </label>
+                              </div>
+                          </td>
+                         
+        
+                         </tr>
+                         <tr>
+                          <td>
+                            <div class="checkbox">
+                              <label for="Medical History-3">
+                                <input type="checkbox" name="Medical History" id="Medical History-3" value="3">
+                                High blood pressure &nbsp; &nbsp;
+                              </label>
+                              </div>
+                          </td>
+                          <td>
+                            <div class="checkbox">
+                             <label for="Medical History-4">
+                              <input type="checkbox" name="Medical History" id="Medical History-4" value="4">
+                                Cancer
+                              </label>
+                          </div>
+                          </td>
+                         </tr>
+                         <tr>
+                           <td >
+                            <div class="checkbox">
+                              <label for="Medical History-5">
+                                <input type="checkbox" name="Medical History" id="Medical History-5" value="5">
+                                High cholesterol &nbsp; &nbsp;
+                              </label>
+                              </div>
+                           </td>
+                           <td >
+                            <div class="checkbox">
+                              <label for="Medical History-6">
+                                <input type="checkbox" name="Medical History" id="Medical History-6" value="6">
+                                Kidney disease &nbsp; &nbsp;
+                              </label>
+                              </div>
+                           </td>
+                          </tr>
+                         <tr>
+                          <td >
+                            <div class="checkbox">
+                              <label for="Medical History-7">
+                                <input type="checkbox" name="Medical History" id="Medical History-7" value="7">
+                                Stroke &nbsp; &nbsp;
+                              </label>
+                              </div>
+                           </td>
+                           <td >
+                            <div class="checkbox">
+                              <label for="Medical History-8">
+                                <input type="checkbox" name="Medical History" id="Medical History-8" value="8">
+                                Depression &nbsp; &nbsp;
+                              </label>
+                              </div>
+                           </td>
+                         </tr>
+                         <tr>
+                          <div class="othertop">
+                            <label for="Medical History-9">
+                               </label>
+                                 <input type="input" name="MedicalHistory" id="Languages Known-9"  placeholder="Other Issue"> 
+                            </div>
+                            </tr>
+                       </table>
+                       <br>
+                        </div>
+                        
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="Surgeries">Surgeries</label>  
+                          <div class="col">
+                            <div class="form-group">
+                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Surgery details"></textarea> <br>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="Surgeries">Medications</label>
+                          <div class="col">
+                            <div class="form-group">
+                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Please list medications that you are taking"></textarea> <br>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="Surgeries">Allergies</label> <br>
+                          <div class="col-md-4">
+                            <table>
+                              <tr>
+                                <td>Latex &nbsp; &nbsp;</td>
+                                <td>
+                                  <div class="form-check form-check-inline">
+                                    <input
+                                      class="form-check-input"
+                                      type="radio"
+                                      name="inlineRadioOptions"
+                                      id="inlineRadio1"
+                                      value="option1"
+                                    />
+                                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="form-check form-check-inline">
+                                    <input
+                                      class="form-check-input"
+                                      type="radio"
+                                      name="inlineRadioOptions"
+                                      id="inlineRadio1"
+                                      value="option1"
+                                    />
+                                    <label class="form-check-label" for="inlineRadio1">No</label>
+                                  </div>
+                                </td>
+                                
+                              </tr>
+                              <tr>
+                                <td>Iodine &nbsp; &nbsp;</td>
+                                <td>
+                                  <div class="form-check form-check-inline">
+                                    <input
+                                      class="form-check-input"
+                                      type="radio"
+                                      name="inlineRadioOptions"
+                                      id="inlineRadio1"
+                                      value="option1"
+                                    />
+                                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="form-check form-check-inline">
+                                    <input
+                                      class="form-check-input"
+                                      type="radio"
+                                      name="inlineRadioOptions"
+                                      id="inlineRadio1"
+                                      value="option1"
+                                    />
+                                    <label class="form-check-label" for="inlineRadio1">No</label>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                              <td>Bromine &nbsp; &nbsp;</td>
+                              <td>
+                                <div class="form-check form-check-inline">
+                                  <input
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="inlineRadioOptions"
+                                    id="inlineRadio1"
+                                    value="option1"
+                                  />
+                                  <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="form-check form-check-inline">
+                                  <input
+                                    class="form-check-input"
+                                    type="radio"
+                                    name="inlineRadioOptions"
+                                    id="inlineRadio1"
+                                    value="option1"
+                                  />
+                                  <label class="form-check-label" for="inlineRadio1">No</label>
+                                </div>
+                              </td>
+                          </tr>
+                          <tr>
+                            <div class="othertop">
+                              <label for="Medical History-9">
+                                 </label>
+                                   <input type="input" name="MedicalHistory" id="Languages Known-9"  placeholder="Other Allergies"> 
+                              </div>
+                              
+                          </tr>
+                              
+                            </table>
+                            </div>
+                        </div>
                     </div>
                 </form>
               </div>

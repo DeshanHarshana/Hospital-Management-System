@@ -54,6 +54,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -112,7 +113,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
   Ng2SearchPipeModule,
   Ng2OrderModule,
   NgxPaginationModule,
-  FontAwesomeModule
+  FontAwesomeModule,
+  NgCircleProgressModule.forRoot({
+    // set defaults here
+    radius: 100,
+    outerStrokeWidth: 16,
+    innerStrokeWidth: 8,
+    outerStrokeColor: "#78C000",
+    innerStrokeColor: "#C7E596",
+    animationDuration: 300,
+
+  })
+
   ],
   providers: [
     {

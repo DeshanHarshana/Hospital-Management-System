@@ -48,6 +48,7 @@ import { DoctorGuard } from './guards/doctor.guard';
 import { PatientGuard } from './guards/patient.guard';
 import { ReportComponent } from './patient/report/report.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +71,7 @@ import { ReportComponent } from './patient/report/report.component';
     ShowDoctorDetailsComponent,
     EditDoctorDetailsComponent,
     ReportComponent,
+    
 
     ],
   imports: [
@@ -98,7 +100,8 @@ import { ReportComponent } from './patient/report/report.component';
   MatOptionModule,
   MatProgressSpinnerModule,
   ToastrModule.forRoot(),
-  AngularTiltModule
+  AngularTiltModule,
+
   ],
   providers: [
     {

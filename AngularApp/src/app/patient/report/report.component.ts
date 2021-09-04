@@ -15,5 +15,10 @@ export class ReportComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  logout(){
+    localStorage.removeItem('access');
+    this.router.navigate(['/']);
+  }
 
 }

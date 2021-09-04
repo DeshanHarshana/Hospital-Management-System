@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -11,6 +11,6 @@ export class TestComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
 
 }

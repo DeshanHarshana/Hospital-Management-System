@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+//import { report } from 'process';
 import { AdminAboutComponent } from './admin/admin-about/admin-about.component';
 import { AdminAddDoctorComponent } from './admin/admin-add-doctor/admin-add-doctor.component';
 
@@ -17,10 +18,17 @@ import { PatientGuard } from './guards/patient.guard';
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AllPatientListComponent } from './patient/all-patient-list/all-patient-list.component';
 import { PatientAboutComponent } from './patient/patient-about/patient-about.component';
 import { PatientDashboardComponent } from './patient/patient-dashboard/patient-dashboard.component';
+
+import { ReportComponent } from './patient/report/report.component';
+
+import { PatientShowProfileComponent } from './patient/patient-show-profile/patient-show-profile.component';
+
 import { SignupComponent } from './signup/signup.component';
 import { TestComponent } from './test/test/test.component';
+
 
 const routes: Routes = [
 
@@ -34,7 +42,8 @@ const routes: Routes = [
   {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent, canActivate : [AuthGuard]},
   {path : 'Admin-show-doctor-details/:id', component:ShowDoctorDetailsComponent, canActivate : [AuthGuard]},
   {path : 'Admin-edit-doctor-detais/:id', component:EditDoctorDetailsComponent, canActivate : [AuthGuard]},
-
+  {path : 'Admin-show-patient-details/:id,', component:PatientShowProfileComponent, canActivate:[AuthGuard]},
+  {path : 'Admin-show-all-patient-list', component:AllPatientListComponent, canActivate:[AuthGuard]},
 
   //doctor
   {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},
@@ -44,6 +53,7 @@ const routes: Routes = [
   //patient
   {path:'Patient-dashboard',component:PatientDashboardComponent, canActivate:[PatientGuard]},
   {path : 'Patient-About', component:PatientAboutComponent, canActivate:[PatientGuard]},
+  {path:'report', component:ReportComponent, canActivate:[PatientGuard]},
 
 
   //others

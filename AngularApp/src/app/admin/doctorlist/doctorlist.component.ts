@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DoctorService } from 'src/app/services/doctor.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class DoctorlistComponent implements OnInit {
   constructor(
     private doctorService:DoctorService,
     private router:Router,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private auth:AuthenticationService
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +33,8 @@ this.router.navigate(['Admin-edit-doctor-details'])
   }
 
   logout(){
-    localStorage.removeItem('access');
-    this.router.navigate(['/']);
-  }
+
+    this.auth.logout();
+      }
+
 }

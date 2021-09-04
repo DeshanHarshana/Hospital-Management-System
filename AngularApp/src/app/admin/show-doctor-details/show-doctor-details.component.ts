@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DoctorService } from 'src/app/services/doctor.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class ShowDoctorDetailsComponent implements OnInit {
   constructor(
     private router:Router,
     private route:ActivatedRoute,
-    private doctorService:DoctorService
+    private doctorService:DoctorService,
+    private auth:AuthenticationService
   ) { }
 
   ngOnInit(): void {

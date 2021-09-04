@@ -46,6 +46,11 @@ import { DoctorAddPatientsComponent } from './doctor/doctor-add-patients/doctor-
 import { AuthGuard } from './guards/auth.guard';
 import { DoctorGuard } from './guards/doctor.guard';
 import { PatientGuard } from './guards/patient.guard';
+
+//report
+import { ReportComponent } from './patient/report/report.component';
+
+//patient
 import { PatientShowProfileComponent } from './patient/patient-show-profile/patient-show-profile.component';
 import { PatientEditProfileComponent } from './patient/patient-edit-profile/patient-edit-profile.component';
 import { AllPatientListComponent } from './patient/all-patient-list/all-patient-list.component';
@@ -55,6 +60,7 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { NgCircleProgressModule } from 'ng-circle-progress';
+
 
 @NgModule({
   declarations: [
@@ -77,9 +83,11 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     DoctorAddPatientsComponent,
     ShowDoctorDetailsComponent,
     EditDoctorDetailsComponent,
+    ReportComponent,
     PatientShowProfileComponent,
     PatientEditProfileComponent,
     AllPatientListComponent,
+
 
     ],
   imports: [
@@ -123,7 +131,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     innerStrokeColor: "#C7E596",
     animationDuration: 300,
 
-  })
+  }),
+  FontAwesomeModule
 
   ],
   providers: [

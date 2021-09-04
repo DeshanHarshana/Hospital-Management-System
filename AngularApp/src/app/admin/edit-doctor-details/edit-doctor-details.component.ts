@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DoctorService } from 'src/app/services/doctor.service';
 
 @Component({
@@ -42,14 +43,16 @@ export class EditDoctorDetailsComponent implements OnInit {
     private doctorService:DoctorService,
     public toastr:ToastrService,
     public router:Router,
-    public route:ActivatedRoute
+    public route:ActivatedRoute,
+    private auth:AuthenticationService
 
   ) { }
 
   logout(){
-    localStorage.removeItem('access');
-    this.router.navigate(['/']);
-  }
+
+    this.auth.logout();
+      }
+
   ngOnInit(): void {
     this.isImageselected=false;
     this.imageData="../../../assets/add-doctor/nopic.png";

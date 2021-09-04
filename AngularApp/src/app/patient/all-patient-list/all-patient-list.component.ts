@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Patient } from 'src/app/appdata/Patient';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-all-patient-list',
@@ -15,16 +16,18 @@ export class AllPatientListComponent implements OnInit {
   name:any;
   constructor(
     private router:Router,
+    private auth:AuthenticationService
 
   ) { }
 
   ngOnInit(): void {
     this.filterdData=this.tempdata;
   }
-logout(){
-    localStorage.removeItem('access');
-    this.router.navigate(['/']);
-  }
+  logout(){
+
+    this.auth.logout();
+      }
+
 x(){
   var data:any=[]
   this.tempdata.forEach(function(value:any) {

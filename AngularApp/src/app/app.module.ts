@@ -46,6 +46,11 @@ import { DoctorAddPatientsComponent } from './doctor/doctor-add-patients/doctor-
 import { AuthGuard } from './guards/auth.guard';
 import { DoctorGuard } from './guards/doctor.guard';
 import { PatientGuard } from './guards/patient.guard';
+
+//report
+import { ReportComponent } from './patient/report/report.component';
+
+//patient
 import { PatientShowProfileComponent } from './patient/patient-show-profile/patient-show-profile.component';
 import { PatientEditProfileComponent } from './patient/patient-edit-profile/patient-edit-profile.component';
 import { AllPatientListComponent } from './patient/all-patient-list/all-patient-list.component';
@@ -54,6 +59,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+
 
 @NgModule({
   declarations: [
@@ -76,9 +82,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     DoctorAddPatientsComponent,
     ShowDoctorDetailsComponent,
     EditDoctorDetailsComponent,
+    ReportComponent,
     PatientShowProfileComponent,
     PatientEditProfileComponent,
     AllPatientListComponent,
+
 
     ],
   imports: [
@@ -113,6 +121,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
   Ng2OrderModule,
   NgxPaginationModule,
   FontAwesomeModule
+
   ],
   providers: [
     {

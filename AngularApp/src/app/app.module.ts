@@ -49,6 +49,8 @@ import { PatientGuard } from './guards/patient.guard';
 import { ReportComponent } from './patient/report/report.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

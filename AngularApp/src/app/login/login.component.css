@@ -2,17 +2,29 @@
 	width: 50%;
 	border-radius: 20px;
 	box-shadow: 0 5px 5px rgba(0,0,0,.4);
-	margin: 5em auto;
+
 	display: flex;
-  margin-top: 10em;
+
 }
+.x{
+  padding-top: 20vh;
+}
+.loader-container{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: black;
+  opacity: 0.8;
+
+}
+
 .company__info{
 	background-color: #008080;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: left;
 	color: #fff;
   background-image: url("../../assets/login/login.jpg");
   background-position: center;

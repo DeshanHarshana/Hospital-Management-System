@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from '../services/authentication.service';
 import { LocationStrategy } from '@angular/common';
+import { LoaderService } from '../loader/loader.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
     private route:ActivatedRoute,
     public toastr:ToastrService,
     public _auth:AuthenticationService,
-    private location: LocationStrategy
+    private location: LocationStrategy,
+    public loaderService:LoaderService,
   ) {
     //this code for disable back button in broweser
 

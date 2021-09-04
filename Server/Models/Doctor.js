@@ -26,7 +26,13 @@ const doctor = mongoose.Schema({
     SLMC:String,
     ex:String,
     type:String,
-    position:String
+    position:String,
+    appointments:[{
+        appointmentid:String
+    }],
+    patient:[{
+        patientid:String
+    }]
 });
 
 module.exports=mongoose.model('Doctor', doctor, "Doctor");

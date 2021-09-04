@@ -3,7 +3,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ToastrService } from 'ngx-toastr';
+import { LoaderService } from 'src/app/loader/loader.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DoctorService } from 'src/app/services/doctor.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-add-doctor',
@@ -39,13 +42,15 @@ export class AdminAddDoctorComponent implements OnInit {
   constructor(
     private doctorService:DoctorService,
     public toastr:ToastrService,
-    public router:Router
+    public router:Router,
+    public loaderService:LoaderService,
+    private auth:AuthenticationService
 
   ) { }
 
   logout(){
-    localStorage.removeItem('access');
-    this.router.navigate(['/']);
+
+this.auth.logout();
   }
 
   ngOnInit(): void {

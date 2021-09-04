@@ -16,3 +16,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-family: "Quartzo";
   src: url(./assets/fonts/QuartzoBold-W9lv.ttf);
 }
+@font-face {
+  font-family: "Iniya";
+  src: url(./assets/fonts/IniyaDisplay-ow0Ra.otf);
+}
+
+
+@font-face {
+  font-family: "Abas";
+  src: url(./assets/fonts/MatSaleh-vmGpM.ttf);
+}

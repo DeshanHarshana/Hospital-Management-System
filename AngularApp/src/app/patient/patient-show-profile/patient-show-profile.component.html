@@ -1,0 +1,148 @@
+<mat-toolbar class="mat-elevation-z8">
+  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+  <span class="spacer"></span>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+      <h4 class="name">Deshan Harshana</h4>
+      <p class="designation">Hospital Admin</p>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" routerLink="/Admin-dashboard">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+          <mat-icon>person</mat-icon>
+          <span>Add Doctor</span>
+      </button>
+
+
+
+  </mat-sidenav>
+
+
+    <div class="content mat-elevation-z8"  style="height:max-content;">
+<div class="container-fluid ">
+  <h1 style="font-family: 'Lemon'; color:rgb(16, 131, 1);">Patient Profile</h1>
+  <div class="card">
+
+    <div class="row">
+      <div class="col-4">
+<div class="profile d-flex align-items-center d-flex justify-content-center">
+  <div class="row">
+    <div class="col-12">
+      <img src="../../../assets/patient/profile.jpg" class="imgAvatar " >
+
+    </div>
+  </div>
+
+
+</div>
+      </div>
+      <div class="col-8">
+        <div class="card details">
+h
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" >
+        <div class="card medicaldetails">
+<div class="row">
+  <div class="col-4">
+    <div class="card medi zoom d-flex justify-content-center d-flex align-items-center" style="background-color: rgb(247, 213, 212);">
+      <div class="bloodsugerclass d-flex justify-content-center d-flex align-items-center">
+        <circle-progress
+        [percent]="85"
+        [radius]="100"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [showInnerStroke]="false"
+        [outerStrokeColor]="'#fa0000'"
+        [innerStrokeColor]="'#C7E596'"
+        [animation]="true"
+        [animationDuration]="1000"
+        [showImage]="true"
+        [imageSrc]="bloodsuger"
+        [imageHeight]="105"
+        [imageWidth]="105"
+        class="w-100"
+      ></circle-progress>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card medi zoom d-flex justify-content-center d-flex align-items-center" style="background-color: rgb(168, 218, 238);">
+      <div class="bloodsugerclass d-flex justify-content-center d-flex align-items-center">
+        <circle-progress
+        [percent]="85"
+        [radius]="100"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'#003afa'"
+        [innerStrokeColor]="'#C7E596'"
+        [animation]="true"
+        [showInnerStroke]="false"
+        [animationDuration]="1000"
+        [showImage]="true"
+        [imageSrc]="bloodpresure"
+        [imageHeight]="105"
+        [imageWidth]="105"
+        class="w-100"
+      ></circle-progress>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-4">
+   <div class="card medi zoom d-flex justify-content-center d-flex align-items-center" style="background-color: rgb(214, 243, 203);">
+      <div class="bloodsugerclass d-flex justify-content-center d-flex align-items-center">
+        <circle-progress
+        [percent]="85"
+        [radius]="100"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'#19fa00'"
+        [innerStrokeColor]="'#C7E596'"
+        [animation]="true"
+        [showInnerStroke]="false"
+        [animationDuration]="1000"
+        [showImage]="true"
+        [imageSrc]="cholestrol"
+        [imageHeight]="105"
+        [imageWidth]="105"
+        class="w-100"
+
+      ></circle-progress>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<div class="row " style="padding-top: 2%; padding-bottom:2%">
+   <div class="col-4 d-flex justify-content-center d-flex align-items-center"><h2 style="font-family: 'Lemon';">Blood Presure</h2></div>
+   <div class="col-4 d-flex justify-content-center d-flex align-items-center"><h2 style="font-family: 'Lemon';">Blood Suger</h2></div>
+   <div class="col-4 d-flex justify-content-center d-flex align-items-center"><h2 style="font-family: 'Lemon';">Cholestrol</h2></div>
+</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+  </div>
+  </mat-sidenav-container>

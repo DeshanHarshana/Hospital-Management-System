@@ -5,7 +5,7 @@ const Admin = require('../Models/Admin');
 const Doctor = require('../Models/Doctor');
 const Patient = require('../Models/Patient');
 const imageUpload = require('../healper/storageDoctor');
-
+const fs = require('fs')
 //deshan harshana
 //power
 //database connection String
@@ -249,8 +249,7 @@ router.post('/add-new-doctor', function(req,res, next){
     })
     
 });
-const sharp = require('sharp');
-const e = require('express');
+
 router.post('/doctor/:postid/uploadPhoto', imageUpload.uploadImage().single('doctorImage'), async (req, res, next)=>{
     
     console.log("Doctor Iamge Name" + req.file.filename);
@@ -282,9 +281,153 @@ router.post('/doctor/:postid/uploadPhoto', imageUpload.uploadImage().single('doc
             );
 
     }
+});
+
+router.post('/doctor/:postid/updatePhoto', imageUpload.uploadImage().single('doctorImage'),  (req, res, next)=>{
+    const oldlink="";
+    Doctor.findById(req.params.id),function(error,user){
+        if(error){
+            console.log(error)
+        }else{
+            console.log(user.displayImage)
+            oldlink=user.displayImage.split('/')[5];
+            console.log(oldlink)
+        }
+    }
+
+
+    
+    setTimeout(()=>{
+    const path = "./images/doctors/"+ oldlink;
+    console.log("THis is image " + path) 
+    try {
+      fs.unlink(path, (err) => {
+          if (err) {
+            console.error(err)
+            return;
+          }
+        
+         console.log("old image deleted");
+        })
+    } catch (error) {
+        console.log(error);
+    }
+   
+
+  
+
+    console.log("Doctor Iamge Name " + req.file.filename);
+    const imagePath = 'http://localhost:3000/images/doctors/' + req.file.filename;
+    console.log(imagePath)
+
+
+    if(req.file){
+        console.log("Image Found");
+        console.log(req.params.postid)
+         Doctor.findByIdAndUpdate(req.params.postid,
+             {
+               $set:{
+                      displayImage:imagePath
+               }
+             },
+               {
+                 new :true
+               },
+               function(err,Postdata){
+                 if(err){
+                   res.send("Error update displayImage field");
+                 }else{
+                   res.json(Postdata);
+                   console.log("Doctor profile image upload successfully");
+               
+                 }
+               }
+         
+             );
+ 
+     }
+},200)
+     
 })
 
+router.put('/update-doctor/:id', function(req,res){
+    console.log(req.body.displayImage)
+    Doctor.findByIdAndUpdate(req.params.id,
+        {
+            $set:{
+                title:req.body.title,
+                fullname:req.body.fullname,
+                email:req.body.email,
+                password:req.body.password,
+                age:req.body.age,
+                phone:req.body.phone,
+                currentHospital:req.body.currentHospital,
+                currentCity:req.body.currentCity,
+                maritalStatus:req.body.maritalStatus,
+                personalAdditional:req.body.personalAdditional,
+            
+            
+                degree:req.body.degree,
+                edulevel:req.body.edulevel,
+                eduAdditional:req.body.eduAdditional,
+                displayImage:req.body.displayImage,
+                SLMC:req.body.SLMC,
+                ex:req.body.ex,
+                position:req.body.position,
+                type:req.body.type            
+            }
+        },{
+            new:true
+        },function(error,result){
+            if(error){
+                res.send("Error updating");
+            }else{
+                res.send(result);
+            }
+        }
+        );
+})
 
+router.delete('/delete-doctor/:id', function(req, res){
+    const oldlink="";
+    Doctor.findById(req.params.id),function(error,user){
+        if(error){
+            console.log(error)
+        }else{
+            console.log(user.displayImage)
+            oldlink=user.displayImage.split('/')[5];
+            console.log(oldlink)
+        }
+    }
+
+
+    
+    setTimeout(()=>{
+    const path = "./images/doctors/"+ oldlink;
+    console.log("THis is image " + path) 
+    try {
+      fs.unlink(path, (err) => {
+          if (err) {
+            console.error(err)
+            return;
+          }
+        
+         console.log("old image deleted");
+        })
+    } catch (error) {
+        console.log(error);
+    }
+   
+    Doctor.deleteOne({_id:req.params.id}, function(err,data){
+        if(err){
+            res.send(err)
+        } else {
+            res.send(data);
+            console.log("delete success")
+        }
+     });
+    },100);
+})
 
 
 //export model

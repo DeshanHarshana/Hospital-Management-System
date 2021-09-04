@@ -60,7 +60,7 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { NgCircleProgressModule } from 'ng-circle-progress';
-
+import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
@@ -138,7 +138,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
   FontAwesomeModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  NgxMaterialTimepickerModule
+  NgxMaterialTimepickerModule,
+  NgxMatTimepickerModule
 
   ],
   providers: [

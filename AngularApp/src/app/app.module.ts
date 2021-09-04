@@ -46,6 +46,9 @@ import { DoctorAddPatientsComponent } from './doctor/doctor-add-patients/doctor-
 import { AuthGuard } from './guards/auth.guard';
 import { DoctorGuard } from './guards/doctor.guard';
 import { PatientGuard } from './guards/patient.guard';
+import { ReportComponent } from './patient/report/report.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +70,8 @@ import { PatientGuard } from './guards/patient.guard';
     DoctorAddPatientsComponent,
     ShowDoctorDetailsComponent,
     EditDoctorDetailsComponent,
+    ReportComponent,
+    
 
     ],
   imports: [
@@ -95,7 +100,8 @@ import { PatientGuard } from './guards/patient.guard';
   MatOptionModule,
   MatProgressSpinnerModule,
   ToastrModule.forRoot(),
-  AngularTiltModule
+  AngularTiltModule,
+
   ],
   providers: [
     {

@@ -132,7 +132,8 @@ export class Patient{
     appointmenttime:"2021-2-3 10AM",
     subscription:"Inactive",
     doctorList:[]
-  }
+  },
+  
 
 ]
 }

@@ -51,6 +51,8 @@ import { PatientGuard } from './guards/patient.guard';
 import { ReportComponent } from './patient/report/report.component';
 
 
+
+
 import { PatientShowProfileComponent } from './patient/patient-show-profile/patient-show-profile.component';
 import { PatientEditProfileComponent } from './patient/patient-edit-profile/patient-edit-profile.component';
 import { AllPatientListComponent } from './patient/all-patient-list/all-patient-list.component';
@@ -64,6 +66,7 @@ import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
 
 @NgModule({
   declarations: [

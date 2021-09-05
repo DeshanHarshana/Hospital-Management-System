@@ -136,12 +136,13 @@ mat-divider {
     0.3s box-shadow,
     0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
 }
-
-.corona{
+.corona {
   height: 100%;
-  width: 80%;
-
-
+  width: 85%;
+  background-image: linear-gradient(to right, rgba(227, 231, 235, 0.356), rgb(135, 149, 221)), url("../../../assets/patient/report.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: content-box;
 
 }
 .corona .pic{

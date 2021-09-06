@@ -76,6 +76,9 @@ padding: 2%;
   justify-content: center;
 
 }
+.details{
+  height: fit-content;
+}
 
 .profile{
 

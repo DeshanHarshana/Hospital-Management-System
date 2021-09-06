@@ -17,6 +17,7 @@ export class PatientShowProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
   }
   logout(){
 

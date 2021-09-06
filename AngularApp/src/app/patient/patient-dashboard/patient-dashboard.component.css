@@ -139,13 +139,13 @@ mat-divider {
 .corona {
   height: 100%;
   width: 85%;
-  background-image: linear-gradient(to right, rgba(227, 231, 235, 0.356), rgb(135, 149, 221)), url("../../../assets/patient/report.jpg");
+  background-image: linear-gradient(to right, rgba(230, 48, 16, 0.356), rgb(236, 113, 113)), url("../../../assets/patient/corona.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-clip: content-box;
 
 }
-.corona .pic{
+/*.corona .pic{
 
   background-image: url("../../../assets/admin-dashboard/corona.jpg");
 
@@ -153,6 +153,7 @@ mat-divider {
   background-repeat: no-repeat;
 
 }
+*/
 .corona .xc{
   height: 100%;
 }
@@ -173,6 +174,23 @@ mat-divider {
   background-repeat: no-repeat;
   background-clip: content-box;
 
+}
+.pharmacy{
+  height: 100%;
+  width: 85%;
+  background-image: linear-gradient(to right, rgba(172, 202, 36, 0.356), rgb(61, 165, 52)), url("../../../assets/patient/pharmacy.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+}
+
+.insurance{
+  height: 100%;
+  width: 85%;
+  background-image: linear-gradient(to right, rgba(84, 13, 218, 0.356), rgb(0, 92, 153)), url("../../../assets/patient/insurance.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: content-box;
 }
 
 

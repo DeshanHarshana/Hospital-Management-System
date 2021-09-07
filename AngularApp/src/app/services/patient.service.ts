@@ -8,7 +8,6 @@ import { Patient } from '../appdata/Patient';
   providedIn: 'root'
 })
 export class PatientService {
-
   constructor(
     public _http:HttpClient,
     public router:Router

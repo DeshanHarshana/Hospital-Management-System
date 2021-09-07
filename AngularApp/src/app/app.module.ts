@@ -48,7 +48,7 @@ import { DoctorGuard } from './guards/doctor.guard';
 import { PatientGuard } from './guards/patient.guard';
 
 
-import { ReportComponent } from './patient/report/report.component';
+
 
 
 
@@ -66,6 +66,9 @@ import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
+import { ShowReportComponent } from './patient/show-report/show-report.component';
+import { EditReportComponent } from './patient/edit-report/edit-report.component';
 
 
 @NgModule({
@@ -89,10 +92,13 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     DoctorAddPatientsComponent,
     ShowDoctorDetailsComponent,
     EditDoctorDetailsComponent,
-    ReportComponent,
+
     PatientShowProfileComponent,
     PatientEditProfileComponent,
     AllPatientListComponent,
+   
+    ShowReportComponent,
+    EditReportComponent,
 
 
     ],

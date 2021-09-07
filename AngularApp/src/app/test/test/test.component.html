@@ -11,4 +11,5 @@
 
 <input [ngxMatTimepicker]="picker">
 <ngx-mat-timepicker #picker></ngx-mat-timepicker>
-
+ name
+<input type="text" [ngModel]="name" (ngModelChange)="somethingHappend($event)">

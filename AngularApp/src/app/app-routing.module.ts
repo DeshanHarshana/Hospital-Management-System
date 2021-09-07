@@ -30,6 +30,8 @@ import { ShowReportComponent } from './patient/show-report/show-report.component
 import { SignupComponent } from './signup/signup.component';
 import { TestComponent } from './test/test/test.component';
 import { PatientEditProfileComponent } from './patient/patient-edit-profile/patient-edit-profile.component';
+import { ChildComponent } from './test/child/child.component';
+import { ParentComponent } from './test/parent/parent.component';
 
 
 const routes: Routes = [
@@ -59,8 +61,15 @@ const routes: Routes = [
   {path:'show-report', component:ShowReportComponent, canActivate:[PatientGuard]},
   {path:'edit-report', component:EditReportComponent, canActivate:[PatientGuard]},
 
-  //others
+  //test
   {path : 'test', component:TestComponent},
+  {path:'child', component:ChildComponent},
+  {path:'parent', component:ParentComponent},
+
+
+
+
+  //pagenot found
   { path : '**', component:PageNotFoundComponent }
 
 

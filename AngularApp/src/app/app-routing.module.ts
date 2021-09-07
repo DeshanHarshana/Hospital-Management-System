@@ -28,6 +28,7 @@ import { PatientShowProfileComponent } from './patient/patient-show-profile/pati
 
 import { SignupComponent } from './signup/signup.component';
 import { TestComponent } from './test/test/test.component';
+import { PatientEditProfileComponent } from './patient/patient-edit-profile/patient-edit-profile.component';
 
 
 const routes: Routes = [
@@ -42,7 +43,8 @@ const routes: Routes = [
   {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent, canActivate : [AuthGuard]},
   {path : 'Admin-show-doctor-details/:id', component:ShowDoctorDetailsComponent, canActivate : [AuthGuard]},
   {path : 'Admin-edit-doctor-detais/:id', component:EditDoctorDetailsComponent, canActivate : [AuthGuard]},
-  {path : 'Admin-show-patient-details/:id,', component:PatientShowProfileComponent, canActivate:[AuthGuard]},
+  {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent, canActivate:[AuthGuard]},
+  {path : 'Admin-edit-patient-details/:id,', component:PatientEditProfileComponent, canActivate:[AuthGuard]},
   {path : 'Admin-show-all-patient-list', component:AllPatientListComponent, canActivate:[AuthGuard]},
 
   //doctor

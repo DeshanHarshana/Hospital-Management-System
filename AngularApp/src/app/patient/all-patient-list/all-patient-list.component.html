@@ -56,7 +56,7 @@
     Email
   </div>
   <div class="col-3 d-flex justify-content-center heading">
-Appointment Date
+Gender
   </div>
   <div class="col-2 d-flex justify-content-center heading">
 Subscription
@@ -79,14 +79,14 @@ Subscription
     <h4 style="font-size:1.3rem; font-family:'Abas'">{{ d.email }}</h4>
   </div>
   <div class="col-3 d-flex align-items-center d-flex justify-content-center">
-    <h4 style="font-size:1.3rem; font-family:'Abas'">{{ d.appoinmenttime }}</h4>
+    <h4 style="font-size:1.3rem; font-family:'Abas'">{{ d.gender }}</h4>
 
   </div>
   <div class="col-2 d-flex align-items-center d-flex justify-content-center" >
 <h4 style="font-size:1.3rem; font-family:'Abas'">{{ d.subscription }}</h4>
   </div>
   <div class="col-1 d-flex align-items-center d-flex justify-content-center">
-    <mat-icon>remove_red_eye</mat-icon> | <mat-icon>delete_forever</mat-icon>
+    <button class="btn btn-outline-primary" (click)="seeDetails(d._id)">View</button>
   </div>
 </div>
 

@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    localStorage.removeItem('access');
     this.id=this.route.snapshot.params.id;
     if(this.id==1){
       this.role="Admin";

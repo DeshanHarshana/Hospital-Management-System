@@ -2,11 +2,24 @@ const mongoose=require('mongoose')
 
 const patient = mongoose.Schema({
     name:String,
+    title:String,
     email:String,
     password:String,
-    appointmenttime:String,
     disease:String,
-    displayImage:String
+    gender:String,
+    age:String,
+    city:String,
+    guardian:String,
+    personalAdditional:String,
+    bloodsuger:String,
+    cholestrol:String,
+    bloodpresure:String,
+    displayImage:String,
+    wardno:String,
+    phone:String,
+    reportList:[],
+    healthAdditional:String,
+    subscription:String
     
 });
 

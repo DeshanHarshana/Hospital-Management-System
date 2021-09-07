@@ -187,7 +187,16 @@ router.get('/get-all-doctors', function(req,res){
     });
 });
 
-
+router.get('/get-all-patients', function(req,res){
+    Patient.find({}, function(error, result){
+        if(error){
+            console.log(error);
+        }
+        else{
+            res.send(result);
+        }
+    });
+});
 
 
 router.get('/get-one-doctor/:id', function(req,res){
@@ -202,6 +211,17 @@ router.get('/get-one-doctor/:id', function(req,res){
     });
 });
 
+router.get('/get-one-patient/:id', function(req,res){
+
+    Patient.findById({_id:req.params.id}, function(error, result){
+        if(error){
+            console.log(error);
+        }
+        else{
+            res.send(result);
+        }
+    });
+});
 
 
 //Add Doctor

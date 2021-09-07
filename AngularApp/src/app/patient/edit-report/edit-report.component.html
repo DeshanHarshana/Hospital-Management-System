@@ -1,0 +1,488 @@
+
+<mat-toolbar class="mat-elevation-z8">
+    <h1 routerLink="/Patient-dashboard" class="logoclass">Patient</h1>
+    <span class="spacer"></span>
+    <button (click)="logout()" class="btn"
+      style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+  
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav opened="true" mode="side" disableClose="true" class="mat-elevation-z8">
+  
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+  
+      <h4 class="name">Deshan Harshana</h4>
+      <p class="designation">Hospital Admin</p>
+  
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+  
+  
+  
+    </mat-sidenav>
+    <div class="content mat-elevation-z8" style="height: fit-content;">
+      <div class="container-fluid" style="padding: 5%;">
+        <div class="row">
+          <div class="col d-flex justify-content-center">
+            <h1 class="reportName">Medical Report</h1>
+          </div>
+  
+        </div>
+        <div class="row">
+          <div class="col-6 d-flex justify-content-center">
+            <div class="card personalCard">
+              <form action="">
+  
+  
+                <h2><u>Personal Details</u></h2>
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="fullname">Name (Full name)</label>
+                  <div class="col">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-user">
+                        </i>
+                      </div>
+                      <input id="fullname"  formControlName="fullname" name="Name (Full name)" type="text" placeholder="Name (Full name)"
+                        class="form-control input-md">
+                    </div>
+  
+  
+                  </div>
+  
+  
+                </div>
+                <br>
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="Date Of Birth">Date Of Birth</label>
+                  <div class="col-md-4">
+  
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-birthday-cake"></i>
+  
+                      </div>
+                      <input id="Date Of Birth" name="Date Of Birth" type="text" placeholder="Date Of Birth"
+                        class="form-control input-md">
+                    </div>
+  
+  
+                  </div>
+                </div>
+                <br>
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="Father">Guardian Name</label>
+                  <div class="col">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-male" style="font-size: 20px;"></i>
+  
+                      </div>
+                      <input id="Father" name="Father" type="text" placeholder="Guardian Name"
+                        class="form-control input-md">
+  
+                    </div>
+  
+                  </div>
+                </div>
+                <br>
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="Gender">Gender</label>
+                  <div class="col">
+                    <label class="radio-inline" for="Gender-0">
+                      <input type="radio" name="Gender" id="Gender-0" value="1" checked="checked">
+                      Male &nbsp;
+                    </label>
+                    <label class="radio-inline" for="Gender-1">
+                      <input type="radio" name="Gender" id="Gender-1" value="2">
+                      Female &nbsp;
+                    </label>
+                    <label class="radio-inline" for="Gender-2">
+                      <input type="radio" name="Gender" id="Gender-2" value="3">
+                      Other
+                    </label>
+                  </div>
+                </div>
+                <br>
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="radios">Marital Status</label>
+                  <div class="col">
+                    <label class="radio-inline" for="radios-0">
+                      <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+                      Single &nbsp;
+                    </label>
+                    <label class="radio-inline" for="radios-1">
+                      <input type="radio" name="radios" id="radios-1" value="2">
+                      Married &nbsp;
+                    </label>
+                    <label class="radio-inline" for="radios-0">
+                      <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+                      Widowed &nbsp;
+                    </label>
+                    <label class="radio-inline" for="radios-0">
+                      <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+                      Divorced &nbsp;
+                    </label>
+                    
+                  </div>
+                </div>
+                <br>
+  
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label col-xs-12" for="Temporary Address">Temporary Address</label>
+                  <div class="col  col-xs-4">
+                    <input id="Temporary Address" name="Temporary Address" type="text" placeholder="Temporary Address"
+                      class="form-control input-md ">
+                  </div>
+                  <br>
+                </div>
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label col-xs-12" for="Permanent Address">Permanent Address</label>
+                  <div class="col  col-xs-4">
+                    <input id="Permanent Address" name="Permanent Address" type="text" placeholder="Permanent Address"
+                      class="form-control input-md ">
+                  </div>
+                  <br>
+                </div>
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="Primary Occupation">Primary Occupation</label>
+                  <div class="col">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-briefcase"></i>
+  
+                      </div>
+                      <input id="Primary Occupation" name="Primary Occupation" type="text"
+                        placeholder="Primary Occupation" class="form-control input-md">
+                    </div>
+  
+  
+                  </div>
+                </div>
+                <br>
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="Phone number ">Phone number </label>
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-phone"></i>
+  
+                      </div>
+                      <input id="Phone number " name="Phone number " type="text" placeholder="Phone number "
+                        class="form-control input-md">
+                    </div>
+                  </div>
+                </div>
+  
+                <br>
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="Email Address">Email Address</label>
+                  <div class="col">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-envelope-o"></i>
+  
+                      </div>
+                      <input id="Email Address" name="Email Address" type="text" placeholder="Email Address"
+                        class="form-control input-md"> <br> <br>
+  
+                    </div>
+  
+                  </div>
+                  </div>
+                 
+          </form>
+            </div>
+  
+          </div>
+  
+          <div class="col-6 ">
+            <div class="row">
+              <div class="col">
+                <div class="card classCard">
+                  <form action="">
+                    <h2><u>Personal Details</u></h2>
+                      <div class="row">
+                        <div class="col-5">
+                          <div class="form-group">
+                            <label class="col-md-4 control-label col-xs-12" for="">Height </label>  
+                            <div class="col-md-10  col-xs-4">
+                            <input id="Height" name="Height" type="text" placeholder="Height" class="form-control input-md ">
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-5">
+                          <div class="form-group">
+                            <label class="col-md-4 control-label col-xs-12" for="">Weight </label>  
+                            <div class="col-md-10  col-xs-4">
+                            <input id="Weight" name="Weight" type="text" placeholder="Weight" class="form-control input-md "> <br>
+                            </div>
+                        </div>
+                        </div>
+                        
+  
+                        <div class="form-group">
+                          <label class="col-md-4 control-label" for="Medical History">Past Medical History</label> 
+                         <table>
+                           <tr>
+                             <td><div class="checkbox">
+                              <label for="Medical History-1">
+                                <input type="checkbox" name="Medical History" id="Medical History-1" value="1">
+                                Heart disease &nbsp; &nbsp;
+                              </label>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="checkbox">
+                                <label for="Medical History-2">
+                                  <input type="checkbox" name="Medical History" id="Medical History-2" value="2">
+                                  Diabetes &nbsp; &nbsp;
+                                </label>
+                                </div>
+                            </td>
+                           
+          
+                           </tr>
+                           <tr>
+                            <td>
+                              <div class="checkbox">
+                                <label for="Medical History-3">
+                                  <input type="checkbox" name="Medical History" id="Medical History-3" value="3">
+                                  High blood pressure &nbsp; &nbsp;
+                                </label>
+                                </div>
+                            </td>
+                            <td>
+                              <div class="checkbox">
+                               <label for="Medical History-4">
+                                <input type="checkbox" name="Medical History" id="Medical History-4" value="4">
+                                  Cancer
+                                </label>
+                            </div>
+                            </td>
+                           </tr>
+                           <tr>
+                             <td >
+                              <div class="checkbox">
+                                <label for="Medical History-5">
+                                  <input type="checkbox" name="Medical History" id="Medical History-5" value="5">
+                                  High cholesterol &nbsp; &nbsp;
+                                </label>
+                                </div>
+                             </td>
+                             <td >
+                              <div class="checkbox">
+                                <label for="Medical History-6">
+                                  <input type="checkbox" name="Medical History" id="Medical History-6" value="6">
+                                  Kidney disease &nbsp; &nbsp;
+                                </label>
+                                </div>
+                             </td>
+                            </tr>
+                           <tr>
+                            <td >
+                              <div class="checkbox">
+                                <label for="Medical History-7">
+                                  <input type="checkbox" name="Medical History" id="Medical History-7" value="7">
+                                  Stroke &nbsp; &nbsp;
+                                </label>
+                                </div>
+                             </td>
+                             <td >
+                              <div class="checkbox">
+                                <label for="Medical History-8">
+                                  <input type="checkbox" name="Medical History" id="Medical History-8" value="8">
+                                  Depression &nbsp; &nbsp;
+                                </label>
+                                </div>
+                             </td>
+                           </tr>
+                           <tr>
+                            <div class="othertop">
+                              <label for="Medical History-9">
+                                 </label>
+                                   <input type="input" name="MedicalHistory" id="Languages Known-9"  placeholder="Other Issue"> 
+                              </div>
+                              </tr>
+                         </table>
+                         <br>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="Surgeries">Surgeries</label>  
+                            <div class="col">
+                              <div class="form-group">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Surgery details"></textarea> <br>
+                              </div>
+                            </div>
+                          </div>
+  
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="Surgeries">Medications</label>
+                            <div class="col">
+                              <div class="form-group">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Please list medications that you are taking"></textarea> <br>
+                              </div>
+                            </div>
+                          </div>
+  
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="Surgeries">Allergies</label> <br>
+                            <div class="col-md-4">
+                              <table>
+                                <tr>
+                                  <td>Latex &nbsp; &nbsp;</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                      <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="inlineRadioOptions"
+                                        id="inlineRadio1"
+                                        value="option1"
+                                      />
+                                      <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                      <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="inlineRadioOptions"
+                                        id="inlineRadio1"
+                                        value="option1"
+                                      />
+                                      <label class="form-check-label" for="inlineRadio1">No</label>
+                                    </div>
+                                  </td>
+                                  
+                                </tr>
+                                <tr>
+                                  <td>Iodine &nbsp; &nbsp;</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                      <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="inlineRadioOptions"
+                                        id="inlineRadio1"
+                                        value="option1"
+                                      />
+                                      <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                      <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="inlineRadioOptions"
+                                        id="inlineRadio1"
+                                        value="option1"
+                                      />
+                                      <label class="form-check-label" for="inlineRadio1">No</label>
+                                    </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                <td>Bromine &nbsp; &nbsp;</td>
+                                <td>
+                                  <div class="form-check form-check-inline">
+                                    <input
+                                      class="form-check-input"
+                                      type="radio"
+                                      name="inlineRadioOptions"
+                                      id="inlineRadio1"
+                                      value="option1"
+                                    />
+                                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="form-check form-check-inline">
+                                    <input
+                                      class="form-check-input"
+                                      type="radio"
+                                      name="inlineRadioOptions"
+                                      id="inlineRadio1"
+                                      value="option1"
+                                    />
+                                    <label class="form-check-label" for="inlineRadio1">No</label>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                              <div class="othertop">
+                                <label for="Medical History-9">
+                                   </label>
+                                     <input type="input" name="MedicalHistory" id="Languages Known-9"  placeholder="Other Allergies"> 
+                                </div>
+                                
+                            </tr>
+                                
+                              </table>
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+                </div>
+              </div>
+  
+            </div>
+            
+            <div class="row">
+              <div class="col">
+                <div class="card classCard">
+                <div class="row">
+                 <div class="col">
+                   
+                  <div class="form-group">
+                    <label class="col-md-4 control-label col-xs-12" for="">Date </label>  
+                    <div class="col-md-6  col-xs-4">
+                    <input id="Date" name="Date" type="text" placeholder="Date" class="form-control input-md ">
+                    </div>
+                </div>
+                 </div>
+            
+                <div class="col">
+                  <div class="col-5">
+                    <div class="form-group">
+                      <label class="col-md-10 control-label col-xs-12" for="">Signature </label>  
+                      <div class="col-md-12  col-xs-4">
+                      <input id="Signature" name="Signature" type="text" placeholder="Sign" class="form-control input-md "> <br>
+                      </div>
+                  </div>
+                  </div>
+                </div>
+                </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+  
+  
+         
+        </div>
+  
+  
+  
+      </div>
+    </div>
+  </mat-sidenav-container>
+  

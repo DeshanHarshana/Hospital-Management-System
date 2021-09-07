@@ -21,8 +21,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   src: url(./assets/fonts/IniyaDisplay-ow0Ra.otf);
 }
 
+@font-face {
+  font-family: "Meteor";
+  src: url(./assets/fonts/Shellby-VGYmy.ttf);
+}
+
+
+
 
 @font-face {
   font-family: "Abas";
   src: url(./assets/fonts/MatSaleh-vmGpM.ttf);
 }
+

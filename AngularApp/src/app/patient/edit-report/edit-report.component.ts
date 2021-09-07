@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-edit-report',
@@ -7,18 +8,20 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./edit-report.component.css']
 })
 export class EditReportComponent implements OnInit {
-
   constructor(
     private router:Router,
+    private auth:AuthenticationService,
     private route:ActivatedRoute
   ) { }
 
   ngOnInit(): void {
   }
-  
+
   logout(){
-    localStorage.removeItem('access');
-    this.router.navigate(['/']);
-  }
+
+    this.auth.logout();
+      }
+
+
 
 }

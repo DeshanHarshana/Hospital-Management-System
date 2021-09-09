@@ -30,7 +30,7 @@ export class PatientShowProfileComponent implements OnInit {
     const id=this.route.snapshot.params.id;
     console.log(id)
     setTimeout(() => {
-      this.patient.getonePatient("61367b2bf405ba3f4ca526ca").subscribe(res=>{
+      this.patient.getonePatient(id).subscribe(res=>{
         console.log(res)
         this.patientData=res;
         this.cholestrolLevel=res.cholestrol;

@@ -4,7 +4,7 @@ const multer=require('multer')
 module.exports.uploadImage = () =>{
     
     const imageStorage = multer.diskStorage({
-        destination:(req,file,cb)=>{cb(null, 'images/doctors');},
+        destination:(req,file,cb)=>{cb(null, 'images/patients');},
         filename:(req, file, cb) =>{cb(null, file.originalname)}
     });
 

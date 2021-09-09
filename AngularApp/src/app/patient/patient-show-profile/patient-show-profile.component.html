@@ -34,12 +34,19 @@
   <h1 style="font-family: 'Lemon'; color:rgb(16, 131, 1);">Patient Profile</h1>
   <div class="card">
 
-    <div class="row">
+    <div class="row" style="margin-bottom: 5%;">
       <div class="col-4">
 <div class="profile">
   <div class="row">
-    <div class="col-12 d-flex align-items-center d-flex justify-content-center" style="margin-top:6%" >
-      <img src="../../../assets/patient/profile.jpg" class="imgAvatar " >
+    <div class="col-12 " style="margin-top:6%;" >
+      <div class="row">
+<div class="col-12 d-flex align-items-center d-flex justify-content-center">
+        <img src="../../../assets/patient/profile.jpg" class="imgAvatar " >
+      </div>
+      <div class="col d-flex align-items-center d-flex justify-content-center" >
+        <button class="myButton" routerLink="">Edit Details</button>
+      </div>
+      </div>
 
     </div>
   </div>
@@ -52,21 +59,21 @@
 <div class="row" style="padding: 3%;">
   <div class="col-6">
     <label for="name">Name</label>
-    <h2>Deshan Harshana</h2>
+    <h2>{{ patientData.name }}</h2>
 
     <label for="name">Age</label>
-    <h2>23</h2>
+    <h2>{{ patientData.age }}</h2>
 
 
     <label for="name">Email</label>
-    <h2>nawarathnadeshan@gmail.com</h2>
+    <h2>{{ patientData.email }}</h2>
   </div>
   <div class="col-6">
-    <label for="name">Ward No</label>
+    <label for="name">{{ patientData.wardno }}</label>
     <h2>5</h2>
 
     <label for="name">Phone</label>
-    <h2>0774534323</h2>
+    <h2>{{ patientData.phone }}</h2>
 
 
     <label for="icon">Reports</label>
@@ -86,7 +93,7 @@
     <div class="card medi zoom d-flex justify-content-center d-flex align-items-center" style="background-color: rgb(247, 213, 212);">
       <div class="bloodsugerclass d-flex justify-content-center d-flex align-items-center">
         <circle-progress
-        [percent]="85"
+        [percent]="sugerLevel"
         [radius]="100"
         [outerStrokeWidth]="16"
         [innerStrokeWidth]="8"
@@ -111,7 +118,7 @@
     <div class="card medi zoom d-flex justify-content-center d-flex align-items-center" style="background-color: rgb(168, 218, 238);">
       <div class="bloodsugerclass d-flex justify-content-center d-flex align-items-center">
         <circle-progress
-        [percent]="85"
+        [percent]="presureLevel"
         [radius]="100"
         [outerStrokeWidth]="16"
         [innerStrokeWidth]="8"
@@ -135,7 +142,7 @@
    <div class="card medi zoom d-flex justify-content-center d-flex align-items-center" style="background-color: rgb(214, 243, 203);">
       <div class="bloodsugerclass d-flex justify-content-center d-flex align-items-center">
         <circle-progress
-        [percent]="85"
+        [percent]="cholestrolLevel"
         [radius]="100"
         [outerStrokeWidth]="16"
         [innerStrokeWidth]="8"
@@ -158,9 +165,9 @@
 
 </div>
 <div class="row " style="padding-top: 2%; padding-bottom:2%">
-   <div class="col-4 d-flex justify-content-center d-flex align-items-center"><h2 style="font-family: 'Lemon';">Blood Presure</h2></div>
-   <div class="col-4 d-flex justify-content-center d-flex align-items-center"><h2 style="font-family: 'Lemon';">Blood Suger</h2></div>
-   <div class="col-4 d-flex justify-content-center d-flex align-items-center"><h2 style="font-family: 'Lemon';">Cholestrol</h2></div>
+   <div class="col-4 d-flex justify-content-center d-flex align-items-center"><h2 style="font-family: 'Lemon';">Blood Presure : {{ presureLevel }}</h2></div>
+   <div class="col-4 d-flex justify-content-center d-flex align-items-center"><h2 style="font-family: 'Lemon';">Blood Suger : {{ sugerLevel }}</h2></div>
+   <div class="col-4 d-flex justify-content-center d-flex align-items-center"><h2 style="font-family: 'Lemon';">Cholestrol : {{ cholestrolLevel }}</h2></div>
 </div>
         </div>
       </div>

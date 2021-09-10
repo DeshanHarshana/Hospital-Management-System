@@ -9,7 +9,7 @@ const patient = mongoose.Schema({
     gender:String,
     age:String,
     city:String,
-    guardian:String,
+    gurdian:String,
     maritalStatus:String,
     weight:String,
     height:String,

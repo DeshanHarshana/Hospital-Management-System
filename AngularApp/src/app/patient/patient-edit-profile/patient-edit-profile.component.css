@@ -1,0 +1,195 @@
+mat-toolbar {
+  background: #004a9f;
+  color: white;
+}
+
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background: #002b5c;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 2.5rem;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+}
+mat-icon {
+  margin-right: 8px;
+}
+
+.avatar {
+  margin-top: 16px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.name {
+  margin-top: 8px;
+  font-weight: normal;
+}
+
+.designation {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: rgb(8, 3, 3);
+}
+
+mat-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 2.5rem;
+
+  display: flex;
+  justify-content: center;
+
+}
+.pic-div{
+  margin-top: 0.5rem;
+  }
+
+.hidden{
+  color: white;
+}
+.details{
+  margin-top: 3%;
+  height: 50vh;
+  padding: 5%;
+
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+
+}
+.details .card{
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+
+}
+.details .card .row{
+  padding-top: 2%;
+}
+.img-class{
+  margin-top: 4%;
+
+  width: 300px;
+  height: 300px;
+  border-radius: 8%;
+
+  }
+  .reg{
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+    padding: 3%;
+    margin-right: 5%;
+    height: fit-content;
+  }
+  .reg .col{
+    padding-top: 3%;
+    padding-bottom: 3%;
+
+  }
+
+.myButton {
+	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	background-color:#33bdef;
+	border-radius:6px;
+	border:1px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:7px 24px;
+	text-decoration:none;
+	text-shadow:0px 3px 0px #5b6178;
+  width: fit-content;
+  margin-top: 2rem;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	background-color:#019ad2;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+section {
+  margin: 20px;
+}
+
+input::-webkit-file-upload-button {
+  position: absolute;
+  padding: 10px 20px;
+  background-color: peru;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  text-transform: uppercase;
+  box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+  transition: 100ms ease-out;
+  width: max-content;
+  cursor: pointer;
+}
+
+input::-webkit-file-upload-button:hover {
+  background-color: #bd6e1f;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12)
+}
+
+.myButton2{
+	box-shadow:inset 0px 1px 0px 0px #f5978e;
+	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+	background-color:#f24537;
+	border-radius:6px;
+	border:1px solid #d02718;
+  display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:7px 24px;
+	text-decoration:none;
+	text-shadow:0px 3px 0px #5b6178;
+  width: fit-content;
+  margin-top: 2rem;
+}
+.myButton2:hover {
+	background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+	background-color:#c62d1f;
+}
+.myButton2:active {
+	position:relative;
+	top:1px;
+}

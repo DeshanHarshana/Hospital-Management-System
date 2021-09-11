@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 
 app.use('/images/doctors', express.static(path.join('images/doctors/')));
+app.use('/images/patients', express.static(path.join('images/patients/')));
 
 
 app.use('/', api)

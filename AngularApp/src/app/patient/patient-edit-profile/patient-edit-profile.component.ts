@@ -29,7 +29,7 @@ export class PatientEditProfileComponent implements OnInit {
     height:new FormControl(''),
     healthAdditional:new FormControl(''),
     displayImage:new FormControl(''),
-    bloodsurger:new FormControl(''),
+    bloodsuger:new FormControl(''),
     bloodpresure:new FormControl(''),
     cholestrol:new FormControl(''),
     gender:new FormControl(''),
@@ -47,6 +47,7 @@ export class PatientEditProfileComponent implements OnInit {
   image:any;
   isImageselected:boolean=false;
   data:any=[];
+  currentid="";
   constructor(
     private patientService:PatientService,
     public toastr:ToastrService,
@@ -64,8 +65,12 @@ export class PatientEditProfileComponent implements OnInit {
   ngOnInit(): void {
     this.isImageselected=false;
     this.imageData="../../../assets/add-doctor/nopic.png";
+
+    this.currentid=this.route.snapshot.params.id;
+    console.log(this.route.snapshot.params)
+    console.log(this.currentid);
     setTimeout(()=>{
-      this.patientService.getonePatient(this.route.snapshot.params.id).subscribe(
+      this.patientService.getonePatient(this.currentid).subscribe(
         res=>{
           this.data=res;
           this.imageData=res.displayImage;
@@ -73,6 +78,8 @@ export class PatientEditProfileComponent implements OnInit {
           console.log(this.oldimage)
           console.log(res.displayImage)
           this.patient.get('title')?.setValue(res.title);
+          this.patient.get('gender')?.setValue(res.gender);
+
           this.patient.get('fullname')?.setValue(res.name);
           this.patient.get('email')?.setValue(res.email);
           this.patient.get('phone')?.setValue(res.phone);
@@ -80,9 +87,17 @@ export class PatientEditProfileComponent implements OnInit {
           this.patient.get('city')?.setValue(res.city);
           this.patient.get('disease')?.setValue(res.disease);
           this.patient.get('maritalStatus')?.setValue(res.maritalStatus);
-          this.patient.get('age')?.setValue(res.age);
-          this.patient.get('age')?.setValue(res.age);
-          this.patient.get('age')?.setValue(res.age);
+          this.patient.get('gurdian')?.setValue(res.gurdian);
+          this.patient.get('weight')?.setValue(res.weight);
+          this.patient.get('height')?.setValue(res.height);
+          this.patient.get('healthAdditional')?.setValue(res.healthAdditional);
+          this.patient.get('bloodsuger')?.setValue(res.bloodsuger);
+          this.patient.get('bloodpresure')?.setValue(res.bloodpresure);
+          this.patient.get('cholestrol')?.setValue(res.cholestrol);
+          this.patient.get('wardno')?.setValue(res.wardno);
+          this.patient.get('subscription')?.setValue(res.subscription);
+          this.patient.get('nic')?.setValue(res.nic);
+          this.patient.get('personalAdditional')?.setValue(res.personalAdditional);
 
         })
       })
@@ -93,10 +108,10 @@ export class PatientEditProfileComponent implements OnInit {
   editpatient(patient:any){
     if(this.isImageselected){
 
-      this.patientService.updatePatient(patient, this.route.snapshot.params.id).subscribe(res=>{
-          this.toastr.success("Update Successfully", "Updating Doctor");
+      this.patientService.updatePatient(patient, this.currentid).subscribe(res=>{
+          this.toastr.success("Update Successfully", "Updating Patient");
 
-          this.uploadImage(this.route.snapshot.params.id);
+          this.uploadImage(this.currentid);
           setTimeout(()=>{
             this.router.navigate(['Admin-dashboard']);
           });
@@ -109,8 +124,8 @@ export class PatientEditProfileComponent implements OnInit {
 
     }else{
       patient.displayImage=this.oldimage;
-      this.patientService.updatePatient(patient, this.route.snapshot.params.id).subscribe(res=>{
-          this.toastr.success("Update Successfully", "Updating Doctor");
+      this.patientService.updatePatient(patient, this.currentid).subscribe(res=>{
+          this.toastr.success("Update Successfully", "Updating Patient");
 
 
           this.router.navigate(['Admin-dashboard']);
@@ -127,8 +142,8 @@ export class PatientEditProfileComponent implements OnInit {
   }
   removepatient(value:any){
     const c = this.data._id;
-    this.patientService.deletePatient(c).subscribe(res=>{
-      this.toastr.success("Deleting Successfully", "Delete Doctor");
+    this.patientService.deletePatient(this.currentid).subscribe(res=>{
+      this.toastr.success("Deleting Successfully", "Delete Patient");
 
       this.router.navigate(['Admin-dashboard']);
     })

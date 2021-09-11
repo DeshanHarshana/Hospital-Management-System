@@ -470,7 +470,7 @@ router.put('/update-patient/:id', function(req,res){
                 email:req.body.email,
                 age:req.body.age,
                 phone:req.body.phone,
-                currentCity:req.body.currentCity,
+                city:req.body.city,
                
                 maritalStatus:req.body.maritalStatus,
                 personalAdditional:req.body.personalAdditional,
@@ -478,14 +478,18 @@ router.put('/update-patient/:id', function(req,res){
                 height:req.body.height,
                 healthAdditional:req.body.healthAdditional,
                 bloodpresure:req.body.bloodpresure,
-                bloodsuger:req.body.bloodpresure,
+                bloodsuger:req.body.bloodsuger,
                 cholestrol:req.body.cholestrol,
 
           
                 displayImage:req.body.displayImage,
                 nic:req.body.nic,
                 gender:req.body.gender,
-                subscription:req.body.subscription
+                subscription:req.body.subscription,
+                wardno:req.body.wardno,
+                gurdian:req.body.gurdian,
+                disease:req.body.disease
+
                            
             }
         },{

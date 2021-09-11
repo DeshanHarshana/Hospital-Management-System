@@ -32,6 +32,7 @@ import { TestComponent } from './test/test/test.component';
 import { PatientEditProfileComponent } from './patient/patient-edit-profile/patient-edit-profile.component';
 import { ChildComponent } from './test/child/child.component';
 import { ParentComponent } from './test/parent/parent.component';
+import { AppoinmentComponent } from './appoinment/appoinment/appoinment.component';
 
 
 const routes: Routes = [
@@ -47,7 +48,7 @@ const routes: Routes = [
   {path : 'Admin-show-doctor-details/:id', component:ShowDoctorDetailsComponent, canActivate : [AuthGuard]},
   {path : 'Admin-edit-doctor-detais/:id', component:EditDoctorDetailsComponent, canActivate : [AuthGuard]},
   {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent, canActivate:[AuthGuard]},
-  {path : 'Admin-edit-patient-details/:id,', component:PatientEditProfileComponent, canActivate:[AuthGuard]},
+  {path : 'Admin-edit-patient-details/:id', component:PatientEditProfileComponent, canActivate:[AuthGuard]},
   {path : 'Admin-show-all-patient-list', component:AllPatientListComponent, canActivate:[AuthGuard]},
 
   //doctor
@@ -67,7 +68,8 @@ const routes: Routes = [
   {path:'parent', component:ParentComponent},
 
 
-
+  //appoinment
+  {path:'appoinment', component:AppoinmentComponent},
 
   //pagenot found
   { path : '**', component:PageNotFoundComponent }

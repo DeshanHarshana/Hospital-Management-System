@@ -29,23 +29,21 @@
   </mat-sidenav>
 
 
-    <div class="content mat-elevation-z8"  style="height:max-content;">
+    <div class="content mat-elevation-z8"  style="height:fit-content;">
 <div class="container-fluid ">
   <h1 style="font-family: 'Lemon'; color:rgb(16, 131, 1);">Patient Profile</h1>
   <div class="card">
 
-    <div class="row" style="margin-bottom: 5%;">
+    <div class="row">
       <div class="col-4">
 <div class="profile">
   <div class="row">
-    <div class="col-12 " style="margin-top:6%;" >
+    <div class="col-12 " >
       <div class="row">
 <div class="col-12 d-flex align-items-center d-flex justify-content-center">
         <img src="{{ patientData.displayImage }}" class="imgAvatar " >
       </div>
-      <div class="col d-flex align-items-center d-flex justify-content-center" >
-        <button class="myButton" routerLink="/Admin-edit-patient-details/{{ patientData._id }}">Edit Details</button>
-      </div>
+
       </div>
 
     </div>
@@ -82,11 +80,18 @@
 
   </div>
 </div>
+<div class="row" style="margin-bottom: 2%;">
+
+    <div class="col d-flex align-items-center d-flex justify-content-center" >
+      <button class="myButton" routerLink="/Admin-edit-patient-details/{{ patientData._id }}">Edit Details</button>
+    </div>
+
+</div>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col" >
+      <div class="col">
         <div class="card medicaldetails">
 <div class="row">
   <div class="col-4">
@@ -129,8 +134,8 @@
         [animationDuration]="1000"
         [showImage]="true"
         [imageSrc]="bloodpresure"
-        [imageHeight]="105"
-        [imageWidth]="105"
+        [imageHeight]="100"
+        [imageWidth]="100"
         class="w-100"
       ></circle-progress>
       </div>
@@ -153,8 +158,8 @@
         [animationDuration]="1000"
         [showImage]="true"
         [imageSrc]="cholestrol"
-        [imageHeight]="105"
-        [imageWidth]="105"
+        [imageHeight]="100"
+        [imageWidth]="100"
         class="w-100"
 
       ></circle-progress>

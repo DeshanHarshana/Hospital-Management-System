@@ -14,7 +14,7 @@
 					<div class="row">
 						<form class="form-group" [formGroup]="loginForm" autocomplete="on" >
 							<div class="row">
-								<input  type="text"  formControlName="email" autocomplete="nope" class="form__input" placeholder="Username" required>
+								<input  type="text" #emailRef id="email" formControlName="email" autocomplete="nope" class="form__input" placeholder="Username" required>
 							</div>
 							<div class="row">
 								<!-- <span class="fa fa-lock"></span> -->

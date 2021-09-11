@@ -56,7 +56,7 @@
     Email
   </div>
   <div class="col-3 d-flex justify-content-center heading">
-Appointment Date
+Gender
   </div>
   <div class="col-2 d-flex justify-content-center heading">
 Subscription
@@ -71,7 +71,7 @@ Subscription
 
 <div class="row" style="padding-bottom:6px; padding-top:6px" *ngFor="let d of filterdData |orderBy | paginate:{itemsPerPage:5, currentPage:p}">
   <div class="col-3 d-flex align-items-center ">
-    <img class="patientImage d-flex align-items-center " src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg"/>
+    <img class="patientImage d-flex align-items-center " src="{{ d.displayImage }}"/>
     <h4 style="margin-left: 5%; font-size:1.3rem; font-family:'Abas'" >{{ d.name }}</h4>
 
   </div>
@@ -79,14 +79,14 @@ Subscription
     <h4 style="font-size:1.3rem; font-family:'Abas'">{{ d.email }}</h4>
   </div>
   <div class="col-3 d-flex align-items-center d-flex justify-content-center">
-    <h4 style="font-size:1.3rem; font-family:'Abas'">{{ d.appoinmenttime }}</h4>
+    <h4 style="font-size:1.3rem; font-family:'Abas'">{{ d.gender }}</h4>
 
   </div>
   <div class="col-2 d-flex align-items-center d-flex justify-content-center" >
 <h4 style="font-size:1.3rem; font-family:'Abas'">{{ d.subscription }}</h4>
   </div>
   <div class="col-1 d-flex align-items-center d-flex justify-content-center">
-    <mat-icon>remove_red_eye</mat-icon> | <mat-icon>delete_forever</mat-icon>
+    <button class="btn btn-outline-primary" routerLink="/Admin-show-patient-details/{{ d._id }}">View</button>
   </div>
 </div>
 

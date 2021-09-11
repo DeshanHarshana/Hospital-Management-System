@@ -9,7 +9,10 @@ const patient = mongoose.Schema({
     gender:String,
     age:String,
     city:String,
-    guardian:String,
+    gurdian:String,
+    maritalStatus:String,
+    weight:String,
+    height:String,
     personalAdditional:String,
     bloodsuger:String,
     cholestrol:String,
@@ -19,7 +22,8 @@ const patient = mongoose.Schema({
     phone:String,
     reportList:[],
     healthAdditional:String,
-    subscription:String
+    subscription:Boolean,
+    nic:String
     
 });
 

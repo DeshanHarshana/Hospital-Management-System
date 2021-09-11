@@ -13,7 +13,9 @@ mat-sidenav {
   padding: 16px;
   text-align: center;
 }
-
+.logoclass{
+  cursor: pointer;
+}
 .content {
   height: calc(100vh - 98px);
   border-radius: 10px;
@@ -64,14 +66,13 @@ mat-divider {
 .spacer {
   flex: 1 1 auto;
 }
-.logo{
-  cursor: pointer;
-}
 
 .x{
 
-  height: 14rem;
+  height: 15rem;
   padding-top: 2%;
+  text-align: center;
+  
 }
 .y{
   height: 14rem;
@@ -88,7 +89,7 @@ mat-divider {
 }
 .doctor .pic{
 
-  background-image: url("../../../assets/admin-dashboard/doctor.png");
+  background-image: url("../../../assets/admin-dashboard/doctor.jpg");
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -121,20 +122,108 @@ mat-divider {
 }
 
 
-.zoom:hover{
+.zoom:hover {
   transform: scale(1.05);
-box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.09);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.09);
 }
 
-.zoom{
+.zoom {
   cursor: pointer;
   border-radius: 4px;
-    background: #fff;
-    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
+    0.3s box-shadow,
+    0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+}
+
+.corona{
+  height: 100%;
+  width: 80%;
+
 
 
 }
+.corona .pic{
+
+  background-image: url("../../../assets/admin-dashboard/corona.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+.corona .xc{
+  height: 100%;
+}
+.doctor-profile {
+  height: 100%;
+  width: 85%;
+  background-image: linear-gradient(to right, rgba(219, 206, 206, 0.356), rgb(89, 190, 168)), url("../../../assets/doctor/doctor-profile.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+
+}
+.Appointments {
+  height: 100%;
+  width: 85%;
+  background-image: linear-gradient(to right, rgba(52, 201, 102, 0.356), rgb(195, 212, 194)), url("../../../assets/doctor/doctor-appointment.jfif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+
+}
+
+.patients {
+  height: 100%;
+  width: 85%;
+  background-image: linear-gradient(to right, rgba(243, 16, 16, 0.356), rgb(175, 173, 174)), url("../../../assets/doctor/patient1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+
+}
+
+.checked {
+  height: 100%;
+  width: 85%;
+  background-image: linear-gradient(to right, rgba(4, 5, 2, 0.356), rgb(134, 145, 35)), url("../../../assets/doctor/check-appointment.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+
+}
+
+.patient-book {
+  height: 100%;
+  width: 85%;
+  background-image: linear-gradient(to right, rgba(47, 63, 14, 0.356), rgb(35, 61, 145)), url("../../../assets/doctor/patient-book.jfif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+
+}
+
+.reminder {
+  height: 100%;
+  width: 85%;
+  background-image: linear-gradient(to right, rgba(24, 84, 214, 0.356), rgb(190, 40, 160)), url("../../../assets/doctor/reminder.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

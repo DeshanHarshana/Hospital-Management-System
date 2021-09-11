@@ -14,7 +14,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
-import { MatOptionModule } from '@angular/material/core';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -47,10 +47,12 @@ import { AuthGuard } from './guards/auth.guard';
 import { DoctorGuard } from './guards/doctor.guard';
 import { PatientGuard } from './guards/patient.guard';
 
-//report
-import { ReportComponent } from './patient/report/report.component';
 
-//patient
+
+
+
+
+
 import { PatientShowProfileComponent } from './patient/patient-show-profile/patient-show-profile.component';
 import { PatientEditProfileComponent } from './patient/patient-edit-profile/patient-edit-profile.component';
 import { AllPatientListComponent } from './patient/all-patient-list/all-patient-list.component';
@@ -60,6 +62,16 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
+import { ShowReportComponent } from './patient/show-report/show-report.component';
+import { EditReportComponent } from './patient/edit-report/edit-report.component';
+import { ChildComponent } from './test/child/child.component';
+import { ParentComponent } from './test/parent/parent.component';
+import { AppoinmentComponent } from './appoinment/appoinment/appoinment.component';
 
 
 @NgModule({
@@ -83,10 +95,16 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     DoctorAddPatientsComponent,
     ShowDoctorDetailsComponent,
     EditDoctorDetailsComponent,
-    ReportComponent,
+
     PatientShowProfileComponent,
     PatientEditProfileComponent,
     AllPatientListComponent,
+   
+    ShowReportComponent,
+    EditReportComponent,
+    ChildComponent,
+    ParentComponent,
+    AppoinmentComponent,
 
 
     ],
@@ -132,7 +150,11 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     animationDuration: 300,
 
   }),
-  FontAwesomeModule
+  FontAwesomeModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  NgxMaterialTimepickerModule,
+  NgxMatTimepickerModule
 
   ],
   providers: [

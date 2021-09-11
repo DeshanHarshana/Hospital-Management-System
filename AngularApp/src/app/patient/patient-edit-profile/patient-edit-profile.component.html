@@ -1,1 +1,248 @@
-<p>patient-edit-profile works!</p>
+<mat-toolbar class="mat-elevation-z8">
+  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+  <span class="spacer"></span>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+      <h4 class="name">Deshan Harshana</h4>
+      <p class="designation">Hospital Admin</p>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" routerLink="/Admin-dashboard">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+          <mat-icon>person</mat-icon>
+          <span>Add Doctor</span>
+      </button>
+
+
+
+  </mat-sidenav>
+
+
+
+<div class="content mat-elevation-z8" style="height: fit-content;">
+<div class="container-fluid" style="height: fit-content; margin-bottom:5%">
+<div class="row">
+  <div class="col-8">
+    <div class="container-fluid">
+      <div class="card details" style="height: fit-content;">
+        <h1 style="font-family: 'Lemon';">Edit patient details</h1>
+        <form [formGroup]="patient">
+          <div class="card" style="padding: 3%; padding-bottom:4%; margin-bottom:5%">
+            <h2><u>Personal Information</u></h2>
+          <div class="row" >
+            <div class="col">
+              <label for="inputState">Name Title</label>
+              <select id="inputState" class="form-control"  formControlName="title">
+                <option selected>Choose...</option>
+                <option>Mr</option>
+                <option>Mrs</option>
+                <option>Ms</option>
+                <option>Miss</option>
+              </select>
+            </div>
+            <div class="col">
+              <label for="fullname">Name</label>
+              <input type="text" id="fullname" class="form-control" placeholder="Name" formControlName="fullname">
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col">
+              <label for="email">Email</label>
+              <input type="text" id="email" class="form-control"  required placeholder="Email" formControlName="email">
+                       </div>
+            <div class="col">
+              <label for="phone">Phone No</label>
+              <input type="number" id="phone" class="form-control" placeholder="Phone No" formControlName="phone">
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col">
+              <label for="age">Age</label>
+              <input type="number" id="age" class="form-control"  placeholder="Age" formControlName="age">
+                       </div>
+            <div class="col">
+              <label for="city">Current City</label>
+              <input type="text" id="city" class="form-control"  placeholder="Current City" formControlName="city">
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="guardian">Guardian</label>
+              <input type="text" id="gurdian" class="form-control"  placeholder="Gurdian" formControlName="gurdian">
+                       </div>
+            <div class="col">
+              <label for="relationship">Marital Status</label>
+              <select id="relationship" class="form-control" formControlName="maritalStatus">
+                <option selected>Choose...</option>
+                <option>Single</option>
+                <option>Married</option>
+                <option>Widowed</option>
+                <option>Divorced</option>
+              </select></div>
+
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="nic">NIC</label>
+              <input type="text" id="nic" class="form-control"  placeholder="NIC" formControlName="nic">
+                       </div>
+
+                       <div class="col d-flex align-items-center d-flex justify-content-center" style="margin-top: 3%;">
+
+                        <div class="checkbox">
+                          <label for="Medical History-1">
+                            <input type="checkbox" name="Medical History" id="Medical History-1" value="1" formControlName="subscription" (ngModelChange)="Click($event)">
+                            Subscription &nbsp; &nbsp;
+                          </label>
+                          </div>
+
+
+                        </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="exampleFormControlTextarea1">Additional Details</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="personalAdditional"></textarea>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+
+
+        <div class="card" style="padding: 3%; padding-bottom:4%; margin-bottom:5%">
+          <h2 ><u>Health Information</u></h2>
+        <div class="row" >
+          <div class="col">
+            <label for="weight">Weight</label>
+            <input type="text" id="weight" class="form-control"  placeholder="Weight" formControlName="weight">
+          </div>
+          <div class="col">
+            <label for="height">Height</label>
+            <input type="text" id="height" class="form-control" placeholder="Height"  formControlName="height">
+          </div>
+        </div>
+
+
+
+          <div class="row">
+            <div class="col">
+              <label for="exampleFormControlTextarea2">Additional Details</label>
+    <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"  formControlName="healthAdditional"></textarea>
+            </div>
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-4 pic-div ">
+    <div class="row d-flex justify-content-center">
+      <img class="img-class" [src]="imageData">
+
+    </div>
+
+    <div class="row">
+      <section class="d-flex justify-content-center">
+        <input style="display: none" type="file" (change)="onFileSelect($event)" #hiddenfileinput>
+
+        <button (click)="hiddenfileinput.click()"  class="btn btn-warning d-flex justify-content-center"><i class="material-icons left"></i>Select New Image</button>
+      </section>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <form [formGroup]="patient">
+        <div class="card reg ">
+        <div class="col"><u>
+<h1 class="d-flex justify-content-center">Blood Details</h1></u>
+            <label for="bloodsurger">Blood Suger Level</label>
+            <input type="text" id="bloodsurger"  class="form-control" placeholder="Blood Suger" formControlName="bloodsuger">
+</div>
+        <div class="col">
+            <label for="bloodpresure">Blood Presure Level</label>
+            <input type="text" id="bloodpresure"  class="form-control" placeholder="Blood Presure" formControlName="bloodpresure">
+
+          </div>
+          <div class="col">
+            <label for="cholestrol">Cholestrol Level</label>
+            <input type="text" id="cholestrol"  class="form-control" placeholder="Cholestrol" formControlName="cholestrol">
+
+        </div>
+        <div class="col">
+        <u> <h1 class="d-flex justify-content-center">More Details</h1></u>
+          <hr>
+          <label for="wardno">Ward No</label>
+          <input type="text" id="wardno"  class="form-control" placeholder="Ward No" formControlName="wardno">
+
+      </div>
+      <div class="col">
+        <label for="gender">Gender</label>
+        <select id="gender" class="form-control" formControlName="gender">
+          <option selected>Choose...</option>
+          <option>Male</option>
+          <option>Female</option>
+
+        </select>
+    </div>
+
+
+
+        </div>
+      </form>
+
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <button class="myButton "  (click)="editpatient(patient.value)" >Update Patient</button>
+
+        </div>
+      </div>
+
+      <div class="row ">
+        <div class="col d-flex justify-content-center">
+          <button class="myButton2"  (click)="removepatient(patient.value)" >Remove Patient</button>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+</div>
+
+
+</div>
+</div>
+</mat-sidenav-container>

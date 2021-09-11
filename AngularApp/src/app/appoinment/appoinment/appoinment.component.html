@@ -1,0 +1,113 @@
+<mat-toolbar class="mat-elevation-z8">
+  <h1 routerLink="/Patient-dashboard" class="logoclass">Patient</h1>
+  <span class="spacer"></span>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+      <h4 class="name">Deshan Harshana</h4>
+      <p class="designation">Hospital Admin</p>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+      </button>
+  </mat-sidenav>
+
+  <div class="content mat-elevation-z8 " style="height: fit-content;" >
+    <div class='container-fluid ' style="padding: 3%;">
+      <h1 style="font-family: 'Lemon'; margin-left: 30px;"><u>Add a new Appointment</u></h1>
+
+  <form class="row g-3" style="margin-right: 10px; margin-left: 20px;">
+      <div class="col-md-6">
+        <label for="fname" class="form-label">First Name:</label>
+        <input type="text" class="form-control" id="fname">
+      </div>
+      <div class="col-md-6">
+        <label for="lname" class="form-label">Last Name:</label>
+        <input type="text" class="form-control" id="lname">
+      </div>
+      <div class="col-md-3">
+          <label for="gender" class="form-label">Gender:</label>
+          <select id="inputGender" class="form-select" >
+              <option selected>Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+          </select>
+      </div>
+
+      <div class="col-md-3">
+          <label class="form-check-label" for="DOB"> Date Of Birth:</label><br>
+          <mat-form-field>
+              <input matInput [matDatepicker]="datepicker" placeholder="mm/dd/yyyy">
+              <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+              <mat-datepicker #datepicker></mat-datepicker>
+          </mat-form-field>
+      </div>
+
+      <div class="col-md-3" >
+          <label class="form-check-label" for="NIC"> NIC:</label>
+          <input type="text" class="form-control" id="NIC" >
+      </div>
+
+      <div class="col-md-3">
+          <label class="form-check-label" for="number"> Contact Number:</label>
+          <input type="text" class="form-control" id="number" >
+
+      </div>
+     <div class="col-12">
+        <label for="inputAddress" class="form-label">Address</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      </div>
+
+      <div class="col-md-3">
+         <label for="inputCity" class="form-label">Services</label>
+         <select id="inputservice" class="form-select">
+             <option selected>Service</option>
+             <option >short-term hospitalization</option>
+             <option >emergency room services</option>
+             <option >general and specialty surgical services</option>
+             <option >x ray/radiology services</option>
+             <option >laboratory services</option>
+             <option >blood services</option>
+         </select>
+      </div>
+
+      <div class="col-md-3">
+          <label class="form-check-label" for="DOB"> Appointment Date:</label>
+          <mat-form-field>
+              <input matInput [matDatepicker]="datepicker1" placeholder="mm/dd/yyyy">
+              <mat-datepicker-toggle matSuffix [for]="datepicker1"></mat-datepicker-toggle>
+              <mat-datepicker #datepicker1></mat-datepicker>
+          </mat-form-field>
+      </div>
+
+      <div class="col-md-3">
+          <label for="Appointmenttime" class="form-label">Appointment Time:</label>
+          <input type="text" class="form-control" id="Appointmenttime">
+      </div>
+
+      <div class="col-md-3">
+          <label for="Appointmenttime" class="form-label">Appointment Doctor:</label>
+          <input type="text" class="form-control" id="Appointmentdoctor">
+      </div>
+
+      <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Any Emergency..</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="tell us your problem...."></textarea>
+      </div>
+
+      <div class="col-12 d-flex justify-content-end" style="margin-bottom: 2%;">
+        <button type="submit" class="myButton ">Make Appoinment</button>
+      </div>
+    </form>
+  </div>
+  </div>
+</mat-sidenav-container>

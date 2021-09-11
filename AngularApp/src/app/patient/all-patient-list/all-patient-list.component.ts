@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Patient } from 'src/app/appdata/Patient';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
   selector: 'app-all-patient-list',
@@ -11,17 +12,28 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class AllPatientListComponent implements OnInit {
   p:number=1;
-  tempdata:Patient[]=Patient.data;
+  tempdata:Patient[]=[]
   filterdData:any=[];
   name:any;
   constructor(
     private router:Router,
-    private auth:AuthenticationService
+    private auth:AuthenticationService,
+    private patient:PatientService
 
   ) { }
 
   ngOnInit(): void {
-    this.filterdData=this.tempdata;
+    setTimeout(() => {
+      this.patient.getAllPatients().subscribe(res=>{
+        this.tempdata=res;
+        this.filterdData=this.tempdata;
+      })
+    }, );
+
+
+  }
+  seeDetails(value:string){
+    this.router.navigate(['Admin-show-patient-details/'+value]);
   }
   logout(){
 

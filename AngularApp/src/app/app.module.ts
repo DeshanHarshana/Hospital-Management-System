@@ -74,6 +74,10 @@ import { ParentComponent } from './test/parent/parent.component';
 import { AppoinmentComponent } from './appoinment/appoinment/appoinment.component';
 
 
+import { ReportlistComponent } from './patient/reportlist/reportlist.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,6 +109,9 @@ import { AppoinmentComponent } from './appoinment/appoinment/appoinment.componen
     ChildComponent,
     ParentComponent,
     AppoinmentComponent,
+
+    ReportlistComponent,
+
 
 
     ],

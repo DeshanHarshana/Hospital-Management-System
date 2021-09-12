@@ -41,15 +41,15 @@
               <h2><u>Personal Details</u></h2>
 
               <div class="form-group">
-                <label class="col-md-4 control-label" for="Name (Full name)">Name (Full name)</label>
+                <label class="col-md-4 control-label" for="fullname">Name (Full name)</label>
                 <div class="col">
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-user">
                       </i>
                     </div>
-                    <input id="Name (Full name)" name="Name (Full name)" type="text" placeholder="Name (Full name)"
-                      class="form-control input-md">
+                    <input id="fullname" formControlName="fullname" name="Name (Full name)" type="text"
+                      placeholder="Name (Full name)" class="form-control input-md">
                   </div>
 
 
@@ -68,8 +68,16 @@
                       <i class="fa fa-birthday-cake"></i>
 
                     </div>
-                    <input id="Date Of Birth" name="Date Of Birth" type="text" placeholder="Date Of Birth"
-                      class="form-control input-md">
+
+                    <mat-form-field>
+
+                      <input matInput [matDatepicker]="myDatePiker" class="col-md-6  col-xs-4">
+                      <mat-label>Choose a date</mat-label>
+                      <mat-datepicker-toggle [for]="myDatePiker" matSuffix></mat-datepicker-toggle>
+                      <mat-datepicker #myDatePiker></mat-datepicker>
+
+                    </mat-form-field>
+
                   </div>
 
 
@@ -202,9 +210,9 @@
                   </div>
 
                 </div>
-                </div>
+              </div>
 
-        </form>
+            </form>
           </div>
 
         </div>
@@ -215,34 +223,37 @@
               <div class="card classCard">
                 <form action="">
                   <h2><u>Personal Details</u></h2>
-                    <div class="row">
-                      <div class="col-5">
-                        <div class="form-group">
-                          <label class="col-md-4 control-label col-xs-12" for="">Height </label>
-                          <div class="col-md-10  col-xs-4">
-                          <input id="Height" name="Height" type="text" placeholder="Height" class="form-control input-md ">
-                          </div>
-                      </div>
-                      </div>
-                      <div class="col-5">
-                        <div class="form-group">
-                          <label class="col-md-4 control-label col-xs-12" for="">Weight </label>
-                          <div class="col-md-10  col-xs-4">
-                          <input id="Weight" name="Weight" type="text" placeholder="Weight" class="form-control input-md "> <br>
-                          </div>
-                      </div>
-                      </div>
-
-
+                  <div class="row">
+                    <div class="col-5">
                       <div class="form-group">
-                        <label class="col-md-4 control-label" for="Medical History">Past Medical History</label>
-                       <table>
-                         <tr>
-                           <td><div class="checkbox">
-                            <label for="Medical History-1">
-                              <input type="checkbox" name="Medical History" id="Medical History-1" value="1">
-                              Heart disease &nbsp; &nbsp;
-                            </label>
+                        <label class="col-md-4 control-label col-xs-12" for="">Height </label>
+                        <div class="col-md-10  col-xs-4">
+                          <input id="Height" name="Height" type="text" placeholder="Height"
+                            class="form-control input-md ">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-5">
+                      <div class="form-group">
+                        <label class="col-md-4 control-label col-xs-12" for="">Weight </label>
+                        <div class="col-md-10  col-xs-4">
+                          <input id="Weight" name="Weight" type="text" placeholder="Weight"
+                            class="form-control input-md "> <br>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="Medical History">Past Medical History</label>
+                      <table>
+                        <tr>
+                          <td>
+                            <div class="checkbox">
+                              <label for="Medical History-1">
+                                <input type="checkbox" name="Medical History" id="Medical History-1" value="1">
+                                Heart disease &nbsp; &nbsp;
+                              </label>
                             </div>
                           </td>
                           <td>
@@ -251,193 +262,166 @@
                                 <input type="checkbox" name="Medical History" id="Medical History-2" value="2">
                                 Diabetes &nbsp; &nbsp;
                               </label>
-                              </div>
+                            </div>
                           </td>
 
 
-                         </tr>
-                         <tr>
+                        </tr>
+                        <tr>
                           <td>
                             <div class="checkbox">
                               <label for="Medical History-3">
                                 <input type="checkbox" name="Medical History" id="Medical History-3" value="3">
                                 High blood pressure &nbsp; &nbsp;
                               </label>
-                              </div>
+                            </div>
                           </td>
                           <td>
                             <div class="checkbox">
-                             <label for="Medical History-4">
-                              <input type="checkbox" name="Medical History" id="Medical History-4" value="4">
+                              <label for="Medical History-4">
+                                <input type="checkbox" name="Medical History" id="Medical History-4" value="4">
                                 Cancer
                               </label>
-                          </div>
+                            </div>
                           </td>
-                         </tr>
-                         <tr>
-                           <td >
+                        </tr>
+                        <tr>
+                          <td>
                             <div class="checkbox">
                               <label for="Medical History-5">
                                 <input type="checkbox" name="Medical History" id="Medical History-5" value="5">
                                 High cholesterol &nbsp; &nbsp;
                               </label>
-                              </div>
-                           </td>
-                           <td >
+                            </div>
+                          </td>
+                          <td>
                             <div class="checkbox">
                               <label for="Medical History-6">
                                 <input type="checkbox" name="Medical History" id="Medical History-6" value="6">
                                 Kidney disease &nbsp; &nbsp;
                               </label>
-                              </div>
-                           </td>
-                          </tr>
-                         <tr>
-                          <td >
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
                             <div class="checkbox">
                               <label for="Medical History-7">
                                 <input type="checkbox" name="Medical History" id="Medical History-7" value="7">
                                 Stroke &nbsp; &nbsp;
                               </label>
-                              </div>
-                           </td>
-                           <td >
+                            </div>
+                          </td>
+                          <td>
                             <div class="checkbox">
                               <label for="Medical History-8">
                                 <input type="checkbox" name="Medical History" id="Medical History-8" value="8">
                                 Depression &nbsp; &nbsp;
                               </label>
-                              </div>
-                           </td>
-                         </tr>
-                         <tr>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
                           <div class="othertop">
                             <label for="Medical History-9">
-                               </label>
-                                 <input type="input" name="MedicalHistory" id="Languages Known-9"  placeholder="Other Issue">
-                            </div>
-                            </tr>
-                       </table>
-                       <br>
-                        </div>
-
-                        <div class="form-group">
-                          <label class="col-md-4 control-label" for="Surgeries">Surgeries</label>
-                          <div class="col">
-                            <div class="form-group">
-                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Surgery details"></textarea> <br>
-                            </div>
+                            </label>
+                            <input type="input" name="MedicalHistory" id="Languages Known-9" placeholder="Other Issue">
                           </div>
-                        </div>
+                        </tr>
+                      </table>
+                      <br>
+                    </div>
 
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="Surgeries">Surgeries</label>
+                      <div class="col">
                         <div class="form-group">
-                          <label class="col-md-4 control-label" for="Surgeries">Medications</label>
-                          <div class="col">
-                            <div class="form-group">
-                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Please list medications that you are taking"></textarea> <br>
-                            </div>
-                          </div>
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            placeholder="Surgery details"></textarea> <br>
                         </div>
+                      </div>
+                    </div>
 
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="Surgeries">Medications</label>
+                      <div class="col">
                         <div class="form-group">
-                          <label class="col-md-4 control-label" for="Surgeries">Allergies</label> <br>
-                          <div class="col-md-4">
-                            <table>
-                              <tr>
-                                <td>Latex &nbsp; &nbsp;</td>
-                                <td>
-                                  <div class="form-check form-check-inline">
-                                    <input
-                                      class="form-check-input"
-                                      type="radio"
-                                      name="inlineRadioOptions"
-                                      id="inlineRadio1"
-                                      value="option1"
-                                    />
-                                    <label class="form-check-label" for="inlineRadio1">Yes</label>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div class="form-check form-check-inline">
-                                    <input
-                                      class="form-check-input"
-                                      type="radio"
-                                      name="inlineRadioOptions"
-                                      id="inlineRadio1"
-                                      value="option1"
-                                    />
-                                    <label class="form-check-label" for="inlineRadio1">No</label>
-                                  </div>
-                                </td>
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            placeholder="Please list medications that you are taking"></textarea> <br>
+                        </div>
+                      </div>
+                    </div>
 
-                              </tr>
-                              <tr>
-                                <td>Iodine &nbsp; &nbsp;</td>
-                                <td>
-                                  <div class="form-check form-check-inline">
-                                    <input
-                                      class="form-check-input"
-                                      type="radio"
-                                      name="inlineRadioOptions"
-                                      id="inlineRadio1"
-                                      value="option1"
-                                    />
-                                    <label class="form-check-label" for="inlineRadio1">Yes</label>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div class="form-check form-check-inline">
-                                    <input
-                                      class="form-check-input"
-                                      type="radio"
-                                      name="inlineRadioOptions"
-                                      id="inlineRadio1"
-                                      value="option1"
-                                    />
-                                    <label class="form-check-label" for="inlineRadio1">No</label>
-                                  </div>
-                                </td>
-                            </tr>
-                            <tr>
-                              <td>Bromine &nbsp; &nbsp;</td>
-                              <td>
-                                <div class="form-check form-check-inline">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="inlineRadioOptions"
-                                    id="inlineRadio1"
-                                    value="option1"
-                                  />
-                                  <label class="form-check-label" for="inlineRadio1">Yes</label>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="form-check form-check-inline">
-                                  <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="inlineRadioOptions"
-                                    id="inlineRadio1"
-                                    value="option1"
-                                  />
-                                  <label class="form-check-label" for="inlineRadio1">No</label>
-                                </div>
-                              </td>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="Surgeries">Allergies</label> <br>
+                      <div class="col-md-4">
+                        <table>
+                          <tr>
+                            <td>Latex &nbsp; &nbsp;</td>
+                            <td>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                  value="option1" />
+                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                  value="option1" />
+                                <label class="form-check-label" for="inlineRadio1">No</label>
+                              </div>
+                            </td>
+
+                          </tr>
+                          <tr>
+                            <td>Iodine &nbsp; &nbsp;</td>
+                            <td>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                  value="option1" />
+                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                  value="option1" />
+                                <label class="form-check-label" for="inlineRadio1">No</label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Bromine &nbsp; &nbsp;</td>
+                            <td>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                  value="option1" />
+                                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                  value="option1" />
+                                <label class="form-check-label" for="inlineRadio1">No</label>
+                              </div>
+                            </td>
                           </tr>
                           <tr>
                             <div class="othertop">
                               <label for="Medical History-9">
-                                 </label>
-                                   <input type="input" name="MedicalHistory" id="Languages Known-9"  placeholder="Other Allergies">
-                              </div>
+                              </label>
+                              <input type="input" name="MedicalHistory" id="Languages Known-9"
+                                placeholder="Other Allergies">
+                            </div>
 
                           </tr>
 
-                            </table>
-                            </div>
-                        </div>
+                        </table>
+                      </div>
                     </div>
+                  </div>
                 </form>
               </div>
             </div>
@@ -447,28 +431,36 @@
           <div class="row">
             <div class="col">
               <div class="card classCard">
-              <div class="row">
-               <div class="col">
+                <div class="row">
+                  <div class="col">
 
-                <div class="form-group">
-                  <label class="col-md-4 control-label col-xs-12" for="">Date </label>
-                  <div class="col-md-6  col-xs-4">
-                  <input id="Date" name="Date" type="text" placeholder="Date" class="form-control input-md ">
-                  </div>
-              </div>
-               </div>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label col-xs-12" for="">Date </label>
 
-              <div class="col">
-                <div class="col-5">
-                  <div class="form-group">
-                    <label class="col-md-10 control-label col-xs-12" for="">Signature </label>
-                    <div class="col-md-12  col-xs-4">
-                    <input id="Signature" name="Signature" type="text" placeholder="Sign" class="form-control input-md "> <br>
+                      <mat-form-field>
+
+                        <input matInput [matDatepicker]="myDatePiker" class="col-md-6  col-xs-4">
+                        <mat-label>Choose a date</mat-label>
+                        <mat-datepicker-toggle [for]="myDatePiker" matSuffix></mat-datepicker-toggle>
+                        <mat-datepicker #myDatePiker></mat-datepicker>
+
+                      </mat-form-field>
+
                     </div>
+                  </div>
+
+                  <div class="col">
+                    <div class="col-5">
+                      <div class="form-group">
+                        <label class="col-md-10 control-label col-xs-12" for="">Signature </label>
+                        <div class="col-md-12  col-xs-4">
+                          <input id="Signature" name="Signature" type="text" placeholder="Sign"
+                            class="form-control input-md "> <br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                </div>
-              </div>
-              </div>
 
               </div>
             </div>

@@ -77,6 +77,7 @@ import { EditMedicalUnitComponent } from './edit-medical-unit/edit-medical-unit.
 
 import { ReportlistComponent } from './patient/reportlist/reportlist.component';
 import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/appoinment-doctor-list.component';
+import { AppoinmentlistComponent } from './patient/appoinmentlist/appoinmentlist.component';
 
 
 
@@ -116,6 +117,7 @@ import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/
 
     ReportlistComponent,
     AppoinmentDoctorListComponent,
+    AppoinmentlistComponent,
 
 
 

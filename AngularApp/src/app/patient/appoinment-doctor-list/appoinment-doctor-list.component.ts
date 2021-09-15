@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { Doctor } from 'src/app/appdata/Doctor';
+import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
   selector: 'app-appoinment-doctor-list',
@@ -20,7 +21,8 @@ export class AppoinmentDoctorListComponent implements OnInit {
     private doctorService:DoctorService,
     private router:Router,
     private route:ActivatedRoute,
-    private auth:AuthenticationService
+    private auth:AuthenticationService,
+    private patient:PatientService
   ) { }
 
   ngOnInit(): void {
@@ -30,7 +32,9 @@ export class AppoinmentDoctorListComponent implements OnInit {
         this.tempdata=res;
         this.filterdData=this.tempdata;
 
-      })
+      });
+
+
     }, );
   }
 

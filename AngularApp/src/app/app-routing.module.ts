@@ -38,6 +38,7 @@ import { EditMedicalUnitComponent } from './edit-medical-unit/edit-medical-unit.
 
 import { ReportlistComponent } from './patient/reportlist/reportlist.component';
 import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/appoinment-doctor-list.component';
+import { AppoinmentlistComponent } from './patient/appoinmentlist/appoinmentlist.component';
 
 
 
@@ -69,6 +70,7 @@ const routes: Routes = [
   {path:'edit-report', component:EditReportComponent, canActivate:[PatientGuard]},
   {path:'report-list', component:ReportlistComponent},
   {path:'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent},
+  {path:'getcurrentAppoinment', component:AppoinmentlistComponent},
 
   //test
   {path : 'test', component:TestComponent},
@@ -77,7 +79,7 @@ const routes: Routes = [
 
 
   //appoinment
-  {path:'appoinment', component:AppoinmentComponent},
+  {path:'appoinment/:id', component:AppoinmentComponent},
 
   //medicalunit
   {path:'edit-medical-unit',component:EditMedicalUnitComponent},

@@ -44,4 +44,8 @@ export class DoctorService {
   deleteDoctor(id:string){
     return this._http.delete<any>('http://localhost:3000/delete-doctor/'+id);
   }
+
+  putAppoinment(appoinment:any, doctorId:string){
+    return this._http.post("http://localhost:3000/updateAppoinmentList/"+doctorId, appoinment);
+  }
 }

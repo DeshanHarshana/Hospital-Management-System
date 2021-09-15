@@ -33,8 +33,12 @@ import { PatientEditProfileComponent } from './patient/patient-edit-profile/pati
 import { ChildComponent } from './test/child/child.component';
 import { ParentComponent } from './test/parent/parent.component';
 import { AppoinmentComponent } from './appoinment/appoinment/appoinment.component';
+
+import { EditMedicalUnitComponent } from './edit-medical-unit/edit-medical-unit.component';
+
 import { ReportlistComponent } from './patient/reportlist/reportlist.component';
 import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/appoinment-doctor-list.component';
+
 
 
 const routes: Routes = [
@@ -75,6 +79,8 @@ const routes: Routes = [
   //appoinment
   {path:'appoinment', component:AppoinmentComponent},
 
+  //medicalunit
+  {path:'edit-medical-unit',component:EditMedicalUnitComponent},
   //pagenot found
   { path : '**', component:PageNotFoundComponent }
 

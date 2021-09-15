@@ -73,6 +73,7 @@ import { ChildComponent } from './test/child/child.component';
 import { ParentComponent } from './test/parent/parent.component';
 import { AppoinmentComponent } from './appoinment/appoinment/appoinment.component';
 import { ReportlistComponent } from './patient/reportlist/reportlist.component';
+import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/appoinment-doctor-list.component';
 
 
 @NgModule({
@@ -100,13 +101,14 @@ import { ReportlistComponent } from './patient/reportlist/reportlist.component';
     PatientShowProfileComponent,
     PatientEditProfileComponent,
     AllPatientListComponent,
-   
+
     ShowReportComponent,
     EditReportComponent,
     ChildComponent,
     ParentComponent,
     AppoinmentComponent,
     ReportlistComponent,
+    AppoinmentDoctorListComponent,
 
 
     ],

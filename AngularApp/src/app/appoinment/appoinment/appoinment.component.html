@@ -25,7 +25,7 @@
     <div class='container-fluid ' style="padding: 3%;">
       <h1 style="font-family: 'Lemon'; margin-left: 30px;"><u>Add a new Appointment</u></h1>
 
-  <form class="row g-3" style="margin-right: 10px; margin-left: 20px;">
+  <form class="row g-3" style="margin-right: 10px; margin-left: 20px;" [formGroup]="appoinment">
       <div class="col-md-6">
         <label for="fname" class="form-label">First Name:</label>
         <input type="text" class="form-control" id="fname">
@@ -46,7 +46,7 @@
       <div class="col-md-3">
           <label class="form-check-label" for="DOB"> Date Of Birth:</label><br>
           <mat-form-field>
-              <input matInput [matDatepicker]="datepicker" placeholder="mm/dd/yyyy">
+              <input matInput [matDatepicker]="datepicker" formControlName="dob" placeholder="mm/dd/yyyy">
               <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
               <mat-datepicker #datepicker></mat-datepicker>
           </mat-form-field>
@@ -81,9 +81,9 @@
       </div>
 
       <div class="col-md-3">
-          <label class="form-check-label" for="DOB"> Appointment Date:</label>
+          <label class="form-check-label" for="DOB"> Appointment Date:</label><br>
           <mat-form-field>
-              <input matInput [matDatepicker]="datepicker1" placeholder="mm/dd/yyyy">
+              <input matInput [matDatepicker]="datepicker1"  placeholder="mm/dd/yyyy">
               <mat-datepicker-toggle matSuffix [for]="datepicker1"></mat-datepicker-toggle>
               <mat-datepicker #datepicker1></mat-datepicker>
           </mat-form-field>
@@ -105,7 +105,7 @@
       </div>
 
       <div class="col-12 d-flex justify-content-end" style="margin-bottom: 2%;">
-        <button type="submit" class="myButton ">Make Appoinment</button>
+        <button type="submit" class="myButton " (click)="make(appoinment.value)">Make Appoinment</button>
       </div>
     </form>
   </div>

@@ -208,6 +208,8 @@ router.get('/get-all-doctors', function(req,res){
     });
 });
 
+
+
 router.get('/get-all-patients', function(req,res){
     Patient.find({}, function(error, result){
         if(error){

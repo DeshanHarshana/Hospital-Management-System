@@ -34,6 +34,7 @@ import { ChildComponent } from './test/child/child.component';
 import { ParentComponent } from './test/parent/parent.component';
 import { AppoinmentComponent } from './appoinment/appoinment/appoinment.component';
 import { ReportlistComponent } from './patient/reportlist/reportlist.component';
+import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/appoinment-doctor-list.component';
 
 
 const routes: Routes = [
@@ -63,6 +64,7 @@ const routes: Routes = [
   {path:'show-report', component:ShowReportComponent, canActivate:[PatientGuard]},
   {path:'edit-report', component:EditReportComponent, canActivate:[PatientGuard]},
   {path:'report-list', component:ReportlistComponent},
+  {path:'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent},
 
   //test
   {path : 'test', component:TestComponent},

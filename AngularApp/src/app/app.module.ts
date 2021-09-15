@@ -74,7 +74,14 @@ import { ParentComponent } from './test/parent/parent.component';
 import { AppoinmentComponent } from './appoinment/appoinment/appoinment.component';
 
 
+import { EditMedicalUnitComponent } from './edit-medical-unit/edit-medical-unit.component';
+import { ShowMedicalUnitComponent } from './show-medical-unit/show-medical-unit.component';
+
+
 import { ReportlistComponent } from './patient/reportlist/reportlist.component';
+import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/appoinment-doctor-list.component';
+import { AppoinmentlistComponent } from './patient/appoinmentlist/appoinmentlist.component';
+
 
 
 
@@ -103,14 +110,20 @@ import { ReportlistComponent } from './patient/reportlist/reportlist.component';
     PatientShowProfileComponent,
     PatientEditProfileComponent,
     AllPatientListComponent,
-   
+
     ShowReportComponent,
     EditReportComponent,
     ChildComponent,
     ParentComponent,
     AppoinmentComponent,
 
+    EditMedicalUnitComponent,
+    ShowMedicalUnitComponent,
+
     ReportlistComponent,
+    AppoinmentDoctorListComponent,
+    AppoinmentlistComponent,
+
 
 
 

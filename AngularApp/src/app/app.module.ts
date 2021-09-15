@@ -72,7 +72,11 @@ import { EditReportComponent } from './patient/edit-report/edit-report.component
 import { ChildComponent } from './test/child/child.component';
 import { ParentComponent } from './test/parent/parent.component';
 import { AppoinmentComponent } from './appoinment/appoinment/appoinment.component';
+
+import { EditMedicalUnitComponent } from './edit-medical-unit/edit-medical-unit.component';
+
 import { ReportlistComponent } from './patient/reportlist/reportlist.component';
+
 
 
 @NgModule({
@@ -106,7 +110,11 @@ import { ReportlistComponent } from './patient/reportlist/reportlist.component';
     ChildComponent,
     ParentComponent,
     AppoinmentComponent,
+
+    EditMedicalUnitComponent,
+
     ReportlistComponent,
+
 
 
     ],

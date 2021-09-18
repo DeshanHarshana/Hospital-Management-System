@@ -116,7 +116,8 @@ router.post('/login', function(req,res){
                     })
                 }else{
                     res.send({
-                        'success':'yes'
+                        'success':'yes',
+                        'doctorid':result._id
                     });
                 }
             }
@@ -234,7 +235,14 @@ router.get('/get-one-doctor/:id', function(req,res){
         }
     });
 });
-
+//get admin data
+router.get('/admin-data', function(req,res){
+    Admin.find({}, function(error,result){
+        if(!error){
+            res.send(result);
+        }
+    });
+})
 router.get('/get-one-patient/:id', function(req,res){
 
     Patient.findById({_id:req.params.id}, function(error, result){
@@ -558,7 +566,7 @@ router.post('/add-new-appoinment', function(req,res){
                     dob:req.body.dob,
                     nic:req.body.nic,
                     number:req.body.number,
-                    address:req.body.service,
+                    address:req.body.address,
                     service:req.body.service,
                     appoinmentDate:req.body.appoinmentDate,
                     appoinmentTime:req.body.appoinmentTime,
@@ -567,7 +575,8 @@ router.post('/add-new-appoinment', function(req,res){
                     doctorid:req.body.doctorid,
                     patientid:req.body.patientid,
                     status:req.body.status,
-                    displayImage:req.body.displayImage
+                    displayImage:req.body.displayImage,
+                    displayImageP:req.body.displayImageP
                 }
                 let appoinment= new Appoinment(appoinmentData)
                  appoinment.save((error, result)=>{
@@ -582,6 +591,7 @@ router.post('/add-new-appoinment', function(req,res){
     
 });
 
+//for patient
 router.get('/specificAppoinmentList/:id', function(req,res){
     Appoinment.find({patientid:req.params.id}, function(error,result){
         if(!error){
@@ -589,7 +599,14 @@ router.get('/specificAppoinmentList/:id', function(req,res){
         }
     })
 })
-
+//for doctors
+router.get('/specificAppoinmentListDoctor/:id', function(req,res){
+    Appoinment.find({doctorid:req.params.id}, function(error,result){
+        if(!error){
+            res.send(result);
+        }
+    })
+});
 
 //in doctor list
 router.post('/updateAppoinmentList/:id', function(req,res){
@@ -602,6 +619,56 @@ router.post('/updateAppoinmentList/:id', function(req,res){
         function(error, Result){
             if(error){
                 res.send("Error Update Doctor Appoinment List" + error)
+            }else{
+                res.status(200).send(Result)
+            }
+        }
+    )
+});
+router.post('/acceptAppoinment/:id', function(req,res){
+    Doctor.findByIdAndUpdate(req.params.id,{
+        $push:{
+            patient:[req.body]
+        },
+        new :true
+    },
+        function(error, Result){
+            if(error){
+                res.send("Error Update Doctor Patient List" + error)
+            }else{
+                res.status(200).send(Result)
+            }
+        }
+    )
+});
+router.get('/changeAppoinmentState/:id', function(req,res){
+    Appoinment.findByIdAndUpdate(req.params.id,{
+        $set:{
+            status:"Accepted"
+        },
+
+    },
+        function(error, Result){
+            if(error){
+                res.send("Error Update Doctor Patient List" + error)
+            }else{
+                res.status(200).send(Result)
+            }
+        }
+    )
+});
+
+
+router.post('/doctoraddtopatientlist/:id', function(req,res){
+    Patient.findByIdAndUpdate(req.params.id,{
+        $push:{
+            doctorlist:[req.body]
+        },
+        new :true
+    },
+        function(error, Result){
+            if(error){
+                res.send("Error Update Doctor Patient List" + error)
             }else{
                 res.status(200).send(Result)
             }
@@ -642,7 +709,40 @@ router.delete('/deleteAppoinment2/:id', function(req,res){
      });
     });
 
+//get doctor's patient list
+var patientData=[];
+router.get('/getDoctorpatientlist/:id',  function(req,res){
+    Doctor.find({_id:req.params.id},'patient', function(error,result){
+        if(error){
+            console.log("error");
+        }else{
+            var data=result[0].patient;
+          
+            
+              
+             getAllpatientinDoctor(data, getPatierntlist);
+             setTimeout(()=>{
+                res.send(patientData);
+             },1000);
+             
+        }
+    })
+});
 
+function getAllpatientinDoctor(data, callback){
+    var patientids=[];
+    for (var i = 0; i < data.length; i++){
+        var obj = data[i];
+        var value = obj['patientid'];
+        patientids.push(value);
+    }
+    callback(patientids);
+}
+
+async function getPatierntlist(ids){
+    const records = await Patient.find({ '_id': { $in: ids } });
+    patientData=records;
+}
 
 
 
@@ -756,5 +856,19 @@ router.delete('/delete-doctor/:id', function(req, res){
 })
 
 
+//admin dashboard counts
+
+router.get('/getDashboardData',async function(req,res){
+    var data={
+        appoinment:0,
+        doctor:0,
+        patient:0
+    }
+    data.appoinment = await Appoinment.countDocuments({}).exec();
+    data.doctor = await Doctor.countDocuments({}).exec();
+    data.patient = await Patient.countDocuments({}).exec();
+    res.send(data)
+
+})
 //export model
 module.exports=router;

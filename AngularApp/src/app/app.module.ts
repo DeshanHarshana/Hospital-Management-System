@@ -48,14 +48,7 @@ import { DoctorGuard } from './guards/doctor.guard';
 import { PatientGuard } from './guards/patient.guard';
 
 import { ShowWardpageComponent } from './admin/show-wardpage/show-wardpage.component';
-
-
-
-
-
-
-
-
+import { EditWardDetailsComponent } from './admin/edit-ward-details/edit-ward-details.component';
 import { PatientShowProfileComponent } from './patient/patient-show-profile/patient-show-profile.component';
 import { PatientEditProfileComponent } from './patient/patient-edit-profile/patient-edit-profile.component';
 import { AllPatientListComponent } from './patient/all-patient-list/all-patient-list.component';
@@ -111,6 +104,7 @@ import { AppoinmentlistComponent } from './patient/appoinmentlist/appoinmentlist
     ShowDoctorDetailsComponent,
     EditDoctorDetailsComponent,
     ShowWardpageComponent,
+    EditWardDetailsComponent,
 
     PatientShowProfileComponent,
     PatientEditProfileComponent,

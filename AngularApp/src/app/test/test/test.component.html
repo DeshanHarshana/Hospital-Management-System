@@ -1,7 +1,15 @@
-<div class="d-flex justify-content-center d-flex align-items-center xx">
 
-  <mat-spinner></mat-spinner>
+<mat-form-field>
 
-</div>
+  <input matInput [matDatepicker]="myDatePiker">
 
-<button class="myButton">deshan</button>
+    <mat-datepicker-toggle [for]="myDatePiker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatePiker></mat-datepicker>
+
+</mat-form-field>
+
+
+<input [ngxMatTimepicker]="picker">
+<ngx-mat-timepicker #picker></ngx-mat-timepicker>
+ name
+<input type="text" [ngModel]="name" (ngModelChange)="somethingHappend($event)">

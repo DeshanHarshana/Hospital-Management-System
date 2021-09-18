@@ -47,6 +47,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { DoctorGuard } from './guards/doctor.guard';
 import { PatientGuard } from './guards/patient.guard';
 import { ShowWardpageComponent } from './admin/show-wardpage/show-wardpage.component';
+import { EditWardDetailsComponent } from './admin/edit-ward-details/edit-ward-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +70,7 @@ import { ShowWardpageComponent } from './admin/show-wardpage/show-wardpage.compo
     ShowDoctorDetailsComponent,
     EditDoctorDetailsComponent,
     ShowWardpageComponent,
+    EditWardDetailsComponent,
 
     ],
   imports: [

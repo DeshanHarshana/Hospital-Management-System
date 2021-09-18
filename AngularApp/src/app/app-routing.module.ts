@@ -21,6 +21,8 @@ import { PatientAboutComponent } from './patient/patient-about/patient-about.com
 import { PatientDashboardComponent } from './patient/patient-dashboard/patient-dashboard.component';
 import { SignupComponent } from './signup/signup.component';
 import { TestComponent } from './test/test/test.component';
+import { ShowWardpageComponent } from './admin/show-wardpage/show-wardpage.component';
+import { EditWardDetailsComponent } from './admin/edit-ward-details/edit-ward-details.component';
 
 const routes: Routes = [
 
@@ -34,7 +36,8 @@ const routes: Routes = [
   {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent, canActivate : [AuthGuard]},
   {path : 'Admin-show-doctor-details/:id', component:ShowDoctorDetailsComponent, canActivate : [AuthGuard]},
   {path : 'Admin-edit-doctor-detais/:id', component:EditDoctorDetailsComponent, canActivate : [AuthGuard]},
-
+  {path : 'Admin-show-wardpage',component:ShowWardpageComponent, canActivate : [AuthGuard]},
+  {path : 'Admin-edit-ward-details',component:EditWardDetailsComponent, canActivate : [AuthGuard]},
 
   //doctor
   {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},

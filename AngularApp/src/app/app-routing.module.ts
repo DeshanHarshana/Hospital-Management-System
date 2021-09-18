@@ -29,10 +29,15 @@ import { ShowReportComponent } from './patient/show-report/show-report.component
 
 import { SignupComponent } from './signup/signup.component';
 import { TestComponent } from './test/test/test.component';
+
+import { ShowWardpageComponent } from './admin/show-wardpage/show-wardpage.component';
+import { EditWardDetailsComponent } from './admin/edit-ward-details/edit-ward-details.component';
+
 import { PatientEditProfileComponent } from './patient/patient-edit-profile/patient-edit-profile.component';
 import { ChildComponent } from './test/child/child.component';
 import { ParentComponent } from './test/parent/parent.component';
 import { AppoinmentComponent } from './appoinment/appoinment/appoinment.component';
+
 
 
 import { EditMedicalUnitComponent } from './edit-medical-unit/edit-medical-unit.component';
@@ -52,6 +57,7 @@ const routes: Routes = [
   { path: '', redirectTo:'/index', pathMatch:'full'},
   { path: 'login/:id', component:LoginComponent},
   { path: 'signup', component:SignupComponent},
+
   {path:'Admin-dashboard',component:DashboardComponent},
   {path : 'Admin-show-doctorlist',component:DoctorlistComponent},
   {path : 'Admin-About', component:AdminAboutComponent},
@@ -61,6 +67,10 @@ const routes: Routes = [
   {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent},
   {path : 'Admin-edit-patient-details/:id', component:PatientEditProfileComponent},
   {path : 'Admin-show-all-patient-list', component:AllPatientListComponent},
+  {path : 'Admin-show-wardpage',component:ShowWardpageComponent},
+  {path : 'Admin-edit-ward-details',component:EditWardDetailsComponent},
+
+
 
   //doctor
   {path:'Doctor-dashboard', component:DoctorDashboardComponent},

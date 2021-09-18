@@ -48,4 +48,12 @@ export class DoctorService {
   putAppoinment(appoinment:any, doctorId:string){
     return this._http.post("http://localhost:3000/updateAppoinmentList/"+doctorId, appoinment);
   }
+  acceptAppoinment(patient:any, doctorID:string){
+    return this._http.post("http://localhost:3000/acceptAppoinment/"+doctorID, patient);
+
+  }
+  getPatientList(doctorid:string){
+    return this._http.get("http://localhost:3000/getDoctorpatientlist/"+doctorid);
+
+  }
 }

@@ -6,12 +6,12 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8" *ngFor="let d of admindata">
 
-      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+      <img class="avatar mat-elevation-z8" src="{{ d.displayImage }}" />
 
-      <h4 class="name">Deshan Harshana</h4>
-      <p class="designation">Hospital Admin</p>
+      <h4 class="name">{{ d.fullname }}</h4>
+      <p class="designation">{{ d.designation }}</p>
 
       <mat-divider></mat-divider>
 
@@ -20,9 +20,27 @@
           <span>Home</span>
       </button>
       <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
-          <mat-icon>person</mat-icon>
+        <mat-icon>person_add</mat-icon>
           <span>Add Doctor</span>
       </button>
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+        <mat-icon>people</mat-icon>
+        <span>All Patient</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+      <mat-icon>person_outline</mat-icon>
+      <span>All Doctors</span>
+  </button>
+  <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+    <mat-icon>book</mat-icon>
+    <span>Appoinments</span>
+</button>
+<button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+  <mat-icon>open_with</mat-icon>
+  <span>Notice</span>
+</button>
+
+
 
 
 
@@ -34,20 +52,20 @@
   <div class="row">
     <div class="col-4 x d-flex justify-content-center">
       <div class="card doctor zoom" routerLink="/Admin-show-doctorlist">
-        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">10</h1>
+        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">{{ Doctor_count }}</h1>
         <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:7%; font-size:3.5rem;">Doctors</h1>
       </div>
     </div>
     <div class="col-4 x d-flex justify-content-center d-flex align-items-center">
       <div class="card patient zoom" style="background-color: rgb(186, 235, 201);" routerLink="/Admin-show-all-patient-list">
-        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">58</h1>
+        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">{{ Patient_count }}</h1>
         <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:7%; font-size:3.5rem;">Patients</h1>
 
       </div>
     </div>
     <div class="col-4 x d-flex justify-content-center d-flex align-items-center">
       <div class="card appointment zoom" style="background-color: rgb(220, 235, 186);">
-        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">8</h1>
+        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">{{ Appoinment_count }}</h1>
         <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:7%; font-size:3rem;">Appoinment</h1>
 
 

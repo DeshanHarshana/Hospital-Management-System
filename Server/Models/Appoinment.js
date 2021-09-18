@@ -64,6 +64,10 @@ const appoinmnet = mongoose.Schema({
     displayImage:{
         type:String,
         default:'Unknown'
+    },
+    displayImageP:{
+        type:String,
+        default:'Unknown'
     }
     
     

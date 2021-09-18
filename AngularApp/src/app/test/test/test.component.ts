@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 @Component({
   selector: 'app-test',
@@ -6,18 +7,31 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-  time = {hour: 13, minute: 30};
-  name:string="";
-  constructor() { }
-
   ngOnInit(): void {
-  }
 
-  somethingHappend(value:any){
-    this.name=value;
-    if(this.name==="deshan"){
-      alert("Hello");
+  }
+  l(){
+    console.log(this.formControlItem.value)
+  }
+  formControlItem: FormControl = new FormControl("");
+  required: boolean = !1;
+  @ViewChild("timepicker") timepicker: any;
+
+  /**
+   * Lets the user click on the icon in the input.
+   */
+  openFromIcon(timepicker: { open: () => void }) {
+    if (!this.formControlItem.disabled) {
+      timepicker.open();
     }
   }
 
+  /**
+   * Function to clear FormControl's value, called from the HTML template using the clear button
+   *
+   * @param $event - The Event's data object
+   */
+  onClear($event: Event) {
+    this.formControlItem.setValue(null);
+  }
 }

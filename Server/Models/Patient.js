@@ -23,7 +23,10 @@ const patient = mongoose.Schema({
     reportList:[],
     healthAdditional:String,
     subscription:Boolean,
-    nic:String
+    nic:String,
+    doctorlist:[{
+        doctorid:String
+    }]
     
 });
 

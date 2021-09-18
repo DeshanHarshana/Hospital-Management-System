@@ -30,13 +30,11 @@
         <div class="row">
           <div class="col-3" *ngFor="let d of data">
             <div class="card shadow p-3 mb-5 bg-white rounded" >
-              <div class="card-header d-flex justify-content-center">
-                {{ d.name }}
-              </div>
+
               <div class="card-body d-flex justify-content-center">
                 {{ d.time }}
               </div>
-              <div class="card-footer d-flex justify-content-center">
+              <div class="d-flex justify-content-center">
                 <button class="myButton">View Report</button>
               </div>
             </div>

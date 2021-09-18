@@ -1,22 +1,20 @@
+<mat-form-field appearance="outline">
+  <mat-label>Pick A Time</mat-label>
+  <input
+    type="text"
+    matInput
+    [ngxMatTimepicker]="timepicker"
 
-<mat-form-field>
+    [required]="required"
+    readonly
+    [formControl]="formControlItem"
+  />
 
-  <input matInput [matDatepicker]="myDatePiker" class="col-md-6  col-xs-4">
 
-    <mat-datepicker-toggle [for]="myDatePiker" matSuffix></mat-datepicker-toggle>
-    <mat-datepicker #myDatePiker></mat-datepicker>
+
+  <mat-icon matSuffix *ngIf="!formControlItem.disabled" (click)="openFromIcon(timepicker)">schedule</mat-icon>
 
 </mat-form-field>
 
-<!--
-<input [ngxMatTimepicker]="picker">
-<ngx-mat-timepicker #picker></ngx-mat-timepicker>
- name
-<input type="text" [ngModel]="name" (ngModelChange)="somethingHappend($event)">-->
-
-<mat-form-field appearance="fill">
-  <mat-label>Choose a date</mat-label>
-  <input matInput [matDatepicker]="picker">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
+<ngx-mat-timepicker #timepicker></ngx-mat-timepicker>
+<button (click)="l()">clcik</button>

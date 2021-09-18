@@ -15,7 +15,7 @@
 
       <mat-divider></mat-divider>
 
-      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+      <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
           <mat-icon>home</mat-icon>
           <span>Home</span>
       </button>
@@ -48,7 +48,7 @@
 <div class="card list">
 <div class="row" style="border-bottom: 1px solid black; padding-bottom:6px">
   <div class="col-3 d-flex justify-content-center heading">
-    Doctor Name
+    Patient Name
   </div>
   <div class="col-3 d-flex justify-content-center heading">
     Appoinment Date
@@ -69,8 +69,8 @@ Status
 
 <div class="row" style="padding-bottom:6px; padding-top:6px" *ngFor="let d of filterdData |orderBy | paginate:{itemsPerPage:5, currentPage:p}">
   <div class="col-3 d-flex align-items-center ">
-    <img class="patientImage d-flex align-items-center " src="{{ d.displayImage }}"/>
-    <h4 style="margin-left: 5%; font-size:1.3rem; font-family:'Abas'" >{{ d.doctorname }}</h4>
+    <img class="patientImage d-flex align-items-center " src="{{ d.displayImageP }}"/>
+    <h4 style="margin-left: 5%; font-size:1.3rem; font-family:'Abas'" >{{ d.firstname }}</h4>
 
   </div>
   <div class="col-3 d-flex align-items-center d-flex justify-content-center">
@@ -81,7 +81,8 @@ Status
 
   </div>
   <div class="col-2 d-flex align-items-center d-flex justify-content-center" >
-<h4 [ngClass]="d.status=='Pending' ? 'pending' : 'accept' " style="font-size:1.3rem; font-family:'Abas'">{{ d.status }}</h4>
+<h4 *ngIf="d.status!='Pending'" [ngClass]="d.status=='Pending' ? 'pending' : 'accept' "  style="font-size:1.3rem;color:green; font-family:'Abas'">{{ d.status }}</h4>
+<button *ngIf="d.status=='Pending'" class="btn btn-outline-info" (click)="accept(d.patientid, d._id)">Accept</button>
   </div>
   <div class="col-1 d-flex align-items-center d-flex justify-content-center">
     <button class="btn btn-outline-danger" (click)="deleteAppoinment(d._id, d.doctorid )">Delete</button>

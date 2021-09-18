@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['Admin-dashboard'])
           }else if(this.id==2){
             localStorage.setItem("access",'doctor');
-
+            localStorage.setItem("doctorid", res.doctorid);
             this.router.navigate(['Doctor-dashboard'])
           }else if(this.id==3){
             localStorage.setItem("access",'patient');

@@ -47,6 +47,9 @@ import { AuthGuard } from './guards/auth.guard';
 import { DoctorGuard } from './guards/doctor.guard';
 import { PatientGuard } from './guards/patient.guard';
 
+import { ShowWardpageComponent } from './admin/show-wardpage/show-wardpage.component';
+
+
 
 
 
@@ -73,13 +76,18 @@ import { ChildComponent } from './test/child/child.component';
 import { ParentComponent } from './test/parent/parent.component';
 import { AppoinmentComponent } from './appoinment/appoinment/appoinment.component';
 
+
+
 import { EditMedicalUnitComponent } from './edit-medical-unit/edit-medical-unit.component';
+import { ShowMedicalUnitComponent } from './show-medical-unit/show-medical-unit.component';
+
 
 import { ReportlistComponent } from './patient/reportlist/reportlist.component';
 import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/appoinment-doctor-list.component';
 import { AppoinmentlistComponent } from './patient/appoinmentlist/appoinmentlist.component';
 import { DoctorAppoinmentlistComponent } from './doctor/doctor-appoinmentlist/doctor-appoinmentlist.component';
 import { PatientlistComponent } from './doctor/patientlist/patientlist.component';
+
 
 
 
@@ -104,6 +112,7 @@ import { PatientlistComponent } from './doctor/patientlist/patientlist.component
     DoctorAddPatientsComponent,
     ShowDoctorDetailsComponent,
     EditDoctorDetailsComponent,
+    ShowWardpageComponent,
 
     PatientShowProfileComponent,
     PatientEditProfileComponent,
@@ -116,12 +125,14 @@ import { PatientlistComponent } from './doctor/patientlist/patientlist.component
     AppoinmentComponent,
 
     EditMedicalUnitComponent,
+    ShowMedicalUnitComponent,
 
     ReportlistComponent,
     AppoinmentDoctorListComponent,
     AppoinmentlistComponent,
     DoctorAppoinmentlistComponent,
     PatientlistComponent,
+
 
 
 

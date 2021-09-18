@@ -40,6 +40,15 @@ import { AppoinmentComponent } from './appoinment/appoinment/appoinment.componen
 
 
 
+import { EditMedicalUnitComponent } from './edit-medical-unit/edit-medical-unit.component';
+import { ShowMedicalUnitComponent } from './show-medical-unit/show-medical-unit.component';
+
+import { ReportlistComponent } from './patient/reportlist/reportlist.component';
+import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/appoinment-doctor-list.component';
+import { AppoinmentlistComponent } from './patient/appoinmentlist/appoinmentlist.component';
+
+
+
 const routes: Routes = [
 
   { path: 'index', component:IndexComponent},
@@ -69,6 +78,9 @@ const routes: Routes = [
   {path : 'Patient-About', component:PatientAboutComponent, canActivate:[PatientGuard]},
   {path:'show-report', component:ShowReportComponent, canActivate:[PatientGuard]},
   {path:'edit-report', component:EditReportComponent, canActivate:[PatientGuard]},
+  {path:'report-list', component:ReportlistComponent},
+  {path:'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent},
+  {path:'getcurrentAppoinment', component:AppoinmentlistComponent},
 
   //test
   {path : 'test', component:TestComponent},
@@ -77,9 +89,12 @@ const routes: Routes = [
 
 
   //appoinment
-  {path:'appoinment', component:AppoinmentComponent},
+  {path:'appoinment/:id', component:AppoinmentComponent},
 
-  //pagenot found
+  //medicalunit
+  {path:'edit-medical-unit',component:EditMedicalUnitComponent},
+  {path:'show-medical-unit',component:ShowMedicalUnitComponent},
+    //pagenot found
   { path : '**', component:PageNotFoundComponent }
 
 

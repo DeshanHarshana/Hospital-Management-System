@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Patient } from 'src/app/appdata/Patient';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { PatientService } from 'src/app/services/patient.service';
 

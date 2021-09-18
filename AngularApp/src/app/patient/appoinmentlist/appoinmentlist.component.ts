@@ -42,8 +42,8 @@ export class AppoinmentlistComponent implements OnInit {
     }
 this.apt.deleteAppoinmentinDoctorlist(doctorid,appoinmentdata).subscribe(res=>{
   this.apt.deleteAppoinment(appointmnetid).subscribe(res2=>{
-    console.log(res2)
-    this.ngOnInit();
+    console.log(res2);
+    this.router.navigate(['Patient-dashboard']);
   })
 })
   }

@@ -29,4 +29,8 @@ export class PatientService {
   deletePatient(id:string){
     return this._http.delete<any>('http://localhost:3000/delete-patient/'+id);
   }
+  addDoctortoList(doctor:any, patientid:string){
+    return this._http.post<any>('http://localhost:3000/doctoraddtopatientlist/'+patientid, doctor);
+
+  }
 }

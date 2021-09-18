@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Methods } from 'src/app/appdata/methods';
@@ -30,7 +30,8 @@ export class AppoinmentComponent implements OnInit {
     doctorid: new FormControl(''),
     status: new FormControl(''),
     patientid:new FormControl(''),
-    displayImage:new FormControl('')
+    displayImage:new FormControl(''),
+    displayImageP:new FormControl('')
   });
 
   currentPatient="";
@@ -55,6 +56,8 @@ export class AppoinmentComponent implements OnInit {
         this.appoinment.get('gender')?.setValue(res.gender);
         this.appoinment.get('nic')?.setValue(res.nic);
         this.appoinment.get('number')?.setValue(res.phone);
+        this.appoinment.get('displayImageP')?.setValue(res.displayImage);
+        console.log("Patient image : " + this.appoinment.get('displayImageP')?.value);
       });
 
       this.doctor.getoneDoctor(this.choosenDoctor).subscribe(res=>{
@@ -72,6 +75,7 @@ export class AppoinmentComponent implements OnInit {
   make(appoinment: any) {
     appoinment.dob=this.method.convert(appoinment.dob);
     appoinment.status="Pending";
+    appoinment.appoinmentTime=this.formControlItem.value;
     appoinment.appoinmentDate=this.method.convert(appoinment.appoinmentDate);
    this.apt.putAppoinment(appoinment).subscribe(res=>{
      let appoinmentdata={
@@ -82,5 +86,22 @@ export class AppoinmentComponent implements OnInit {
        this.router.navigate(['Patient-dashboard']);
      })
    })
+  }
+
+
+
+  //time picker
+
+  formControlItem: FormControl = new FormControl("");
+  required: boolean = !1;
+  @ViewChild("timepicker") timepicker: any;
+
+  /**
+   * Lets the user click on the icon in the input.
+   */
+  openFromIcon(timepicker: { open: () => void }) {
+    if (!this.formControlItem.disabled) {
+      timepicker.open();
+    }
   }
 }

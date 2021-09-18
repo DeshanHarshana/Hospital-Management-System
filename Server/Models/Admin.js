@@ -4,6 +4,9 @@ const admin = mongoose.Schema({
     
     email:String,
     password:String,
+    fullname:String,
+    designation:String,
+    displayImage:String
     
 });
 

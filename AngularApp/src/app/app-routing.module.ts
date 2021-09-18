@@ -39,6 +39,8 @@ import { EditMedicalUnitComponent } from './edit-medical-unit/edit-medical-unit.
 import { ReportlistComponent } from './patient/reportlist/reportlist.component';
 import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/appoinment-doctor-list.component';
 import { AppoinmentlistComponent } from './patient/appoinmentlist/appoinmentlist.component';
+import { DoctorAppoinmentlistComponent } from './doctor/doctor-appoinmentlist/doctor-appoinmentlist.component';
+import { PatientlistComponent } from './doctor/patientlist/patientlist.component';
 
 
 
@@ -48,26 +50,26 @@ const routes: Routes = [
   { path: '', redirectTo:'/index', pathMatch:'full'},
   { path: 'login/:id', component:LoginComponent},
   { path: 'signup', component:SignupComponent},
-  {path:'Admin-dashboard',component:DashboardComponent, canActivate : [AuthGuard]},
-  {path : 'Admin-show-doctorlist',component:DoctorlistComponent, canActivate : [AuthGuard]},
-  {path : 'Admin-About', component:AdminAboutComponent, canActivate : [AuthGuard]},
-  {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent, canActivate : [AuthGuard]},
-  {path : 'Admin-show-doctor-details/:id', component:ShowDoctorDetailsComponent, canActivate : [AuthGuard]},
-  {path : 'Admin-edit-doctor-detais/:id', component:EditDoctorDetailsComponent, canActivate : [AuthGuard]},
-  {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent, canActivate:[AuthGuard]},
-  {path : 'Admin-edit-patient-details/:id', component:PatientEditProfileComponent, canActivate:[AuthGuard]},
-  {path : 'Admin-show-all-patient-list', component:AllPatientListComponent, canActivate:[AuthGuard]},
+  {path:'Admin-dashboard',component:DashboardComponent},
+  {path : 'Admin-show-doctorlist',component:DoctorlistComponent},
+  {path : 'Admin-About', component:AdminAboutComponent},
+  {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent},
+  {path : 'Admin-show-doctor-details/:id', component:ShowDoctorDetailsComponent},
+  {path : 'Admin-edit-doctor-detais/:id', component:EditDoctorDetailsComponent},
+  {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent},
+  {path : 'Admin-edit-patient-details/:id', component:PatientEditProfileComponent},
+  {path : 'Admin-show-all-patient-list', component:AllPatientListComponent},
 
   //doctor
-  {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},
-  {path : 'Doctor-DoctorAddpatient', component:DoctorAddPatientsComponent, canActivate:[DoctorGuard]},
-
-
+  {path:'Doctor-dashboard', component:DoctorDashboardComponent},
+  {path : 'Doctor-DoctorAddpatient', component:DoctorAddPatientsComponent},
+  {path:'DoctorAppoinmentList', component:DoctorAppoinmentlistComponent},
+  {path:'DoctorPatientList', component:PatientlistComponent},
   //patient
-  {path:'Patient-dashboard',component:PatientDashboardComponent, canActivate:[PatientGuard]},
-  {path : 'Patient-About', component:PatientAboutComponent, canActivate:[PatientGuard]},
-  {path:'show-report', component:ShowReportComponent, canActivate:[PatientGuard]},
-  {path:'edit-report', component:EditReportComponent, canActivate:[PatientGuard]},
+  {path:'Patient-dashboard',component:PatientDashboardComponent},
+  {path : 'Patient-About', component:PatientAboutComponent},
+  {path:'show-report', component:ShowReportComponent},
+  {path:'edit-report', component:EditReportComponent},
   {path:'report-list', component:ReportlistComponent},
   {path:'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent},
   {path:'getcurrentAppoinment', component:AppoinmentlistComponent},

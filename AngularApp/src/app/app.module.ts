@@ -78,6 +78,8 @@ import { EditMedicalUnitComponent } from './edit-medical-unit/edit-medical-unit.
 import { ReportlistComponent } from './patient/reportlist/reportlist.component';
 import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/appoinment-doctor-list.component';
 import { AppoinmentlistComponent } from './patient/appoinmentlist/appoinmentlist.component';
+import { DoctorAppoinmentlistComponent } from './doctor/doctor-appoinmentlist/doctor-appoinmentlist.component';
+import { PatientlistComponent } from './doctor/patientlist/patientlist.component';
 
 
 
@@ -118,6 +120,8 @@ import { AppoinmentlistComponent } from './patient/appoinmentlist/appoinmentlist
     ReportlistComponent,
     AppoinmentDoctorListComponent,
     AppoinmentlistComponent,
+    DoctorAppoinmentlistComponent,
+    PatientlistComponent,
 
 
 

@@ -78,6 +78,7 @@ import { ShowMedicalUnitComponent } from './show-medical-unit/show-medical-unit.
 import { ReportlistComponent } from './patient/reportlist/reportlist.component';
 import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/appoinment-doctor-list.component';
 import { AppoinmentlistComponent } from './patient/appoinmentlist/appoinmentlist.component';
+
 import { DoctorShowProfileComponent } from './doctor/doctor-show-profile/doctor-show-profile.component';
 import { ShowAppointmentsComponent } from './doctor/show-appointments/show-appointments.component';
 import { EditAppointmentsComponent } from './doctor/edit-appointments/edit-appointments.component';
@@ -86,6 +87,10 @@ import { ShowPatientbookComponent } from './doctor/show-patientbook/show-patient
 import { EditPatientbookComponent } from './doctor/edit-patientbook/edit-patientbook.component';
 import { ShowReminderComponent } from './doctor/show-reminder/show-reminder.component';
 import { EditReminderComponent } from './doctor/edit-reminder/edit-reminder.component';
+
+import { DoctorAppoinmentlistComponent } from './doctor/doctor-appoinmentlist/doctor-appoinmentlist.component';
+import { PatientlistComponent } from './doctor/patientlist/patientlist.component';
+
 
 
 
@@ -130,6 +135,7 @@ import { EditReminderComponent } from './doctor/edit-reminder/edit-reminder.comp
     ReportlistComponent,
     AppoinmentDoctorListComponent,
     AppoinmentlistComponent,
+
     DoctorShowProfileComponent,
     ShowAppointmentsComponent,
     EditAppointmentsComponent,
@@ -138,6 +144,10 @@ import { EditReminderComponent } from './doctor/edit-reminder/edit-reminder.comp
     EditPatientbookComponent,
     ShowReminderComponent,
     EditReminderComponent,
+
+    DoctorAppoinmentlistComponent,
+    PatientlistComponent,
+
 
 
 

@@ -113,7 +113,16 @@ export class PatientEditProfileComponent implements OnInit {
 
           this.uploadImage(this.currentid);
           setTimeout(()=>{
-            this.router.navigate(['Admin-dashboard']);
+            if(localStorage.getItem('access')=="admin"){
+              this.router.navigate(['Admin-show-all-patient-list']);
+            }
+            else if(localStorage.getItem('access')=="doctor"){
+              this.router.navigate(['DoctorPatientList']);
+            }
+            else if(localStorage.getItem('access')=="patient"){
+              this.router.navigate(['Patient-dashboard']);
+            }
+
           });
 
 
@@ -127,9 +136,15 @@ export class PatientEditProfileComponent implements OnInit {
       this.patientService.updatePatient(patient, this.currentid).subscribe(res=>{
           this.toastr.success("Update Successfully", "Updating Patient");
 
-
-          this.router.navigate(['Admin-dashboard']);
-
+          if(localStorage.getItem('access')=="admin"){
+            this.router.navigate(['Admin-show-all-patient-list']);
+          }
+          else if(localStorage.getItem('access')=="doctor"){
+            this.router.navigate(['DoctorPatientList']);
+          }
+          else if(localStorage.getItem('access')=="patient"){
+            this.router.navigate(['Patient-dashboard']);
+          }
 
 
       });
@@ -145,7 +160,15 @@ export class PatientEditProfileComponent implements OnInit {
     this.patientService.deletePatient(this.currentid).subscribe(res=>{
       this.toastr.success("Deleting Successfully", "Delete Patient");
 
-      this.router.navigate(['Admin-dashboard']);
+      if(localStorage.getItem('access')=="admin"){
+        this.router.navigate(['Admin-show-all-patient-list']);
+      }
+      else if(localStorage.getItem('access')=="doctor"){
+        this.router.navigate(['DoctorPatientList']);
+      }
+      else if(localStorage.getItem('access')=="patient"){
+        this.router.navigate(['Patient-dashboard']);
+      }
     })
   }
   toast(message:String) {

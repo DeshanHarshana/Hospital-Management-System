@@ -68,6 +68,8 @@ import { EditReportComponent } from './patient/edit-report/edit-report.component
 import { ChildComponent } from './test/child/child.component';
 import { ParentComponent } from './test/parent/parent.component';
 import { AppoinmentComponent } from './appoinment/appoinment/appoinment.component';
+import { AddReportComponent } from './patient/add-report/add-report.component';
+
 
 
 
@@ -125,6 +127,8 @@ import { DoctorCalendarComponent } from './doctor/doctor-calendar/doctor-calenda
     ChildComponent,
     ParentComponent,
     AppoinmentComponent,
+    AddReportComponent,
+   
 
     EditMedicalUnitComponent,
     ShowMedicalUnitComponent,

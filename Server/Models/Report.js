@@ -14,7 +14,6 @@ const report = mongoose.Schema({
     email:String,
     weight:String,
     height:String,
-
     heartDisease:Boolean,
     diabetes:Boolean,
     hbp:Boolean,
@@ -23,16 +22,15 @@ const report = mongoose.Schema({
     kidney:Boolean,
     stroke:Boolean,
     dep:Boolean,
-    
-    /*
+    surgeries:String,
+    medications:String,
+    latex:Boolean,
+    iodine:Boolean,
+    bromine:Boolean,
+    description:String,
+    date:String,
+    sign:String,
    
-    
-   
-    
-   
-    
-    surgeries:String
-    */
-});
+    });
 
 module.exports=mongoose.model('Report', report, "Report");

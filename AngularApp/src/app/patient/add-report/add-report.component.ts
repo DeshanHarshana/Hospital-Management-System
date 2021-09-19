@@ -1,18 +1,21 @@
+import { flatten } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Methods } from 'src/app/appdata/methods';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ReportsService } from 'src/app/services/reports.service';
+
 
 
 @Component({
   selector: 'app-add-report',
   templateUrl: './add-report.component.html',
-  styleUrls: ['./add-report.component.css']
+  styleUrls: ['./add-report.component.css'],
+  providers:[Methods]
 })
 export class AddReportComponent implements OnInit {
   report = new FormGroup({
     name:new FormControl(''),
-    dob:new FormControl(''),
     age:new FormControl(''),
     guardian: new FormControl(''),
     gender: new FormControl(''),
@@ -24,15 +27,6 @@ export class AddReportComponent implements OnInit {
     occupation: new FormControl(''),
     weight: new FormControl(''),
     height: new FormControl(''),
-    
-    /*
-    guardian: new FormControl(''),
-    maritalStatus: new FormControl(''),
-   
-    */
-
-
-    //Medical history component
     heartDisease:new FormControl(false),
     diabetes:new FormControl(false),
     hbp: new FormControl(false),
@@ -41,11 +35,14 @@ export class AddReportComponent implements OnInit {
     kidney:new FormControl(false),
     stroke:new FormControl(false),
     dep:new FormControl(false),
-    other:new FormControl(''),
-
     surgeries:new FormControl(''),
     medications:new FormControl(''),
-    //Alergies
+    latex:new FormControl(false),
+    iodine:new FormControl(false),
+    bromine:new FormControl(false),
+    description:new FormControl(''),
+    date:new FormControl(new Date()),
+    sign:new FormControl(''),
 
     
 
@@ -53,6 +50,7 @@ export class AddReportComponent implements OnInit {
   constructor(
     private auth:AuthenticationService,
     private reportS:ReportsService,
+    private methods:Methods
   ) { }
 
   ngOnInit(): void {
@@ -65,6 +63,7 @@ export class AddReportComponent implements OnInit {
       }
 
   addReport(report:any){
+    report.date=this.methods.convert(report.date);
      console.log(report);
 
      /*this.reportS.addReport(report).subscribe(res=>{

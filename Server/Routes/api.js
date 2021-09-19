@@ -308,9 +308,7 @@ router.post('/add-report', function (req, res) {
                 occupation: req.body.occupation,
                 weight: req.body.weight,
                 height: req.body.height,
-            
-
-                heartDisease:req.body.heartDisease,
+                 heartDisease:req.body.heartDisease,
                 diabetes:req.body.diabetes,
                 hbp:req.body.hbp,
                 canser:req.body.canser,
@@ -318,17 +316,14 @@ router.post('/add-report', function (req, res) {
                 kidney:req.body.kidney,
                 stroke:req.body.stroke,
                 dep:req.body.dep,
-                other:req.body.other,
-                /*
-                
-                
-                
-                
-                /*
-               
-               
-                surgeries: req.body.surgeries
-                */
+                surgeries:req.body.surgeries,
+                medications:req.body.medications,
+                latex:req.body.latex,
+                iodine:req.body.iodine,
+                bromine:req.body.bromine,
+                description:req.body.description,
+                date:req.body.date,
+                sign:req.body.sign,
                 
                 }
                 let report = new Report(reportData)

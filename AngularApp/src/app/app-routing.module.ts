@@ -78,6 +78,7 @@ const routes: Routes = [
   {path : 'Doctor-DoctorAddpatient', component:DoctorAddPatientsComponent},
   {path:'DoctorAppoinmentList', component:DoctorAppoinmentlistComponent},
   {path:'DoctorPatientList', component:PatientlistComponent},
+  {path:'Doctor-AddReport', component:AddReportComponent},
   //patient
   {path:'Patient-dashboard',component:PatientDashboardComponent},
   {path : 'Patient-About', component:PatientAboutComponent},

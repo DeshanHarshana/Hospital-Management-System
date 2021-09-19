@@ -28,15 +28,18 @@ export class DashboardComponent implements OnInit {
       this.auth.logout();
         }
   ngOnInit(): void {
+setTimeout(() => {
+  this.admin.getAdmin().subscribe(res=>{
+    this.admindata=res;
+  });
+  this.admin.dashboardData().subscribe(res=>{
+    this.Doctor_count=res.doctor;
+    this.Appoinment_count=res.appoinment;
+    this.Patient_count=res.patient;
+  })
 
-this.admin.getAdmin().subscribe(res=>{
-  this.admindata=res;
-});
-this.admin.dashboardData().subscribe(res=>{
-  this.Doctor_count=res.doctor;
-  this.Appoinment_count=res.appoinment;
-  this.Patient_count=res.patient;
-})
+
+}, 10);
 
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { ReportsService } from 'src/app/services/reports.service';
 
 @Component({
   selector: 'app-edit-report',
@@ -35,8 +36,18 @@ export class EditReportComponent implements OnInit {
   Diabetes:new FormControl(true)
 
   });
+
+
+  
+  
+
+   
+
   constructor(
     private auth:AuthenticationService,
+    private route:ActivatedRoute,
+    private Report:ReportsService,
+    
   ) { }
 
   ngOnInit(): void {
@@ -47,8 +58,10 @@ export class EditReportComponent implements OnInit {
     this.auth.logout();
       }
 
+
   addReport(report:any){
      console.log(report);
     }
+
 
 }

@@ -1,0 +1,162 @@
+h3 {
+  margin: 0 0 10px;
+}
+
+pre {
+  background-color: #f5f5f5;
+  padding: 15px;
+}
+mat-toolbar {
+  background: #004a9f;
+  color: white;
+}
+
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background: #002b5c;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 2.5rem;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+}
+mat-icon {
+  margin-right: 8px;
+}
+
+.avatar {
+  margin-top: 16px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.name {
+  margin-top: 8px;
+  font-weight: normal;
+}
+
+.designation {
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: rgb(8, 3, 3);
+}
+
+mat-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+.x {
+  height: 15rem;
+  padding-top: 2%;
+}
+.y {
+  height: 14rem;
+}
+.z {
+  height: 14rem;
+}
+.doctor {
+  height: 100%;
+  width: 85%;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.705), rgb(184, 247, 238)), url("../../../assets/admin-dashboard/doctor.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+
+
+}
+
+.patient {
+  height: 100%;
+  width: 85%;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.253), rgb(238, 247, 184)), url("../../../assets/admin-dashboard/patient.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+
+}
+
+.appointment {
+  height: 100%;
+  width: 85%;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.356), rgb(219, 184, 247)), url("../../../assets/admin-dashboard/appointment.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+
+}
+
+.zoom:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.09);
+}
+
+.zoom {
+  cursor: pointer;
+  border-radius: 4px;
+
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
+    0.3s box-shadow,
+    0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+}
+
+.wards{
+  padding:3%;
+
+
+}
+.wards .wardlist{
+  height: fit-content;
+  padding-bottom: 5%;
+  border-radius: 10px;
+
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+
+}
+.labs{
+  padding:3%;
+
+}
+.labs .lablist{
+  height: fit-content;
+  padding-bottom: 5%;
+  border-radius: 10px;
+
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+
+}
+.pqrs{
+  margin: 1rem;
+  height: 8rem;
+}
+
+.adminlogo{
+  cursor:pointer
+}

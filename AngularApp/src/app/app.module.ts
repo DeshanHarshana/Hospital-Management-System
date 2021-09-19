@@ -80,8 +80,16 @@ import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/
 import { AppoinmentlistComponent } from './patient/appoinmentlist/appoinmentlist.component';
 import { DoctorAppoinmentlistComponent } from './doctor/doctor-appoinmentlist/doctor-appoinmentlist.component';
 import { PatientlistComponent } from './doctor/patientlist/patientlist.component';
+import { CalenderComponent } from './test/calender/calender.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
+import { CommonModule } from '@angular/common';
 
+import {FlatpickrModule } from 'angularx-flatpickr'
+
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { DoctorCalendarComponent } from './doctor/doctor-calendar/doctor-calendar.component';
 
 
 @NgModule({
@@ -126,6 +134,8 @@ import { PatientlistComponent } from './doctor/patientlist/patientlist.component
     AppoinmentlistComponent,
     DoctorAppoinmentlistComponent,
     PatientlistComponent,
+    CalenderComponent,
+    DoctorCalendarComponent,
 
 
 
@@ -177,7 +187,15 @@ import { PatientlistComponent } from './doctor/patientlist/patientlist.component
   MatDatepickerModule,
   MatNativeDateModule,
   NgxMaterialTimepickerModule,
-  NgxMatTimepickerModule
+  NgxMatTimepickerModule,
+  CommonModule,
+  FormsModule,
+  NgbModalModule,
+  FlatpickrModule.forRoot(),
+  CalendarModule.forRoot({
+    provide: DateAdapter,
+    useFactory: adapterFactory,
+  }),
 
   ],
   providers: [

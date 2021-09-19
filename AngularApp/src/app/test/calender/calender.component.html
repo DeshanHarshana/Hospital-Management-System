@@ -1,0 +1,119 @@
+<mat-toolbar class="mat-elevation-z8">
+  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+  <span class="spacer"></span>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side" class="mat-elevation-z8" *ngFor="let d of admindata">
+
+    <img class="avatar mat-elevation-z8" src="{{ d.displayImage }}" />
+
+    <h4 class="name">{{ d.fullname }}</h4>
+    <p class="designation">{{ d.designation }}</p>
+
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" routerLink="/Admin-dashboard">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+        <mat-icon>person_add</mat-icon>
+          <span>Add Doctor</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+        <mat-icon>people</mat-icon>
+        <span>All Patient</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+      <mat-icon>person_outline</mat-icon>
+      <span>All Doctors</span>
+  </button>
+  <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+    <mat-icon>book</mat-icon>
+    <span>Appoinments</span>
+</button>
+<button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+  <mat-icon>open_with</mat-icon>
+  <span>Notice</span>
+</button>
+
+
+
+
+
+  </mat-sidenav>
+
+
+    <div class="content mat-elevation-z8"  style="height:max-content;">
+<div class="container-fluid" style="padding: 2%;">
+
+
+  <div class="row text-center">
+    <div class="col-md-4">
+      <div class="btn-group">
+        <div
+          class="btn btn-primary"
+          mwlCalendarPreviousView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="closeOpenMonthViewDay()"
+        >
+          Previous
+        </div>
+        <div
+          class="btn btn-outline-secondary"
+          mwlCalendarToday
+          [(viewDate)]="viewDate"
+        >
+          Today
+        </div>
+        <div
+          class="btn btn-primary"
+          mwlCalendarNextView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="closeOpenMonthViewDay()"
+        >
+          Next
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h1>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h1>
+    </div>
+
+  </div>
+  <br />
+  <div [ngSwitch]="view">
+    <mwl-calendar-month-view
+
+      [viewDate]="viewDate"
+      [events]="events"
+      [refresh]="refresh"
+      [activeDayIsOpen]="activeDayIsOpen"
+      (dayClicked)="dayClicked($event.day)"
+
+
+    >
+    </mwl-calendar-month-view>
+
+
+  </div>
+</div>
+    </div>
+
+</mat-sidenav-container>
+
+
+
+
+
+
+
+
+
+

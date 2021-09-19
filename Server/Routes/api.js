@@ -870,5 +870,52 @@ router.get('/getDashboardData',async function(req,res){
     res.send(data)
 
 })
+
+
+
+//calendar data loading
+var appoinmentData=[];
+router.get('/calendarDataLoadingDoctor/:id',  function(req,res){
+    Doctor.find({_id:req.params.id},'appointments', function(error,result){
+        if(error){
+            console.log("error");
+        }else{
+            var data=result[0].appointments;
+          
+            
+              
+            getAllDoctorAppoinments(data, getAppoinmentlist);
+             setTimeout(()=>{
+                res.send(appoinmentData);
+             },1000);
+             
+        }
+    })
+});
+
+function getAllDoctorAppoinments(data, callback){
+    var appoinmentids=[];
+    for (var i = 0; i < data.length; i++){
+        var obj = data[i];
+        var value = obj['appointmentid'];
+        appoinmentids.push(value);
+    }
+    callback(appoinmentids);
+}
+
+async function getAppoinmentlist(ids){
+    const records = await Appoinment.find({ '_id': { $in: ids } });
+    appoinmentData=records;
+}
+
+
+
+
+
+
+
+
+
+
 //export model
 module.exports=router;

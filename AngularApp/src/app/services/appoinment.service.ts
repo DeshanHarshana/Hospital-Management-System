@@ -33,4 +33,9 @@ export class AppoinmentService {
   changeAppoinmentState(id:string){
     return this._http.get<any>("http://localhost:3000/changeAppoinmentState/"+id);
   }
+
+  getDoctorAppoinments(id:string){
+
+    return this._http.get<any>("http://localhost:3000/calendarDataLoadingDoctor/"+id);
+  }
 }

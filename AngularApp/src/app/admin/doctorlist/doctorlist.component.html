@@ -6,12 +6,12 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8" *ngFor="let d of admindata">
 
-      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+      <img class="avatar mat-elevation-z8" src="{{ d.displayImage }}" />
 
-      <h4 class="name">Deshan Harshana</h4>
-      <p class="designation">Hospital Admin</p>
+      <h4 class="name">{{ d.fullname }}</h4>
+      <p class="designation">{{ d.designation }}</p>
 
       <mat-divider></mat-divider>
 
@@ -20,9 +20,26 @@
           <span>Home</span>
       </button>
       <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
-          <mat-icon>person</mat-icon>
+        <mat-icon>person_add</mat-icon>
           <span>Add Doctor</span>
       </button>
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+        <mat-icon>people</mat-icon>
+        <span>All Patient</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+      <mat-icon>person_outline</mat-icon>
+      <span>All Doctors</span>
+  </button>
+  <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+    <mat-icon>book</mat-icon>
+    <span>Appoinments</span>
+</button>
+<button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+  <mat-icon>open_with</mat-icon>
+  <span>Notice</span>
+</button>
+
 
 
 

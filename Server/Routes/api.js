@@ -117,7 +117,8 @@ router.post('/login', function (req, res) {
                     })
                 } else {
                     res.send({
-                        'success': 'yes'
+                        'success': 'yes',
+                        'doctorid':result._id
                     });
                 }
             }
@@ -138,7 +139,8 @@ router.post('/login', function (req, res) {
                     })
                 } else {
                     res.send({
-                        'success': 'yes'
+                        'success':'yes',
+                        'patientid':result._id
                     });
                 }
             }
@@ -209,9 +211,11 @@ router.get('/get-all-doctors', function (req, res) {
     });
 });
 
-router.get('/get-all-patients', function (req, res) {
-    Patient.find({}, function (error, result) {
-        if (error) {
+
+
+router.get('/get-all-patients', function(req,res){
+    Patient.find({}, function(error, result){
+        if(error){
             console.log(error);
         }
         else {
@@ -232,8 +236,15 @@ router.get('/get-one-doctor/:id', function (req, res) {
         }
     });
 });
-
-router.get('/get-one-patient/:id', function (req, res) {
+//get admin data
+router.get('/admin-data', function(req,res){
+    Admin.find({}, function(error,result){
+        if(!error){
+            res.send(result);
+        }
+    });
+})
+router.get('/get-one-patient/:id', function(req,res){
 
     Patient.findById({ _id: req.params.id }, function (error, result) {
         if (error) {
@@ -488,6 +499,7 @@ router.post('/doctor/:postid/updatePhoto', imageUpload.uploadImage().single('doc
 })
 const patientimageUpload = require('../healper/storagePatient');
 const Report = require('../Models/Report');
+const Appoinment = require('../Models/Appoinment');
 
 router.post('/patient/:postid/updatePhoto', patientimageUpload.uploadImage().single('patientImage'), (req, res, next) => {
     const oldlink = "";
@@ -640,8 +652,196 @@ router.delete('/delete-patient/:id', function (req, res) {
             }
         });
     }, 100);
+     });
+   
+
+
+router.post('/add-new-appoinment', function(req,res){
+   
+                let appoinmentData={
+                    firstname:req.body.firstname,
+                    lastname:req.body.lastname,
+                    gender:req.body.gender,
+                    dob:req.body.dob,
+                    nic:req.body.nic,
+                    number:req.body.number,
+                    address:req.body.address,
+                    service:req.body.service,
+                    appoinmentDate:req.body.appoinmentDate,
+                    appoinmentTime:req.body.appoinmentTime,
+                    doctorname:req.body.doctorname,
+                    emargancy:req.body.emargancy,
+                    doctorid:req.body.doctorid,
+                    patientid:req.body.patientid,
+                    status:req.body.status,
+                    displayImage:req.body.displayImage,
+                    displayImageP:req.body.displayImageP
+                }
+                let appoinment= new Appoinment(appoinmentData)
+                 appoinment.save((error, result)=>{
+                    if(error){
+                        console.log(error);
+                    }
+                    else{
+                        res.send({'message':"appoinment Added Successfully", 'id':result._id});
+                    }
+                })
+            
+    
+});
+
+//for patient
+router.get('/specificAppoinmentList/:id', function(req,res){
+    Appoinment.find({patientid:req.params.id}, function(error,result){
+        if(!error){
+            res.send(result);
+        }
+    })
+})
+//for doctors
+router.get('/specificAppoinmentListDoctor/:id', function(req,res){
+    Appoinment.find({doctorid:req.params.id}, function(error,result){
+        if(!error){
+            res.send(result);
+        }
+    })
+});
+
+//in doctor list
+router.post('/updateAppoinmentList/:id', function(req,res){
+    Doctor.findByIdAndUpdate(req.params.id,{
+        $push:{
+            appointments:[req.body]
+        },
+        new :true
+    },
+        function(error, Result){
+            if(error){
+                res.send("Error Update Doctor Appoinment List" + error)
+            }else{
+                res.status(200).send(Result)
+            }
+        }
+    )
+});
+router.post('/acceptAppoinment/:id', function(req,res){
+    Doctor.findByIdAndUpdate(req.params.id,{
+        $push:{
+            patient:[req.body]
+        },
+        new :true
+    },
+        function(error, Result){
+            if(error){
+                res.send("Error Update Doctor Patient List" + error)
+            }else{
+                res.status(200).send(Result)
+            }
+        }
+    )
+});
+router.get('/changeAppoinmentState/:id', function(req,res){
+    Appoinment.findByIdAndUpdate(req.params.id,{
+        $set:{
+            status:"Accepted"
+        },
+
+    },
+        function(error, Result){
+            if(error){
+                res.send("Error Update Doctor Patient List" + error)
+            }else{
+                res.status(200).send(Result)
+            }
+        }
+    )
+});
+
+
+router.post('/doctoraddtopatientlist/:id', function(req,res){
+    Patient.findByIdAndUpdate(req.params.id,{
+        $push:{
+            doctorlist:[req.body]
+        },
+        new :true
+    },
+        function(error, Result){
+            if(error){
+                res.send("Error Update Doctor Patient List" + error)
+            }else{
+                res.status(200).send(Result)
+            }
+        }
+    )
+});
+
+router.put('/deleteAppoinment/:id', function(req,res){
+    Doctor.findByIdAndUpdate(
+        {
+            _id:req.params.id
+        },
+        {
+            $pull:{
+                appointments:{
+                    appointmentid:req.body.appointmentid
+                }
+            }
+        },
+        function(error, Result){
+            if(error){
+                res.send("Error Deleting appoinment")
+            }else{
+                res.send(Result);
+            }
+        }
+        )
 })
 
+router.delete('/deleteAppoinment2/:id', function(req,res){
+    Appoinment.deleteOne({_id:req.params.id}, function(err,data){
+        if(err){
+            res.send(err)
+        } else {
+            res.send(data);
+            console.log("delete success")
+        }
+     });
+    });
+
+//get doctor's patient list
+var patientData=[];
+router.get('/getDoctorpatientlist/:id',  function(req,res){
+    Doctor.find({_id:req.params.id},'patient', function(error,result){
+        if(error){
+            console.log("error");
+        }else{
+            var data=result[0].patient;
+          
+            
+              
+             getAllpatientinDoctor(data, getPatierntlist);
+             setTimeout(()=>{
+                res.send(patientData);
+             },1000);
+             
+        }
+    })
+});
+
+function getAllpatientinDoctor(data, callback){
+    var patientids=[];
+    for (var i = 0; i < data.length; i++){
+        var obj = data[i];
+        var value = obj['patientid'];
+        patientids.push(value);
+    }
+    callback(patientids);
+}
+
+async function getPatierntlist(ids){
+    const records = await Patient.find({ '_id': { $in: ids } });
+    patientData=records;
+}
 
 
 
@@ -755,5 +955,19 @@ router.delete('/delete-doctor/:id', function (req, res) {
 })
 
 
+//admin dashboard counts
+
+router.get('/getDashboardData',async function(req,res){
+    var data={
+        appoinment:0,
+        doctor:0,
+        patient:0
+    }
+    data.appoinment = await Appoinment.countDocuments({}).exec();
+    data.doctor = await Doctor.countDocuments({}).exec();
+    data.patient = await Patient.countDocuments({}).exec();
+    res.send(data)
+
+})
 //export model
 module.exports = router;

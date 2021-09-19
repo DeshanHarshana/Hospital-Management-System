@@ -25,18 +25,18 @@
     <div class='container-fluid ' style="padding: 3%;">
       <h1 style="font-family: 'Lemon'; margin-left: 30px;"><u>Add a new Appointment</u></h1>
 
-  <form class="row g-3" style="margin-right: 10px; margin-left: 20px;">
+  <form class="row g-3" style="margin-right: 10px; margin-left: 20px;" [formGroup]="appoinment">
       <div class="col-md-6">
         <label for="fname" class="form-label">First Name:</label>
-        <input type="text" class="form-control" id="fname">
+        <input type="text" class="form-control" formControlName="firstname" id="fname">
       </div>
       <div class="col-md-6">
         <label for="lname" class="form-label">Last Name:</label>
-        <input type="text" class="form-control" id="lname">
+        <input type="text" class="form-control" formControlName="lastname" id="lname">
       </div>
       <div class="col-md-3">
           <label for="gender" class="form-label">Gender:</label>
-          <select id="inputGender" class="form-select" >
+          <select id="inputGender" formControlName="gender" class="form-select" >
               <option selected>Gender</option>
               <option>Male</option>
               <option>Female</option>
@@ -46,30 +46,30 @@
       <div class="col-md-3">
           <label class="form-check-label" for="DOB"> Date Of Birth:</label><br>
           <mat-form-field>
-              <input matInput [matDatepicker]="datepicker" placeholder="mm/dd/yyyy">
+              <input matInput [matDatepicker]="datepicker" formControlName="dob" placeholder="mm/dd/yyyy">
               <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
               <mat-datepicker #datepicker></mat-datepicker>
           </mat-form-field>
       </div>
 
       <div class="col-md-3" >
-          <label class="form-check-label" for="NIC"> NIC:</label>
-          <input type="text" class="form-control" id="NIC" >
+          <label class="form-check-label"  for="NIC"> NIC:</label>
+          <input type="text" class="form-control" formControlName="nic" id="NIC" >
       </div>
 
       <div class="col-md-3">
           <label class="form-check-label" for="number"> Contact Number:</label>
-          <input type="text" class="form-control" id="number" >
+          <input type="text" class="form-control" formControlName="number" id="number" >
 
       </div>
      <div class="col-12">
-        <label for="inputAddress" class="form-label">Address</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        <label for="inputAddress" class="form-label">Address:</label>
+        <input type="text" class="form-control" formControlName="address" id="inputAddress" placeholder="1234 Main St">
       </div>
 
       <div class="col-md-3">
          <label for="inputCity" class="form-label">Services</label>
-         <select id="inputservice" class="form-select">
+         <select id="inputservice" formControlName="service" class="form-select">
              <option selected>Service</option>
              <option >short-term hospitalization</option>
              <option >emergency room services</option>
@@ -81,31 +81,48 @@
       </div>
 
       <div class="col-md-3">
-          <label class="form-check-label" for="DOB"> Appointment Date:</label>
+          <label class="form-check-label" for="DOB"> Appointment Date:</label><br>
           <mat-form-field>
-              <input matInput [matDatepicker]="datepicker1" placeholder="mm/dd/yyyy">
+              <input matInput [matDatepicker]="datepicker1" formControlName="appoinmentDate"  placeholder="mm/dd/yyyy">
               <mat-datepicker-toggle matSuffix [for]="datepicker1"></mat-datepicker-toggle>
               <mat-datepicker #datepicker1></mat-datepicker>
           </mat-form-field>
       </div>
 
-      <div class="col-md-3">
-          <label for="Appointmenttime" class="form-label">Appointment Time:</label>
-          <input type="text" class="form-control" id="Appointmenttime">
+      <div class="col-md-3 d-flex align-items-center">
+        <mat-form-field appearance="outline">
+          <mat-label>Pick A Time</mat-label>
+          <input
+            type="text"
+            matInput
+            [ngxMatTimepicker]="timepicker"
+
+            [required]="required"
+            readonly
+            [formControl]="formControlItem"
+          />
+
+
+
+          <mat-icon matSuffix *ngIf="!formControlItem.disabled" (click)="openFromIcon(timepicker)">schedule</mat-icon>
+
+        </mat-form-field>
+
+        <ngx-mat-timepicker #timepicker></ngx-mat-timepicker>
       </div>
 
       <div class="col-md-3">
           <label for="Appointmenttime" class="form-label">Appointment Doctor:</label>
-          <input type="text" class="form-control" id="Appointmentdoctor">
+          <input type="text" class="form-control" formControlName="doctorname" id="Appointmentdoctor">
       </div>
 
       <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Any Emergency..</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="tell us your problem...."></textarea>
+          <textarea class="form-control"  id="exampleFormControlTextarea1" formControlName="emargancy" placeholder="tell us your problem...."></textarea>
       </div>
 
       <div class="col-12 d-flex justify-content-end" style="margin-bottom: 2%;">
-        <button type="submit" class="myButton ">Make Appoinment</button>
+        <button type="submit" class="myButton " (click)="make(appoinment.value)">Make Appoinment</button>
       </div>
     </form>
   </div>

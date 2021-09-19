@@ -75,15 +75,16 @@ export class LoginComponent implements OnInit {
           this.toast("Wrong password");
         }else{
           if(this.id==1){
+            console.log(res)
             localStorage.setItem("access",'admin');
             this.router.navigate(['Admin-dashboard'])
           }else if(this.id==2){
             localStorage.setItem("access",'doctor');
-
+            localStorage.setItem("doctorid", res.doctorid);
             this.router.navigate(['Doctor-dashboard'])
           }else if(this.id==3){
             localStorage.setItem("access",'patient');
-
+            localStorage.setItem("patientid", res.patientid);
             this.router.navigate(['Patient-dashboard'])
           }
         }

@@ -6,12 +6,12 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8" *ngFor="let d of admindata">
 
-      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+      <img class="avatar mat-elevation-z8" src="{{ d.displayImage }}" />
 
-      <h4 class="name">Deshan Harshana</h4>
-      <p class="designation">Hospital Admin</p>
+      <h4 class="name">{{ d.fullname }}</h4>
+      <p class="designation">{{ d.designation }}</p>
 
       <mat-divider></mat-divider>
 
@@ -20,9 +20,27 @@
           <span>Home</span>
       </button>
       <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
-          <mat-icon>person</mat-icon>
+        <mat-icon>person_add</mat-icon>
           <span>Add Doctor</span>
       </button>
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+        <mat-icon>people</mat-icon>
+        <span>All Patient</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+      <mat-icon>person_outline</mat-icon>
+      <span>All Doctors</span>
+  </button>
+  <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+    <mat-icon>book</mat-icon>
+    <span>Appoinments</span>
+</button>
+<button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+  <mat-icon>open_with</mat-icon>
+  <span>Notice</span>
+</button>
+
+
 
 
 
@@ -34,20 +52,20 @@
   <div class="row">
     <div class="col-4 x d-flex justify-content-center">
       <div class="card doctor zoom" routerLink="/Admin-show-doctorlist">
-        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">10</h1>
+        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">{{ Doctor_count }}</h1>
         <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:7%; font-size:3.5rem;">Doctors</h1>
       </div>
     </div>
     <div class="col-4 x d-flex justify-content-center d-flex align-items-center">
       <div class="card patient zoom" style="background-color: rgb(186, 235, 201);" routerLink="/Admin-show-all-patient-list">
-        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">58</h1>
+        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">{{ Patient_count }}</h1>
         <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:7%; font-size:3.5rem;">Patients</h1>
 
       </div>
     </div>
     <div class="col-4 x d-flex justify-content-center d-flex align-items-center">
       <div class="card appointment zoom" style="background-color: rgb(220, 235, 186);">
-        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">8</h1>
+        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">{{ Appoinment_count }}</h1>
         <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:7%; font-size:3rem;">Appoinment</h1>
 
 
@@ -69,26 +87,26 @@
   <div class="col-12">
 
       <div class="row d-flex justify-content-center d-flex align-items-center">
-        <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center">
-dfs
+        <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center" style="background-color: rgba(0, 0, 255, 0.26);">
+<h1 style="font-family: Meteor">Ward 1</h1>
         </div>
-        <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center">
-          ward2
+        <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center" style="background-color: rgba(255, 0, 128, 0.26);">
+          <h1 style="font-family: Meteor">Ward 2</h1>
         </div>
-        <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center">
-          ward2
+        <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center" style="background-color: rgba(255, 153, 0, 0.26);">
+          <h1 style="font-family: Meteor">Ward 3</h1>
         </div>
 
       </div>
       <div class="row d-flex justify-content-center d-flex align-items-center">
-        <div class="col-3 pqrs card zoom d-flex justify-content-center d-flex align-items-center">
-      ward1
+        <div class="col-3 pqrs card zoom d-flex justify-content-center d-flex align-items-center" style="background-color: rgba(123, 255, 0, 0.26);">
+          <h1 style="font-family: Meteor">Ward 4</h1>
         </div>
-        <div class="col-3 pqrs card zoom d-flex justify-content-center d-flex align-items-center">
-          ward2
+        <div class="col-3 pqrs card zoom d-flex justify-content-center d-flex align-items-center" style="background-color: rgba(0, 255, 85, 0.26);">
+          <h1 style="font-family: Meteor">Ward 5</h1>
         </div>
-        <div class="col-3 pqrs card zoom d-flex justify-content-center d-flex align-items-center">
-          ward2
+        <div class="col-3 pqrs card zoom d-flex justify-content-center d-flex align-items-center" style="background-color: rgba(0, 255, 242, 0.26);">
+          <h1 style="font-family: Meteor">Ward 6</h1>
         </div>
 
       </div>
@@ -101,7 +119,7 @@ dfs
 <div class="card lablist">
   <div class="row">
     <div class="col-12 d-flex justify-content-center d-flex align-items-center" style="padding-top: 10px;">
-      <h1 style="font-family: 'Lemon'; font-size:2.5rem">Labs</h1>
+      <h1 style="font-family: 'Lemon'; font-size:2.5rem">Medical Units</h1>
     </div>
   </div>
   <div class="row">
@@ -138,64 +156,7 @@ dfs
 </div>
     </div>
 </div>
-<div class="row">
-  <div class="col-6 wards">
-<div class="card wardlist">
-<div class="row">
-<div class="col-12 d-flex justify-content-center d-flex align-items-center" style="padding-top: 10px;">
-  <h1 style="font-family: 'Lemon'; font-size:2.5rem">Operation Theatre</h1>
-</div>
-</div>
-<div class="row">
-<div class="col-12">
 
-    <div class="row d-flex justify-content-center d-flex align-items-center">
-      <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center">
-dfs
-      </div>
-      <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center">
-        ward2
-      </div>
-      <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center">
-        ward2
-      </div>
-
-    </div>
-
-</div>
-
-</div>
-</div>
-  </div>
-  <div class="col-6 labs">
-<div class="card lablist">
-<div class="row">
-  <div class="col-12 d-flex justify-content-center d-flex align-items-center" style="padding-top: 10px;">
-    <h1 style="font-family: 'Lemon'; font-size:2.5rem">Labs</h1>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12">
-
-    <div class="row d-flex justify-content-center d-flex align-items-center">
-      <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center">
-dfs
-      </div>
-      <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center">
-        ward2
-      </div>
-      <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center">
-        ward2
-      </div>
-
-    </div>
-
-  </div>
-</div>
-
-</div>
-  </div>
-</div>
 </div>
 
 </div>

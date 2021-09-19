@@ -1,0 +1,91 @@
+<mat-toolbar class="mat-elevation-z8">
+  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+  <span class="spacer"></span>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+      <h4 class="name">Deshan Harshana</h4>
+      <p class="designation">Hospital Admin</p>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+          <mat-icon>person</mat-icon>
+          <span>Add Doctor</span>
+      </button>
+
+
+
+  </mat-sidenav>
+
+
+
+
+<div class="content mat-elevation-z8"  style="height: fit-content;">
+  <div class='container-fluid' style="margin-top: 2%; margin-bottom:5%">
+    <div class="card" style="padding: 2%;">
+    <div class="row">
+      <div class="col-8">
+
+          <input class="form-control" type="text" name="name" [(ngModel)]="name" (ngModelChange)="Search()" placeholder="Enter doctor name to search">
+
+      </div>
+      <div class="col-4">
+
+        <select id="type" class="form-control"  [(ngModel)]="catogory" (ngModelChange)="Catogorize()">
+
+          <option>Audiologist</option>
+          <option>Epidemiologist</option>
+          <option>Podiatrist</option>
+          <option>Pediatrician</option>
+          <option>Rheumatologist</option>
+          <option>Dentist</option>
+          <option>Oncologist</option>
+          <option>Obstetrics and gynecology physician</option>
+          <option>Urologist</option>
+          <option>Psychiatrist</option>
+          <option>Dermatologist</option>
+          <option>Orthopedist</option>
+          <option>Endocrinologist</option>
+          <option>Neurologist</option>
+          <option>Plastic surgeon</option>
+          <option>Nephrologist</option>
+          <option>Radiologist</option>
+          <option>Gastroenterologist</option>
+          <option>Neonatologist</option>
+          <option>Cardiologist</option>
+<option>Geriatric physician</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+
+      </div>
+    </div>
+  </div>
+    <div class="row">
+
+      <div class="col-4" *ngFor="let d of filterdData">
+        <div  class="card cd  d-flex align-items-center">
+         <img src="{{ d.displayImage }}" class="rounded-circle r">
+         <h4>{{ d.fullname }}</h4>
+         <h3>{{ d.SLMC }}</h3>
+        <h2 class="strokeme">{{ d.type }}</h2>
+        <button class="myButton" routerLink="/appoinment/{{ d._id }}">Appoinment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</mat-sidenav-container>

@@ -12,16 +12,38 @@ import { ReportsService } from 'src/app/services/reports.service';
 export class EditReportComponent implements OnInit {
   report = new FormGroup({
     name:new FormControl(''),
+    dob:new FormControl(''),
+    age:new FormControl(''),
+    guardian: new FormControl(''),
+    gender: new FormControl(''),
+    relationship:new FormControl(''),
+    taddress: new FormControl(''),
+    paddress: new FormControl(''),
+    phone: new FormControl(''),
+    email: new FormControl(''),
+    occupation: new FormControl(''),
+    weight: new FormControl(''),
+    height: new FormControl(''),
+    medicalHistory: new FormControl(''),
+    /*
+    guardian: new FormControl(''),
+    maritalStatus: new FormControl(''),
 
-  })
-  data = {
-    name: "Shalika",
-    dob: "1997/06/16",
-    email: "shalika@gmail.com",
-    
-  }
+    */
+
+  //for checkboxes health
+  Heart_disease:new FormControl(false),
+  Diabetes:new FormControl(true)
+
+  });
+
+
+  
+  
+
+   
+
   constructor(
-    private router:Router,
     private auth:AuthenticationService,
     private route:ActivatedRoute,
     private Report:ReportsService,
@@ -36,37 +58,10 @@ export class EditReportComponent implements OnInit {
     this.auth.logout();
       }
 
-  //editReport(){
-    //this.Report.editReport(this.data).subscribe(result=>{
-      //console.log(result.message)
-    //});
-  //}
 
-  
-  /*
-
-  editReport(report:any){
-   
-
-      this.report.updateReport(report, this.data).subscribe(result=>{
-          this.message.success("Update Successfully", "Updating Doctor");
-
-
-
-
-
-      });
-      
-
-
-  
-
-
-
-
-
-  }*/
-
+  addReport(report:any){
+     console.log(report);
+    }
 
 
 }

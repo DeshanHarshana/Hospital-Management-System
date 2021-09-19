@@ -35,7 +35,7 @@
       <div class="row">
         <div class="col-6 d-flex justify-content-center">
           <div class="card personalCard">
-            <form action="">
+            <form [formGroup]="report">
 
 
               <h2><u>Personal Details</u></h2>
@@ -48,7 +48,7 @@
                       <i class="fa fa-user">
                       </i>
                     </div>
-                    <input id="fullname" formControlName="fullname" name="Name (Full name)" type="text"
+                    <input id="fullname" formControlName="name" name="Name (Full name)" type="text"
                       placeholder="Name (Full name)" class="form-control input-md">
                   </div>
 
@@ -69,14 +69,16 @@
 
                     </div>
 
-                    <mat-form-field>
-
-                      <input matInput [matDatepicker]="myDatePiker" class="col-md-6  col-xs-4">
-                      <mat-label>Choose a date</mat-label>
-                      <mat-datepicker-toggle [for]="myDatePiker" matSuffix></mat-datepicker-toggle>
-                      <mat-datepicker #myDatePiker></mat-datepicker>
-
-                    </mat-form-field>
+                   
+                      <div>
+                        <label class="form-check-label" for="DOB"> Date Of Birth:</label><br>
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="datepicker" placeholder="mm/dd/yyyy">
+                            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                            <mat-datepicker #datepicker></mat-datepicker>
+                        </mat-form-field>
+                   
+                    </div>
 
                   </div>
 

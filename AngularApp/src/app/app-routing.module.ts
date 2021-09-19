@@ -33,6 +33,7 @@ import { PatientEditProfileComponent } from './patient/patient-edit-profile/pati
 import { ChildComponent } from './test/child/child.component';
 import { ParentComponent } from './test/parent/parent.component';
 import { AppoinmentComponent } from './appoinment/appoinment/appoinment.component';
+import { AddReportComponent } from './patient/add-report/add-report.component';
 
 
 const routes: Routes = [
@@ -54,13 +55,14 @@ const routes: Routes = [
   //doctor
   {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},
   {path : 'Doctor-DoctorAddpatient', component:DoctorAddPatientsComponent, canActivate:[DoctorGuard]},
-
+  {path : 'Doctor-AddReport', component:AddReportComponent, canActivate:[DoctorGuard]},
 
   //patient
   {path:'Patient-dashboard',component:PatientDashboardComponent, canActivate:[PatientGuard]},
   {path : 'Patient-About', component:PatientAboutComponent, canActivate:[PatientGuard]},
   {path:'show-report', component:ShowReportComponent, canActivate:[PatientGuard]},
   {path:'edit-report', component:EditReportComponent, canActivate:[PatientGuard]},
+
 
   //test
   {path : 'test', component:TestComponent},

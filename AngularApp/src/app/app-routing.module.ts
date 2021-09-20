@@ -73,40 +73,30 @@ const routes: Routes = [
   {path : 'Admin-show-wardpage',component:ShowWardpageComponent, canActivate:[AuthGuard]},
   {path : 'Admin-edit-ward-details',component:EditWardDetailsComponent, canActivate:[AuthGuard]},
 
-
-
   //doctor
-
   {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},
-  {path : 'Doctor-DoctorAddpatient', component:DoctorAddPatientsComponent, canActivate:[DoctorGuard]},
+  {path :'Doctor-DoctorAddpatient', component:DoctorAddPatientsComponent, canActivate:[DoctorGuard]},
   {path:'DoctorAppoinmentList', component:DoctorAppoinmentlistComponent, canActivate:[DoctorGuard]},
   {path:'DoctorPatientList', component:PatientlistComponent, canActivate:[DoctorGuard]},
   {path:'calendarDoctor', component:DoctorCalendarComponent, canActivate:[DoctorGuard]},
-   {path:'Doctor-AddReport', component:AddReportComponent, canActivate:[DoctorGuard]},
-
-
-
-
+  {path:'Doctor-AddReport', component:AddReportComponent, canActivate:[DoctorGuard]},
 
   //patient
   {path:'Patient-dashboard',component:PatientDashboardComponent, canActivate:[PatientGuard]},
   {path : 'Patient-About', component:PatientAboutComponent, canActivate:[PatientGuard]},
-  {path:'show-report', component:ShowReportComponent, canActivate:[PatientGuard]},
-  {path:'edit-report', component:EditReportComponent, canActivate:[PatientGuard]},
-  {path:'report-list', component:ReportlistComponent, canActivate:[PatientGuard]},
-  {path:'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent, canActivate:[PatientGuard]},
-  {path:'getcurrentAppoinment', component:AppoinmentlistComponent, canActivate:[PatientGuard]},
+  {path :'show-report', component:ShowReportComponent, canActivate:[PatientGuard]},
+  {path :'edit-report', component:EditReportComponent, canActivate:[PatientGuard]},
+  {path :'report-list', component:ReportlistComponent, canActivate:[PatientGuard]},
+  {path :'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent, canActivate:[PatientGuard]},
+  {path :'getcurrentAppoinment', component:AppoinmentlistComponent, canActivate:[PatientGuard]},
 
   //appoinment
   {path:'appoinment/:id', component:AppoinmentComponent, canActivate:[PatientGuard]},
-
 
   //test
   {path : 'test', component:TestComponent},
   {path:'child', component:ChildComponent},
   {path:'parent', component:ParentComponent},
-
-
 
   //medicalunit
   {path:'edit-medical-unit',component:EditMedicalUnitComponent},

@@ -36,6 +36,7 @@ const report = mongoose.Schema({
 
     doctorname:String
    
+   
     });
 
 module.exports=mongoose.model('Report', report, "Report");

@@ -325,9 +325,11 @@ router.post('/add-report', function (req, res) {
                 date:req.body.date,
                 sign:req.body.sign,
 
+
                 doctorid:req.body.doctorid,
                 patientid:req.body.patientid,
                 doctorname:req.body.doctorname
+
                 
                 }
                 let report = new Report(reportData)
@@ -499,7 +501,11 @@ router.post('/doctor/:postid/updatePhoto', imageUpload.uploadImage().single('doc
 const patientimageUpload = require('../healper/storagePatient');
 const Report = require('../Models/Report');
 const Appoinment = require('../Models/Appoinment');
+
+const { strictEqual } = require('assert');
+
 const MedicalUnit = require('../Models/MedicalUnit');
+
 
 router.post('/patient/:postid/updatePhoto', patientimageUpload.uploadImage().single('patientImage'), (req, res, next) => {
     const oldlink = "";

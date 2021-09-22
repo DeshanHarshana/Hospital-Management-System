@@ -1,7 +1,8 @@
 import { flatten } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Methods } from 'src/app/appdata/methods';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DoctorService } from 'src/app/services/doctor.service';
@@ -46,7 +47,7 @@ export class AddReportComponent implements OnInit {
     description:new FormControl(''),
     date:new FormControl(new Date()),
     sign:new FormControl(''),
-    
+
 
     doctorid:new FormControl(''),
     patientid:new FormControl(''),
@@ -64,7 +65,9 @@ export class AddReportComponent implements OnInit {
     private methods:Methods,
     private route:ActivatedRoute,
     private patient:PatientService,
-    private doctor:DoctorService
+    private doctor:DoctorService,
+    public toastr:ToastrService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -97,8 +100,12 @@ export class AddReportComponent implements OnInit {
        }
        this.patient.addreportlist(data,this.currentPatient).subscribe(res=>{
             console.log(res);
+            this.toast("Report Added Successfull");
+            this.router.navigate(['report-list/'+this.currentPatient]);
        })
      })
     }
-
+    toast(message:String) {
+      this.toastr.warning(message.toString(), "Adding Report");
+     }
 }

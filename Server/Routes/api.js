@@ -345,6 +345,61 @@ router.post('/add-report', function (req, res) {
 });
 
     
+//edit report
+router.put('/updateReport/:id', function (req, res) {
+    Report.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                    name: req.body.name,
+                    dob: req.body.dob,
+                    age:req.body.age,
+                    guardian: req.body.guardian,
+                    gender: req.body.gender,
+                    relationship:req.body.relationship,
+                    taddress: req.body.taddress,
+                    paddress: req.body.paddress,
+                    phone: req.body.phone,
+                    email: req.body.email,
+                    occupation: req.body.occupation,
+                    weight: req.body.weight,
+                    height: req.body.height,
+                    heartDisease:req.body.heartDisease,
+                    diabetes:req.body.diabetes,
+                    hbp:req.body.hbp,
+                    canser:req.body.canser,
+                    hc:req.body.hc,
+                    kidney:req.body.kidney,
+                    stroke:req.body.stroke,
+                    dep:req.body.dep,
+                    surgeries:req.body.surgeries,
+                    medications:req.body.medications,
+                    latex:req.body.latex,
+                    iodine:req.body.iodine,
+                    bromine:req.body.bromine,
+                    description:req.body.description,
+                    date:req.body.date,
+                    sign:req.body.sign,
+
+
+                    doctorid:req.body.doctorid,
+                    patientid:req.body.patientid,
+                    doctorname:req.body.doctorname
+
+                    
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
+
+
+});
 
 
     
@@ -928,6 +983,7 @@ router.get('/getSingleReport/:id', function(req,res){
 
 
 
+
 router.put('/update-doctor/:id', function (req, res) {
     console.log(req.body.displayImage)
     Doctor.findByIdAndUpdate(req.params.id,
@@ -1134,6 +1190,43 @@ router.put('/addreporttopatient-reportlist/:id', function(req, res){
         }
     )
 })
+
+
+//delete reportid from patient report list
+router.put('/deleteReportfromList/:id', function(req,res){
+    Patient.findByIdAndUpdate(
+        {
+            _id:req.params.id
+        },
+        {
+            $pull:{
+                reportList:{
+                    reportid:req.body.reportid
+                }
+            }
+        },
+        function(error, Result){
+            if(error){
+                res.send("Error Deleting Report")
+            }else{
+                res.send(Result);
+
+            }
+        }
+        )
+})
+
+//delete report
+router.delete('/deleteReport/:id', function(req,res){
+    Report.deleteOne({_id:req.params.id}, function(err,data){
+        if(err){
+            res.send(err)
+        } else {
+            res.send(data);
+            console.log("delete success")
+        }
+     });
+    });
 
 
 //export model

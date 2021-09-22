@@ -43,6 +43,7 @@ export class AddReportComponent implements OnInit {
     description:new FormControl(''),
     date:new FormControl(new Date()),
     sign:new FormControl(''),
+    
 
     
 

@@ -43,6 +43,7 @@ export class AddReportComponent implements OnInit {
     description:new FormControl(''),
     date:new FormControl(new Date()),
     sign:new FormControl(''),
+    
 
     
 
@@ -64,11 +65,11 @@ export class AddReportComponent implements OnInit {
 
   addReport(report:any){
     report.date=this.methods.convert(report.date);
-     console.log(report);
+     //console.log(report);
 
-     /*this.reportS.addReport(report).subscribe(res=>{
+     this.reportS.addReport(report).subscribe(res=>{
        console.log(res);
-     })*/
+     })
     }
 
 }

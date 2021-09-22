@@ -21,6 +21,8 @@
       <span>Home</span>
     </button>
 
+   
+
 
 
   </mat-sidenav>
@@ -35,41 +37,58 @@
           <div class="col-6 d-flex justify-content-center">
             <div class="card personalCard">
               <form action="">
-                <h2><u>My Details</u></h2>
+                <h2 style="font-family: serif; "><u><strong><i>My Details</i></strong></u></h2>
 
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="fullname" style="font-family:joy; font-size: 1.5rem;"> Full Name:</label>
-                  <h3 id="fullname">Shalika Nawaratahna</h3>
+                  <h3 id="fullname" style="font-family: cursive;">Shalika Nawaratahna</h3>
                 </div>
 
                 <div class="form-group">
-                  <label class="col-md-4 control-label" for="Date Of Birth" style="font-family:joy; font-size: 1.5rem;"> Date of Birth:</label>
-                  <h3 id="fullname">16/06/1997</h3>
+                  <label class="col-md-4 control-label" for="Age" style="font-family:joy; font-size: 1.5rem;"> Age:</label>
+                  <h3 id="fullname" style="font-family: cursive;" >23</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="Gender" style="font-family:joy; font-size: 1.5rem;"> Gender:</label>
-                  <h3 id="fullname">Female</h3>
+                  <h3 id="fullname" style="font-family: cursive;"> Female</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="Marital Status" style="font-family:joy; font-size: 1.5rem;"> Marital Status:</label>
-                  <h3 id="fullname">Single</h3>
+                  <h3 id="fullname" style="font-family: cursive;">Single</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="Guardian Name" style="font-family:joy; font-size: 1.5rem;"> Guardian Name:</label>
-                  <h3 id="fullname">Chandra</h3>
+                  <h3 id="fullname" style="font-family: cursive;">Chandra</h3>
+                </div>
+
+                
+                <div class="form-group">
+                  <label class="col-md-8 control-label" for="Primary Occupation" style="font-family:joy; font-size: 1.5rem;"> Primary Occupation:</label>
+                  <h3 id="fullname" style="font-family: cursive;">Student</h3>
                 </div>
 
                 <div class="form-group">
+                  <label class="col-md-8 control-label" for="Phone number" style="font-family:joy; font-size: 1.5rem;"> Phone Number:</label>
+                  <h3 id="fullname" style="font-family: cursive;">123456789</h3>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-md-8 control-label" for="Email Address" style="font-family:joy; font-size: 1.5rem;"> Email Address:</label>
+                  <h3 id="fullname" style="font-family: cursive;">shalika@gmail.com</h3>
+                </div>
+
+
+                <div class="form-group">
                   <label class="col-md-8 control-label" for="Temporary Address" style="font-family:joy; font-size: 1.5rem;"> Temporary Address:</label>
-                  <h3 id="fullname">No 21/2, Bogahakubura</h3>
+                  <h3 id="fullname" style="font-family: cursive;">No 21/2, Bogahakubura</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-8 control-label" for="Permanent Address" style="font-family:joy; font-size: 1.5rem;"> Permanent Address:</label>
-                  <h3 id="fullname">No 21/2, Bogahakubura</h3>
+                  <h3 id="fullname" style="font-family: cursive;">No 21/2, Bogahakubura</h3>
                 </div>
 
                 
@@ -82,14 +101,237 @@
               
             </div>
           </div>
+
+      
+          <div class="col-6 ">
+            <div class="row">
+              <div class="col">
+                <div class="card classCard">
+               
+                 
+                        
+                        <form action="">
+                          <h2 style="font-family: serif; "><u><strong><i>Medical Details</i></strong></u></h2>
+
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label class="col-md-8 control-label" for="Height" style="font-family:joy; font-size: 1.5rem;"> Height:</label>
+                                <h3 id="fullname" style="font-family: cursive;">55kg</h3>
+                              </div>
+              
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label class="col-md-8 control-label" for="Weight" style="font-family:joy; font-size: 1.5rem;"> Weight:</label>
+                                <h3 id="fullname" style="font-family: cursive;">5'3m</h3>
+                              </div>
+              
+                            </div>
+          
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-8 control-label" for="Permanent Address" style="font-family:joy; font-size: 1.5rem;"> Past Medical History:</label>
+                           
+            
+                          
+                              <table  style="font-family: cursive;">
+                                <tr>
+                                  <td>
+                                    <div class="checkbox">
+                                      <label for="Medical History-1">
+                                        <input type="checkbox" name="Medical History" id="Medical History-1" value="1"  [defaultChecked]="true" [disabled]="true" >
+                                        Heart disease &nbsp; &nbsp;
+                                      </label>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="checkbox">
+                                      <label for="Medical History-2">
+                                        <input type="checkbox" name="Medical History" id="Medical History-2" value="2" [defaultChecked]="true" [disabled]="true" >
+                                        Diabetes &nbsp; &nbsp;
+                                      </label>
+                                    </div>
+                                  </td>
+          
+          
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="checkbox">
+                                      <label for="Medical History-3">
+                                        <input type="checkbox" name="Medical History" id="Medical History-3" value="3"  [defaultChecked]="true" [disabled]="true" >
+                                        High blood pressure &nbsp; &nbsp;
+                                      </label>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="checkbox">
+                                      <label for="Medical History-4">
+                                        <input type="checkbox" name="Medical History" id="Medical History-4" value="4" [disabled]="true" >
+                                        Cancer
+                                      </label>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="checkbox">
+                                      <label for="Medical History-5">
+                                        <input type="checkbox" name="Medical History" id="Medical History-5" value="5" [disabled]="true" > 
+                                        High cholesterol &nbsp; &nbsp;
+                                      </label>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="checkbox">
+                                      <label for="Medical History-6">
+                                        <input type="checkbox" name="Medical History" id="Medical History-6" value="6"  [disabled]="true">
+                                        Kidney disease &nbsp; &nbsp;
+                                      </label>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="checkbox">
+                                      <label for="Medical History-7">
+                                        <input type="checkbox" name="Medical History" id="Medical History-7" value="7" [disabled]="true" >
+                                        Stroke &nbsp; &nbsp;
+                                      </label>
+                                    </div>
+                                  </td>
+                                  <td>
+                                    <div class="checkbox">
+                                      <label for="Medical History-8">
+                                        <input type="checkbox" name="Medical History" id="Medical History-8" value="8" [disabled]="true" >
+                                        Depression &nbsp; &nbsp;
+                                      </label>
+                                    </div>
+                                  </td>
+                                </tr>
+                              
+                              </table>
+                              <br>
+                            
+                          </div>
+          
+                          <div class="form-group">
+                            <label class="col-md-8 control-label" for="Temporary Address" style="font-family:joy; font-size: 1.5rem;"> Allergies:</label>
+                            <div class="col-md-4">
+                              
+                              <table style="font-family: cursive;">
+                             
+                             <div class="row">
+                              <div class="col md-4">
+                                <div class="checkbox">
+                                  <label for="Medical History-1">
+                                    <input type="checkbox" name="Medical History" id="Medical History-l" value="latex"  [defaultChecked]="true" [disabled]="true" >
+                                    latex &nbsp; &nbsp;
+                                  </label>
+                                </div>
+          
+                                <div class="checkbox">
+                                  <label for="Medical History-2">
+                                    <input type="checkbox" name="Medical History" id="Medical History-2" value="Iodin" [defaultChecked]="true" [disabled]="true"  >
+                                    Iodine &nbsp; &nbsp;
+                                  </label>
+                                </div>
+          
+                                
+                                <div class="checkbox">
+                                  <label for="Medical History-3">
+                                    <input type="checkbox" name="Medical History" id="Medical History-3" value="bromine"  [disabled]="true"  >
+                                    Bromine &nbsp; &nbsp; 
+                                  </label>
+                                </div>
+                              </div>
+                             </div>
+                             </table> <br>
+                              </div>
+                          </div>
+          
+                          <div class="form-group">
+                            <label class="col-md-8 control-label" for="Surgeries" style="font-family:joy; font-size: 1.5rem;"> Surgeries:</label>
+                            <h3 id="fullname" style="font-family: cursive;">No</h3>
+                          </div>
+          
+                          <div class="form-group">
+                            <label class="col-md-8 control-label" for="Medications" style="font-family:joy; font-size: 1.5rem;"> Medications:</label>
+                            <h3 id="fullname" style="font-family: cursive;">Atorvastatin. Atorvastatin treats high cholesterol. </h3>
+                          </div>
+          
+                          <div class="form-group">
+                            <label class="col-md-8 control-label" for="Medications" style="font-family:joy; font-size: 1.5rem;"> Description:</label>
+                            <h3 id="fullname" style="font-family: cursive;">Describe the problem in the patient's own words. </h3>
+                          </div>
+          
+                          
+          
+          
+                        </form>
+                    
+                    
+                  
+                </div>
+              </div>
+  
+            </div>
+            
+
+           
+              
+           
+            <div class="row">
+              <div class="col">
+                <div class="card classCard">
+                  
+                      <form >
+                      <div class="row">
+                        <div class="col">
+                          <div class="row">
+                            <div class="form-group">
+                              <label class="col-md-8 control-label" for="Date" style="font-family:joy; font-size: 1.5rem;"> Date:</label>
+                              <h3 id="fullname" style="font-family: cursive;">21/09/2021 </h3>
+                            </div>
+    
+                          </div>
+                        </div>
+                        <div class="col">
+                          
+                          <div class="form-group">
+                            <label class="col-md-8 control-label" for="Date" style="font-family:joy; font-size: 1.5rem;"> Signature:</label>
+                            <h3 id="fullname" style="font-family: cursive;">shalika </h3>
+                          </div>
+                        </div>
+                      </div>
+                    
+                  
+                    </form>
+                    </div>
+                  
+  
+                 
+                  
+  
+                
+              </div>
+            </div> <br>
+            <div class="row">
+              <div class="col d-flex justify-content-center">
+                <button type="button" class="btn btn-success btn-lg active" [routerLink]="['/edit-report']" routerLinkActive="router-link-active" >Edit Report</button>
+      
+              </div>
+            </div>
+          
+          </div>
+  
+
+            
+         
         </div>
 
-        <div class="row">
-          <div class="col d-flex justify-content-center">
-            <button type="button" class="btn btn-success" [routerLink]="['/edit-report']" routerLinkActive="router-link-active" >Edit</button>
-  
-          </div>
-        </div>
+        
 
         
       </div>

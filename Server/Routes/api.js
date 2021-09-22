@@ -324,6 +324,10 @@ router.post('/add-report', function (req, res) {
                 description:req.body.description,
                 date:req.body.date,
                 sign:req.body.sign,
+
+                doctorid:req.body.doctorid,
+                patientid:req.body.patientid,
+                doctorname:req.body.doctorname
                 
                 }
                 let report = new Report(reportData)
@@ -495,6 +499,7 @@ router.post('/doctor/:postid/updatePhoto', imageUpload.uploadImage().single('doc
 const patientimageUpload = require('../healper/storagePatient');
 const Report = require('../Models/Report');
 const Appoinment = require('../Models/Appoinment');
+const MedicalUnit = require('../Models/MedicalUnit');
 
 router.post('/patient/:postid/updatePhoto', patientimageUpload.uploadImage().single('patientImage'), (req, res, next) => {
     const oldlink = "";
@@ -840,8 +845,55 @@ async function getPatierntlist(ids){
 
 
 
+//get patients report list
+var reportData=[];
+router.get('/getPatientReportList/:id',  function(req,res){
+    Patient.find({_id:req.params.id},'reportList', function(error,result){
+        if(error){
+            console.log("error");
+        }else{
+            var data=result[0].reportList;
+          
+            
+              
+            getAllreportsinPatient(data, getReportData);
+             setTimeout(()=>{
+                res.send(reportData);
+             },1000);
+             
+        }
+    })
+});
+
+function getAllreportsinPatient(data, callback){
+    var reportids=[];
+    for (var i = 0; i < data.length; i++){
+        var obj = data[i];
+        var value = obj['reportid'];
+        reportids.push(value);
+    }
+    callback(reportids);
+}
+
+async function getReportData(ids){
+    const records = await Report.find({ '_id': { $in: ids } });
+    reportData=records;
+}
 
 
+
+
+
+//get one report data
+router.get('/getSingleReport/:id', function(req,res){
+    Report.findOne({"_id":req.params.id}, function(error, result){
+        if(error){
+            console.log(error);
+        }else{
+            res.send(result);
+        }
+    })
+})
 
 
 
@@ -937,6 +989,7 @@ router.delete('/delete-doctor/:id', function (req, res) {
         } catch (error) {
             console.log(error);
         }
+        
 
         Doctor.deleteOne({ _id: req.params.id }, function (err, data) {
             if (err) {
@@ -1005,10 +1058,76 @@ async function getAppoinmentlist(ids){
 
 
 
+//medical unit
+
+router.post('/add-medicalunit-data', function(req,res){
+    let medicalUnitdata = {
+
+        catogory: req.body.catogory,
+        mentor: req.body.mentor,
+        countOfDoctor:req.body.countOfDoctor
+    }
+    let medicalunit = new MedicalUnit(medicalUnitdata)
+    medicalunit.save((error, result) => {
+        if (error) {
+            console.log(error);
+        }
+        else {
+            res.send(result);
+        }
+    })
+});
 
 
 
+router.get("/get-medicalunit-data/:id", function(req,res){
+    MedicalUnit.findById({_id:req.params.id}, function(error, result){
+        if(error){
+            console.log(error)
+        }
+        else{
+            res.send(result)
+        }
+    })
+})
+router.put('/postmedicaldata/:id', function(req,res){
+   
+    MedicalUnit.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                catogory: req.body.catogory,
+                mentor: req.body.mentor,
+                countOfDoctor: req.body.countOfDoctor,
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
+    
+})
 
+router.put('/addreporttopatient-reportlist/:id', function(req, res){
+    Patient.findByIdAndUpdate(req.params.id,{
+        $push:{
+            reportList:[req.body]
+        },
+        new :true
+    },
+        function(error, Result){
+            if(error){
+                res.send("Error Update Report List" + error)
+            }else{
+                res.status(200).send(Result)
+            }
+        }
+    )
+})
 
 
 //export model

@@ -1,0 +1,65 @@
+<mat-toolbar class="mat-elevation-z8">
+  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+  <span class="spacer"></span>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+      <h4 class="name">Deshan Harshana</h4>
+      <p class="designation">Hospital Admin</p>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+          <mat-icon>person</mat-icon>
+          <span>Add Doctor</span>
+      </button>
+
+
+
+  </mat-sidenav>
+
+
+    <div class="content mat-elevation-z8">
+<div class="container-fluid ">
+<h1 style="font-family: 'broad'; font-size:3rem; padding-bottom:2%" class="d-flex justify-content-center" >Doctor Time Table</h1>
+
+<div class="row">
+  <div class="col-6">
+<div class="card shadow mb-5 bg-white rounded">
+  <div class="row">
+    <div class="col-5">
+      <div class="row">
+        <div class="col-12 d-flex align-items-center d-flex justify-content-center" style="padding-left: 10%; padding-top:5%">
+          <img class="doctorImage"  src="http://pueblosvivosaragon.com/wp-content/uploads/2018/08/avatar-1-300x300.png"><br>
+
+        </div>
+        <div class="col-12 d-flex align-items-center d-flex justify-content-center" style="padding-left: 10%;">
+<h2 style="font-size: 1rem;">Dr Deshan Harshana</h2>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-7 d-flex align-items-center d-flex justify-content-center" *ngIf="true" style="background-color: rgb(0, 128, 0);">
+<h2 style="font-size: 500%;">Available</h2>
+    </div>
+
+    <div class="col-7" *ngIf="false" style="background-color: antiquewhite;">
+
+    </div>
+
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+    </div></mat-sidenav-container>

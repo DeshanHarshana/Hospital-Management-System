@@ -21,7 +21,7 @@
       <span>Home</span>
     </button>
 
-   
+
 
 
 
@@ -43,7 +43,7 @@
               <h2><u>Personal Details</u></h2>
 
               <div class="form-group">
-                <label class="col-md-4 control-label" for="fullname">Name (Full name)</label>
+                <label class="col-md-4 control-label" for="fullname">Patient Name</label>
                 <div class="col">
                   <div class="input-group">
                     <div class="input-group-addon">
@@ -55,7 +55,7 @@
                   </div>
               </div>
            </div>
-              <br>
+
 
               <!--
               <div class="form-group">
@@ -77,8 +77,7 @@
                   </div>
               </div>-->
 
-
-
+        <!---
     <div class="col-md-3">
       <label class="form-check-label" for="DOB"> Date Of Birth:</label><br>
       <mat-form-field>
@@ -86,7 +85,9 @@
           <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
           <mat-datepicker #datepicker></mat-datepicker>
       </mat-form-field>
-  </div>
+
+
+            </div>-->
 
 
 
@@ -175,6 +176,8 @@
                       </select>
                     </mat-form-field>
                   </div>
+
+
           </div>
 
                 </div>
@@ -258,7 +261,7 @@
             <div class="col">
               <div class="card classCard">
                 <form [formGroup]="report">
-                  <h2><u>Personal Details</u></h2>
+                  <h2><u>Medical Details</u></h2>
                   <div class="row">
                     <div class="col-5">
                       <div class="form-group">
@@ -287,7 +290,7 @@
                           <td>
                             <div class="checkbox">
                               <label for="Medical History-1">
-                                <input type="checkbox" name="Medical History" formControlName="Heart_disease" id="Medical History-1" value="1" >
+                                <input type="checkbox" name="Medical History" id="Medical History-1" value="1" formControlName="heartDisease">
                                 Heart disease &nbsp; &nbsp;
                               </label>
                             </div>
@@ -295,7 +298,7 @@
                           <td>
                             <div class="checkbox">
                               <label for="Medical History-2">
-                                <input type="checkbox" name="Medical History" formControlName="Diabetes"  id="Medical History-2" value="2" >
+                                <input type="checkbox" name="Medical History" id="Medical History-2" value="2" formControlName="diabetes" >
                                 Diabetes &nbsp; &nbsp;
                               </label>
                             </div>
@@ -307,7 +310,7 @@
                           <td>
                             <div class="checkbox">
                               <label for="Medical History-3">
-                                <input type="checkbox" name="Medical History" id="Medical History-3" value="3" >
+                                <input type="checkbox" name="Medical History" id="Medical History-3" value="3"  formControlName="hbp">
                                 High blood pressure &nbsp; &nbsp;
                               </label>
                             </div>
@@ -315,7 +318,7 @@
                           <td>
                             <div class="checkbox">
                               <label for="Medical History-4">
-                                <input type="checkbox" name="Medical History" id="Medical History-4" value="4" >
+                                <input type="checkbox" name="Medical History" id="Medical History-4" value="4" formControlName="canser">
                                 Cancer
                               </label>
                             </div>
@@ -325,7 +328,7 @@
                           <td>
                             <div class="checkbox">
                               <label for="Medical History-5">
-                                <input type="checkbox" name="Medical History" id="Medical History-5" value="5" >
+                                <input type="checkbox" name="Medical History" id="Medical History-5" value="5" formControlName="hc" >
                                 High cholesterol &nbsp; &nbsp;
                               </label>
                             </div>
@@ -333,7 +336,7 @@
                           <td>
                             <div class="checkbox">
                               <label for="Medical History-6">
-                                <input type="checkbox" name="Medical History" id="Medical History-6" value="6" >
+                                <input type="checkbox" name="Medical History" id="Medical History-6" value="6" formControlName="kidney" >
                                 Kidney disease &nbsp; &nbsp;
                               </label>
                             </div>
@@ -343,7 +346,7 @@
                           <td>
                             <div class="checkbox">
                               <label for="Medical History-7">
-                                <input type="checkbox" name="Medical History" id="Medical History-7" value="7" >
+                                <input type="checkbox" name="Medical History" id="Medical History-7" value="7" formControlName="stroke" >
                                 Stroke &nbsp; &nbsp;
                               </label>
                             </div>
@@ -351,41 +354,15 @@
                           <td>
                             <div class="checkbox">
                               <label for="Medical History-8">
-                                <input type="checkbox" name="Medical History" id="Medical History-8" value="8" >
+                                <input type="checkbox" name="Medical History" id="Medical History-8" value="8" formControlName="dep" >
                                 Depression &nbsp; &nbsp;
                               </label>
                             </div>
                           </td>
                         </tr>
-                        <tr>
-                          <div class="othertop">
-                            <label for="Medical History-9">
-                            </label>
-                            <input type="input" name="MedicalHistory" id="Languages Known-9" placeholder="Other Issue" >
-                          </div>
-                        </tr>
+
                       </table>
                       <br>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="Surgeries">Surgeries</label>
-                      <div class="col">
-                        <div class="form-group">
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                            placeholder="Surgery details"></textarea> <br>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="Surgeries">Medications</label>
-                      <div class="col">
-                        <div class="form-group">
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                            placeholder="Please list medications that you are taking"></textarea> <br>
-                        </div>
-                      </div>
                     </div>
 
                     <div class="form-group">
@@ -396,72 +373,66 @@
 
                      <div class="row">
                       <div class="col md-4">
-                        <tr>
-                          <td>Latex &nbsp; &nbsp; &nbsp; &nbsp;</td>
-                          <td>
-                            <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios1" mdbInput>
-                              <label class="custom-control-label" for="defaultUnchecked1">Yes</label> &nbsp;&nbsp;
-                            </div>
-                          </td>
-                          <td>
-                            <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="defaultChecked1" name="defaultExampleRadios1" checked mdbInput>
-                              <label class="custom-control-label" for="defaultChecked1">No</label>
-                            </div>
-                          </td>
+                        <div class="checkbox">
+                          <label for="Medical History-1">
+                            <input type="checkbox" name="Medical History" id="Medical History-l" value="latex" formControlName="latex" >
+                            latex &nbsp; &nbsp;
+                          </label>
+                        </div>
 
-                        </tr>
+                        <div class="checkbox">
+                          <label for="Medical History-2">
+                            <input type="checkbox" name="Medical History" id="Medical History-2" value="Iodine" formControlName="iodine" >
+                            Iodine &nbsp; &nbsp;
+                          </label>
+                        </div>
+
+
+                        <div class="checkbox">
+                          <label for="Medical History-3">
+                            <input type="checkbox" name="Medical History" id="Medical History-3" value="bromine" formControlName="bromine" >
+                            Bromine &nbsp; &nbsp;
+                          </label>
+                        </div>
                       </div>
                      </div>
-
-                          <div>
-                            <tr>
-                              <td>Iodine &nbsp;&nbsp; &nbsp; &nbsp;</td>
-                              <td>
-                                <div class="custom-control custom-radio">
-                                  <input type="radio" class="custom-control-input" id="defaultUnchecked2" name="defaultExampleRadios2" mdbInput>
-                                  <label class="custom-control-label" for="defaultUnchecked2">Yes</label> &nbsp;&nbsp;
-                                </div>
-                              </td>
-                              <td>
-                                <div class="custom-control custom-radio">
-                                  <input type="radio" class="custom-control-input" id="defaultChecked2" name="defaultExampleRadios2" checked mdbInput>
-                                  <label class="custom-control-label" for="defaultChecked2">No</label>
-                                </div>
-                              </td>
-                            </tr>
-                          </div>
-                         <div>
-                          <tr>
-                            <td>Bromine &nbsp;&nbsp;</td>
-                            <td>
-                              <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="defaultUnchecked3" name="defaultExampleRadios3" mdbInput>
-                                <label class="custom-control-label" for="defaultUnchecked3">Yes</label> &nbsp;&nbsp;
-                              </div>
-                            </td>
-                            <td>
-                              <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="defaultChecked3" name="defaultExampleRadios3" checked mdbInput>
-                                <label class="custom-control-label" for="defaultChecked3">No</label>
-                              </div>
-                            </td>
-                          </tr>
-                         </div>
-                          <tr>
-                            <div class="othertop">
-                              <label for="Medical History-9">
-                              </label>
-                              <input type="input" name="MedicalHistory" id="Languages Known-9"
-                                placeholder="Other Allergies">
-                            </div>
-
-                          </tr>
-
-                        </table>
+                     </table> <br>
                       </div>
                     </div>
+                    <br>
+
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="Surgeries">Surgeries</label>
+                      <div class="col">
+                        <div class="form-group">
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            placeholder="Surgery details"  formControlName="surgeries"></textarea> <br>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="Medications">Medications</label>
+                      <div class="col">
+                        <div class="form-group">
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            placeholder="Please list medications that you are taking"  formControlName="medications"></textarea> <br>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="Description">Description</label>
+                      <div class="col">
+                        <div class="form-group">
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            placeholder="Present medical details" formControlName="description" ></textarea> <br>
+                        </div>
+                      </div>
+                    </div>
+
+
                   </div>
                 </form>
               </div>
@@ -469,44 +440,51 @@
 
           </div>
 
+
+
+
+
           <div class="row">
             <div class="col">
               <div class="card classCard">
-                <div class="row">
-                  <div class="col">
 
+                    <form [formGroup]="report">
                     <div class="form-group">
-                      <label class="col-md-4 control-label col-xs-12" for="">Date </label>
-
-                      <mat-form-field>
-
-                        <input matInput [matDatepicker]="myDatePiker" class="col-md-6  col-xs-4">
-                        <mat-label>Choose a date</mat-label>
-                        <mat-datepicker-toggle [for]="myDatePiker" matSuffix></mat-datepicker-toggle>
-                        <mat-datepicker #myDatePiker></mat-datepicker>
-
-                      </mat-form-field>
+                      <div class="col-md-3">
+                        <label class="form-check-label" for="date"> Date</label><br>
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="datepicker" placeholder="mm/dd/yyyy"  formControlName="date">
+                            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                            <mat-datepicker #datepicker></mat-datepicker>
+                        </mat-form-field>
+                      </div>
 
                     </div>
-                  </div>
 
-                  <div class="col">
-                    <div class="col-5">
-                      <div class="form-group">
-                        <label class="col-md-10 control-label col-xs-12" for="">Signature </label>
-                        <div class="col-md-12  col-xs-4">
-                          <input id="Signature" name="Signature" type="text" placeholder="Sign"
-                            class="form-control input-md "> <br>
+                    <div class="col">
+                      <div class="col-5">
+                        <div class="form-group">
+                          <label class="col-md-10 control-label col-xs-12" for="sign">Signature </label>
+                          <div class="col-md-12  col-xs-4">
+                            <input id="Signature" name="Signature" type="text" placeholder="Signature"
+                              class="form-control input-md "  formControlName="sign"> <br>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
 
-              </div>
+                  </form>
+                  </div>
+
+
+
+
+
+
             </div>
           </div> <br>
-          <button class="btn btn-primary btn-lg active"   (click)="addReport(report.value)">Add Report</button>
+          <button class="btn btn-primary btn-lg active"   (click)="updateReport(report.value)">Update Report</button>
+          <button class="btn btn-danger btn-lg active"   (click)="deleteReport()">Delete Report</button>
         </div>
 
 

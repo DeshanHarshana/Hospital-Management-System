@@ -80,6 +80,16 @@ import { ShowMedicalUnitComponent } from './show-medical-unit/show-medical-unit.
 import { ReportlistComponent } from './patient/reportlist/reportlist.component';
 import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/appoinment-doctor-list.component';
 import { AppoinmentlistComponent } from './patient/appoinmentlist/appoinmentlist.component';
+
+import { DoctorShowProfileComponent } from './doctor/doctor-show-profile/doctor-show-profile.component';
+import { ShowAppointmentsComponent } from './doctor/show-appointments/show-appointments.component';
+import { EditAppointmentsComponent } from './doctor/edit-appointments/edit-appointments.component';
+import { CheckedAppointmentsComponent } from './doctor/checked-appointments/checked-appointments.component';
+import { ShowPatientbookComponent } from './doctor/show-patientbook/show-patientbook.component';
+import { EditPatientbookComponent } from './doctor/edit-patientbook/edit-patientbook.component';
+import { ShowReminderComponent } from './doctor/show-reminder/show-reminder.component';
+import { EditReminderComponent } from './doctor/edit-reminder/edit-reminder.component';
+
 import { DoctorAppoinmentlistComponent } from './doctor/doctor-appoinmentlist/doctor-appoinmentlist.component';
 import { PatientlistComponent } from './doctor/patientlist/patientlist.component';
 import { CalenderComponent } from './test/calender/calender.component';
@@ -92,6 +102,11 @@ import {FlatpickrModule } from 'angularx-flatpickr'
 
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { DoctorCalendarComponent } from './doctor/doctor-calendar/doctor-calendar.component';
+import { NoticelistComponent } from './admin/noticelist/noticelist.component';
+import { NoticelistPatientComponent } from './patient/noticelist-patient/noticelist-patient.component';
+import { NoticelistDoctorComponent } from './doctor/noticelist-doctor/noticelist-doctor.component';
+import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-timetable.component';
+
 
 
 @NgModule({
@@ -136,10 +151,25 @@ import { DoctorCalendarComponent } from './doctor/doctor-calendar/doctor-calenda
     ReportlistComponent,
     AppoinmentDoctorListComponent,
     AppoinmentlistComponent,
+
+    DoctorShowProfileComponent,
+    ShowAppointmentsComponent,
+    EditAppointmentsComponent,
+    CheckedAppointmentsComponent,
+    ShowPatientbookComponent,
+    EditPatientbookComponent,
+    ShowReminderComponent,
+    EditReminderComponent,
+
     DoctorAppoinmentlistComponent,
     PatientlistComponent,
     CalenderComponent,
     DoctorCalendarComponent,
+    NoticelistComponent,
+    NoticelistPatientComponent,
+    NoticelistDoctorComponent,
+    DoctorTimetableComponent,
+
 
 
 

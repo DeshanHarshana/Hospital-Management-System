@@ -21,7 +21,7 @@
       <span>Home</span>
     </button>
 
-   
+
 
 
 
@@ -41,7 +41,7 @@
 
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="fullname" style="font-family:joy; font-size: 1.5rem;"> Full Name:</label>
-                  <h3 id="fullname" style="font-family: cursive;">Shalika Nawaratahna</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{ reportData.name }}</h3>
                 </div>
 
                 <div class="form-group">
@@ -64,7 +64,7 @@
                   <h3 id="fullname" style="font-family: cursive;">Chandra</h3>
                 </div>
 
-                
+
                 <div class="form-group">
                   <label class="col-md-8 control-label" for="Primary Occupation" style="font-family:joy; font-size: 1.5rem;"> Primary Occupation:</label>
                   <h3 id="fullname" style="font-family: cursive;">Student</h3>
@@ -91,25 +91,25 @@
                   <h3 id="fullname" style="font-family: cursive;">No 21/2, Bogahakubura</h3>
                 </div>
 
-                
 
 
 
-                
-                
+
+
+
               </form>
-              
+
             </div>
           </div>
 
-      
+
           <div class="col-6 ">
             <div class="row">
               <div class="col">
                 <div class="card classCard">
-               
-                 
-                        
+
+
+
                         <form action="">
                           <h2 style="font-family: serif; "><u><strong><i>Medical Details</i></strong></u></h2>
 
@@ -119,28 +119,28 @@
                                 <label class="col-md-8 control-label" for="Height" style="font-family:joy; font-size: 1.5rem;"> Height:</label>
                                 <h3 id="fullname" style="font-family: cursive;">55kg</h3>
                               </div>
-              
+
                             </div>
                             <div class="col">
                               <div class="form-group">
                                 <label class="col-md-8 control-label" for="Weight" style="font-family:joy; font-size: 1.5rem;"> Weight:</label>
                                 <h3 id="fullname" style="font-family: cursive;">5'3m</h3>
                               </div>
-              
+
                             </div>
-          
+
                           </div>
                           <div class="form-group">
                             <label class="col-md-8 control-label" for="Permanent Address" style="font-family:joy; font-size: 1.5rem;"> Past Medical History:</label>
-                           
-            
-                          
+
+
+                            <form [formGroup]="report">
                               <table  style="font-family: cursive;">
                                 <tr>
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-1">
-                                        <input type="checkbox" name="Medical History" id="Medical History-1" value="1"  [defaultChecked]="true" [disabled]="true" >
+                                        <input type="checkbox" name="Medical History" id="Medical History-1" value="1" formControlName="heartDisease">
                                         Heart disease &nbsp; &nbsp;
                                       </label>
                                     </div>
@@ -148,19 +148,19 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-2">
-                                        <input type="checkbox" name="Medical History" id="Medical History-2" value="2" [defaultChecked]="true" [disabled]="true" >
+                                        <input type="checkbox" name="Medical History" id="Medical History-2" value="2" formControlName="diabetes" [disabled]="true" >
                                         Diabetes &nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
-          
-          
+
+
                                 </tr>
                                 <tr>
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-3">
-                                        <input type="checkbox" name="Medical History" id="Medical History-3" value="3"  [defaultChecked]="true" [disabled]="true" >
+                                        <input type="checkbox" name="Medical History" id="Medical History-3" value="3"  formControlName="hbp" [disabled]="true" >
                                         High blood pressure &nbsp; &nbsp;
                                       </label>
                                     </div>
@@ -168,7 +168,7 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-4">
-                                        <input type="checkbox" name="Medical History" id="Medical History-4" value="4" [disabled]="true" >
+                                        <input type="checkbox" name="Medical History" id="Medical History-4" formControlName="canser" value="4" [disabled]="true" >
                                         Cancer
                                       </label>
                                     </div>
@@ -178,7 +178,7 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-5">
-                                        <input type="checkbox" name="Medical History" id="Medical History-5" value="5" [disabled]="true" > 
+                                        <input type="checkbox" name="Medical History" id="Medical History-5" formControlName="hc" value="5" [disabled]="true" >
                                         High cholesterol &nbsp; &nbsp;
                                       </label>
                                     </div>
@@ -186,7 +186,7 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-6">
-                                        <input type="checkbox" name="Medical History" id="Medical History-6" value="6"  [disabled]="true">
+                                        <input type="checkbox" name="Medical History" id="Medical History-6" formControlName="kidney" value="6"  [disabled]="true">
                                         Kidney disease &nbsp; &nbsp;
                                       </label>
                                     </div>
@@ -196,7 +196,7 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-7">
-                                        <input type="checkbox" name="Medical History" id="Medical History-7" value="7" [disabled]="true" >
+                                        <input type="checkbox" name="Medical History" id="Medical History-7" formControlName="stroke" value="7" [disabled]="true" >
                                         Stroke &nbsp; &nbsp;
                                       </label>
                                     </div>
@@ -204,88 +204,92 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-8">
-                                        <input type="checkbox" name="Medical History" id="Medical History-8" value="8" [disabled]="true" >
+                                        <input type="checkbox" name="Medical History" id="Medical History-8" formControlName="dep" value="8" [disabled]="true" >
                                         Depression &nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
                                 </tr>
-                              
+
                               </table>
                               <br>
-                            
+                            </form>
+
                           </div>
-          
+
                           <div class="form-group">
                             <label class="col-md-8 control-label" for="Temporary Address" style="font-family:joy; font-size: 1.5rem;"> Allergies:</label>
                             <div class="col-md-4">
-                              
+                              <form [formGroup]="report">
                               <table style="font-family: cursive;">
-                             
+
                              <div class="row">
                               <div class="col md-4">
                                 <div class="checkbox">
                                   <label for="Medical History-1">
-                                    <input type="checkbox" name="Medical History" id="Medical History-l" value="latex"  [defaultChecked]="true" [disabled]="true" >
+                                    <input type="checkbox" name="Medical History" id="Medical History-l" value="latex"  formControlName="latex" [disabled]="true" >
                                     latex &nbsp; &nbsp;
                                   </label>
                                 </div>
-          
+
                                 <div class="checkbox">
                                   <label for="Medical History-2">
-                                    <input type="checkbox" name="Medical History" id="Medical History-2" value="Iodin" [defaultChecked]="true" [disabled]="true"  >
+                                    <input type="checkbox" name="Medical History" id="Medical History-2" value="Iodin" formControlName="iodine" [disabled]="true"  >
                                     Iodine &nbsp; &nbsp;
                                   </label>
                                 </div>
-          
-                                
+
+
                                 <div class="checkbox">
                                   <label for="Medical History-3">
-                                    <input type="checkbox" name="Medical History" id="Medical History-3" value="bromine"  [disabled]="true"  >
-                                    Bromine &nbsp; &nbsp; 
+                                    <input type="checkbox" name="Medical History" id="Medical History-3" value="bromine" formControlName="bromine"  [disabled]="true"  >
+                                    Bromine &nbsp; &nbsp;
                                   </label>
                                 </div>
                               </div>
                              </div>
+
                              </table> <br>
+                            </form>
                               </div>
+
                           </div>
-          
+
                           <div class="form-group">
                             <label class="col-md-8 control-label" for="Surgeries" style="font-family:joy; font-size: 1.5rem;"> Surgeries:</label>
                             <h3 id="fullname" style="font-family: cursive;">No</h3>
                           </div>
-          
+
                           <div class="form-group">
                             <label class="col-md-8 control-label" for="Medications" style="font-family:joy; font-size: 1.5rem;"> Medications:</label>
                             <h3 id="fullname" style="font-family: cursive;">Atorvastatin. Atorvastatin treats high cholesterol. </h3>
                           </div>
-          
+
                           <div class="form-group">
                             <label class="col-md-8 control-label" for="Medications" style="font-family:joy; font-size: 1.5rem;"> Description:</label>
                             <h3 id="fullname" style="font-family: cursive;">Describe the problem in the patient's own words. </h3>
                           </div>
-          
-                          
-          
-          
+
+
+
+
                         </form>
-                    
-                    
-                  
+
+
+
                 </div>
               </div>
-  
-            </div>
-            
 
-           
-              
-           
+            </div>
+
+
+
+
+
             <div class="row">
               <div class="col">
                 <div class="card classCard">
-                  
+
                       <form >
                       <div class="row">
                         <div class="col">
@@ -294,48 +298,48 @@
                               <label class="col-md-8 control-label" for="Date" style="font-family:joy; font-size: 1.5rem;"> Date:</label>
                               <h3 id="fullname" style="font-family: cursive;">21/09/2021 </h3>
                             </div>
-    
+
                           </div>
                         </div>
                         <div class="col">
-                          
+
                           <div class="form-group">
                             <label class="col-md-8 control-label" for="Date" style="font-family:joy; font-size: 1.5rem;"> Signature:</label>
                             <h3 id="fullname" style="font-family: cursive;">shalika </h3>
                           </div>
                         </div>
                       </div>
-                    
-                  
+
+
                     </form>
                     </div>
-                  
-  
-                 
-                  
-  
-                
+
+
+
+
+
+
               </div>
             </div> <br>
             <div class="row">
               <div class="col d-flex justify-content-center">
-                <button type="button" class="btn btn-success btn-lg active" [routerLink]="['/edit-report']" routerLinkActive="router-link-active" >Edit Report</button>
-      
+                <button type="button" class="btn btn-success btn-lg active" routerLink="/edit-report/{{ reportData._id }}" >Edit Report</button>
+
               </div>
             </div>
-          
-          </div>
-  
 
-            
-         
+          </div>
+
+
+
+
         </div>
 
-        
 
-        
+
+
       </div>
-     
+
       </div>
   </div>
 </mat-sidenav-container>

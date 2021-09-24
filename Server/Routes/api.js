@@ -1228,6 +1228,25 @@ router.delete('/deleteReport/:id', function(req,res){
      });
     });
 
+//doctor available change
+
+router.put('/changeAvailability/:id', function(req,res){
+    Doctor.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                available:req.body.available
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
+})
 
 //export model
 module.exports = router;

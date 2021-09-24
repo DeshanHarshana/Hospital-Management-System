@@ -32,7 +32,11 @@ const doctor = mongoose.Schema({
     }],
     patient:[{
         patientid:String
-    }]
+    }],
+    available:{
+        type:Boolean,
+        default:false
+    }
 });
 
 module.exports=mongoose.model('Doctor', doctor, "Doctor");

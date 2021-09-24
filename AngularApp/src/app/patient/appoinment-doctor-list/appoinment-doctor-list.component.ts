@@ -4,6 +4,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { Doctor } from 'src/app/appdata/Doctor';
 import { PatientService } from 'src/app/services/patient.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-appoinment-doctor-list',
@@ -16,13 +17,14 @@ export class AppoinmentDoctorListComponent implements OnInit {
   tempdata:Doctor[]=[]
   filterdData:any=[];
   name:any;
-  catogory:any;
+  catogory:any="All Doctors";
   constructor(
     private doctorService:DoctorService,
     private router:Router,
     private route:ActivatedRoute,
     private auth:AuthenticationService,
-    private patient:PatientService
+    private patient:PatientService,
+    public toastr:ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class AppoinmentDoctorListComponent implements OnInit {
       this.doctorService.getAllDoctorAppoinment().subscribe(res=>{
         this.tempdata=res;
         this.filterdData=this.tempdata;
-
+        this.catogory=="All Doctors";
       });
 
 
@@ -53,7 +55,7 @@ export class AppoinmentDoctorListComponent implements OnInit {
         }
       }
       Catogorize(){
-        if(this.catogory=="Doctor Catogory"){
+        if(this.catogory=="All Doctors"){
           this.filterdData=this.tempdata;
         }else{
           this.filterdData=this.tempdata.filter(res=>{

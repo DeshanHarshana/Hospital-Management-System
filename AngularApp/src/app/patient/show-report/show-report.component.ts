@@ -13,18 +13,18 @@ export class ShowReportComponent implements OnInit {
   report = new FormGroup({
 
 
-    heartDisease:new FormControl(false),
-    diabetes:new FormControl(false),
-    hbp: new FormControl(false),
-    canser:new FormControl(false),
-    hc:new FormControl(false),
-    kidney:new FormControl(false),
-    stroke:new FormControl(false),
-    dep:new FormControl(false),
+    heartDisease:new FormControl({value: false, disabled: true}),
+    diabetes:new FormControl({value: false, disabled: true}),
+    hbp: new FormControl({value: false, disabled: true}),
+    canser:new FormControl({value: false, disabled: true}),
+    hc:new FormControl({value: false, disabled: true}),
+    kidney:new FormControl({value: false, disabled: true}),
+    stroke:new FormControl({value: false, disabled: true}),
+    dep:new FormControl({value: false, disabled: true}),
 
-    latex:new FormControl(false),
-    iodine:new FormControl(false),
-    bromine:new FormControl(false),
+    latex:new FormControl({value: false, disabled: true}),
+    iodine:new FormControl({value: false, disabled: true}),
+    bromine:new FormControl({value: false, disabled: true}),
 
 
 
@@ -42,19 +42,18 @@ export class ShowReportComponent implements OnInit {
     setTimeout(() => {
       this.reports.getSingleReport(this.currentReport).subscribe(res=>{
         this.reportData=res;
-        this.report.get('heartDisease')?.setValue(res.heartDisease); this.report.controls['heartDisease'].disable();
-        this.report.get('diabetes')?.setValue(res.diabetes); this.report.controls['diabetes'].disable();
-        this.report.get('hbp')?.setValue(res.hbp); this.report.controls['hbp'].disable();
-        this.report.get('canser')?.setValue(res.canser); this.report.controls['canser'].disable();
-        this.report.get('hc')?.setValue(res.hc); this.report.controls['hc'].disable();
-        this.report.get('kidney')?.setValue(res.kidney); this.report.controls['kidney'].disable();
-        this.report.get('stroke')?.setValue(res.stroke); this.report.controls['stroke'].disable();
-        this.report.get('dep')?.setValue(res.dep); this.report.controls['dep'].disable();
+        this.report.get('heartDisease')?.setValue(res.heartDisease);
+        this.report.get('diabetes')?.setValue(res.diabetes);
+        this.report.get('hbp')?.setValue(res.hbp);
+        this.report.get('canser')?.setValue(res.canser);
+        this.report.get('hc')?.setValue(res.hc);
+        this.report.get('kidney')?.setValue(res.kidney);
+        this.report.get('stroke')?.setValue(res.stroke);
+        this.report.get('dep')?.setValue(res.dep);
 
-        this.report.get('latex')?.setValue(res.latex); this.report.controls['latex'].disable();
-        this.report.get('iodine')?.setValue(res.iodine); this.report.controls['iodine'].disable();
-        this.report.get('bromine')?.setValue(res.bromine); this.report.controls['bromine'].disable();
-
+        this.report.get('latex')?.setValue(res.latex);
+        this.report.get('iodine')?.setValue(res.iodine);
+        this.report.get('bromine')?.setValue(res.bromine);
       })
     }, 20);
   }

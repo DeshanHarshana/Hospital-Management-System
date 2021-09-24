@@ -46,49 +46,49 @@
 
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="Age" style="font-family:joy; font-size: 1.5rem;"> Age:</label>
-                  <h3 id="fullname" style="font-family: cursive;" >23</h3>
+                  <h3 id="fullname" style="font-family: cursive;" >{{reportData.age }}</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="Gender" style="font-family:joy; font-size: 1.5rem;"> Gender:</label>
-                  <h3 id="fullname" style="font-family: cursive;"> Female</h3>
+                  <h3 id="fullname" style="font-family: cursive;"> {{ reportData.gender}}</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="Marital Status" style="font-family:joy; font-size: 1.5rem;"> Marital Status:</label>
-                  <h3 id="fullname" style="font-family: cursive;">Single</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{ reportData.relationship}}</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="Guardian Name" style="font-family:joy; font-size: 1.5rem;"> Guardian Name:</label>
-                  <h3 id="fullname" style="font-family: cursive;">Chandra</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{reportData.guardian}}</h3>
                 </div>
 
 
                 <div class="form-group">
                   <label class="col-md-8 control-label" for="Primary Occupation" style="font-family:joy; font-size: 1.5rem;"> Primary Occupation:</label>
-                  <h3 id="fullname" style="font-family: cursive;">Student</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{reportData.occupation}}</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-8 control-label" for="Phone number" style="font-family:joy; font-size: 1.5rem;"> Phone Number:</label>
-                  <h3 id="fullname" style="font-family: cursive;">123456789</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{reportData.phone}}</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-8 control-label" for="Email Address" style="font-family:joy; font-size: 1.5rem;"> Email Address:</label>
-                  <h3 id="fullname" style="font-family: cursive;">shalika@gmail.com</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{reportData.email}}</h3>
                 </div>
 
 
                 <div class="form-group">
                   <label class="col-md-8 control-label" for="Temporary Address" style="font-family:joy; font-size: 1.5rem;"> Temporary Address:</label>
-                  <h3 id="fullname" style="font-family: cursive;">No 21/2, Bogahakubura</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{reportData.taddress}}</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-8 control-label" for="Permanent Address" style="font-family:joy; font-size: 1.5rem;"> Permanent Address:</label>
-                  <h3 id="fullname" style="font-family: cursive;">No 21/2, Bogahakubura</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{reportData.paddress}}</h3>
                 </div>
 
 
@@ -117,14 +117,14 @@
                             <div class="col">
                               <div class="form-group">
                                 <label class="col-md-8 control-label" for="Height" style="font-family:joy; font-size: 1.5rem;"> Height:</label>
-                                <h3 id="fullname" style="font-family: cursive;">55kg</h3>
+                                <h3 id="fullname" style="font-family: cursive;">{{reportData.weight}} m</h3>
                               </div>
 
                             </div>
                             <div class="col">
                               <div class="form-group">
                                 <label class="col-md-8 control-label" for="Weight" style="font-family:joy; font-size: 1.5rem;"> Weight:</label>
-                                <h3 id="fullname" style="font-family: cursive;">5'3m</h3>
+                                <h3 id="fullname" style="font-family: cursive;">{{reportData.height}} kg</h3>
                               </div>
 
                             </div>
@@ -141,7 +141,7 @@
                                     <div class="checkbox">
                                       <label for="Medical History-1">
                                         <input type="checkbox" name="Medical History" id="Medical History-1" value="1" formControlName="heartDisease">
-                                        Heart disease &nbsp; &nbsp;
+                                        {{reportData.heartDisease}}&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -149,7 +149,7 @@
                                     <div class="checkbox">
                                       <label for="Medical History-2">
                                         <input type="checkbox" name="Medical History" id="Medical History-2" value="2" formControlName="diabetes"  >
-                                        Diabetes &nbsp; &nbsp;
+                                        {{reportData.diabetes}}&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -161,7 +161,7 @@
                                     <div class="checkbox">
                                       <label for="Medical History-3">
                                         <input type="checkbox" name="Medical History" id="Medical History-3" value="3"  formControlName="hbp" >
-                                        High blood pressure &nbsp; &nbsp;
+                                        {{reportData.hbp}}&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -169,7 +169,7 @@
                                     <div class="checkbox">
                                       <label for="Medical History-4">
                                         <input type="checkbox" name="Medical History" id="Medical History-4" formControlName="canser" value="4" >
-                                        Cancer
+                                        {{reportData.canser}} &nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -179,7 +179,7 @@
                                     <div class="checkbox">
                                       <label for="Medical History-5">
                                         <input type="checkbox" name="Medical History" id="Medical History-5" formControlName="hc" value="5" >
-                                        High cholesterol &nbsp; &nbsp;
+                                        {{reportData.hc}}&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -187,7 +187,7 @@
                                     <div class="checkbox">
                                       <label for="Medical History-6">
                                         <input type="checkbox" name="Medical History" id="Medical History-6" formControlName="kidney" value="6"  [disabled]="true">
-                                        Kidney disease &nbsp; &nbsp;
+                                        {{reportData.kidney}}&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -197,7 +197,7 @@
                                     <div class="checkbox">
                                       <label for="Medical History-7">
                                         <input type="checkbox" name="Medical History" id="Medical History-7" formControlName="stroke" value="7" >
-                                        Stroke &nbsp; &nbsp;
+                                        {{reportData.stroke}}&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -205,7 +205,7 @@
                                     <div class="checkbox">
                                       <label for="Medical History-8">
                                         <input type="checkbox" name="Medical History" id="Medical History-8" formControlName="dep" value="8" >
-                                        Depression &nbsp; &nbsp;
+                                        {{reportData.dep}} &nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -228,14 +228,14 @@
                                 <div class="checkbox">
                                   <label for="Medical History-1">
                                     <input type="checkbox" name="Medical History" id="Medical History-l" value="latex"  formControlName="latex" >
-                                    latex &nbsp; &nbsp;
+                                    {{reportData.latex}} &nbsp; &nbsp;
                                   </label>
                                 </div>
 
                                 <div class="checkbox">
                                   <label for="Medical History-2">
                                     <input type="checkbox" name="Medical History" id="Medical History-2" value="Iodin" formControlName="iodine"  >
-                                    Iodine &nbsp; &nbsp;
+                                    {{reportData.iodine}} &nbsp; &nbsp;
                                   </label>
                                 </div>
 
@@ -243,7 +243,7 @@
                                 <div class="checkbox">
                                   <label for="Medical History-3">
                                     <input type="checkbox" name="Medical History" id="Medical History-3" value="bromine" formControlName="bromine"   >
-                                    Bromine &nbsp; &nbsp;
+                                    {{reportData.bromine}} &nbsp; &nbsp;
                                   </label>
                                 </div>
                               </div>
@@ -257,17 +257,17 @@
 
                           <div class="form-group">
                             <label class="col-md-8 control-label" for="Surgeries" style="font-family:joy; font-size: 1.5rem;"> Surgeries:</label>
-                            <h3 id="fullname" style="font-family: cursive;">No</h3>
+                            <h3 id="fullname" style="font-family: cursive;">{{reportData.surgeries}}</h3>
                           </div>
 
                           <div class="form-group">
                             <label class="col-md-8 control-label" for="Medications" style="font-family:joy; font-size: 1.5rem;"> Medications:</label>
-                            <h3 id="fullname" style="font-family: cursive;">Atorvastatin. Atorvastatin treats high cholesterol. </h3>
+                            <h3 id="fullname" style="font-family: cursive;">{{reportData.medications}} </h3>
                           </div>
 
                           <div class="form-group">
                             <label class="col-md-8 control-label" for="Medications" style="font-family:joy; font-size: 1.5rem;"> Description:</label>
-                            <h3 id="fullname" style="font-family: cursive;">Describe the problem in the patient's own words. </h3>
+                            <h3 id="fullname" style="font-family: cursive;">{{reportData.description}} </h3>
                           </div>
 
 
@@ -296,7 +296,7 @@
                           <div class="row">
                             <div class="form-group">
                               <label class="col-md-8 control-label" for="Date" style="font-family:joy; font-size: 1.5rem;"> Date:</label>
-                              <h3 id="fullname" style="font-family: cursive;">21/09/2021 </h3>
+                              <h3 id="fullname" style="font-family: cursive;">{{reportData.date}}</h3>
                             </div>
 
                           </div>
@@ -305,7 +305,7 @@
 
                           <div class="form-group">
                             <label class="col-md-8 control-label" for="Date" style="font-family:joy; font-size: 1.5rem;"> Signature:</label>
-                            <h3 id="fullname" style="font-family: cursive;">shalika </h3>
+                            <h3 id="fullname" style="font-family: cursive;">{{reportData.sign}} </h3>
                           </div>
                         </div>
                       </div>

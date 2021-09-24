@@ -104,7 +104,8 @@ const routes: Routes = [
   {path:'edit-medical-unit/:id',component:EditMedicalUnitComponent},
   {path:'show-medical-unit/:id',component:ShowMedicalUnitComponent},
 
-
+  //doctor time table
+  {path:'doctor-timetable', component:DoctorTimetableComponent},
 
 
     //pagenot found

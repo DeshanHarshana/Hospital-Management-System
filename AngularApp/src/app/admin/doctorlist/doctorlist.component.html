@@ -58,11 +58,15 @@
     <div class="row">
 
       <div class="col-4" *ngFor="let d of data">
-        <div  class="card cd  d-flex align-items-center" routerLink="/Admin-show-doctor-details/{{ d._id }}">
+        <div  class="card cd  d-flex align-items-center" >
+        <button class="available" *ngIf="d.available==true" (click)="available(d.available, d._id)">Available</button>
+        <button class="notavailable"  *ngIf="d.available!=true" (click)="available(d.available,  d._id)">Not Available</button>
          <img src="{{ d.displayImage }}" class="rounded-circle r">
          <h4>{{ d.fullname }}</h4>
          <h3>{{ d.currentHospital }}</h3>
         <h2 class="strokeme">{{ d.type }}</h2>
+        <button routerLink="/Admin-show-doctor-details/{{ d._id }}" class="myButton">View Profile</button>
+
         </div>
       </div>
     </div>

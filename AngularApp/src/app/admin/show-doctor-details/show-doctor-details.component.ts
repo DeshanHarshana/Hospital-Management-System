@@ -19,10 +19,13 @@ export class ShowDoctorDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id=this.route.snapshot.params.id;
-    this.doctorService.getoneDoctor(this.id).subscribe((res)=>{
-      this.data=res;
-    })
+    setTimeout(() => {
+      this.id=this.route.snapshot.params.id;
+      this.doctorService.getoneDoctor(this.id).subscribe((res)=>{
+        this.data=res;
+      })
+    });
+
   }
   logout(){
     localStorage.removeItem('access');

@@ -43,7 +43,7 @@
       <div class="col-4">
 
         <select id="type" class="form-control"  [(ngModel)]="catogory" (ngModelChange)="Catogorize()">
-
+          <option>All Doctors</option>
           <option>Audiologist</option>
           <option>Epidemiologist</option>
           <option>Podiatrist</option>
@@ -78,6 +78,9 @@
 
       <div class="col-4" *ngFor="let d of filterdData">
         <div  class="card cd  d-flex align-items-center">
+          <button class="available" *ngIf="d.available==true">Available</button>
+          <button class="notavailable"  *ngIf="d.available!=true">Not Available</button>
+
          <img src="{{ d.displayImage }}" class="rounded-circle r">
          <h4>{{ d.fullname }}</h4>
          <h3>{{ d.SLMC }}</h3>

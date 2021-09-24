@@ -102,6 +102,11 @@ import {FlatpickrModule } from 'angularx-flatpickr'
 
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { DoctorCalendarComponent } from './doctor/doctor-calendar/doctor-calendar.component';
+import { NoticelistComponent } from './admin/noticelist/noticelist.component';
+import { NoticelistPatientComponent } from './patient/noticelist-patient/noticelist-patient.component';
+import { NoticelistDoctorComponent } from './doctor/noticelist-doctor/noticelist-doctor.component';
+import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-timetable.component';
+
 
 
 
@@ -161,6 +166,11 @@ import { DoctorCalendarComponent } from './doctor/doctor-calendar/doctor-calenda
     PatientlistComponent,
     CalenderComponent,
     DoctorCalendarComponent,
+    NoticelistComponent,
+    NoticelistPatientComponent,
+    NoticelistDoctorComponent,
+    DoctorTimetableComponent,
+
 
 
 

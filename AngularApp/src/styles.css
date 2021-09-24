@@ -39,3 +39,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   src: url(./assets/fonts/Joyous-w1WKZ.otf);
 }
 
+
+
+@font-face {
+  font-family: "broad";
+  src: url(./assets/fonts/BroadwayRegular-7Bpow.ttf);
+}

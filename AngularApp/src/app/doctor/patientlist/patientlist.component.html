@@ -44,21 +44,16 @@
 <div class="card list">
 <div class="row" style="padding-bottom:6px">
 <div class="col-4" style="padding-bottom:6px; padding-top:6px;" *ngFor="let d of filterdData |orderBy | paginate:{itemsPerPage:5, currentPage:p}">
-<div class="card cc">
+<div class="card cc" >
 <div class="row">
-  <div class="col-7 d-flex justify-content-center d-flex align-items-center">
+  <div class="col-12 d-flex justify-content-center d-flex align-items-center" >
     <img src="{{ d.displayImage }}" class="imageclass d-flex justify-content-center d-flex align-items-center">
   </div>
-  <div class="col-5">
-    <div class="row">
-      <div class="col-12 d-flex justify-content-center d-flex align-items-center">
-
-        <h2 style="font-family: monospace; font-size:2em; padding:4%">{{ d.name }}</h2>
-      </div>
-      <div class="col-12 d-flex justify-content-center d-flex align-items-center">
-        <button class="myButton" routerLink="/Admin-show-patient-details/{{ d._id }}">Details</button>
-</div>
-    </div>
+  <div class="col-12 d-flex justify-content-center" >
+    <h2>{{ d.name }}</h2>
+  </div>
+  <div class="col-12 d-flex justify-content-center">
+    <button class="myButton" style="width: 80%; margin-bottom:5%" routerLink="/Admin-show-patient-details/{{ d._id }}">Details</button>
   </div>
 </div>
 </div>

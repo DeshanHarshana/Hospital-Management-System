@@ -82,6 +82,7 @@ const routes: Routes = [
   {path:'calendarDoctor', component:DoctorCalendarComponent, canActivate:[DoctorGuard]},
   {path:'Doctor-AddReport/:id', component:AddReportComponent},
 
+
   //patient
   {path:'Patient-dashboard',component:PatientDashboardComponent, canActivate:[PatientGuard]},
   {path :'Patient-About', component:PatientAboutComponent, canActivate:[PatientGuard]},

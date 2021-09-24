@@ -19,7 +19,30 @@
     <button mat-button class="menu-button" routerLink="/Patient-dashboard">
       <mat-icon>home</mat-icon>
       <span>Home</span>
-    </button>
+  </button>
+
+  <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+    <mat-icon>account_circle</mat-icon>
+    <span>Profile</span>
+</button>
+
+  <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+    <mat-icon>assignment</mat-icon>
+    <span>Appointments</span>
+</button>
+
+
+<button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+  <mat-icon>add_alert</mat-icon>
+  <span>Reminder</span>
+</button>
+
+
+<button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+<mat-icon>feedback</mat-icon>
+<span>Feedback</span>
+</button>
+
 
 
 
@@ -140,16 +163,16 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-1">
-                                        <input type="checkbox" name="Medical History" id="Medical History-1" value="1" formControlName="heartDisease">
-                                        {{reportData.heartDisease}}&nbsp; &nbsp;
+                                        <input type="checkbox" name="heartDisease" id="Medical History-1" value="heartDisease" formControlName="heartDisease">
+                                        Heart Disease &nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-2">
-                                        <input type="checkbox" name="Medical History" id="Medical History-2" value="2" formControlName="diabetes"  >
-                                        {{reportData.diabetes}}&nbsp; &nbsp;
+                                        <input type="checkbox" name="diabetes" id="Medical History-2" value="diabetes" formControlName="diabetes"  >
+                                        Diabetes&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -160,16 +183,16 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-3">
-                                        <input type="checkbox" name="Medical History" id="Medical History-3" value="3"  formControlName="hbp" >
-                                        {{reportData.hbp}}&nbsp; &nbsp;
+                                        <input type="checkbox" name="hbp" id="Medical History-3" value="hbp"  formControlName="hbp" >
+                                        High blood pressure&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-4">
-                                        <input type="checkbox" name="Medical History" id="Medical History-4" formControlName="canser" value="4" >
-                                        {{reportData.canser}} &nbsp; &nbsp;
+                                        <input type="checkbox" name="canser" id="Medical History-4" formControlName="canser" value="canser" >
+                                        Canser &nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -178,16 +201,16 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-5">
-                                        <input type="checkbox" name="Medical History" id="Medical History-5" formControlName="hc" value="5" >
-                                        {{reportData.hc}}&nbsp; &nbsp;
+                                        <input type="checkbox" name="hc" id="Medical History-5" formControlName="hc" value="hc" >
+                                        High cholesterol &nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-6">
-                                        <input type="checkbox" name="Medical History" id="Medical History-6" formControlName="kidney" value="6"  [disabled]="true">
-                                        {{reportData.kidney}}&nbsp; &nbsp;
+                                        <input type="checkbox" name="kidney" id="Medical History-6" formControlName="kidney" value="kidney" >
+                                        kidney&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -196,16 +219,16 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-7">
-                                        <input type="checkbox" name="Medical History" id="Medical History-7" formControlName="stroke" value="7" >
-                                        {{reportData.stroke}}&nbsp; &nbsp;
+                                        <input type="checkbox" name="Medical History" id="stroke" formControlName="stroke" value="stroke" >
+                                        Stroke&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-8">
-                                        <input type="checkbox" name="Medical History" id="Medical History-8" formControlName="dep" value="8" >
-                                        {{reportData.dep}} &nbsp; &nbsp;
+                                        <input type="checkbox" name="Medical History" id="dep" formControlName="dep" value="dep" >
+                                        Depression&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -226,24 +249,24 @@
                              <div class="row">
                               <div class="col md-4">
                                 <div class="checkbox">
-                                  <label for="Medical History-1">
-                                    <input type="checkbox" name="Medical History" id="Medical History-l" value="latex"  formControlName="latex" >
-                                    {{reportData.latex}} &nbsp; &nbsp;
+                                  <label for="Allergies1">
+                                    <input type="checkbox" name="Allergies" id="latex" value="latex"  formControlName="latex" >
+                                    Latex &nbsp; &nbsp;
                                   </label>
                                 </div>
 
                                 <div class="checkbox">
-                                  <label for="Medical History-2">
-                                    <input type="checkbox" name="Medical History" id="Medical History-2" value="Iodin" formControlName="iodine"  >
-                                    {{reportData.iodine}} &nbsp; &nbsp;
+                                  <label for="Allergies2">
+                                    <input type="checkbox" name="Allergies" id="Iodin" value="Iodin" formControlName="iodine"  >
+                                    Iodine &nbsp; &nbsp;
                                   </label>
                                 </div>
 
 
                                 <div class="checkbox">
-                                  <label for="Medical History-3">
-                                    <input type="checkbox" name="Medical History" id="Medical History-3" value="bromine" formControlName="bromine"   >
-                                    {{reportData.bromine}} &nbsp; &nbsp;
+                                  <label for="Allergies3">
+                                    <input type="checkbox" name="Allergies" id="bromine" value="bromine" formControlName="bromine"   >
+                                    Bromine &nbsp; &nbsp;
                                   </label>
                                 </div>
                               </div>

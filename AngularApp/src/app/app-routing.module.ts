@@ -82,6 +82,7 @@ const routes: Routes = [
   {path:'calendarDoctor', component:DoctorCalendarComponent, canActivate:[DoctorGuard]},
   {path:'Doctor-AddReport/:id', component:AddReportComponent},
 
+
   //patient
   {path:'Patient-dashboard',component:PatientDashboardComponent, canActivate:[PatientGuard]},
   {path :'Patient-About', component:PatientAboutComponent, canActivate:[PatientGuard]},
@@ -103,7 +104,8 @@ const routes: Routes = [
   {path:'edit-medical-unit/:id',component:EditMedicalUnitComponent},
   {path:'show-medical-unit/:id',component:ShowMedicalUnitComponent},
 
-
+  //doctor time table
+  {path:'doctor-timetable', component:DoctorTimetableComponent},
 
 
     //pagenot found

@@ -256,41 +256,6 @@ router.get('/get-one-patient/:id', function(req,res){
     });
 });
 
-//edit-report
-/*router.put('/edit-report/:id', function (req, res) {
-    Report.findByIdAndUpdate(req, params, id,
-        {
-            $set: {
-                name: req.body.name,
-                dob: req.body.dob,
-                email: req.body.email,
-                gender: req.body.gender,
-                guardian: req.body.guardian,
-                maritalStatus: req.body.maritalStatus,
-                weight: req.body.weight,
-                height: req.body.height,
-                phone: req.body.phone,
-                taddress: req.body.taddress,
-                paddress: req.body.paddress,
-                occupation: req.body.occupation,
-                medicalHistory: req.body.medicalHistory,
-                surgeries: req.body.surgeries
-            }
-        }, {
-        function(error, result) {
-            if (error) {
-                console.log("Error Updating!");
-            }
-            else {
-                res.send(result);
-            }
-        }
-    
-        }
-
-);
-})*/
-
 
 //add report
 router.post('/add-report', function (req, res) {

@@ -56,4 +56,7 @@ export class DoctorService {
     return this._http.get("http://localhost:3000/getDoctorpatientlist/"+doctorid);
 
   }
+  changeAvalilability(id:string, data:any){
+    return this._http.put<any>("http://localhost:3000/changeAvailability/"+id, data)
+  }
 }

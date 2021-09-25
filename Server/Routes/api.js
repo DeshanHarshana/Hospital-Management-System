@@ -6,10 +6,13 @@ const Doctor = require('../Models/Doctor');
 const Patient = require('../Models/Patient');
 const imageUpload = require('../healper/storageDoctor');
 const fs = require('fs')
+const Ward=require('../Models/Ward');
 //deshan harshana
 //power
 //database connection String
+
 const db = "mongodb+srv://deshan:deshan2233@cluster0.1ape7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
 
 //connect with database
 mongoose.connect(db, {
@@ -522,6 +525,7 @@ const patientimageUpload = require('../healper/storagePatient');
 const Report = require('../Models/Report');
 const Appoinment = require('../Models/Appoinment');
 
+
 const { strictEqual } = require('assert');
 
 const MedicalUnit = require('../Models/MedicalUnit');
@@ -531,6 +535,7 @@ router.post('/patient/:postid/updatePhoto', patientimageUpload.uploadImage().sin
     const oldlink = "";
     Patient.findById(req.params.id), function (error, user) {
         if (error) {
+
             console.log(error)
         } else {
             console.log(user.displayImage)
@@ -853,6 +858,69 @@ router.get('/getDoctorpatientlist/:id',  function(req,res){
         }
     })
 });
+
+//Ward details
+router.post('/ward-details',function(req,res){
+    let warddata = {
+        wardid:req.body.wardid,
+        wardno:req.body.wardno,
+        departmentid:req.body.departmentid,
+        departmentname:req.body.departmentname,
+        noofbeds:req.body.noofbeds,
+        noofpatients:req.body.noofpatients
+    }
+    let ward=new Ward(warddata)
+    ward.save((error,result) => {
+        if(error){
+            console.log(error)
+        }
+
+        else{
+            res.send(result);
+        }
+    })
+});
+
+router.get("/get-ward-details/:id",function(req,res){
+    Ward.findById({_id:req.params.id},function(error,result){
+        if(error){
+            console.log(error)
+        }
+        else{
+            res.send(result)
+        }
+    })
+});
+
+router.put("/post-ward-details/:id",function(req,res){
+    Ward.findByIdAndUpdate(req.params.id,
+        {
+            $set:{
+                wardid:req.body.wardid,
+                wardno:req.body.wardno,
+                departmentid:req.body.departmentid,
+                departmentname:req.body.departmentname,
+                noofbeds:req.body.noofbeds,
+                noofpatients:req.body.noofpatients
+
+
+            }
+        },{
+            new:true
+        }, function(error,result){
+            if(error){
+                res.send("Error updating");
+            }else {
+                res.send(result);
+            }
+        }
+        )
+
+
+});
+
+
+
 
 function getAllpatientinDoctor(data, callback){
     var patientids=[];

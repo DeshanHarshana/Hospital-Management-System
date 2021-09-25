@@ -68,6 +68,8 @@ import { EditReportComponent } from './patient/edit-report/edit-report.component
 import { ChildComponent } from './test/child/child.component';
 import { ParentComponent } from './test/parent/parent.component';
 import { AppoinmentComponent } from './appoinment/appoinment/appoinment.component';
+import { AddReportComponent } from './patient/add-report/add-report.component';
+
 
 
 
@@ -90,8 +92,20 @@ import { EditReminderComponent } from './doctor/edit-reminder/edit-reminder.comp
 
 import { DoctorAppoinmentlistComponent } from './doctor/doctor-appoinmentlist/doctor-appoinmentlist.component';
 import { PatientlistComponent } from './doctor/patientlist/patientlist.component';
+import { CalenderComponent } from './test/calender/calender.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
+import { CommonModule } from '@angular/common';
 
+import {FlatpickrModule } from 'angularx-flatpickr'
+
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { DoctorCalendarComponent } from './doctor/doctor-calendar/doctor-calendar.component';
+import { NoticelistComponent } from './admin/noticelist/noticelist.component';
+import { NoticelistPatientComponent } from './patient/noticelist-patient/noticelist-patient.component';
+import { NoticelistDoctorComponent } from './doctor/noticelist-doctor/noticelist-doctor.component';
+import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-timetable.component';
 
 
 
@@ -128,6 +142,8 @@ import { PatientlistComponent } from './doctor/patientlist/patientlist.component
     ChildComponent,
     ParentComponent,
     AppoinmentComponent,
+    AddReportComponent,
+   
 
     EditMedicalUnitComponent,
     ShowMedicalUnitComponent,
@@ -147,6 +163,12 @@ import { PatientlistComponent } from './doctor/patientlist/patientlist.component
 
     DoctorAppoinmentlistComponent,
     PatientlistComponent,
+    CalenderComponent,
+    DoctorCalendarComponent,
+    NoticelistComponent,
+    NoticelistPatientComponent,
+    NoticelistDoctorComponent,
+    DoctorTimetableComponent,
 
 
 
@@ -199,7 +221,15 @@ import { PatientlistComponent } from './doctor/patientlist/patientlist.component
   MatDatepickerModule,
   MatNativeDateModule,
   NgxMaterialTimepickerModule,
-  NgxMatTimepickerModule
+  NgxMatTimepickerModule,
+  CommonModule,
+  FormsModule,
+  NgbModalModule,
+  FlatpickrModule.forRoot(),
+  CalendarModule.forRoot({
+    provide: DateAdapter,
+    useFactory: adapterFactory,
+  }),
 
   ],
   providers: [

@@ -33,4 +33,7 @@ export class PatientService {
     return this._http.post<any>('http://localhost:3000/doctoraddtopatientlist/'+patientid, doctor);
 
   }
+  addreportlist(report:any, patientId:string){
+    return this._http.put<any>("http://localhost:3000/addreporttopatient-reportlist/"+patientId, report)
+  }
 }

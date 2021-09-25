@@ -1,0 +1,497 @@
+<mat-toolbar class="mat-elevation-z8">
+    <h1 routerLink="/Patient-dashboard" class="logoclass">Patient</h1>
+    <span class="spacer"></span>
+    <button (click)="logout()" class="btn"
+      style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+  
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav opened="true" mode="side" disableClose="true" class="mat-elevation-z8">
+  
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+  
+      <h4 class="name">Deshan Harshana</h4>
+      <p class="designation">Hospital Admin</p>
+  
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+
+    
+  
+  
+  
+    </mat-sidenav>
+    <div class="content mat-elevation-z8" style="height: fit-content;">
+      <div class="container-fluid" style="padding: 5%;">
+        <div class="row">
+          <div class="col d-flex justify-content-center">
+            <h1 class="reportName">Medical Report</h1>
+          </div>
+  
+        </div>
+        <div class="row">
+          <div class="col-6 d-flex justify-content-center">
+            <div class="card personalCard">
+              <form [formGroup]="report">
+  
+  
+                <h2><u>Personal Details</u></h2>
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="fullname">Patient Name</label>
+                  <div class="col">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-user">
+                        </i>
+                      </div>
+                      <input id="fullname" formControlName="name" name="Name (Full name)" type="text"
+                        placeholder="Name (Full name)" class="form-control input-md">
+                    </div>
+                </div>
+             </div> 
+                
+
+                <!--
+                <div class="form-group">
+                  <label class="form-check-label" for="dob"> Date Of Birth:</label><br>
+                  <div class="col">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-user">
+                        </i>
+                      </div>
+                      <div>
+                        <mat-form-field>
+                          <input matInput [matDatepicker]="datepicker" formControlName="" placeholder="mm/dd/yyyy">
+                          <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                          <mat-datepicker #datepicker></mat-datepicker>
+                      </mat-form-field>
+                      </div>
+                    </div>
+                    </div>
+                </div>-->
+
+          <!---     
+      <div class="col-md-3">
+        <label class="form-check-label" for="DOB"> Date Of Birth:</label><br>
+        <mat-form-field>
+            <input matInput [matDatepicker]="datepicker" placeholder="mm/dd/yyyy" formControlName="dob">
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker></mat-datepicker>
+        </mat-form-field>
+    
+    
+              </div>-->
+              
+
+             
+  
+                
+                <br>
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="">Age</label>
+                  <div class="col-md-3">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-male" style="font-size: 20px;"></i>
+  
+                      </div>
+                      <input id="age" name="age" type="text" placeholder="Age" formControlName="age"
+                        class="form-control input-md" >
+  
+                    </div>
+  
+                  </div>
+                </div>
+                <br>
+                
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="Father">Guardian Name</label>
+                    <div class="col">
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                          <i class="fa fa-male" style="font-size: 20px;"></i>
+    
+                        </div>
+                        <input id="Father" name="Father" type="text" placeholder="Guardian Name"  formControlName="guardian"
+                          class="form-control input-md">
+    
+                      </div>
+    
+                    </div>
+                  </div>
+                <br>
+                  
+
+              <!--<div class="col">
+                  <label for="relationship">Marital Status</label>
+                  <select id="relationship" class="form-control" formControlName="maritalStatus">
+                    <option selected>Choose...</option>
+                    <option>Single</option>
+                    <option>Married</option>
+                    <option>Widowed</option>
+                    <option>Divorced</option>
+                  </select></div>-->
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="Gender" >Gender</label>
+                  <div class="col">
+                   
+                <div>
+                  <mat-form-field appearance="fill">
+                    <mat-label >Choose an option</mat-label>
+                    <select matNativeControl formControlName="gender" >
+                      <option value="" selected></option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                      
+                    </select>
+                  </mat-form-field>
+                </div>
+                  </div>
+                </div>
+                <br>
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="relationship" >Marital Status</label>
+                  <div class="col">
+                    
+                  
+                    <div>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Choose an option</mat-label>
+                        <select matNativeControl formControlName="relationship" >
+                          <option value="" selected></option>
+                          <option value="single">Single</option>
+                          <option value="married">Married</option>
+                          <option value="divorced">Divorced</option>
+                          
+                        </select>
+                      </mat-form-field>
+                    </div>
+                    
+                   
+            </div>
+  
+                  </div>
+                
+                <br>
+  
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label col-xs-12" for="Temporary Address">Temporary Address</label>
+                  <div class="col  col-xs-4">
+                    <input id="Temporary Address" name="Temporary Address" type="text" placeholder="Temporary Address"
+                      class="form-control input-md " formControlName="taddress">
+                  </div>
+                  <br>
+                </div>
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label col-xs-12" for="Permanent Address">Permanent Address</label>
+                  <div class="col  col-xs-4">
+                    <input id="Permanent Address" name="Permanent Address" type="text" placeholder="Permanent Address"
+                      class="form-control input-md " formControlName="paddress">
+                  </div>
+                  <br>
+                </div>
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="Primary Occupation">Primary Occupation</label>
+                  <div class="col">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-briefcase"></i>
+  
+                      </div>
+                      <input id="Primary Occupation" name="Primary Occupation" type="text"
+                        placeholder="Primary Occupation" class="form-control input-md" formControlName="occupation">
+                    </div>
+  
+  
+                  </div>
+                </div>
+                <br>
+  
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="Phone number ">Phone number </label>
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-phone"></i>
+  
+                      </div>
+                      <input id="Phone number " name="Phone number " type="text" placeholder="Phone number "
+                        class="form-control input-md" formControlName="phone">
+                    </div>
+                  </div>
+                </div>
+  
+                <br>
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="Email Address">Email Address</label>
+                  <div class="col">
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <i class="fa fa-envelope-o"></i>
+  
+                      </div>
+                      <input id="Email Address" name="Email Address" type="text" placeholder="Email Address"
+                        class="form-control input-md" formControlName="email"> <br> <br>
+  
+                    </div>
+  
+                  </div>
+                </div>
+  
+              </form>
+            </div>
+  
+          </div>
+  
+          <div class="col-6 ">
+            <div class="row">
+              <div class="col">
+                <div class="card classCard">
+                  <form [formGroup]="report">
+                    <h2><u>Medical Details</u></h2>
+                    <div class="row">
+                      <div class="col-5">
+                        <div class="form-group">
+                          <label class="col-md-4 control-label col-xs-12" for="height">Height </label>
+                          <div class="col-md-10  col-xs-4">
+                            <input id="height" name="height" type="text" placeholder="Height(kg)"
+                              class="form-control input-md " formControlName="height">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-5">
+                        <div class="form-group">
+                          <label class="col-md-4 control-label col-xs-12" for="weight">Weight </label>
+                          <div class="col-md-10  col-xs-4">
+                            <input id="weight" name="weight" type="text" placeholder="Weight(m)"
+                              class="form-control input-md " formControlName="weight"> <br>
+                          </div>
+                        </div>
+                      </div>
+  
+  
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="medicalHistory" >Past Medical History</label>
+                        <table >
+                          <tr>
+                            <td>
+                              <div class="checkbox">
+                                <label for="Medical History-1">
+                                  <input type="checkbox" name="Medical History" id="Medical History-1" value="1" formControlName="heartDisease">
+                                  Heart disease &nbsp; &nbsp;
+                                </label>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="checkbox">
+                                <label for="Medical History-2">
+                                  <input type="checkbox" name="Medical History" id="Medical History-2" value="2" formControlName="diabetes" >
+                                  Diabetes &nbsp; &nbsp;
+                                </label>
+                              </div>
+                            </td>
+  
+  
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="checkbox">
+                                <label for="Medical History-3">
+                                  <input type="checkbox" name="Medical History" id="Medical History-3" value="3"  formControlName="hbp">
+                                  High blood pressure &nbsp; &nbsp;
+                                </label>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="checkbox">
+                                <label for="Medical History-4">
+                                  <input type="checkbox" name="Medical History" id="Medical History-4" value="4" formControlName="canser">
+                                  Cancer
+                                </label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="checkbox">
+                                <label for="Medical History-5">
+                                  <input type="checkbox" name="Medical History" id="Medical History-5" value="5" formControlName="hc" > 
+                                  High cholesterol &nbsp; &nbsp;
+                                </label>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="checkbox">
+                                <label for="Medical History-6">
+                                  <input type="checkbox" name="Medical History" id="Medical History-6" value="6" formControlName="kidney" >
+                                  Kidney disease &nbsp; &nbsp;
+                                </label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="checkbox">
+                                <label for="Medical History-7">
+                                  <input type="checkbox" name="Medical History" id="Medical History-7" value="7" formControlName="stroke" >
+                                  Stroke &nbsp; &nbsp;
+                                </label>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="checkbox">
+                                <label for="Medical History-8">
+                                  <input type="checkbox" name="Medical History" id="Medical History-8" value="8" formControlName="dep" >
+                                  Depression &nbsp; &nbsp;
+                                </label>
+                              </div>
+                            </td>
+                          </tr>
+                        
+                        </table>
+                        <br>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Surgeries">Allergies</label> <br>
+                        <div class="col-md-4">
+                    
+                        <table>
+                       
+                       <div class="row">
+                        <div class="col md-4">
+                          <div class="checkbox">
+                            <label for="Medical History-1">
+                              <input type="checkbox" name="Medical History" id="Medical History-l" value="latex" formControlName="latex" >
+                              latex &nbsp; &nbsp;
+                            </label>
+                          </div>
+
+                          <div class="checkbox">
+                            <label for="Medical History-2">
+                              <input type="checkbox" name="Medical History" id="Medical History-2" value="Iodine" formControlName="iodine" >
+                              Iodine &nbsp; &nbsp;
+                            </label>
+                          </div>
+
+                          
+                          <div class="checkbox">
+                            <label for="Medical History-3">
+                              <input type="checkbox" name="Medical History" id="Medical History-3" value="bromine" formControlName="bromine" >
+                              Bromine &nbsp; &nbsp; 
+                            </label>
+                          </div>
+                        </div>
+                       </div>
+                       </table> <br>
+                        </div>
+                      </div>
+                      <br>
+  
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Surgeries">Surgeries</label>
+                        <div class="col">
+                          <div class="form-group">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                              placeholder="Surgery details"  formControlName="surgeries"></textarea> <br>
+                          </div>
+                        </div>
+                      </div>
+  
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Medications">Medications</label>
+                        <div class="col">
+                          <div class="form-group">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                              placeholder="Please list medications that you are taking"  formControlName="medications"></textarea> <br>
+                          </div>
+                        </div>
+                      </div>
+
+                      
+                      <div class="form-group">
+                        <label class="col-md-4 control-label" for="Description">Description</label>
+                        <div class="col">
+                          <div class="form-group">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                              placeholder="Present medical details" formControlName="description" ></textarea> <br>
+                          </div>
+                        </div>
+                      </div>
+  
+                    
+                    </div>
+                  </form>
+                </div>
+              </div>
+  
+            </div>
+            
+
+           
+              
+           
+            <div class="row">
+              <div class="col">
+                <div class="card classCard">
+                  
+                      <form [formGroup]="report">
+                      <div class="form-group">
+                        <div class="col-md-3">
+                          <label class="form-check-label" for="date"> Date</label><br>
+                          <mat-form-field>
+                              <input matInput [matDatepicker]="datepicker" placeholder="mm/dd/yyyy"  formControlName="date">
+                              <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                              <mat-datepicker #datepicker></mat-datepicker>
+                          </mat-form-field>
+                        </div>
+  
+                      </div>
+
+                      <div class="col">
+                        <div class="col-5">
+                          <div class="form-group">
+                            <label class="col-md-10 control-label col-xs-12" for="sign">Signature </label>
+                            <div class="col-md-12  col-xs-4">
+                              <input id="Signature" name="Signature" type="text" placeholder="Signature"
+                                class="form-control input-md "  formControlName="sign"> <br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  
+                    </form>
+                    </div>
+                  
+  
+                 
+                  
+  
+                
+              </div>
+            </div> <br>
+            <button class="btn btn-primary btn-lg active"   (click)="addReport(report.value)">Add Report</button>
+          </div>
+  
+  
+  
+        </div>
+  
+  
+  
+      </div>
+    </div>
+  </mat-sidenav-container>

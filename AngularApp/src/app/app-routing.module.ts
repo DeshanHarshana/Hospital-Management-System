@@ -68,10 +68,15 @@ const routes: Routes = [
   {path : 'Admin-edit-patient-details/:id', component:PatientEditProfileComponent},
   {path : 'Admin-show-all-patient-list', component:AllPatientListComponent},
 
+
   //ward
   {path : 'Admin-show-wardpage/:id',component:ShowWardpageComponent},
   {path : 'Admin-edit-ward-details/:id',component:EditWardDetailsComponent},
 
+ 
+  
+
+ 
 
 
   //doctor

@@ -67,8 +67,10 @@ const routes: Routes = [
   {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent},
   {path : 'Admin-edit-patient-details/:id', component:PatientEditProfileComponent},
   {path : 'Admin-show-all-patient-list', component:AllPatientListComponent},
-  {path : 'Admin-show-wardpage',component:ShowWardpageComponent},
-  {path : 'Admin-edit-ward-details',component:EditWardDetailsComponent},
+
+  //ward
+  {path : 'Admin-show-wardpage/:id',component:ShowWardpageComponent},
+  {path : 'Admin-edit-ward-details/:id',component:EditWardDetailsComponent},
 
 
 

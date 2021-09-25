@@ -25,37 +25,37 @@
 
 
     <div class="content mat-elevation-z8 " style="height: fit-content;" >
-        <div class='container-fluid ' style="padding: 3%;">
-            <h1 style="font-family: 'Lemon'; margin-left: 30px;"><u>Edit Ward details</u></h1>
-            <form class="row g-3" style="margin-right: 10px; margin-left: 20px;">
+        <div class='container-fluid' style="padding: 3%;">
+            <h1 style="font-family: 'Lemon'; margin-left:30px;"><u>Edit Ward details</u></h1>
+            <form class="row g-3" style="margin-right: 10px; margin-left: 20px;" [formGroup]="ward">
             <div class="col-6">
                     <label for="wid" class="form-label">Ward Id</label>
-                    <input type="text" class="form-control" id="wid" placeholder="a01-2">
+                    <input type="text" class="form-control" formControlName="wardid" id="wid">
             </div>
 
             <div class="col-6">
                     <label for="wno" class="form-label">Ward No</label>
-                    <input type="number" class="form-control" id="wno" placeholder="2">
+                    <input type="number" class="form-control" formControlName="wardno" id="wno">
             </div>
 
             <div class="col-6">
                     <label for="did" class="form-label">Department Id</label>
-                    <input type="text" class="form-control" id="did" placeholder="a01">
+                    <input type="text" class="form-control" formControlName="departmentid" id="did">
             </div>
 
             <div class="col-6">
                     <label for="dname" class="form-label">Department name</label>
-                    <input type="number" class="form-control" id="dname" placeholder="Accident and emergency">
+                    <input type="text" class="form-control" formControlName="departmentname" id="dname">
             </div>
 
             <div class="col-6">
                     <label for="nb" class="form-label">No of beds</label>
-                    <input type="number" class="form-control" id="nb" placeholder="12">
+                    <input type="number" class="form-control" formControlName="noofbeds" id="nb">
             </div>
 
             <div class="col-6">
                     <label for="np" class="form-label">No of patients</label>
-                    <input type="number" class="form-control" id="np" placeholder="9">
+                    <input type="number" class="form-control" formControlName="noofpatients" id="np">
             </div>
 
 
@@ -65,7 +65,7 @@
 
 
             <div class="col-12 d-flex justify-content-end">
-                     <button type="submit" class="myButton " routerLink="/Admin-show-wardpage">Update</button>
+                     <button class="myButton " (click)="update(ward.value)" >Update</button>
             </div>
 
 

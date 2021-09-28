@@ -560,7 +560,7 @@ const MedicalUnit = require('../Models/MedicalUnit');
 
 const { strictEqual } = require('assert');
 
-const MedicalUnit = require('../Models/MedicalUnit');
+
 
 
 router.post('/patient/:postid/updatePhoto', patientimageUpload.uploadImage().single('patientImage'), (req, res, next) => {

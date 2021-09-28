@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { MedicalunitService } from '../services/medicalunit.service';
@@ -10,6 +11,7 @@ import { MedicalunitService } from '../services/medicalunit.service';
 export class ShowMedicalUnitComponent implements OnInit {
 
   data:any=[];
+
   constructor(
     private router:Router,
     private route:ActivatedRoute,
@@ -20,6 +22,7 @@ export class ShowMedicalUnitComponent implements OnInit {
 
   ngOnInit(
 
+
   ): void {
 
     console.log(this.route.snapshot.params.id);
@@ -28,6 +31,7 @@ export class ShowMedicalUnitComponent implements OnInit {
         console.log(res);
         this.data=res;
       })
+
 
     },10)
   }

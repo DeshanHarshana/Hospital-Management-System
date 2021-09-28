@@ -324,6 +324,12 @@ router.post('/add-report', function (req, res) {
                 description:req.body.description,
                 date:req.body.date,
                 sign:req.body.sign,
+
+
+                doctorid:req.body.doctorid,
+                patientid:req.body.patientid,
+                doctorname:req.body.doctorname
+
                 
                 }
                 let report = new Report(reportData)
@@ -339,6 +345,61 @@ router.post('/add-report', function (req, res) {
 });
 
     
+//edit report
+router.put('/updateReport/:id', function (req, res) {
+    Report.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                    name: req.body.name,
+                    dob: req.body.dob,
+                    age:req.body.age,
+                    guardian: req.body.guardian,
+                    gender: req.body.gender,
+                    relationship:req.body.relationship,
+                    taddress: req.body.taddress,
+                    paddress: req.body.paddress,
+                    phone: req.body.phone,
+                    email: req.body.email,
+                    occupation: req.body.occupation,
+                    weight: req.body.weight,
+                    height: req.body.height,
+                    heartDisease:req.body.heartDisease,
+                    diabetes:req.body.diabetes,
+                    hbp:req.body.hbp,
+                    canser:req.body.canser,
+                    hc:req.body.hc,
+                    kidney:req.body.kidney,
+                    stroke:req.body.stroke,
+                    dep:req.body.dep,
+                    surgeries:req.body.surgeries,
+                    medications:req.body.medications,
+                    latex:req.body.latex,
+                    iodine:req.body.iodine,
+                    bromine:req.body.bromine,
+                    description:req.body.description,
+                    date:req.body.date,
+                    sign:req.body.sign,
+
+
+                    doctorid:req.body.doctorid,
+                    patientid:req.body.patientid,
+                    doctorname:req.body.doctorname
+
+                    
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
+
+
+});
 
 
     
@@ -496,6 +557,11 @@ const patientimageUpload = require('../healper/storagePatient');
 const Report = require('../Models/Report');
 const Appoinment = require('../Models/Appoinment');
 const MedicalUnit = require('../Models/MedicalUnit');
+
+const { strictEqual } = require('assert');
+
+const MedicalUnit = require('../Models/MedicalUnit');
+
 
 router.post('/patient/:postid/updatePhoto', patientimageUpload.uploadImage().single('patientImage'), (req, res, next) => {
     const oldlink = "";
@@ -841,7 +907,55 @@ async function getPatierntlist(ids){
 
 
 
+//get patients report list
+var reportData=[];
+router.get('/getPatientReportList/:id',  function(req,res){
+    Patient.find({_id:req.params.id},'reportList', function(error,result){
+        if(error){
+            console.log("error");
+        }else{
+            var data=result[0].reportList;
+          
+            
+              
+            getAllreportsinPatient(data, getReportData);
+             setTimeout(()=>{
+                res.send(reportData);
+             },1000);
+             
+        }
+    })
+});
 
+function getAllreportsinPatient(data, callback){
+    var reportids=[];
+    for (var i = 0; i < data.length; i++){
+        var obj = data[i];
+        var value = obj['reportid'];
+        reportids.push(value);
+    }
+    callback(reportids);
+}
+
+async function getReportData(ids){
+    const records = await Report.find({ '_id': { $in: ids } });
+    reportData=records;
+}
+
+
+
+
+
+//get one report data
+router.get('/getSingleReport/:id', function(req,res){
+    Report.findOne({"_id":req.params.id}, function(error, result){
+        if(error){
+            console.log(error);
+        }else{
+            res.send(result);
+        }
+    })
+})
 
 
 
@@ -938,6 +1052,7 @@ router.delete('/delete-doctor/:id', function (req, res) {
         } catch (error) {
             console.log(error);
         }
+        
 
         Doctor.deleteOne({ _id: req.params.id }, function (err, data) {
             if (err) {
@@ -1073,7 +1188,37 @@ router.put('/postmedicaldata/:id',function(req,res){
 
 })
 
+//delete report
+router.delete('/deleteReport/:id', function(req,res){
+    Report.deleteOne({_id:req.params.id}, function(err,data){
+        if(err){
+            res.send(err)
+        } else {
+            res.send(data);
+            console.log("delete success")
+        }
+     });
+    });
 
+//doctor available change
+
+router.put('/changeAvailability/:id', function(req,res){
+    Doctor.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                available:req.body.available
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
+})
 
 //export model
 module.exports = router;

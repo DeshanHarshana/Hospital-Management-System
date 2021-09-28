@@ -12,6 +12,7 @@ import { MedicalunitService } from '../services/medicalunit.service';
 export class EditMedicalUnitComponent implements OnInit {
   medical=new FormGroup({
 
+
     catogary:new FormControl(''),
     Icu:new FormControl(''),
     NIcu:new FormControl(''),
@@ -25,6 +26,7 @@ export class EditMedicalUnitComponent implements OnInit {
 
   })
   
+
   constructor(
     private router:Router,
     private route:ActivatedRoute,
@@ -38,6 +40,7 @@ export class EditMedicalUnitComponent implements OnInit {
   ): void {
     console.log(this.route.snapshot.params.id);
     setTimeout(()=>{
+
       this.medicalUnit.getmedicalData(this.route.snapshot.params.id).subscribe(res=>{
         console.log(res);
         this.medical.get('catogary')?.setValue(res.catogary);
@@ -52,6 +55,7 @@ export class EditMedicalUnitComponent implements OnInit {
         this.medical.get('TotalNoEqu')?.setValue(res.TotalNoEqu);
       })
 
+
     },10)
 
   }
@@ -61,8 +65,11 @@ export class EditMedicalUnitComponent implements OnInit {
     this.auth.logout();
       }
 update(data:any){
- this.medicalUnit.updatemedicalUnit(this.route.snapshot.params.id,data).subscribe(res=>{
-   console.log("Successfully Updated");
- })
+
+
+  this.medicalUnit.updatemedicalUnit(this.route.snapshot.params.id, data).subscribe(res=>{
+    console.log("Sucessfully Updated");
+  })
+
 }
 }

@@ -3,19 +3,19 @@
     <h1 routerLink="/Patient-dashboard" class="logoclass">Patient</h1>
     <span class="spacer"></span>
     <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
-  
+
   </mat-toolbar>
-  
+
   <mat-sidenav-container>
     <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
-  
+
         <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
-  
+
         <h4 class="name">Deshan Harshana</h4>
         <p class="designation">Hospital Admin</p>
-  
+
         <mat-divider></mat-divider>
-  
+
         <button mat-button class="menu-button" routerLink="/Patient-dashboard">
             <mat-icon>home</mat-icon>
             <span>Home</span>
@@ -27,16 +27,24 @@
     <div class="content mat-elevation-z8 " style="height: fit-content;" >
         <div class='container-fluid ' style="padding: 3%;">
             <h1 style="font-family: 'Lemon'; margin-left: 30px;"><u>Edit Hospital Unit</u></h1>
+<<<<<<< HEAD
         
             <form class="row g-3" style="margin-right: 10px; margin-left: 20px;" [formGroup]="medical"> 
                 <div class="col-md-12">
                     <label for="category" class="form-label">Hospital Unit Category:</label>
                     <select id="inputcategory" class="form-select" formControlName="catogary">
+=======
+
+            <form class="row g-3" style="margin-right: 10px; margin-left: 20px;" [formGroup]="medical">
+                <div class="col-md-12">
+                    <label for="category" class="form-label">Hospital Unit Category:</label>
+                    <select id="inputcategory" class="form-select" formControlName="catogory">
+>>>>>>> f1bbeb0d42661fdfefd979651630e4300883b5c3
                         <option selected>ChooseCategory</option>
                         <option >Intensive Care Units</option>
                         <option >Non-Intensive Care Units</option>
                         <option > Specialty care Units</option>
-                    </select>      
+                    </select>
                 </div>
                 <div class="col-md-4">
                     <label for="intensive" class="form-label">Intensive Care Units:</label>
@@ -48,7 +56,7 @@
                         <option >Surgical intensive care units (SICUs)</option>
                         <option >Medical intensive care units (MICUs)</option>
                         <option >Long term intensive care units (LTAC ICUs)</option>
-                    </select>  
+                    </select>
                 </div>
                 <div class="col-md-4">
                     <label for="Non-Intensive" class="form-label">Non-Intensive Care Units:</label>
@@ -62,7 +70,7 @@
                         <option >Medical units</option>
                         <option >Rehabilitation wards</option>
                         <option >Long-term care</option>
-                    </select>  
+                    </select>
                 </div>
                 <div class="col-md-4">
                     <label for="specialty" class="form-label">Specialty Care Units:</label>
@@ -73,7 +81,7 @@
                         <option >Trauma ICUs</option>
                         <option >Neurologic ICUs</option>
                         <option >other types of units</option>
-                    </select>  
+                    </select>
                 </div>
 
                 <div class="col-md-6">
@@ -102,7 +110,11 @@
                     <input type="text" class="form-control" id="Nname" placeholder="5" formControlName="TotalNoEqu">
                   </div>
                   <div class="col-12 d-flex justify-content-end">
+<<<<<<< HEAD
                     <button type="submit" class="myButton" (click)="update(medical.value)">Update</button>
+=======
+                    <button type="submit" class="myButton " (click)="update(medical.value)">Update</button>
+>>>>>>> f1bbeb0d42661fdfefd979651630e4300883b5c3
                   </div>
             </form>
         </div>

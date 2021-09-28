@@ -1,8 +1,12 @@
 import { flatten } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Methods } from 'src/app/appdata/methods';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { DoctorService } from 'src/app/services/doctor.service';
+import { PatientService } from 'src/app/services/patient.service';
 import { ReportsService } from 'src/app/services/reports.service';
 
 
@@ -44,17 +48,38 @@ export class AddReportComponent implements OnInit {
     date:new FormControl(new Date()),
     sign:new FormControl(''),
 
-    
+
+    doctorid:new FormControl(''),
+    patientid:new FormControl(''),
+    doctorname:new FormControl('')
+
+
 
   });
+  currentPatient:string="";
+  currentDoctor:string="";
+  doctorName:string="";
   constructor(
     private auth:AuthenticationService,
     private reportS:ReportsService,
-    private methods:Methods
+    private methods:Methods,
+    private route:ActivatedRoute,
+    private patient:PatientService,
+    private doctor:DoctorService,
+    public toastr:ToastrService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
-    
+    this.currentPatient=this.route.snapshot.params.id;
+    this.currentDoctor=String(localStorage.getItem('doctorid') || '');
+
+    setTimeout(() => {
+      this.doctor.getoneDoctor(this.currentDoctor).subscribe(res=>{
+        this.doctorName=res.fullname;
+      })
+    }, 2);
+
   }
 
   logout(){
@@ -64,11 +89,23 @@ export class AddReportComponent implements OnInit {
 
   addReport(report:any){
     report.date=this.methods.convert(report.date);
-     console.log(report);
+    report.doctorid=this.currentDoctor;
+    report.patientid=this.currentPatient;
+    report.doctorname=this.doctorName;
 
-     /*this.reportS.addReport(report).subscribe(res=>{
-       console.log(res);
-     })*/
+
+     this.reportS.addReport(report).subscribe(res=>{
+       var data={
+          reportid:res.id
+       }
+       this.patient.addreportlist(data,this.currentPatient).subscribe(res=>{
+            console.log(res);
+            this.toast("Report Added Successfull");
+            this.router.navigate(['report-list/'+this.currentPatient]);
+       })
+     })
     }
-
+    toast(message:String) {
+      this.toastr.warning(message.toString(), "Adding Report");
+     }
 }

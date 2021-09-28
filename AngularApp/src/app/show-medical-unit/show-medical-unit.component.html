@@ -2,19 +2,19 @@
     <h1 routerLink="/Patient-dashboard" class="logoclass">Patient</h1>
     <span class="spacer"></span>
     <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
-  
+
   </mat-toolbar>
-  
+
   <mat-sidenav-container>
     <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
-  
+
         <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
-  
+
         <h4 class="name">Deshan Harshana</h4>
         <p class="designation">Hospital Admin</p>
-  
+
         <mat-divider></mat-divider>
-  
+
         <button mat-button class="menu-button" routerLink="/Patient-dashboard">
             <mat-icon>home</mat-icon>
             <span>Home</span>
@@ -25,7 +25,7 @@
         <div class="container-fluid" style="padding: 2%;">
             <h1 style="font-family: 'Lemon'; margin-left: 30px;"><u>Show Hospital Unit Details</u></h1>
 
-            
+
             <div class="card imgCard" style="padding: 3%;">
                 <div class="row g-3">
                     <div class="col-md-12">
@@ -35,6 +35,11 @@
                     <div class="col-md-4">
                         <label for="Intensive">Intensive Care Units:</label>
                         <h3 id="Intensive">{{data.Icu}}</h3>
+                        <h3 id="category" >{{ data.catogory }}</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="Intensive">Intensive Care Units:</label>
+                        <h3 id="Intensive" >Pediatric intensive care units (PICUs)</h3>
                     </div>
                     <div class="col-md-4">
                         <label for="Non-Intensive">Non-Intensive Care Units:</label>
@@ -73,7 +78,6 @@
                       </div>
                 </div>
             </div>
-               
 
 
         </div>

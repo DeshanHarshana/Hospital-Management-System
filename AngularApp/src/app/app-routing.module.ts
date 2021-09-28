@@ -102,10 +102,6 @@ const routes: Routes = [
   //medicalunit
   {path:'edit-medical-unit/:id',component:EditMedicalUnitComponent},
   {path:'show-medical-unit/:id',component:ShowMedicalUnitComponent},
-<<<<<<< HEAD
-=======
-
->>>>>>> f1bbeb0d42661fdfefd979651630e4300883b5c3
 
 
 

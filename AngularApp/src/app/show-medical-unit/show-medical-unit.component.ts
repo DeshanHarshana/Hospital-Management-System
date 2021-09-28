@@ -9,7 +9,9 @@ import { MedicalunitService } from '../services/medicalunit.service';
   styleUrls: ['./show-medical-unit.component.css']
 })
 export class ShowMedicalUnitComponent implements OnInit {
- data:any=[];
+
+  data:any=[];
+
   constructor(
     private router:Router,
     private route:ActivatedRoute,
@@ -23,21 +25,25 @@ export class ShowMedicalUnitComponent implements OnInit {
 
   ): void {
 
-console.log(this.route.snapshot.params.id);
-setTimeout(()=>{
-this.medicalUnit.getmedicalUnitData(this.route.snapshot.params.id).subscribe(res=>{
- console.log(res);
- this.data=res;
-})
-},10)
+    console.log(this.route.snapshot.params.id);
+    setTimeout(()=>{
+      this.medicalUnit.getmedicalData(this.route.snapshot.params.id).subscribe(res=>{
+        console.log(res);
+        this.data=res;
+      })
 
+
+    },10)
   }
 
   logout(){
 
     this.auth.logout();
       }
-      gotoEdit(){
-        this.router.navigate(['edit-medical-unit/' + this.route.snapshot.params.id])
-      }
+
+    gotoEdit()
+    {
+      this.router.navigate(['edit-medical-unit/'+ this.route.snapshot.params.id]);
+    }
+
 }

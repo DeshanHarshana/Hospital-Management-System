@@ -495,6 +495,7 @@ router.post('/doctor/:postid/updatePhoto', imageUpload.uploadImage().single('doc
 const patientimageUpload = require('../healper/storagePatient');
 const Report = require('../Models/Report');
 const Appoinment = require('../Models/Appoinment');
+const MedicalUnit = require('../Models/MedicalUnit');
 
 router.post('/patient/:postid/updatePhoto', patientimageUpload.uploadImage().single('patientImage'), (req, res, next) => {
     const oldlink = "";
@@ -1004,10 +1005,73 @@ async function getAppoinmentlist(ids){
 
 
 
+//medicalunit
+router.post('/add-medical-data',function(req,res){
+    let medicalUnitdata = {
 
+        catogary:req.body.catogary,
+        Icu:req.body.Icu,
+        NIcu:req.body.NIcu,
+        Scu:req.body.Scu,
+        mentorDoc:req.body.mentorDoc,
+        countOfDoc:req.body.countOfDoc,
+        mentorNur:req.body.mentorNur,
+        countOfNur:req.body.countOfNur,
+        TotalNoBed:req.body.TotalNoBed,
+        TotalNoEqu:req.body.TotalNoEqu
+    }
+    let medicalunit = new MedicalUnit(medicalUnitdata)
+    medicalunit.save((error, result) => {
+        if (error) {
+            console.log(error);
+        }
+        else {
+            res.send(result);
+        }
+    });
+})
 
+router.get('/get-medical-data/:id',function(req,res){
+    MedicalUnit.findById({_id:req.params.id},function(error,result){
+        if(error){
+            console.log(error)
+        }
+        else
+        {
+            res.send(result)
+        }
 
+    })
+})
 
+router.put('/postmedicaldata/:id',function(req,res){
+
+    MedicalUnit.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                catogary:req.body.catogary,
+                Icu:req.body.Icu,
+                NIcu:req.body.NIcu,
+                Scu:req.body.Scu,
+                mentorDoc:req.body.mentorDoc,
+                countOfDoc:req.body.countOfDoc,
+                mentorNur:req.body.mentorNur,
+                countOfNur:req.body.countOfNur,
+                TotalNoBed:req.body.TotalNoBed,
+                TotalNoEqu:req.body.TotalNoEqu
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
+
+})
 
 
 

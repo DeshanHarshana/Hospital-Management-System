@@ -106,6 +106,10 @@ import { NoticelistComponent } from './admin/noticelist/noticelist.component';
 import { NoticelistPatientComponent } from './patient/noticelist-patient/noticelist-patient.component';
 import { NoticelistDoctorComponent } from './doctor/noticelist-doctor/noticelist-doctor.component';
 import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-timetable.component';
+import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
+
+
+import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
 
 
 
@@ -140,7 +144,7 @@ import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-time
     ShowReportComponent,
     EditReportComponent,
     ChildComponent,
-    ParentComponent,
+   
     AppoinmentComponent,
     AddReportComponent,
    
@@ -169,6 +173,10 @@ import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-time
     NoticelistPatientComponent,
     NoticelistDoctorComponent,
     DoctorTimetableComponent,
+    PharmacyComponent,
+    
+  
+    
 
 
 
@@ -230,6 +238,7 @@ import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-time
     provide: DateAdapter,
     useFactory: adapterFactory,
   }),
+  DropDownListModule,
 
   ],
   providers: [

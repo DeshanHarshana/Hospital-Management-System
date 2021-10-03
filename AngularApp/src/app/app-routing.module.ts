@@ -52,6 +52,7 @@ import { PatientlistComponent } from './doctor/patientlist/patientlist.component
 import { CalenderComponent } from './test/calender/calender.component';
 import { DoctorCalendarComponent } from './doctor/doctor-calendar/doctor-calendar.component';
 import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-timetable.component';
+import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
 
 
 
@@ -91,6 +92,7 @@ const routes: Routes = [
   {path :'report-list/:id', component:ReportlistComponent},
   {path :'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent, canActivate:[PatientGuard]},
   {path :'getcurrentAppoinment', component:AppoinmentlistComponent, canActivate:[PatientGuard]},
+  {path: 'pharmacy', component:PharmacyComponent, canActivate:[PatientGuard]},
 
   //appoinment
   {path:'appoinment/:id', component:AppoinmentComponent, canActivate:[PatientGuard]},

@@ -21,16 +21,11 @@ export class EditMedicalUnitComponent implements OnInit {
     private router:Router,
     private route:ActivatedRoute,
     private auth:AuthenticationService,
-
-    
-
-  ) { }
-
-  ngOnInit(): void {
-
     private medicalUnit:MedicalunitService
 
+
   ) { }
+
 
   ngOnInit(
 

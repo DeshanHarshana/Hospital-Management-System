@@ -52,6 +52,8 @@ import { PatientlistComponent } from './doctor/patientlist/patientlist.component
 import { CalenderComponent } from './test/calender/calender.component';
 import { DoctorCalendarComponent } from './doctor/doctor-calendar/doctor-calendar.component';
 import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-timetable.component';
+import { MedicineListComponent } from './pharmacy/medicine-list/medicine-list.component';
+import { AddmedicineComponent } from './pharmacy/addmedicine/addmedicine.component';
 
 
 
@@ -84,10 +86,10 @@ const routes: Routes = [
   {path : 'Admin-show-wardpage/:id',component:ShowWardpageComponent},
   {path : 'Admin-edit-ward-details/:id',component:EditWardDetailsComponent},
 
- 
-  
 
- 
+
+
+
 
 
   //patient
@@ -103,9 +105,15 @@ const routes: Routes = [
   {path:'appoinment/:id', component:AppoinmentComponent, canActivate:[PatientGuard]},
 
   //test
-  {path : 'test', component:TestComponent},
-  {path:'child', component:ChildComponent},
-  {path:'parent', component:ParentComponent},
+  {
+    path : 'test', component:TestComponent,
+    children:[
+        {path :"child", component:ChildComponent},
+        {path :"parent", component:ParentComponent},
+
+    ]
+  },
+
 
   //medicalunit
   {path:'edit-medical-unit/:id',component:EditMedicalUnitComponent},
@@ -113,6 +121,10 @@ const routes: Routes = [
 
   //doctor time table
   {path:'doctor-timetable', component:DoctorTimetableComponent},
+
+  //pharmacy
+  {path:'allMedicineList', component:MedicineListComponent},
+  {path:'addMedicine', component:AddmedicineComponent},
 
 
     //pagenot found

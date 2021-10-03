@@ -19,7 +19,7 @@
           <mat-icon>home</mat-icon>
           <span>Home</span>
       </button>
-      
+
 
 
 
@@ -27,7 +27,7 @@
    <div class="content mat-elevation-z8" style="height: fit-content;">
         <div class="container-fluid" style="padding: 2%;">
             <h1 style="font-family: 'Lemon'; margin-left: 30px;"><u>Ward Details</u></h1>
-            
+
             <div class="row" style="padding: 3%;">
                 <div class="col-6">
                     <label for="name">Ward Id</label>
@@ -51,19 +51,23 @@
                     <label for="name">No of patients</label>
                     <h2>{{data.noofpatients}}</h2>
 
-                   
+
+                    <label for="name">Main Doctror</label>
+                    <h2>{{data.doctor}}</h2>
+
+
                 </div>
 
 
                 <div class="col-12 d-flex justify-content-end">
                      <button type="submit" class="myButton " (click)="gotoEdit()">Edit</button>
                 </div>
-               
+
             </div>
         </div>
     </div>
 
 
-   
+
 </mat-sidenav-container>
 

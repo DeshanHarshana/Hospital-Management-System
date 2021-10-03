@@ -1,20 +1,4 @@
-<mat-form-field appearance="outline">
-  <mat-label>Pick A Time</mat-label>
-  <input
-    type="text"
-    matInput
-    [ngxMatTimepicker]="timepicker"
+<div>Test</div>
+<div>dsflsdf</div>
 
-    [required]="required"
-    readonly
-    [formControl]="formControlItem"
-  />
-
-
-
-  <mat-icon matSuffix *ngIf="!formControlItem.disabled" (click)="openFromIcon(timepicker)">schedule</mat-icon>
-
-</mat-form-field>
-
-<ngx-mat-timepicker #timepicker></ngx-mat-timepicker>
-<button (click)="l()">clcik</button>
+<router-outlet></router-outlet>

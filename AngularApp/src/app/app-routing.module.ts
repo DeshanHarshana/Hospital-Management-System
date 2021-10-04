@@ -93,6 +93,7 @@ const routes: Routes = [
   {path :'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent, canActivate:[PatientGuard]},
   {path :'getcurrentAppoinment', component:AppoinmentlistComponent, canActivate:[PatientGuard]},
   {path: 'pharmacy', component:PharmacyComponent, canActivate:[PatientGuard]},
+  
 
   //appoinment
   {path:'appoinment/:id', component:AppoinmentComponent, canActivate:[PatientGuard]},

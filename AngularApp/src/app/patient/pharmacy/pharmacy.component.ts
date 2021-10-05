@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
-import { DropDownListComponent } from '@syncfusion/ej2-angular-dropdowns';
-import { Query, DataManager } from '@syncfusion/ej2-data';
 
 @Component({
   selector: 'app-pharmacy',
@@ -41,10 +39,10 @@ export class PharmacyComponent implements OnInit {
     ["Choose pharmacy","New Luck Medical", "ASK Pharmacy", 	"Ayagama Pharmacy", "Janalanka Pharmacy" ],
     ["Choose pharmacy","Sri Sai Medical", "Food City -Trincomalee", "M.I.M. Pharmacy"],
     ["Choose pharmacy","New Lanka Medicare", "Pills Pharmacy", "Get well health care"],
-    
-  
+
+
   ]
-  
+
   constructor(
     private auth: AuthenticationService,
     private route: Router,

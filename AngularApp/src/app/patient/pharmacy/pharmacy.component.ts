@@ -2,11 +2,18 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
-
+import { DropDownListComponent } from '@syncfusion/ej2-angular-dropdowns';
+import { Query, DataManager } from '@syncfusion/ej2-data';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Methods } from 'src/app/appdata/methods';
+import { SelectArea } from 'src/app/appdata/SelectArea';
+import { PrescriptionService } from 'src/app/services/prescription.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-pharmacy',
   templateUrl: './pharmacy.component.html',
-  styleUrls: ['./pharmacy.component.css']
+  styleUrls: ['./pharmacy.component.css'],
+  providers:[SelectArea]
 })
 export class PharmacyComponent implements OnInit {
 
@@ -43,10 +50,22 @@ export class PharmacyComponent implements OnInit {
 
   ]
 
+
+
+  prescription = new FormGroup({
+    name: new FormControl(''),
+    area : new FormControl(''),
+    pharmacy:new FormControl(''),
+    phone : new FormControl(''),
+    deliveryAddress:new FormControl('')
+  });
+
   constructor(
     private auth: AuthenticationService,
     private route: Router,
-
+    private s : SelectArea,
+    private prescriptionService:PrescriptionService,
+    public toastr:ToastrService,
   ) { }
 
 
@@ -61,6 +80,18 @@ export class PharmacyComponent implements OnInit {
     console.log(event.target.value);
 
   }
+  addPrescription(data:any)
+  {
+    data.area = this.s.convert(data.area);
+    console.log(data);
+    this.prescriptionService.addPrescription(data).subscribe((res)=>{
+      this.toast('Successfully  add prescription!');
+    })
+  }
+
+  toast(message:String) {
+    this.toastr.success(message.toString(), "Adding Prescription");
+   }
 
   ngOnInit(): void {
   }

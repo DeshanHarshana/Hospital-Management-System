@@ -101,7 +101,8 @@ const routes: Routes = [
   {path :'report-list/:id', component:ReportlistComponent},
   {path :'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent, canActivate:[PatientGuard]},
   {path :'getcurrentAppoinment', component:AppoinmentlistComponent, canActivate:[PatientGuard]},
-  {path: 'pharmacy', component:PharmacyComponent},
+  {path: 'pharmacy', component:PharmacyComponent, canActivate:[PatientGuard]},
+
 
   //appoinment
   {path:'appoinment/:id', component:AppoinmentComponent, canActivate:[PatientGuard]},

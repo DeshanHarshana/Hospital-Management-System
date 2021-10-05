@@ -6,8 +6,12 @@ const Doctor = require('../Models/Doctor');
 const Patient = require('../Models/Patient');
 const imageUpload = require('../healper/storageDoctor');
 const fs = require('fs')
+
+const Prescription = require('../Models/Prescription');
+
 const Ward=require('../Models/Ward');
 const Product=require('../Models/Product');
+
 //deshan harshana
 //power
 //database connection String
@@ -991,34 +995,6 @@ router.get('/getSingleReport/:id', function(req,res){
     })
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 router.put('/update-doctor/:id', function (req, res) {
     console.log(req.body.displayImage)
     Doctor.findByIdAndUpdate(req.params.id,
@@ -1282,6 +1258,30 @@ router.put('/changeAvailability/:id', function(req,res){
     }
     );
 })
+
+
+//Post pharmacy data
+router.post('/add-Prescription', function(req, res){
+    let prescriptionData = {
+        name:req.body.name,
+        area:req.body.area,
+        pharmacy:req.body.pharmacy,
+        phone:req.body.phone,
+        deliveryAddress:req.body.deliveryAddress,
+        image:req.body.image
+
+    }
+    let prescription = new Prescription(prescriptionData)
+    prescription.save((error, result)=>{
+        if(error){
+            console.log(error);
+        }
+        else
+        {
+            res.send(result);
+        }
+       
+    });
 
 
 //getMedicine

@@ -691,7 +691,14 @@ router.delete('/delete-patient/:id', function (req, res) {
     }, 100);
      });
    
-
+//get all appoinment
+router.get('/getAllAppoinments', function(req,res){
+    Appoinment.find({}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
 
 router.post('/add-new-appoinment', function(req,res){
    
@@ -1358,6 +1365,7 @@ router.delete('/deleteProduct/:id', function(req,res){
 const productimageUpload = require('../healper/storageProduct');
 const Pharmacist = require('../Models/Pharmacist');
 
+
 router.post('/product/:postid/uploadPhoto', productimageUpload.uploadImage().single('productImage'), async (req, res, next) => {
 
     console.log("Product Iamge Name" + req.file.filename);
@@ -1473,6 +1481,65 @@ router.post('/addnewPharmacist', (req, res)=>{
         }
     })
 })
+
+
+
+
+//Upload Pescription
+const prescriptionImageUpload= require('../healper/storagePrescription');
+router.post('/prescription/:postid/uploadPhoto', prescriptionImageUpload.uploadImage().single('prescriptionImage'), async (req, res, next) => {
+
+    console.log("prescription Iamge Name" + req.file.filename);
+    let imagePath = 'http://localhost:3000/images/prescription/' + req.file.filename;
+
+
+    if (req.file) {
+        console.log("Image Found");
+        console.log(req.params.postid)
+        Prescription.findByIdAndUpdate(req.params.postid,
+            {
+                $set: {
+                    displayImage: imagePath
+                }
+            },
+            {
+                new: true
+            },
+            function (err, Postdata) {
+                if (err) {
+                    res.send("Error update displayImage field");
+                } else {
+                    res.json(Postdata);
+                    console.log("prescription profile image upload successfully");
+
+                }
+            }
+
+        );
+
+    }
+});
+
+//get all prescription
+
+router.get('/get-all-prescription', function(req, res){
+    Prescription.find({}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+});
+
+//get single presccription
+router.get('/getsingleprescription/:id', function(req, res){
+    Prescription.findOne({_id:req.params.id}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+});
+
+
 
 //export model
 module.exports = router;

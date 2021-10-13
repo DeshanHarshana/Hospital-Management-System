@@ -7,7 +7,10 @@ const prescription = mongoose.Schema({
     pharmacy:String,
     phone:String,
     deliveryAddress:String,
-    image:String,
+    displayImage: {
+        type:String,
+        default:'https://icon-library.com/images/no-photo-available-icon/no-photo-available-icon-8.jpg',
+    }
 })
 
 

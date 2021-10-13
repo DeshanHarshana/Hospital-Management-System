@@ -344,7 +344,7 @@
 
               </div>
             </div> <br>
-            <div class="row">
+            <div class="row"  *ngIf = 'role === "doctor"'>
               <div class="col d-flex justify-content-center">
                 <button type="button" class="btn btn-success btn-lg active" routerLink="/edit-report/{{ reportData._id }}" >Edit Report</button>
 

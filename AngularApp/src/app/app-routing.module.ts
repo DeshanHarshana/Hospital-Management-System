@@ -55,7 +55,12 @@ import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-time
 import { MedicineListComponent } from './pharmacy/medicine-list/medicine-list.component';
 import { AddmedicineComponent } from './pharmacy/addmedicine/addmedicine.component';
 import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
+
+import { DisplayPrescriptionComponent } from './admin/display-prescription/display-prescription.component';
+import { ShowPrescriptionComponent } from './patient/show-prescription/show-prescription.component';
 import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/medicine-list-patient.component';
+import { AllAppoinmentListComponent } from './admin/all-appoinment-list/all-appoinment-list.component';
+
 
 
 
@@ -75,6 +80,7 @@ const routes: Routes = [
   {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent, canActivate:[]},
   {path : 'Admin-edit-patient-details/:id', component:PatientEditProfileComponent},
   {path : 'Admin-show-all-patient-list', component:AllPatientListComponent},
+  {path : 'Admin-show-all-appoinment-list', component:AllAppoinmentListComponent},
 
   //doctor
   {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},
@@ -102,8 +108,12 @@ const routes: Routes = [
   {path :'report-list/:id', component:ReportlistComponent},
   {path :'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent, canActivate:[PatientGuard]},
   {path :'getcurrentAppoinment', component:AppoinmentlistComponent, canActivate:[PatientGuard]},
-  {path: 'pharmacy', component:PharmacyComponent, canActivate:[PatientGuard]},
+
+  {path :'pharmacy', component:PharmacyComponent},
+  {path: 'display-prescription', component:DisplayPrescriptionComponent},
+  {path: 'show-prescription/:id', component:ShowPrescriptionComponent},
   {path: 'pharmacyMedicineList', component:MedicineListPatientComponent},
+
 
 
   //appoinment

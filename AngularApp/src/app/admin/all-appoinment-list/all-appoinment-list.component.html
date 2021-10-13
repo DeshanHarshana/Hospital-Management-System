@@ -1,0 +1,109 @@
+<mat-toolbar class="mat-elevation-z8">
+  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+  <span class="spacer"></span>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+      <h4 class="name">Deshan Harshana</h4>
+      <p class="designation">Hospital Admin</p>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+          <mat-icon>person</mat-icon>
+          <span>Add Doctor</span>
+      </button>
+
+
+
+  </mat-sidenav>
+
+
+    <div class="content mat-elevation-z8">
+<div class="container-fluid ">
+  <h1 class="header-details">My Appoinments</h1>
+  <div class="d-flex justify-content-center">
+
+    <!-- <button (click)="x()">Active</button>
+    <button (click)="y()">All</button>
+    <p> not complete</p> -->
+
+
+
+
+  </div>
+
+  <div class="container-fluid">
+
+<div class="card list">
+<div class="row" style="border-bottom: 1px solid black; padding-bottom:6px">
+  <div class="col-3 d-flex justify-content-center heading">
+    Doctor Name
+  </div>
+  <div class="col-3 d-flex justify-content-center heading">
+    Appoinment Date
+  </div>
+  <div class="col-3 d-flex justify-content-center heading">
+Appoinment Time
+  </div>
+  <div class="col-2 d-flex justify-content-center heading">
+Status
+  </div>
+  <div class="col-1 d-flex justify-content-center heading">
+    Action
+  </div>
+</div>
+
+
+
+
+<div class="row" style="padding-bottom:6px; padding-top:6px" *ngFor="let d of filterdData |orderBy | paginate:{itemsPerPage:8, currentPage:p}">
+  <div class="col-3 d-flex align-items-center ">
+    <img class="patientImage d-flex align-items-center " src="{{ d.displayImage }}"/>
+    <h4 style="margin-left: 5%; font-size:1.3rem; font-family:'Abas'" >{{ d.doctorname }}</h4>
+
+  </div>
+  <div class="col-3 d-flex align-items-center d-flex justify-content-center">
+    <h4 style="font-size:1.3rem; font-family:'Abas'">{{ d.appoinmentDate }}</h4>
+  </div>
+  <div class="col-3 d-flex align-items-center d-flex justify-content-center">
+    <h4 style="font-size:1.3rem; font-family:'Abas'">{{ d.appoinmentTime }}</h4>
+
+  </div>
+  <div class="col-2 d-flex align-items-center d-flex justify-content-center" >
+<h4 [ngClass]="d.status=='Pending' ? 'pending' : 'accept' " style="font-size:1.3rem; font-family:'Abas'">{{ d.status }}</h4>
+  </div>
+  <div class="col-1 d-flex align-items-center d-flex justify-content-center">
+    <button class="btn btn-outline-danger" (click)="deleteAppoinment(d._id, d.doctorid )">Delete</button>
+  </div>
+</div>
+
+
+
+
+
+
+</div>
+
+ </div>
+ <div class="row" style="width: 100%; padding-top:4%; position:static;">
+
+  <div class="col d-flex align-items-center d-flex justify-content-center"><pagination-controls  (pageChange)="p = $event"></pagination-controls>
+  </div>
+  </div>
+</div>
+
+    </div>
+
+
+</mat-sidenav-container>

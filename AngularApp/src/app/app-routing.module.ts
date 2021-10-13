@@ -56,6 +56,7 @@ import { MedicineListComponent } from './pharmacy/medicine-list/medicine-list.co
 import { AddmedicineComponent } from './pharmacy/addmedicine/addmedicine.component';
 import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
 import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/medicine-list-patient.component';
+import { AllAppoinmentListComponent } from './admin/all-appoinment-list/all-appoinment-list.component';
 
 
 
@@ -75,6 +76,7 @@ const routes: Routes = [
   {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent, canActivate:[]},
   {path : 'Admin-edit-patient-details/:id', component:PatientEditProfileComponent},
   {path : 'Admin-show-all-patient-list', component:AllPatientListComponent},
+  {path : 'Admin-show-all-appoinment-list', component:AllAppoinmentListComponent},
 
   //doctor
   {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},

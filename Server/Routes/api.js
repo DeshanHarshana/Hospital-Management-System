@@ -691,7 +691,14 @@ router.delete('/delete-patient/:id', function (req, res) {
     }, 100);
      });
    
-
+//get all appoinment
+router.get('/getAllAppoinments', function(req,res){
+    Appoinment.find({}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
 
 router.post('/add-new-appoinment', function(req,res){
    

@@ -111,6 +111,7 @@ import { AddmedicineComponent } from './pharmacy/addmedicine/addmedicine.compone
 
 import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
 import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/medicine-list-patient.component';
+import { AllAppoinmentListComponent } from './admin/all-appoinment-list/all-appoinment-list.component';
 
 
 
@@ -178,7 +179,8 @@ import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/m
     AddmedicineComponent,
 
     PharmacyComponent,
-    MedicineListPatientComponent
+    MedicineListPatientComponent,
+    AllAppoinmentListComponent
 
 
 

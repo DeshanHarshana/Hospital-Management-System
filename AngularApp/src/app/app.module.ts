@@ -112,7 +112,7 @@ import { EditmedicineComponent } from './pharmacy/editmedicine/editmedicine.comp
 import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
 
 
-import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
+
 import { DisplayPrescriptionComponent } from './admin/display-prescription/display-prescription.component';
 import { ShowPrescriptionComponent } from './patient/show-prescription/show-prescription.component';
 

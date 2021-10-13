@@ -8,12 +8,13 @@ import { ToastrService } from 'ngx-toastr';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
-  selector: 'app-medicine-list',
-  templateUrl: './medicine-list.component.html',
-  styleUrls: ['./medicine-list.component.css']
+  selector: 'app-medicine-list-patient',
+  templateUrl: './medicine-list-patient.component.html',
+  styleUrls: ['./medicine-list-patient.component.css']
 })
-export class MedicineListComponent implements OnInit {
-
+export class MedicineListPatientComponent implements OnInit {
+  added:boolean=false;
+  total:number=0;
 
   p:number=1;
   tempdata:Product[]=[]
@@ -24,9 +25,7 @@ export class MedicineListComponent implements OnInit {
 
   catogory:any="All Category";
   constructor(
-    private doctorService:DoctorService,
-    private router:Router,
-    private route:ActivatedRoute,
+
     private auth:AuthenticationService,
     private productService:ProductService,
     public toastr:ToastrService
@@ -70,19 +69,20 @@ export class MedicineListComponent implements OnInit {
         }
       }
 
-      changeAvailability(availability:boolean, id:string){
-        let data={
-          availability:!availability
+      cart(price:number){
+
+        if(this.added){
+          this.added=false;
+
+          this.total=this.total-price
+
+        }else{
+          this.added=true;
+          this.total=this.total+price
+
         }
-        this.productService.updateAvailability(id,data).subscribe((res)=>{
-          this.toastr.success("Updated","Update Product state");
-          this.ngOnInit();
-        })
       }
-      deleteProduct(id:string){
-        this.productService.deleteProduct(id).subscribe((res)=>{
-          this.toastr.success("Deleted","Product Deleted");
-          this.ngOnInit();
-        })
+      error(){
+        this.toastr.error("OutofStokck")
       }
 }

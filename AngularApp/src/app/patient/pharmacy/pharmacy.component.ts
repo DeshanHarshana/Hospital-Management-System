@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
-import { DropDownListComponent } from '@syncfusion/ej2-angular-dropdowns';
-import { Query, DataManager } from '@syncfusion/ej2-data';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Methods } from 'src/app/appdata/methods';
 import { SelectArea } from 'src/app/appdata/SelectArea';
@@ -17,10 +15,13 @@ import { ToastrService } from 'ngx-toastr';
   providers:[SelectArea]
 })
 export class PharmacyComponent implements OnInit {
+
   imageData:string='';
   image:any;
   isImageselected:boolean=false;
   
+
+
   selected: boolean = true;
   tempData = ['Choose phamacy'];
   id: any = 0;
@@ -50,12 +51,12 @@ export class PharmacyComponent implements OnInit {
     ["Choose pharmacy","New Luck Medical", "ASK Pharmacy", 	"Ayagama Pharmacy", "Janalanka Pharmacy" ],
     ["Choose pharmacy","Sri Sai Medical", "Food City -Trincomalee", "M.I.M. Pharmacy"],
     ["Choose pharmacy","New Lanka Medicare", "Pills Pharmacy", "Get well health care"],
-    
-  
+
+
   ]
 
 
-   
+
   prescription = new FormGroup({
     name: new FormControl(''),
     area : new FormControl(''),
@@ -64,7 +65,7 @@ export class PharmacyComponent implements OnInit {
     deliveryAddress:new FormControl(''),
     displayImage:new FormControl('')
   });
-  
+
   constructor(
     private auth: AuthenticationService,
     private router: Router,
@@ -115,7 +116,7 @@ export class PharmacyComponent implements OnInit {
 
 
   }
-  
+
   toast(message:String) {
     this.toastr.success(message.toString(), "Adding Prescription");
    }

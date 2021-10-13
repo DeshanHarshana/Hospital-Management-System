@@ -108,9 +108,9 @@ import { NoticelistDoctorComponent } from './doctor/noticelist-doctor/noticelist
 import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-timetable.component';
 import { MedicineListComponent } from './pharmacy/medicine-list/medicine-list.component';
 import { AddmedicineComponent } from './pharmacy/addmedicine/addmedicine.component';
-import { EditmedicineComponent } from './pharmacy/editmedicine/editmedicine.component';
-import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
 
+import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
+import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/medicine-list-patient.component';
 
 import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
 import { DisplayPrescriptionComponent } from './admin/display-prescription/display-prescription.component';
@@ -180,13 +180,12 @@ import { ShowPrescriptionComponent } from './patient/show-prescription/show-pres
     DoctorTimetableComponent,
     MedicineListComponent,
     AddmedicineComponent,
-    EditmedicineComponent,
+
     PharmacyComponent,
-    DisplayPrescriptionComponent,
+   DisplayPrescriptionComponent,
     ShowPrescriptionComponent,
-    
-  
-    
+    MedicineListPatientComponent
+
 
 
 

@@ -14,7 +14,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class AddmedicineComponent implements OnInit {
   product = new FormGroup({
     name:new FormControl(""),
-    price:new FormControl(""),
+    price:new FormControl(0),
     quantity:new FormControl(""),
     availability:new FormControl(true),
     description:new FormControl(""),
@@ -59,7 +59,7 @@ export class AddmedicineComponent implements OnInit {
           this.uploadImage(res.id);
 
       this.product.get('name')?.setValue('');
-      this.product.get('price')?.setValue('');
+      this.product.get('price')?.setValue(0);
       this.product.get('quantity')?.setValue('');
       this.product.get('availability')?.setValue('');
       this.product.get('description')?.setValue('');

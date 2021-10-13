@@ -106,6 +106,11 @@ import { NoticelistComponent } from './admin/noticelist/noticelist.component';
 import { NoticelistPatientComponent } from './patient/noticelist-patient/noticelist-patient.component';
 import { NoticelistDoctorComponent } from './doctor/noticelist-doctor/noticelist-doctor.component';
 import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-timetable.component';
+import { MedicineListComponent } from './pharmacy/medicine-list/medicine-list.component';
+import { AddmedicineComponent } from './pharmacy/addmedicine/addmedicine.component';
+
+import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
+import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/medicine-list-patient.component';
 
 
 
@@ -141,10 +146,10 @@ import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-time
     ShowReportComponent,
     EditReportComponent,
     ChildComponent,
-    ParentComponent,
+
     AppoinmentComponent,
     AddReportComponent,
-   
+
 
     EditMedicalUnitComponent,
     ShowMedicalUnitComponent,
@@ -170,6 +175,14 @@ import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-time
     NoticelistPatientComponent,
     NoticelistDoctorComponent,
     DoctorTimetableComponent,
+    MedicineListComponent,
+    AddmedicineComponent,
+
+    PharmacyComponent,
+    MedicineListPatientComponent
+
+
+
 
 
 
@@ -232,6 +245,7 @@ import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-time
     provide: DateAdapter,
     useFactory: adapterFactory,
   }),
+
 
   ],
   providers: [

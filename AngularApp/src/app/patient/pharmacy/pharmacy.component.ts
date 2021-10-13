@@ -9,6 +9,7 @@ import { Methods } from 'src/app/appdata/methods';
 import { SelectArea } from 'src/app/appdata/SelectArea';
 import { PrescriptionService } from 'src/app/services/prescription.service';
 import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-pharmacy',
   templateUrl: './pharmacy.component.html',
@@ -16,7 +17,10 @@ import { ToastrService } from 'ngx-toastr';
   providers:[SelectArea]
 })
 export class PharmacyComponent implements OnInit {
- 
+  imageData:string='';
+  image:any;
+  isImageselected:boolean=false;
+  
   selected: boolean = true;
   tempData = ['Choose phamacy'];
   id: any = 0;
@@ -57,15 +61,17 @@ export class PharmacyComponent implements OnInit {
     area : new FormControl(''),
     pharmacy:new FormControl(''),
     phone : new FormControl(''),
-    deliveryAddress:new FormControl('')
+    deliveryAddress:new FormControl(''),
+    displayImage:new FormControl('')
   });
   
   constructor(
     private auth: AuthenticationService,
-    private route: Router,
+    private router: Router,
     private s : SelectArea,
     private prescriptionService:PrescriptionService,
     public toastr:ToastrService,
+    
   ) { }
 
 
@@ -82,11 +88,32 @@ export class PharmacyComponent implements OnInit {
   }
   addPrescription(data:any)
   {
-    data.area = this.s.convert(data.area);
-    console.log(data);
-    this.prescriptionService.addPrescription(data).subscribe((res)=>{
-      this.toast('Successfully  add prescription!');
-    })
+    data.displayImage = "";
+    if(!this.isImageselected){
+      this.toastr.warning("Select Image", "Before Adding Prescription");
+    }
+    else{
+
+      data.area = this.s.convert(data.area);
+      console.log(data);
+      this.prescriptionService.addPrescription(data).subscribe((res)=>{
+        this.toast('Successfully  add prescription!');
+        console.log(res);
+        this.uploadImage(res._id);
+        
+        this.image=null
+        this.isImageselected=false;
+        this.router.navigate(['Patient-dashboard']);
+
+
+      })
+    }
+
+
+
+
+
+
   }
   
   toast(message:String) {
@@ -94,10 +121,39 @@ export class PharmacyComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.isImageselected=false;
   }
 
   logout() {
 
     this.auth.logout();
+  }
+
+  onFileSelect(event : Event){
+    const target= event.target as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
+    this.image=file;
+    this.isImageselected=true;
+    const allowedFileTypes=["image/png", "image/jpeg", "image/jpg"];
+    if(this.image && allowedFileTypes.includes(this.image.type)){
+      const reader=new FileReader();
+      reader.onload = () => {
+        this.imageData=reader.result as string;
+      }
+      reader.readAsDataURL(this.image);
+    }
+  }
+
+  uploadImage(id:string){
+
+    let fd=new FormData();
+    if(this.image){
+      fd.append("prescriptionImage", this.image, this.image.name);
+
+      this.prescriptionService.prescriptionImage(id,fd).subscribe((res)=>{
+        console.log(res);
+
+      })
+    }
   }
 }

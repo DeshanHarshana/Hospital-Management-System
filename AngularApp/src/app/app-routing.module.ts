@@ -53,6 +53,8 @@ import { CalenderComponent } from './test/calender/calender.component';
 import { DoctorCalendarComponent } from './doctor/doctor-calendar/doctor-calendar.component';
 import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-timetable.component';
 import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
+import { DisplayPrescriptionComponent } from './admin/display-prescription/display-prescription.component';
+import { ShowPrescriptionComponent } from './patient/show-prescription/show-prescription.component';
 
 
 
@@ -92,7 +94,12 @@ const routes: Routes = [
   {path :'report-list/:id', component:ReportlistComponent},
   {path :'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent, canActivate:[PatientGuard]},
   {path :'getcurrentAppoinment', component:AppoinmentlistComponent, canActivate:[PatientGuard]},
-  {path: 'pharmacy', component:PharmacyComponent, canActivate:[PatientGuard]},
+  {path :'pharmacy', component:PharmacyComponent},
+  {path: 'display-prescription', component:DisplayPrescriptionComponent},
+  {path: 'show-prescription/:id', component:ShowPrescriptionComponent},
+ 
+  
+  
   
 
   //appoinment

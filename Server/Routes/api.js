@@ -1210,6 +1210,61 @@ router.post('/add-Prescription', function(req, res){
     });
 })
 
+//Upload Pescription
+const prescriptionImageUpload= require('../healper/storagePrescription');
+router.post('/prescription/:postid/uploadPhoto', prescriptionImageUpload.uploadImage().single('prescriptionImage'), async (req, res, next) => {
+
+    console.log("prescription Iamge Name" + req.file.filename);
+    let imagePath = 'http://localhost:3000/images/prescription/' + req.file.filename;
+
+
+    if (req.file) {
+        console.log("Image Found");
+        console.log(req.params.postid)
+        Prescription.findByIdAndUpdate(req.params.postid,
+            {
+                $set: {
+                    displayImage: imagePath
+                }
+            },
+            {
+                new: true
+            },
+            function (err, Postdata) {
+                if (err) {
+                    res.send("Error update displayImage field");
+                } else {
+                    res.json(Postdata);
+                    console.log("prescription profile image upload successfully");
+
+                }
+            }
+
+        );
+
+    }
+});
+
+//get all prescription
+
+router.get('/get-all-prescription', function(req, res){
+    Prescription.find({}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
+
+//get single presccription
+router.get('/getsingleprescription/:id', function(req, res){
+    Prescription.findOne({_id:req.params.id}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
+
+
 
 //export model
 module.exports = router;

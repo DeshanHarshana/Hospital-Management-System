@@ -110,6 +110,8 @@ import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
 
 
 import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
+import { DisplayPrescriptionComponent } from './admin/display-prescription/display-prescription.component';
+import { ShowPrescriptionComponent } from './patient/show-prescription/show-prescription.component';
 
 
 
@@ -174,6 +176,8 @@ import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
     NoticelistDoctorComponent,
     DoctorTimetableComponent,
     PharmacyComponent,
+    DisplayPrescriptionComponent,
+    ShowPrescriptionComponent,
     
   
     

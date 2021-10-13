@@ -114,6 +114,10 @@ import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/m
 import { AllAppoinmentListComponent } from './admin/all-appoinment-list/all-appoinment-list.component';
 
 
+import { DisplayPrescriptionComponent } from './admin/display-prescription/display-prescription.component';
+import { ShowPrescriptionComponent } from './patient/show-prescription/show-prescription.component';
+
+
 
 @NgModule({
   declarations: [
@@ -179,8 +183,13 @@ import { AllAppoinmentListComponent } from './admin/all-appoinment-list/all-appo
     AddmedicineComponent,
 
     PharmacyComponent,
+
     MedicineListPatientComponent,
-    AllAppoinmentListComponent
+    AllAppoinmentListComponent,
+   DisplayPrescriptionComponent,
+    ShowPrescriptionComponent,
+
+
 
 
 

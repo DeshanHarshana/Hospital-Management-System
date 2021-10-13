@@ -34,4 +34,6 @@ addReport(report:any){
   deleteReport(reportid:string){
     return this._http.delete<any>("http://localhost:3000/deleteReport/"+reportid);
   }
+
+  
 }

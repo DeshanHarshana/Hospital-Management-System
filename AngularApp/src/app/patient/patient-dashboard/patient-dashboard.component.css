@@ -131,7 +131,7 @@ mat-divider {
   cursor: pointer;
   border-radius: 4px;
 
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
   transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
     0.3s box-shadow,
     0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
@@ -178,20 +178,33 @@ mat-divider {
 .pharmacy{
   height: 100%;
   width: 85%;
-  background-image: linear-gradient(to right, rgba(172, 202, 36, 0.356), rgb(61, 165, 52)), url("../../../assets/patient/pharmacy.jpg");
+  background-image: linear-gradient(to right, rgba(218, 130, 49, 0.356), rgb(61, 165, 52)), url("../../../assets/patient/pharmacy.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-clip: content-box;
 }
 
-.insurance{
+.profile{
   height: 100%;
   width: 85%;
-  background-image: linear-gradient(to right, rgba(84, 13, 218, 0.356), rgb(0, 92, 153)), url("../../../assets/patient/insurance.jpeg");
+  background-image: linear-gradient(to right, rgba(148, 94, 50, 0.356), rgb(233, 61, 38)), url("../../../assets/patient/account1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-clip: content-box;
 }
+
+
+  .doctor{
+    height: 100%;
+    width: 85%;
+    background-image: linear-gradient(to right, rgba(203, 210, 231, 0.356), rgb(44, 196, 196)), url("../../../assets/patient/doctor.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+  }
+  
+  
+
 
 
 

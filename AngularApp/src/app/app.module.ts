@@ -112,6 +112,10 @@ import { AddmedicineComponent } from './pharmacy/addmedicine/addmedicine.compone
 import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
 import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/medicine-list-patient.component';
 
+import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
+import { DisplayPrescriptionComponent } from './admin/display-prescription/display-prescription.component';
+import { ShowPrescriptionComponent } from './patient/show-prescription/show-prescription.component';
+
 
 
 @NgModule({
@@ -178,7 +182,10 @@ import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/m
     AddmedicineComponent,
 
     PharmacyComponent,
+   DisplayPrescriptionComponent,
+    ShowPrescriptionComponent,
     MedicineListPatientComponent
+
 
 
 

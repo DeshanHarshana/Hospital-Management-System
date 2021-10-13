@@ -52,6 +52,10 @@ import { PatientlistComponent } from './doctor/patientlist/patientlist.component
 import { CalenderComponent } from './test/calender/calender.component';
 import { DoctorCalendarComponent } from './doctor/doctor-calendar/doctor-calendar.component';
 import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-timetable.component';
+import { MedicineListComponent } from './pharmacy/medicine-list/medicine-list.component';
+import { AddmedicineComponent } from './pharmacy/addmedicine/addmedicine.component';
+import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
+import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/medicine-list-patient.component';
 
 
 
@@ -68,11 +72,9 @@ const routes: Routes = [
   {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent, canActivate:[AuthGuard]},
   {path : 'Admin-show-doctor-details/:id', component:ShowDoctorDetailsComponent, canActivate:[AuthGuard]},
   {path : 'Admin-edit-doctor-detais/:id', component:EditDoctorDetailsComponent, canActivate:[AuthGuard]},
-  {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent},
+  {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent, canActivate:[]},
   {path : 'Admin-edit-patient-details/:id', component:PatientEditProfileComponent},
   {path : 'Admin-show-all-patient-list', component:AllPatientListComponent},
-  {path : 'Admin-show-wardpage',component:ShowWardpageComponent, canActivate:[AuthGuard]},
-  {path : 'Admin-edit-ward-details',component:EditWardDetailsComponent, canActivate:[AuthGuard]},
 
   //doctor
   {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},
@@ -82,6 +84,16 @@ const routes: Routes = [
   {path:'calendarDoctor', component:DoctorCalendarComponent, canActivate:[DoctorGuard]},
   {path:'Doctor-AddReport/:id', component:AddReportComponent},
 
+  //ward
+  {path : 'Admin-show-wardpage/:id',component:ShowWardpageComponent},
+  {path : 'Admin-edit-ward-details/:id',component:EditWardDetailsComponent},
+
+
+
+
+
+
+
   //patient
   {path:'Patient-dashboard',component:PatientDashboardComponent, canActivate:[PatientGuard]},
   {path :'Patient-About', component:PatientAboutComponent, canActivate:[PatientGuard]},
@@ -90,20 +102,34 @@ const routes: Routes = [
   {path :'report-list/:id', component:ReportlistComponent},
   {path :'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent, canActivate:[PatientGuard]},
   {path :'getcurrentAppoinment', component:AppoinmentlistComponent, canActivate:[PatientGuard]},
+  {path: 'pharmacy', component:PharmacyComponent, canActivate:[PatientGuard]},
+  {path: 'pharmacyMedicineList', component:MedicineListPatientComponent},
+
 
   //appoinment
   {path:'appoinment/:id', component:AppoinmentComponent, canActivate:[PatientGuard]},
 
   //test
-  {path : 'test', component:TestComponent},
-  {path:'child', component:ChildComponent},
-  {path:'parent', component:ParentComponent},
+  {
+    path : 'test', component:TestComponent,
+    children:[
+        {path :"child", component:ChildComponent},
+        {path :"parent", component:ParentComponent},
+
+    ]
+  },
+
 
   //medicalunit
   {path:'edit-medical-unit/:id',component:EditMedicalUnitComponent},
   {path:'show-medical-unit/:id',component:ShowMedicalUnitComponent},
 
+  //doctor time table
+  {path:'doctor-timetable', component:DoctorTimetableComponent},
 
+  //pharmacy
+  {path:'allMedicineList', component:MedicineListComponent},
+  {path:'addMedicine', component:AddmedicineComponent},
 
     //pagenot found
   { path : '**', component:PageNotFoundComponent }

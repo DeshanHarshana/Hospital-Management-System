@@ -25,6 +25,14 @@
 <div class="content mat-elevation-z8"  style="height: fit-content;">
   <div class='container-fluid' style="margin-top: 2%; margin-bottom:5%">
     <div class="card" style="padding: 2%;">
+      <div class="row d-flex justify-content-end" style="margin-bottom: 2%;">
+        <div class="col d-flex justify-content-start">
+         <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size:2rem"> Total : Rs {{ total }}</p>
+        </div>
+        <div class="col-4 d-flex justify-content-end">
+          <button class="btn btn-outline-success">Add Prescription</button>
+        </div>
+      </div>
     <div class="row">
       <div class="col-8">
 
@@ -56,14 +64,16 @@
 
       <div class="col-4" *ngFor="let d of filterdData">
         <div  class="card cd  d-flex align-items-center">
-          <button class="available" *ngIf="d.availability==true" (click)="changeAvailability(d.availability, d._id)">Stock</button>
-          <button class="notavailable"  *ngIf="d.availability!=true" (click)="changeAvailability(d.availability, d._id)">Out Of Stock</button>
+          <button class="available" *ngIf="d.availability==true" >Stock</button>
+          <button class="notavailable"  *ngIf="d.availability!=true">Out Of Stock</button>
 
          <img src="{{ d.displayImage }}" class="r">
          <h4>{{ d.name }}</h4>
          <h3>{{ d.price }}</h3>
         <h2 class="strokeme">{{ d.quantity }}</h2>
-        <button class="myButton" (click)="deleteProduct(d._id)">Delete</button>
+        <button class="myButton" *ngIf="d.availability && !added" (click)="cart(d.price)">Cart</button>
+        <button class="myButton" *ngIf="d.availability && added" (click)="cart(d.price)">Remove Cart</button>
+        <button class="myButton2" *ngIf="!d.availability" (click)="error()">Cart</button>
         </div>
       </div>
     </div>

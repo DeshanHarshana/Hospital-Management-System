@@ -1363,6 +1363,7 @@ router.delete('/deleteProduct/:id', function(req,res){
 
 //add product
 const productimageUpload = require('../healper/storageProduct');
+const Pharmacist = require('../Models/Pharmacist');
 
 
 router.post('/product/:postid/uploadPhoto', productimageUpload.uploadImage().single('productImage'), async (req, res, next) => {
@@ -1465,6 +1466,21 @@ router.post('/product/:postid/updatePhoto', productimageUpload.uploadImage().sin
 
 })
 
+router.post('/addnewPharmacist', (req, res)=>{
+    data={
+        email:req.body.email,
+        name:req.body.name,
+        password:req.body.password
+    }
+
+    var pharmacist = new Pharmacist(data);
+
+    pharmacist.save((error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
 
 
 

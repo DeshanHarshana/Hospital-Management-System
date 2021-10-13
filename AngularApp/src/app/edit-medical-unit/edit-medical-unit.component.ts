@@ -4,12 +4,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { MedicalunitService } from '../services/medicalunit.service';
 
+
 @Component({
   selector: 'app-edit-medical-unit',
   templateUrl: './edit-medical-unit.component.html',
   styleUrls: ['./edit-medical-unit.component.css']
 })
 export class EditMedicalUnitComponent implements OnInit {
+
   medical=new FormGroup({
     catogory: new FormControl(''),
     mentor: new FormControl(''),
@@ -21,7 +23,9 @@ export class EditMedicalUnitComponent implements OnInit {
     private auth:AuthenticationService,
     private medicalUnit:MedicalunitService
 
+
   ) { }
+
 
   ngOnInit(
 
@@ -37,6 +41,7 @@ export class EditMedicalUnitComponent implements OnInit {
     },10)
 
   }
+
 
   logout(){
 

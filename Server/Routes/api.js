@@ -529,11 +529,12 @@ router.post('/doctor/:postid/updatePhoto', imageUpload.uploadImage().single('doc
 const patientimageUpload = require('../healper/storagePatient');
 const Report = require('../Models/Report');
 const Appoinment = require('../Models/Appoinment');
+const MedicalUnit = require('../Models/MedicalUnit');
 
 
 const { strictEqual } = require('assert');
 
-const MedicalUnit = require('../Models/MedicalUnit');
+
 
 
 router.post('/patient/:postid/updatePhoto', patientimageUpload.uploadImage().single('patientImage'), (req, res, next) => {
@@ -690,7 +691,14 @@ router.delete('/delete-patient/:id', function (req, res) {
     }, 100);
      });
    
-
+//get all appoinment
+router.get('/getAllAppoinments', function(req,res){
+    Appoinment.find({}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
 
 router.post('/add-new-appoinment', function(req,res){
    
@@ -1130,15 +1138,20 @@ async function getAppoinmentlist(ids){
 
 
 
-
-//medical unit
-
-router.post('/add-medicalunit-data', function(req,res){
+//medicalunit
+router.post('/add-medical-data',function(req,res){
     let medicalUnitdata = {
 
-        catogory: req.body.catogory,
-        mentor: req.body.mentor,
-        countOfDoctor:req.body.countOfDoctor
+        catogary:req.body.catogary,
+        Icu:req.body.Icu,
+        NIcu:req.body.NIcu,
+        Scu:req.body.Scu,
+        mentorDoc:req.body.mentorDoc,
+        countOfDoc:req.body.countOfDoc,
+        mentorNur:req.body.mentorNur,
+        countOfNur:req.body.countOfNur,
+        TotalNoBed:req.body.TotalNoBed,
+        TotalNoEqu:req.body.TotalNoEqu
     }
     let medicalunit = new MedicalUnit(medicalUnitdata)
     medicalunit.save((error, result) => {
@@ -1148,29 +1161,37 @@ router.post('/add-medicalunit-data', function(req,res){
         else {
             res.send(result);
         }
-    })
-});
+    });
+})
 
-
-
-router.get("/get-medicalunit-data/:id", function(req,res){
-    MedicalUnit.findById({_id:req.params.id}, function(error, result){
+router.get('/get-medical-data/:id',function(req,res){
+    MedicalUnit.findById({_id:req.params.id},function(error,result){
         if(error){
             console.log(error)
         }
-        else{
+        else
+        {
             res.send(result)
         }
+
     })
 })
-router.put('/postmedicaldata/:id', function(req,res){
-   
+
+router.put('/postmedicaldata/:id',function(req,res){
+
     MedicalUnit.findByIdAndUpdate(req.params.id,
         {
             $set: {
-                catogory: req.body.catogory,
-                mentor: req.body.mentor,
-                countOfDoctor: req.body.countOfDoctor,
+                catogary:req.body.catogary,
+                Icu:req.body.Icu,
+                NIcu:req.body.NIcu,
+                Scu:req.body.Scu,
+                mentorDoc:req.body.mentorDoc,
+                countOfDoc:req.body.countOfDoc,
+                mentorNur:req.body.mentorNur,
+                countOfNur:req.body.countOfNur,
+                TotalNoBed:req.body.TotalNoBed,
+                TotalNoEqu:req.body.TotalNoEqu
             }
         }, {
         new: true
@@ -1182,49 +1203,7 @@ router.put('/postmedicaldata/:id', function(req,res){
         }
     }
     );
-    
-})
 
-router.put('/addreporttopatient-reportlist/:id', function(req, res){
-    Patient.findByIdAndUpdate(req.params.id,{
-        $push:{
-            reportList:[req.body]
-        },
-        new :true
-    },
-        function(error, Result){
-            if(error){
-                res.send("Error Update Report List" + error)
-            }else{
-                res.status(200).send(Result)
-            }
-        }
-    )
-})
-
-
-//delete reportid from patient report list
-router.put('/deleteReportfromList/:id', function(req,res){
-    Patient.findByIdAndUpdate(
-        {
-            _id:req.params.id
-        },
-        {
-            $pull:{
-                reportList:{
-                    reportid:req.body.reportid
-                }
-            }
-        },
-        function(error, Result){
-            if(error){
-                res.send("Error Deleting Report")
-            }else{
-                res.send(Result);
-
-            }
-        }
-        )
 })
 
 //delete report
@@ -1246,6 +1225,25 @@ router.put('/changeAvailability/:id', function(req,res){
         {
             $set: {
                 available:req.body.available
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
+})
+
+//product availablity
+router.put('/productAvailability/:id', function(req,res){
+    Product.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                availability:req.body.availability
             }
         }, {
         new: true
@@ -1281,7 +1279,8 @@ router.post('/add-Prescription', function(req, res){
             res.send(result);
         }
        
-    });
+    })
+});
 
 
 //getMedicine
@@ -1364,6 +1363,7 @@ router.delete('/deleteProduct/:id', function(req,res){
 
 //add product
 const productimageUpload = require('../healper/storageProduct');
+
 
 router.post('/product/:postid/uploadPhoto', productimageUpload.uploadImage().single('productImage'), async (req, res, next) => {
 
@@ -1465,6 +1465,10 @@ router.post('/product/:postid/updatePhoto', productimageUpload.uploadImage().sin
 
 })
 
+
+
+
+
 //Upload Pescription
 const prescriptionImageUpload= require('../healper/storagePrescription');
 router.post('/prescription/:postid/uploadPhoto', prescriptionImageUpload.uploadImage().single('prescriptionImage'), async (req, res, next) => {
@@ -1508,7 +1512,7 @@ router.get('/get-all-prescription', function(req, res){
             res.send(result);
         }
     })
-})
+});
 
 //get single presccription
 router.get('/getsingleprescription/:id', function(req, res){
@@ -1517,7 +1521,7 @@ router.get('/getsingleprescription/:id', function(req, res){
             res.send(result);
         }
     })
-})
+});
 
 
 

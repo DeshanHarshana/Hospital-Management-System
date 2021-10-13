@@ -131,7 +131,6 @@ const routes: Routes = [
   {path:'allMedicineList', component:MedicineListComponent},
   {path:'addMedicine', component:AddmedicineComponent},
 
-
     //pagenot found
   { path : '**', component:PageNotFoundComponent }
 

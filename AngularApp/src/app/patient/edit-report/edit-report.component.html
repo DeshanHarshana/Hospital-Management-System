@@ -19,7 +19,29 @@
     <button mat-button class="menu-button" routerLink="/Patient-dashboard">
       <mat-icon>home</mat-icon>
       <span>Home</span>
-    </button>
+  </button>
+
+  <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+    <mat-icon>account_circle</mat-icon>
+    <span>Profile</span>
+</button>
+
+  <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+    <mat-icon>assignment</mat-icon>
+    <span>Appointments</span>
+</button>
+
+
+<button mat-button class="menu-button" routerLink="/Patient-dashboard">
+  <mat-icon>add_alert</mat-icon>
+  <span>Reminder</span>
+</button>
+
+
+<button mat-button class="menu-button" routerLink="/Patient-dashboard">
+<mat-icon>feedback</mat-icon>
+<span>Feedback</span>
+</button>
 
 
 
@@ -57,42 +79,7 @@
            </div>
 
 
-              <!--
-              <div class="form-group">
-                <label class="form-check-label" for="dob"> Date Of Birth:</label><br>
-                <div class="col">
-                  <div class="input-group">
-                    <div class="input-group-addon">
-                      <i class="fa fa-user">
-                      </i>
-                    </div>
-                    <div>
-                      <mat-form-field>
-                        <input matInput [matDatepicker]="datepicker" formControlName="" placeholder="mm/dd/yyyy">
-                        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-                        <mat-datepicker #datepicker></mat-datepicker>
-                    </mat-form-field>
-                    </div>
-                  </div>
-                  </div>
-              </div>-->
-
-        <!---
-    <div class="col-md-3">
-      <label class="form-check-label" for="DOB"> Date Of Birth:</label><br>
-      <mat-form-field>
-          <input matInput [matDatepicker]="datepicker" placeholder="mm/dd/yyyy" formControlName="dob">
-          <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-          <mat-datepicker #datepicker></mat-datepicker>
-      </mat-form-field>
-
-
-            </div>-->
-
-
-
-
-
+           
               <br>
 
               <div class="form-group">
@@ -130,15 +117,7 @@
               <br>
 
 
-            <!--<div class="col">
-                <label for="relationship">Marital Status</label>
-                <select id="relationship" class="form-control" formControlName="maritalStatus">
-                  <option selected>Choose...</option>
-                  <option>Single</option>
-                  <option>Married</option>
-                  <option>Widowed</option>
-                  <option>Divorced</option>
-                </select></div>-->
+           
               <div class="form-group">
                 <label class="col-md-4 control-label" for="Gender" >Gender</label>
                 <div class="col">
@@ -374,23 +353,23 @@
                      <div class="row">
                       <div class="col md-4">
                         <div class="checkbox">
-                          <label for="Medical History-1">
-                            <input type="checkbox" name="Medical History" id="Medical History-l" value="latex" formControlName="latex" >
+                          <label for="Medical History-11">
+                            <input type="checkbox" name="Medical History" id="Medical History-l1" value="latex" formControlName="latex" >
                             latex &nbsp; &nbsp;
                           </label>
                         </div>
 
                         <div class="checkbox">
-                          <label for="Medical History-2">
-                            <input type="checkbox" name="Medical History" id="Medical History-2" value="Iodine" formControlName="iodine" >
+                          <label for="Medical History-22">
+                            <input type="checkbox" name="Medical History" id="Medical History-22" value="Iodine" formControlName="iodine" >
                             Iodine &nbsp; &nbsp;
                           </label>
                         </div>
 
 
                         <div class="checkbox">
-                          <label for="Medical History-3">
-                            <input type="checkbox" name="Medical History" id="Medical History-3" value="bromine" formControlName="bromine" >
+                          <label for="Medical History-33">
+                            <input type="checkbox" name="Medical History" id="Medical History-33" value="bromine" formControlName="bromine" >
                             Bromine &nbsp; &nbsp;
                           </label>
                         </div>
@@ -483,8 +462,15 @@
 
             </div>
           </div> <br>
-          <button class="btn btn-primary btn-lg active"   (click)="updateReport(report.value)">Update Report</button>
-          <button class="btn btn-danger btn-lg active"   (click)="deleteReport()">Delete Report</button>
+         <div class="row">
+          <div class="col sm">
+            <button class="btn btn-primary btn-lg active"   (click)="updateReport(report.value)">Update Report</button>
+           
+          </div>
+          <div class="col sm">
+            <button class="btn btn-danger btn-lg active"   (click)="deleteReport()">Delete Report</button>
+          </div>
+         </div>
         </div>
 
 

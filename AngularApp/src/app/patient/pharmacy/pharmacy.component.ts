@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
-import { DropDownListComponent } from '@syncfusion/ej2-angular-dropdowns';
-import { Query, DataManager } from '@syncfusion/ej2-data';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Methods } from 'src/app/appdata/methods';
 import { SelectArea } from 'src/app/appdata/SelectArea';

@@ -25,7 +25,7 @@ export class ProductService {
     return this._http.put<any>("http://localhost:3000/editProduct/"+id, data)
   }
   deleteProduct(id:string){
-    return this._http.delete("http://localhost:3000/deleteProduct"+id)
+    return this._http.delete("http://localhost:3000/deleteProduct/"+id)
   }
   productImage(id:string,image:any){
     return this._http.post<any>("http://localhost:3000/product/"+id+"/uploadPhoto", image);
@@ -33,4 +33,8 @@ export class ProductService {
   updateImage(id:string,image:any){
     return this._http.post<any>("http://localhost:3000/product/"+id+"/updatePhoto", image);
   }
+  updateAvailability(id:string, data:any){
+    return this._http.put<any>("http://localhost:3000/productAvailability/"+id, data);
+  }
+
 }

@@ -35,9 +35,9 @@
     <mat-icon>book</mat-icon>
     <span>Appoinments</span>
 </button>
-<button mat-button class="menu-button" >
+<button mat-button class="menu-button" (click)="addPhamasisit()" >
   <mat-icon>open_with</mat-icon>
-  <span>Notice</span>
+  <span>Add Pharmacist</span>
 </button>
 
 
@@ -125,27 +125,27 @@
   <div class="row">
     <div class="col-12">
 
-      <div class="row d-flex justify-content-center d-flex align-items-center" routerLink="/show-medical-unit/61488fff5513c82e6049efb4">
-        <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center">
-Example
+      <div class="row d-flex justify-content-center d-flex align-items-center"  routerLink="/show-medical-unit/61488fff5513c82e6049efb4">
+        <div routerLink="/show-medical-unit/614cba016c59c307d89f4638" style="background-color: rgba(0, 255, 128, 0.26);" class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center">
+          <h1 style="font-family: Meteor" >Unit 1</h1>
         </div>
-        <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center" routerLink="/show-medical-unit/614890727898651c70e17b9f">
-          ward2
+        <div  class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center" style="background-color: rgba(251, 255, 0, 0.26);"  routerLink="/show-medical-unit/614cbc40efb589d8996dd14a">
+          <h1 style="font-family: Meteor" >Unit 2</h1>
         </div>
-        <div class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center">
-          ward2
+        <div routerLink="/show-medical-unit/614cbc4fefb589d8996dd14b" style="background-color: rgba(255, 0, 128, 0.26);" class="col-3 card pqrs zoom d-flex justify-content-center d-flex align-items-center" >
+          <h1 style="font-family: Meteor" >Unit 3</h1>
         </div>
 
       </div>
       <div class="row d-flex justify-content-center d-flex align-items-center">
-        <div class="col-3 pqrs card zoom d-flex justify-content-center d-flex align-items-center">
-      ward1
+        <div routerLink="/show-medical-unit/614cbc53efb589d8996dd14c" style="background-color: rgba(255, 0, 0, 0.26);" class="col-3 pqrs card zoom d-flex justify-content-center d-flex align-items-center">
+          <h1 style="font-family: Meteor" >Unit 4</h1>
         </div>
-        <div class="col-3 pqrs card zoom d-flex justify-content-center d-flex align-items-center">
-          ward2
+        <div routerLink="/show-medical-unit/614cbc58efb589d8996dd14d" style="background-color: rgba(204, 0, 255, 0.26);" class="col-3 pqrs card zoom d-flex justify-content-center d-flex align-items-center">
+          <h1 style="font-family: Meteor" >Unit 5</h1>
         </div>
-        <div class="col-3 pqrs card zoom d-flex justify-content-center d-flex align-items-center">
-          ward2
+        <div routerLink="/show-medical-unit/614cbc5cefb589d8996dd14e" style="background-color: rgba(9, 255, 0, 0.26);" class="col-3 pqrs card zoom d-flex justify-content-center d-flex align-items-center">
+          <h1 style="font-family: Meteor" >Unit 6</h1>
         </div>
 
 

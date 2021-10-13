@@ -1259,6 +1259,25 @@ router.put('/changeAvailability/:id', function(req,res){
     );
 })
 
+//product availablity
+router.put('/productAvailability/:id', function(req,res){
+    Product.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                availability:req.body.availability
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
+})
+
 
 //Post pharmacy data
 router.post('/add-Prescription', function(req, res){
@@ -1281,7 +1300,8 @@ router.post('/add-Prescription', function(req, res){
             res.send(result);
         }
        
-    });
+    })
+});
 
 
 //getMedicine
@@ -1364,6 +1384,7 @@ router.delete('/deleteProduct/:id', function(req,res){
 
 //add product
 const productimageUpload = require('../healper/storageProduct');
+const Pharmacist = require('../Models/Pharmacist');
 
 router.post('/product/:postid/uploadPhoto', productimageUpload.uploadImage().single('productImage'), async (req, res, next) => {
 
@@ -1465,6 +1486,21 @@ router.post('/product/:postid/updatePhoto', productimageUpload.uploadImage().sin
 
 })
 
+router.post('/addnewPharmacist', (req, res)=>{
+    data={
+        email:req.body.email,
+        name:req.body.name,
+        password:req.body.password
+    }
+
+    var pharmacist = new Pharmacist(data);
+
+    pharmacist.save((error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
 
 //export model
 module.exports = router;

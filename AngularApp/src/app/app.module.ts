@@ -108,9 +108,9 @@ import { NoticelistDoctorComponent } from './doctor/noticelist-doctor/noticelist
 import { DoctorTimetableComponent } from './patient/doctor-timetable/doctor-timetable.component';
 import { MedicineListComponent } from './pharmacy/medicine-list/medicine-list.component';
 import { AddmedicineComponent } from './pharmacy/addmedicine/addmedicine.component';
-import { EditmedicineComponent } from './pharmacy/editmedicine/editmedicine.component';
-import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
 
+import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
+import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/medicine-list-patient.component';
 
 
 
@@ -176,8 +176,9 @@ import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
     DoctorTimetableComponent,
     MedicineListComponent,
     AddmedicineComponent,
-    EditmedicineComponent,
+
     PharmacyComponent,
+    MedicineListPatientComponent
 
 
 

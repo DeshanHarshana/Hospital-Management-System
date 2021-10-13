@@ -49,7 +49,7 @@ export class EditMedicalUnitComponent implements OnInit {
       }
 update(data:any){
   this.medicalUnit.updatemedicalUnit(this.route.snapshot.params.id, data).subscribe(res=>{
-    console.log("Sucessfully Updated");
+    this.router.navigate(['Admin-dashboard']);
   })
 }
 }

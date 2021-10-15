@@ -28,7 +28,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
-
+@font-face {
+  font-family: "Mangas";
+  src: url(./assets/fonts/MangabeyRegular-rgqVO.otf);
+}
 
 @font-face {
   font-family: "Abas";

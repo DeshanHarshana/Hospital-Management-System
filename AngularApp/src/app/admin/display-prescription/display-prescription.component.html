@@ -12,7 +12,7 @@
 
 
 
- <h1 class="header-details">Prescription List</h1>
+ <h1 class="header-details" style="font-family: 'joy'; padding:1%">Prescription List</h1>
   <div class="d-flex justify-content-center">
 
 
@@ -23,15 +23,15 @@
   <div class="container-fluid">
     <div class="row" style="margin-bottom: 3%;">
       <div class="col-12">
-  
-          <input class="form-control" type="text" name="name" [(ngModel)]="name" (ngModelChange)="Search()" placeholder="Enter doctor name to search">
-  
+
+          <input class="form-control" type="text" name="name" [(ngModel)]="name" (ngModelChange)="Search()" placeholder="Enter your pharmacy name">
+
       </div>
       </div>
 <div class="card list">
 
 
-<div class="row" style="border-bottom: 1px solid black; padding-bottom:6px">
+<div class="row" style="background-color:burlywood; padding-bottom:15px;padding-top:15px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size:1rem">
   <div class="col-3 d-flex justify-content-center heading">
     Patient Name
   </div>
@@ -56,32 +56,32 @@
 
 
 
-<div class="row" style="padding-bottom:6px; padding-top:6px" *ngFor="let d of filterdData |orderBy | paginate:{itemsPerPage:10, currentPage:p}">
+<div class="row" style="padding-bottom:6px; padding-top:6px; font-family:'Abas'" *ngFor="let d of filterdData |orderBy | paginate:{itemsPerPage:10, currentPage:p}">
   <div class="col-3 d-flex align-items-center ">
-  
-    <h4 style="margin-left: 5%; font-size:0.9rem;" >{{ d.name }}</h4>
+
+    <h4 style="margin-left: 5%; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:1.1rem;" >{{ d.name }}</h4>
 
   </div>
   <div class="col-1 d-flex align-items-center d-flex justify-content-center">
-    <h4 style="font-size:1.3rem;">{{ d.area }}</h4>
+    <h4 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:1.1rem;">{{ d.area }}</h4>
   </div>
   <div class="col-3 d-flex align-items-center d-flex justify-content-center">
-    <h4 style="font-size:1.3rem;">{{ d.pharmacy }}</h4>
+    <h4 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:1.1rem;">{{ d.pharmacy }}</h4>
 
   </div>
   <div class="col-2 d-flex align-items-center d-flex justify-content-center">
-    <h4 style="font-size:1.3rem;">{{ d.phone }}</h4>
+    <h4 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:1.1rem;">{{ d.phone }}</h4>
 
   </div>
   <div class="col-2 d-flex align-items-center d-flex justify-content-center">
-    <h4 style="font-size:1.3rem;">{{ d.deliveryAddress }}</h4>
+    <h4 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:1.1rem;">{{ d.deliveryAddress }}</h4>
 
   </div>
   <div class="col-1 d-flex align-items-center d-flex justify-content-center">
-    <button class="btn btn-success"><mat-icon>remove_red_eye</mat-icon></button>
+    <button class="btn btn-info">View</button>
   </div>
-  
-  
+
+
 </div>
 
 
@@ -101,8 +101,8 @@
 </div>
 
     </div>
-  
-  
 
 
-  
+
+
+

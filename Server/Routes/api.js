@@ -154,6 +154,28 @@ router.post('/login', function (req, res) {
             }
         });
     }
+    else if (userData.no == 4) {
+        Pharmacist.findOne({ email: userData.email }, function (error, result) {
+            if (error) {
+                console.log(error);
+            } else {
+                if (!result) {
+                    res.send({
+                        'user': 'no'
+                    })
+                } else if (result.password !== userData.password) {
+                    res.send({
+                        'password': 'no'
+                    })
+                } else {
+                    res.send({
+                        'success':'yes',
+                        'pharmacistid':result._id
+                    });
+                }
+            }
+        });
+    }
 
 });
 

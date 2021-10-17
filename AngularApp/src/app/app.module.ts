@@ -116,7 +116,9 @@ import { AllAppoinmentListComponent } from './admin/all-appoinment-list/all-appo
 
 import { DisplayPrescriptionComponent } from './admin/display-prescription/display-prescription.component';
 import { ShowPrescriptionComponent } from './patient/show-prescription/show-prescription.component';
-
+import {NgxPrintModule} from 'ngx-print';
+import { AddprescrptionComponent } from './doctor/addprescrption/addprescrption.component';
+import { PrescriptionListComponent } from './patient/prescription-list/prescription-list.component';
 
 
 @NgModule({
@@ -188,6 +190,8 @@ import { ShowPrescriptionComponent } from './patient/show-prescription/show-pres
     AllAppoinmentListComponent,
    DisplayPrescriptionComponent,
     ShowPrescriptionComponent,
+    AddprescrptionComponent,
+    PrescriptionListComponent,
 
 
 
@@ -204,6 +208,7 @@ import { ShowPrescriptionComponent } from './patient/show-prescription/show-pres
     MatAutocompleteModule,
     HttpClientModule,
     BrowserModule,
+    NgxPrintModule,
     AppRoutingModule,
     MatCheckboxModule,
   MatFormFieldModule,
@@ -265,7 +270,8 @@ import { ShowPrescriptionComponent } from './patient/show-prescription/show-pres
     },
     AuthGuard,
     DoctorGuard,
-    PatientGuard
+    PatientGuard,
+    NgxPrintModule
   ],
   bootstrap: [AppComponent]
 })

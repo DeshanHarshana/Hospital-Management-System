@@ -1283,12 +1283,12 @@ router.put('/productAvailability/:id', function(req,res){
 //Post pharmacy data
 router.post('/add-Prescription', function(req, res){
     let prescriptionData = {
-        name:req.body.name,
-        area:req.body.area,
-        pharmacy:req.body.pharmacy,
-        phone:req.body.phone,
-        deliveryAddress:req.body.deliveryAddress,
-        image:req.body.image
+        patientid:req.body.patientid,
+        doctorid:req.body.doctorid,
+        patientname:req.body.patientname,
+        doctorname:req.body.doctorname,
+        date:req.body.date,
+        medicine:req.body.medicine
 
     }
     let prescription = new Prescription(prescriptionData)
@@ -1303,6 +1303,14 @@ router.post('/add-Prescription', function(req, res){
        
     })
 });
+
+router.get('/getPrescription/:id', (req, res)=>{
+    Prescription.find({patientid:req.params.id}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
 
 
 //getMedicine
@@ -1509,6 +1517,7 @@ router.post('/addnewPharmacist', (req, res)=>{
 
 //Upload Pescription
 const prescriptionImageUpload= require('../healper/storagePrescription');
+const Notification = require('../Models/Notification');
 router.post('/prescription/:postid/uploadPhoto', prescriptionImageUpload.uploadImage().single('prescriptionImage'), async (req, res, next) => {
 
     console.log("prescription Iamge Name" + req.file.filename);
@@ -1561,7 +1570,46 @@ router.get('/getsingleprescription/:id', function(req, res){
     })
 });
 
+//Notification
+router.post('/sendNotification', (req, res)=>{
+    var data={
+        patientid:req.body.patientid,
+        doctorid:req.body.doctorid,
+        time:req.body.time,
+        content:req.body.content,
+        header:req.body.header,
+        seen:req.body.seen
+    }
 
+    var notification= new Notification(data);
+    notification.save((error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
+
+router.get('/getAllNotification', (req, res)=>{
+    Notification.find({}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
+router.get('/getSpecificAppoinment/:id', (req, res)=>{
+    Notification.find({doctorid:req.params.id}, (error, result)=>{
+        if(!error){
+            res.send(result)
+        }
+    })
+})
+router.get('/seen/:id', (req, res)=>{
+    Notification.findByIdAndUpdate(req.params.id, {seen:true}, function(error, docs){
+        if(!error){
+            res.send("seen");
+        }
+    })
+})
 
 //export model
 module.exports = router;

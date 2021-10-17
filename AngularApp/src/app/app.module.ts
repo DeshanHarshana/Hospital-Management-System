@@ -111,7 +111,14 @@ import { AddmedicineComponent } from './pharmacy/addmedicine/addmedicine.compone
 
 import { PharmacyComponent } from './patient/pharmacy/pharmacy.component';
 import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/medicine-list-patient.component';
+import { AllAppoinmentListComponent } from './admin/all-appoinment-list/all-appoinment-list.component';
 
+
+import { DisplayPrescriptionComponent } from './admin/display-prescription/display-prescription.component';
+import { ShowPrescriptionComponent } from './patient/show-prescription/show-prescription.component';
+import {NgxPrintModule} from 'ngx-print';
+import { AddprescrptionComponent } from './doctor/addprescrption/addprescrption.component';
+import { PrescriptionListComponent } from './patient/prescription-list/prescription-list.component';
 
 
 @NgModule({
@@ -178,7 +185,15 @@ import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/m
     AddmedicineComponent,
 
     PharmacyComponent,
-    MedicineListPatientComponent
+
+    MedicineListPatientComponent,
+    AllAppoinmentListComponent,
+   DisplayPrescriptionComponent,
+    ShowPrescriptionComponent,
+    AddprescrptionComponent,
+    PrescriptionListComponent,
+
+
 
 
 
@@ -193,6 +208,7 @@ import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/m
     MatAutocompleteModule,
     HttpClientModule,
     BrowserModule,
+    NgxPrintModule,
     AppRoutingModule,
     MatCheckboxModule,
   MatFormFieldModule,
@@ -254,7 +270,8 @@ import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/m
     },
     AuthGuard,
     DoctorGuard,
-    PatientGuard
+    PatientGuard,
+    NgxPrintModule
   ],
   bootstrap: [AppComponent]
 })

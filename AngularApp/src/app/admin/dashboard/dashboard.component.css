@@ -1,7 +1,4 @@
-mat-toolbar {
-  background: #004a9f;
-  color: white;
-}
+
 
 mat-sidenav {
   margin: 16px;
@@ -152,3 +149,4 @@ mat-divider {
 .adminlogo{
   cursor:pointer
 }
+

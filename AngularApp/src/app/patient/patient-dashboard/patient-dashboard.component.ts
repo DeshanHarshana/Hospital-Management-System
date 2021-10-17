@@ -9,6 +9,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class PatientDashboardComponent implements OnInit {
 
+  patient_id : string = '';
   constructor(
     private router:Router,
     private route:ActivatedRoute,
@@ -19,6 +20,8 @@ export class PatientDashboardComponent implements OnInit {
   ngOnInit(
 
   ): void {
+    this.patient_id = localStorage.getItem('patientid') || '';
+    console.log(this.patient_id);
 
 
   }

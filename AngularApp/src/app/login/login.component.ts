@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   role:string="";
   id:number=0;
   isPatient:boolean=true;
+  isAdmin:boolean=false;
   dropdownId="jnl"
   loginForm=new FormGroup({
     no:new FormControl(''),
@@ -44,18 +45,26 @@ export class LoginComponent implements OnInit {
       document.getElementById('email')?.focus();
 
    }
+   Pharmacist(){
+     this.router.navigate(['login/'+ 4])
+     this.role="Pharmacist"
+     this.id=4;
+     this.loginForm.get('no')?.setValue(4);
+   }
 
   ngOnInit(): void {
     localStorage.removeItem('access');
     this.id=this.route.snapshot.params.id;
     if(this.id==1){
       this.role="Admin";
+      this.isAdmin=true;
     }else if(this.id == 2){
       this.role="Doctor";
     }else if(this.id==3){
       this.role="Patient";
       this.isPatient=false;
     }
+
     this.loginForm.get('no')?.setValue(this.id);
   }
   toast(message:String) {
@@ -86,6 +95,11 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("access",'patient');
             localStorage.setItem("patientid", res.patientid);
             this.router.navigate(['Patient-dashboard'])
+          }
+          else if(this.id==4){
+            localStorage.setItem("access",'pharmacist');
+            localStorage.setItem("pharmacistid", res.pharmacistid);
+            this.router.navigate(['display-prescription'])
           }
         }
       }

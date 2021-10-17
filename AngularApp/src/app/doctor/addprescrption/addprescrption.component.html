@@ -1,0 +1,86 @@
+<mat-toolbar class="mat-elevation-z8">
+  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+  <span class="spacer"></span>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+      <h4 class="name">Deshan Harshana</h4>
+      <p class="designation">Hospital Admin</p>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+          <mat-icon>person</mat-icon>
+          <span>Add Doctor</span>
+      </button>
+
+
+
+  </mat-sidenav>
+
+
+    <div class="content mat-elevation-z8" style="height:fit-content">
+<div class="container-fluid " style="padding:3%; height:fit-content">
+  <h1 class="d-flex justify-content-center"  style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Add Prescription</h1>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <div class="row">
+
+      <div class="col-6">
+        <div class="form-group">
+          <label for="patientname">Patient Name</label>
+          <input type="text" class="form-control" formControlName="patientname" id="patientname" placeholder="Patient Name">
+          </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="patientname">Doctor Name</label>
+          <input type="text" class="form-control" formControlName="doctorname" id="patientname" placeholder="Doctor Name">
+          </div>
+      </div>
+
+    </div>
+    <div style="margin-top: 3%;">
+      <button type="button" (click)="addMedicine()" class="myButton">Add Drugs</button>
+    <table class="table" width="100%"  formArrayName="medicine">
+
+      <tr *ngFor="let medicine of medicine().controls; let i=index" [formGroupName]="i">
+        <td>
+            Drug Name :
+            <input type="text" formControlName="drugname" class="form-control">
+        </td>
+        <td>
+          Quantity:
+            <input type="text" formControlName="quantity" class="form-control">
+        </td>
+        <td>
+          How to Use:
+            <input type="text" formControlName="howtouse" class="form-control">
+        </td>
+        <td>
+            <button (click)="removeMedicine(i)" class="myButton2">Remove</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+
+  </div>
+</form>
+</div>
+
+    </div>
+
+
+
+</mat-sidenav-container>

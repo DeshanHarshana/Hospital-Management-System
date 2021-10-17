@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/images/doctors', express.static(path.join('images/doctors/')));
 app.use('/images/patients', express.static(path.join('images/patients/')));
+app.use('/images/prescription', express.static(path.join('images/prescription/')));
 app.use('/images/products', express.static(path.join('images/products/')));
 
 

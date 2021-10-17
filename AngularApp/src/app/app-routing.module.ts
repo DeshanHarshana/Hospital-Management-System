@@ -61,6 +61,8 @@ import { ShowPrescriptionComponent } from './patient/show-prescription/show-pres
 import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/medicine-list-patient.component';
 import { AllAppoinmentListComponent } from './admin/all-appoinment-list/all-appoinment-list.component';
 import { CheckedAppointmentsComponent } from './doctor/checked-appointments/checked-appointments.component';
+import { AddprescrptionComponent } from './doctor/addprescrption/addprescrption.component';
+import { PrescriptionListComponent } from './patient/prescription-list/prescription-list.component';
 
 
 
@@ -85,12 +87,15 @@ const routes: Routes = [
 
   //doctor
   {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},
-  {path :'Doctor-DoctorAddpatient', component:DoctorAddPatientsComponent, canActivate:[DoctorGuard]},
+  {path:'Doctor-DoctorAddpatient', component:DoctorAddPatientsComponent, canActivate:[DoctorGuard]},
   {path:'DoctorAppoinmentList', component:DoctorAppoinmentlistComponent, canActivate:[DoctorGuard]},
   {path:'DoctorPatientList', component:PatientlistComponent, canActivate:[DoctorGuard]},
   {path:'calendarDoctor', component:DoctorCalendarComponent, canActivate:[DoctorGuard]},
   {path:'Doctor-AddReport/:id', component:AddReportComponent},
-  {path:'Doctor-Notification', component:CheckedAppointmentsComponent},
+  {path:'Doctor-Notification/:id', component:CheckedAppointmentsComponent, canActivate:[DoctorGuard]},
+  {path:'Doctor-Add-Prescription/:id', component:AddprescrptionComponent, canActivate:[DoctorGuard]},
+
+
   //ward
   {path : 'Admin-show-wardpage/:id',component:ShowWardpageComponent},
   {path : 'Admin-edit-ward-details/:id',component:EditWardDetailsComponent},
@@ -113,6 +118,8 @@ const routes: Routes = [
   {path :'pharmacy', component:PharmacyComponent},
   {path: 'display-prescription', component:DisplayPrescriptionComponent},
   {path: 'show-prescription/:id', component:ShowPrescriptionComponent},
+  {path: 'prescriptionList/:id', component:PrescriptionListComponent},
+
   {path: 'pharmacyMedicineList', component:MedicineListPatientComponent},
 
 

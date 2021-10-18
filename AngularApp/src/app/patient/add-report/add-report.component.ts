@@ -49,7 +49,8 @@ export class AddReportComponent implements OnInit {
     sign:new FormControl(''),
   doctorid:new FormControl(''),
     patientid:new FormControl(''),
-    doctorname:new FormControl('')
+    doctorname:new FormControl(''),
+    nic:new FormControl(''),
 
 
 

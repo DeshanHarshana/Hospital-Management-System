@@ -57,46 +57,23 @@
                 </div>
              </div> 
                 
+             <br>
+             <div class="form-group">
+              <label class="col-md-4 control-label" for="nic">NIC Number </label>
+              <div class="col">
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-user">
+                    </i>
+                  </div>
+                  <input id="nic" formControlName="nic" name="nic" type="text"
+                    placeholder="NIC Number " class="form-control input-md">
+                </div>
+            </div>
+         </div> 
 
-                <!--
-                <div class="form-group">
-                  <label class="form-check-label" for="dob"> Date Of Birth:</label><br>
-                  <div class="col">
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-user">
-                        </i>
-                      </div>
-                      <div>
-                        <mat-form-field>
-                          <input matInput [matDatepicker]="datepicker" formControlName="" placeholder="mm/dd/yyyy">
-                          <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-                          <mat-datepicker #datepicker></mat-datepicker>
-                      </mat-form-field>
-                      </div>
-                    </div>
-                    </div>
-                </div>-->
-
-          <!---     
-      <div class="col-md-3">
-        <label class="form-check-label" for="DOB"> Date Of Birth:</label><br>
-        <mat-form-field>
-            <input matInput [matDatepicker]="datepicker" placeholder="mm/dd/yyyy" formControlName="dob">
-            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-            <mat-datepicker #datepicker></mat-datepicker>
-        </mat-form-field>
-    
-    
-              </div>-->
-              
-
-             
-  
-                
-                <br>
-  
-                <div class="form-group">
+             <br>
+            <div class="form-group">
                   <label class="col-md-4 control-label" for="">Age</label>
                   <div class="col-md-3">
                     <div class="input-group">
@@ -484,14 +461,16 @@
                 
               </div>
             </div> <br>
-            <button class="btn btn-primary btn-lg active"   (click)="addReport(report.value)">Add Report</button>
+            
           </div>
-  
-  
   
         </div>
   
   
+        <div style="align-items: center;">
+          <button class="btn btn-primary btn-lg active addReport" (click)="addReport(report.value)">Add Report</button>
+        </div>
+
   
       </div>
     </div>

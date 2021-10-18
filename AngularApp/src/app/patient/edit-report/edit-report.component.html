@@ -79,6 +79,25 @@
               </div>
            </div>
 
+           <br>
+         
+           <div class="form-group">
+            <label class="col-md-4 control-label" for="">NIC Number</label>
+            <div class="col">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-male" style="font-size: 20px;"></i>
+
+                </div>
+                <input id="nic" name="nic" type="text" placeholder="NIC Number" formControlName="nic"
+                  class="form-control input-md" >
+
+              </div>
+
+            </div>
+          </div>
+
+
 
 
               <br>
@@ -465,7 +484,7 @@
           </div> <br>
          <div class="row">
           <div class="col sm">
-            <button class="btn btn-primary btn-lg active"   (click)="updateReport(report.value)">Update Report</button>
+            <button class="btn btn-secondary btn-lg active updateReport"   (click)="updateReport(report.value)">Update Report</button>
 
           </div>
           <div class="col sm">

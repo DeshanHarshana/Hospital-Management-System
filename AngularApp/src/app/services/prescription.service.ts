@@ -14,7 +14,7 @@ export class PrescriptionService {
     public _http:HttpClient,
     public router:Router
    ) {
-    
+
    }
 
    addPrescription(data:any){
@@ -26,9 +26,12 @@ export class PrescriptionService {
   }
   getAllPrescription():Observable<Pres[]>{
     return this._http.get<Pres[]>("http://localhost:3000/get-all-prescription");
-  
+
   }
   getsinglePrescription(id:string){
     return this._http.get<any>("http://localhost:3000/getsingleprescription/"+id);
+  }
+  getPrescrption(id:string){
+    return this._http.get<any>("http://localhost:3000/getPrescription/"+id);
   }
 }

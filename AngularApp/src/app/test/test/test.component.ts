@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PharmacistService } from 'src/app/services/pharmacist.service';
-import Swal from 'sweetalert2';
+import {NgxPrintModule} from 'ngx-print';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-test',
@@ -16,6 +17,8 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  appoinment=new FormGroup({
 
+  })
 
 }

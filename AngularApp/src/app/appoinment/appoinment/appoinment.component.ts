@@ -5,6 +5,7 @@ import { Methods } from 'src/app/appdata/methods';
 import { AppoinmentService } from 'src/app/services/appoinment.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DoctorService } from 'src/app/services/doctor.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
@@ -43,7 +44,8 @@ export class AppoinmentComponent implements OnInit {
     private method:Methods,
     private patient:PatientService,
     private doctor:DoctorService,
-    private apt:AppoinmentService
+    private apt:AppoinmentService,
+    private notification:NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -83,7 +85,20 @@ export class AppoinmentComponent implements OnInit {
      }
      this.doctor.putAppoinment(appoinmentdata, this.choosenDoctor).subscribe(res=>{
        console.log(res);
-       this.router.navigate(['Patient-dashboard']);
+       var notification={
+         patientid:appoinment.patientid,
+         doctorid:appoinment.doctorid,
+         time:appoinment.appoinmentTime,
+         header:"Appointment",
+         seen:false,
+         content:appoinment.firstname
+
+       }
+       this.notification.sendNotification(notification).subscribe((res)=>{
+        this.router.navigate(['Patient-dashboard']);
+       })
+
+
      })
    })
   }

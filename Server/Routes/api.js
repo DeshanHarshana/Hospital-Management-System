@@ -1025,6 +1025,49 @@ router.get('/getSingleReport/:id', function(req,res){
     })
 })
 
+router.put('/addreporttopatient-reportlist/:id', function(req, res){
+    Patient.findByIdAndUpdate(req.params.id,{
+        $push:{
+            reportList:[req.body]
+        },
+        new :true
+    },
+        function(error, Result){
+            if(error){
+                res.send("Error Update Report List" + error)
+            }else{
+                res.status(200).send(Result)
+            }
+        }
+    )
+})
+
+
+//delete reportid from patient report list
+router.put('/deleteReportfromList/:id', function(req,res){
+    Patient.findByIdAndUpdate(
+        {
+            _id:req.params.id
+        },
+        {
+            $pull:{
+                reportList:{
+                    reportid:req.body.reportid
+                }
+            }
+        },
+        function(error, Result){
+            if(error){
+                res.send("Error Deleting Report")
+            }else{
+                res.send(Result);
+
+            }
+        }
+        )
+})
+
+
 router.put('/update-doctor/:id', function (req, res) {
     console.log(req.body.displayImage)
     Doctor.findByIdAndUpdate(req.params.id,
@@ -1033,7 +1076,6 @@ router.put('/update-doctor/:id', function (req, res) {
                 title: req.body.title,
                 fullname: req.body.fullname,
                 email: req.body.email,
-                password: req.body.password,
                 age: req.body.age,
                 phone: req.body.phone,
                 currentHospital: req.body.currentHospital,

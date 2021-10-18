@@ -9,7 +9,8 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class ShowPrescriptionComponent implements OnInit {
 
   constructor(
-    private auth:AuthenticationService
+    private auth:AuthenticationService,
+
   ) { 
     
   }

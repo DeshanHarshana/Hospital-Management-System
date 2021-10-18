@@ -60,6 +60,7 @@ import { DisplayPrescriptionComponent } from './admin/display-prescription/displ
 import { ShowPrescriptionComponent } from './patient/show-prescription/show-prescription.component';
 import { MedicineListPatientComponent } from './pharmacy/medicine-list-patient/medicine-list-patient.component';
 import { AllAppoinmentListComponent } from './admin/all-appoinment-list/all-appoinment-list.component';
+import { CheckedAppointmentsComponent } from './doctor/checked-appointments/checked-appointments.component';
 
 
 
@@ -89,7 +90,7 @@ const routes: Routes = [
   {path:'DoctorPatientList', component:PatientlistComponent, canActivate:[DoctorGuard]},
   {path:'calendarDoctor', component:DoctorCalendarComponent, canActivate:[DoctorGuard]},
   {path:'Doctor-AddReport/:id', component:AddReportComponent},
-
+  {path:'Doctor-Notification', component:CheckedAppointmentsComponent},
   //ward
   {path : 'Admin-show-wardpage/:id',component:ShowWardpageComponent},
   {path : 'Admin-edit-ward-details/:id',component:EditWardDetailsComponent},

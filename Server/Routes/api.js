@@ -319,7 +319,7 @@ router.post('/add-report', function (req, res) {
                 description:req.body.description,
                 date:req.body.date,
                 sign:req.body.sign,
-
+                nic:req.body.nic,
 
                 doctorid:req.body.doctorid,
                 patientid:req.body.patientid,
@@ -374,7 +374,7 @@ router.put('/updateReport/:id', function (req, res) {
                     description:req.body.description,
                     date:req.body.date,
                     sign:req.body.sign,
-
+                    nic:req.body.nic,
 
                     doctorid:req.body.doctorid,
                     patientid:req.body.patientid,

@@ -91,5 +91,8 @@ mat-toolbar {
   select::placeholder{
     color: chartreuse;
   }
+  .addReport{
+    margin-left: 44%;
+  }
  
   

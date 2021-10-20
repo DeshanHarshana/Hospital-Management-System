@@ -1,10 +1,11 @@
-<mat-toolbar class="mat-elevation-z8">
-  <h1 routerLink="/Patient-dashboard" class="logoclass">Patient</h1>
+<mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
+  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Admin-dashboard" src="../../../assets/navbar/logo.png"/>
+
   <span class="spacer"></span>
-  <button (click)="logout()" class="btn"
-    style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
 
 </mat-toolbar>
+
 
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side" disableClose="true" class="mat-elevation-z8">
@@ -77,6 +78,25 @@
                   </div>
               </div>
            </div>
+
+           <br>
+         
+           <div class="form-group">
+            <label class="col-md-4 control-label" for="">NIC Number</label>
+            <div class="col">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-male" style="font-size: 20px;"></i>
+
+                </div>
+                <input id="nic" name="nic" type="text" placeholder="NIC Number" formControlName="nic"
+                  class="form-control input-md" >
+
+              </div>
+
+            </div>
+          </div>
+
 
 
 
@@ -464,7 +484,7 @@
           </div> <br>
          <div class="row">
           <div class="col sm">
-            <button class="btn btn-primary btn-lg active"   (click)="updateReport(report.value)">Update Report</button>
+            <button class="btn btn-secondary btn-lg active updateReport"   (click)="updateReport(report.value)">Update Report</button>
 
           </div>
           <div class="col sm">

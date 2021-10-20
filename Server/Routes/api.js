@@ -1612,6 +1612,15 @@ router.get('/getsingleprescription/:id', function(req, res){
     })
 });
 
+//getallpatientprescriptions
+router.get('/allpatientprescriptions/:patientid', function(req,res){
+    Prescription.find({patientid:req.params.patientid}, function(error,result){
+        if(!error){
+            res.send(result)
+        }
+    })
+})
+
 //Notification
 router.post('/sendNotification', (req, res)=>{
     var data={

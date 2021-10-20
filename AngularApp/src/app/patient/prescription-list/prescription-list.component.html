@@ -49,11 +49,18 @@
   </mat-sidenav>
 
 
-    <div class="content mat-elevation-z8"  style="height:fit-content;">
-<div class="container-fluid ">
-<div class="card">
-
+    <div class="content mat-elevation-z8">
+      <h1 style="padding-left:3%; padding-top:2%; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif" >Your Prescriptions</h1>
+<div class="container-fluid " style="height: 100vh;">
+<div class="row" >
+  <div class="col-4" *ngFor="let d of prescriptionData">
+    <div class="card  zoom" style="padding: 2%;" routerLink="/patient-prescriptions/{{ d._id }}">
+      <h2 class="d-flex justify-content-center">{{ d.date }}</h2>
+      <h3 class="d-flex justify-content-center">Doctor name: {{ d.doctorname }}</h3>
+    </div>
+  </div>
 </div>
+
   </div>
   </div>
 

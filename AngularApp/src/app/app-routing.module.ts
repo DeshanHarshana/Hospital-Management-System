@@ -63,6 +63,7 @@ import { AllAppoinmentListComponent } from './admin/all-appoinment-list/all-appo
 import { CheckedAppointmentsComponent } from './doctor/checked-appointments/checked-appointments.component';
 import { AddprescrptionComponent } from './doctor/addprescrption/addprescrption.component';
 import { PrescriptionListComponent } from './patient/prescription-list/prescription-list.component';
+import { PatientPrescriptionComponent } from './patient/patient-prescription/patient-prescription.component';
 
 
 
@@ -119,7 +120,7 @@ const routes: Routes = [
   {path: 'display-prescription', component:DisplayPrescriptionComponent},
   {path: 'show-prescription/:id', component:ShowPrescriptionComponent},
   {path: 'prescriptionList/:id', component:PrescriptionListComponent},
-
+  {path:'patient-prescriptions/:id', component:PatientPrescriptionComponent},
   {path: 'pharmacyMedicineList', component:MedicineListPatientComponent},
 
 

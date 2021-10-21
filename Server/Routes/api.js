@@ -1560,6 +1560,7 @@ router.post('/addnewPharmacist', (req, res)=>{
 //Upload Pescription
 const prescriptionImageUpload= require('../healper/storagePrescription');
 const Notification = require('../Models/Notification');
+const Drug = require('../Models/Drug');
 router.post('/prescription/:postid/uploadPhoto', prescriptionImageUpload.uploadImage().single('prescriptionImage'), async (req, res, next) => {
 
     console.log("prescription Iamge Name" + req.file.filename);
@@ -1658,6 +1659,15 @@ router.get('/seen/:id', (req, res)=>{
     Notification.findByIdAndUpdate(req.params.id, {seen:true}, function(error, docs){
         if(!error){
             res.send("seen");
+        }
+    })
+})
+
+//drugs
+router.get("/allDrugs", (req,res)=>{
+    Drug.find({}, (error,result)=>{
+        if(!error){
+            res.send(result);
         }
     })
 })

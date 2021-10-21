@@ -319,7 +319,7 @@ router.post('/add-report', function (req, res) {
                 description:req.body.description,
                 date:req.body.date,
                 sign:req.body.sign,
-
+                nic:req.body.nic,
 
                 doctorid:req.body.doctorid,
                 patientid:req.body.patientid,
@@ -374,7 +374,7 @@ router.put('/updateReport/:id', function (req, res) {
                     description:req.body.description,
                     date:req.body.date,
                     sign:req.body.sign,
-
+                    nic:req.body.nic,
 
                     doctorid:req.body.doctorid,
                     patientid:req.body.patientid,
@@ -1560,6 +1560,7 @@ router.post('/addnewPharmacist', (req, res)=>{
 //Upload Pescription
 const prescriptionImageUpload= require('../healper/storagePrescription');
 const Notification = require('../Models/Notification');
+const Drug = require('../Models/Drug');
 router.post('/prescription/:postid/uploadPhoto', prescriptionImageUpload.uploadImage().single('prescriptionImage'), async (req, res, next) => {
 
     console.log("prescription Iamge Name" + req.file.filename);
@@ -1612,6 +1613,15 @@ router.get('/getsingleprescription/:id', function(req, res){
     })
 });
 
+//getallpatientprescriptions
+router.get('/allpatientprescriptions/:patientid', function(req,res){
+    Prescription.find({patientid:req.params.patientid}, function(error,result){
+        if(!error){
+            res.send(result)
+        }
+    })
+})
+
 //Notification
 router.post('/sendNotification', (req, res)=>{
     var data={
@@ -1649,6 +1659,15 @@ router.get('/seen/:id', (req, res)=>{
     Notification.findByIdAndUpdate(req.params.id, {seen:true}, function(error, docs){
         if(!error){
             res.send("seen");
+        }
+    })
+})
+
+//drugs
+router.get("/allDrugs", (req,res)=>{
+    Drug.find({}, (error,result)=>{
+        if(!error){
+            res.send(result);
         }
     })
 })

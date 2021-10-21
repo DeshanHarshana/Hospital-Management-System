@@ -50,30 +50,44 @@
       </div>
 
     </div>
-    <div style="margin-top: 3%;">
-      <button type="button" (click)="addMedicine()" class="myButton">Add Drugs</button>
-    <table class="table" width="100%"  formArrayName="medicine">
+    <div style="margin-top: 1%;">
+      <label for="type" style="color: brown;">Select Drug You Want</label>
+        <select id="type" class="form-control input-lg" style="width: 400px; margin-bottom:2%; color:blue; font-size:1.4rem" (change)=drugChange($event)>
+          <option *ngFor="let d of  tempDruglist" [value]="d.id" >{{ d.drugname }}</option>
+        </select>
 
-      <tr *ngFor="let medicine of medicine().controls; let i=index" [formGroupName]="i">
+    <table class="table"   formArrayName="medicine">
+
+      <div *ngFor="let medicine of medicine().controls; let i=index" [formGroupName]="i">
+
+
         <td>
             Drug Name :
-            <input type="text" formControlName="drugname" class="form-control">
+            <input type="text"   formControlName="drugname" class="form-control">
+
         </td>
         <td>
           Quantity:
-            <input type="text" formControlName="quantity" class="form-control">
+            <input type="number" formControlName="quantity" class="form-control">
         </td>
         <td>
           How to Use:
             <input type="text" formControlName="howtouse" class="form-control">
         </td>
         <td>
-            <button (click)="removeMedicine(i)" class="myButton2">Remove</button>
+          Price: Rs.
+            <input type="number" formControlName="priceofone" class="form-control">
         </td>
-      </tr>
+
+        <div class="d-flex justify-content-end">
+          <button (click)="removeMedicine(i)" class="myButton2">Remove</button>
+
+        </div>
+        </div>
     </table>
   </div>
     <button type="submit" class="btn btn-success">Submit</button>
+    <button type="button" class="btn btn-info" style="margin-left:2%" (click)="checkTotal()">Check total</button>
 
   </div>
 </form>

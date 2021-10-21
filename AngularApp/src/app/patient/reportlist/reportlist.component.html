@@ -1,10 +1,11 @@
-<mat-toolbar class="mat-elevation-z8">
-  <h1 routerLink="/Patient-dashboard" class="logoclass">Patient</h1>
+<mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
+  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Admin-dashboard" src="../../../assets/navbar/logo.png"/>
+
   <span class="spacer"></span>
-  <button (click)="logout()" class="btn"
-    style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
 
 </mat-toolbar>
+
 
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side" disableClose="true" class="mat-elevation-z8">
@@ -15,6 +16,7 @@
     <p class="designation">Hospital Admin</p>
 
     <mat-divider></mat-divider>
+
 
     <button mat-button class="menu-button" routerLink="/Patient-dashboard">
       <mat-icon>home</mat-icon>
@@ -46,7 +48,7 @@
 
   </mat-sidenav>
   <div class="content mat-elevation-z8">
-    <h1 style="padding: 3%;">Report List</h1>
+    <h1 style="padding: 3%;" class="report-list">Report List</h1>
     <div class="container-fluid" style="padding: 5%;">
 
       <div class="grid">

@@ -75,9 +75,9 @@ export class AddprescrptionComponent implements OnInit {
 
     return this.fb.group({
       drugname: this.drugname,
-      quantity: 0,
+      quantity: 1,
       priceofone:this.drugprice,
-      howtouse:''
+      howtouse:'Daily'
     })
   }
   addMedicine() {

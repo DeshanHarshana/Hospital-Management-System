@@ -4,6 +4,11 @@ const doctor = mongoose.Schema({
     title:String,
     fullname:String,
     email:String,
+    income:[{
+        patientname:String,
+        charge:Number,
+        date:String
+    }],
     password:{
         type:String,
         default:'1234'

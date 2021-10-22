@@ -64,6 +64,7 @@ import { CheckedAppointmentsComponent } from './doctor/checked-appointments/chec
 import { AddprescrptionComponent } from './doctor/addprescrption/addprescrption.component';
 import { PrescriptionListComponent } from './patient/prescription-list/prescription-list.component';
 import { PatientPrescriptionComponent } from './patient/patient-prescription/patient-prescription.component';
+import { PatientBillComponent } from './patient/patient-bill/patient-bill.component';
 
 
 
@@ -115,7 +116,7 @@ const routes: Routes = [
   {path :'report-list/:id', component:ReportlistComponent},
   {path :'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent, canActivate:[PatientGuard]},
   {path :'getcurrentAppoinment', component:AppoinmentlistComponent, canActivate:[PatientGuard]},
-
+  {path:'patient-bill/:id', component:PatientBillComponent},
   {path :'pharmacy', component:PharmacyComponent},
   {path: 'display-prescription', component:DisplayPrescriptionComponent},
   {path: 'show-prescription/:id', component:ShowPrescriptionComponent},

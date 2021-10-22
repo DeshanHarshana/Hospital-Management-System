@@ -1,0 +1,216 @@
+<mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
+  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Patient-dashboard" src="../../../assets/navbar/logo.png"/>
+
+  <span class="spacer"></span>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+      <h4 class="name">Deshan Harshana</h4>
+      <p class="designation">Hospital Admin</p>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+      </button>
+
+      <button mat-button class="menu-button" routerLink="/Admin-show-patient-details/{{ patient_id }}">
+        <mat-icon>account_circle</mat-icon>
+        <span>Profile</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/getAllDoctorAppoinment">
+      <mat-icon>person</mat-icon>
+      <span>Doctors</span>
+  </button>
+
+
+      <button mat-button class="menu-button" routerLink="/getcurrentAppoinment">
+        <mat-icon>assignment</mat-icon>
+        <span>Appointments</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/report-list/{{ patient_id }}">
+      <mat-icon>insert_drive_file</mat-icon>
+       <span>Report</span>
+   </button>
+
+   <button mat-button class="menu-button" routerLink="/pharmacyMedicineList">
+     <mat-icon>add_shopping_cart</mat-icon>
+       <span>E-Pharmacy</span>
+   </button>
+
+
+
+
+    <button mat-button class="menu-button" routerLink="/patient-bill/{{ patient_id }}">
+      <mat-icon>add_alert</mat-icon>
+      <span>Your Bill</span>
+  </button>
+
+
+  <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+    <mat-icon>feedback</mat-icon>
+    <span>Feedback</span>
+</button>
+
+
+
+
+
+
+
+
+
+
+  </mat-sidenav>
+
+
+    <div class="content mat-elevation-z8" style="height: fit-content;" >
+<div class="container-fluid" >
+ <div id="myDiv" #myDiv >
+
+<div class="row" class="m-4">
+  <div class="card shadow-sm p-3 bg-white rounded" >
+  <div class="col-12">
+    <h1 class="d-flex justify-content-center" style="font-weight: bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding-top:3%">Billing Report</h1>
+  </div>
+  <div class="row">
+  <div class="col-6" style="line-height: 4px; margin:0px">
+    <img style="height:60px;  margin-right:5%;" src="../../../assets/navbar/logo.png"/>
+
+    <p style="font-weight: bolder; font-size:1.3rem; padding-top:3%">LifeCare Hospital</p><br>
+    <p style="font-weight:normal; font-size:1rem">No 32 Road,</p><br>
+    <p style="font-weight:normal; font-size:1rem">Panadura,</p><br>
+    <p style="font-weight:normal; font-size:1rem">Rathmalana</p><br>
+
+  </div>
+  <div class="col-6 " style="margin-top: 5%;">
+    <p style="font-weight:bold; font-size:1rem; line-height: 4px;" class="d-flex justify-content-end">Mr Deshan Harshana,</p><br>
+    <p style="font-weight:normal; font-size:1rem; line-height: 4px;" class="d-flex justify-content-end">Word No 3,</p><br>
+    <p style="font-weight:normal; font-size:1rem; line-height: 4px;" class="d-flex justify-content-end">Addmission Date : 2021-3</p><br>
+  </div>
+</div>
+<div class="row mt-3">
+  <label for="doc">Doctor Details</label>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col-1" style="width: 15%; text-align:center">ID</th>
+        <th scope="col-6"style="width: 35%; text-align:center">Doctor Name</th>
+        <th scope="col-4"style="width: 35%; text-align:center">Doctor Type</th>
+        <th scope="col-1"style="width: 15%; text-align:center">Doctor Charge (Rs.)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row mt-3">
+  <label for="doc">Medicine Details</label>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col-1" style="width: 15%; text-align:center">ID</th>
+        <th scope="col-6"style="width: 35%; text-align:center">Doctor Name</th>
+        <th scope="col-4"style="width: 35%; text-align:center">Doctor Type</th>
+        <th scope="col-1"style="width: 15%; text-align:center">Doctor Charge (Rs.)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row">
+  <div class="col-12">
+    <h2 class="d-flex justify-content-end">Total Rs. 32403.00</h2>
+  </div>
+  <div class="col-6">
+    <h4>Admin sign : .....................</h4>
+  </div>
+  <div class="col-6  d-flex justify-content-end">
+   <h4>Patient sign : .....................</h4>
+  </div>
+</div>
+</div>
+
+ </div>
+
+
+  </div>
+</div>
+<button (click)="printDiv()">Print only the above div</button>
+</div>
+
+
+
+
+
+</mat-sidenav-container>

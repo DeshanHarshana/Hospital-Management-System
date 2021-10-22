@@ -52,7 +52,7 @@
     </div>
     <div style="margin-top: 1%;">
       <label for="type" style="color: brown;">Select Drug You Want</label>
-        <select id="type" class="form-control input-lg" style="width: 400px; margin-bottom:2%; color:blue; font-size:1.4rem" (change)=drugChange($event)>
+        <select id="type" class="form-control input-lg" style="width: 400px; margin-bottom:2%; color:blue; font-size:1.4rem; font-family:monospace" (change)=drugChange($event)>
           <option *ngFor="let d of  tempDruglist" [value]="d.id" >{{ d.drugname }}</option>
         </select>
 
@@ -60,25 +60,27 @@
 
       <div *ngFor="let medicine of medicine().controls; let i=index" [formGroupName]="i">
 
+<div class="row">
 
-        <td>
+
+        <div class="col-3">
             Drug Name :
             <input type="text"   formControlName="drugname" class="form-control">
 
-        </td>
-        <td>
+        </div>
+        <div class="col-3">
           Quantity:
             <input type="number" formControlName="quantity" class="form-control">
-        </td>
-        <td>
+          </div>
+        <div class="col-3">
           How to Use:
             <input type="text" formControlName="howtouse" class="form-control">
-        </td>
-        <td>
+          </div>
+        <div class="col-3">
           Price: Rs.
             <input type="number" formControlName="priceofone" class="form-control">
-        </td>
-
+          </div>
+      </div>
         <div class="d-flex justify-content-end">
           <button (click)="removeMedicine(i)" class="myButton2">Remove</button>
 

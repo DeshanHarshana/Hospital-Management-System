@@ -21,7 +21,7 @@
           <span>Home</span>
       </button>
 
-      <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+      <button mat-button class="menu-button" routerLink="/Admin-show-patient-details/{{ patient_id }}">
         <mat-icon>account_circle</mat-icon>
         <span>Profile</span>
     </button>
@@ -31,7 +31,7 @@
       <span>Doctors</span>
   </button>
 
-    
+
       <button mat-button class="menu-button" routerLink="/getcurrentAppoinment">
         <mat-icon>assignment</mat-icon>
         <span>Appointments</span>
@@ -47,12 +47,12 @@
        <span>E-Pharmacy</span>
    </button>
 
- 
 
 
-    <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+
+    <button mat-button class="menu-button" routerLink="/patient-bill/{{ patient_id }}">
       <mat-icon>add_alert</mat-icon>
-      <span>Reminder</span>
+      <span>Your Bill</span>
   </button>
 
 
@@ -78,7 +78,7 @@
   <div class="row">
 
     <div class="col-4 x d-flex justify-content-center d-flex align-items-center">
-      <div class="card  profile zoom" routerlink="">
+      <div class="card  profile zoom" routerLink="/Admin-show-patient-details/{{ patient_id }}">
         <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">1</h1>
         <h1 class="d-flex justify-content-center" style="font-family:'Quartzo;'; padding-top:7%; font-size:3.0rem;">Profile</h1>
       </div>

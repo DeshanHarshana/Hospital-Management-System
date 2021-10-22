@@ -27,6 +27,15 @@ mat-sidenav-container {
   height: calc(100vh - 65px);
 }
 
+.content2 {
+  height: fit-content;
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 2.5rem;
+}
+
+
+
 .menu-button {
   width: 100%;
   display: flex;

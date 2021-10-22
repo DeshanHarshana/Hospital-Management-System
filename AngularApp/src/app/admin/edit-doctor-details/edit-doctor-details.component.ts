@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DoctorService } from 'src/app/services/doctor.service';
-
+import { Location } from '@angular/common'
 @Component({
   selector: 'app-edit-doctor-details',
   templateUrl: './edit-doctor-details.component.html',
@@ -44,7 +44,8 @@ export class EditDoctorDetailsComponent implements OnInit {
     public toastr:ToastrService,
     public router:Router,
     public route:ActivatedRoute,
-    private auth:AuthenticationService
+    private auth:AuthenticationService,
+    private location: Location
 
   ) { }
 
@@ -112,7 +113,7 @@ export class EditDoctorDetailsComponent implements OnInit {
           this.toastr.success("Update Successfully", "Updating Doctor");
 
 
-          this.router.navigate(['Admin-dashboard']);
+          this.location.back();
 
 
 

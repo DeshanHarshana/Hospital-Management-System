@@ -1622,6 +1622,16 @@ router.get('/allpatientprescriptions/:patientid', function(req,res){
     })
 })
 
+//delete prescription
+
+router.delete('/deletePrescription/:id', function(req,res){
+    Prescription.deleteOne({_id:req.params.id}, function(err,result){
+        if(!err){
+            res.send(result)
+        }
+    })
+})
+
 //Notification
 router.post('/sendNotification', (req, res)=>{
     var data={

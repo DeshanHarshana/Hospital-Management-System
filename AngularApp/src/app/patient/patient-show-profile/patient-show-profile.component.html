@@ -1,9 +1,11 @@
-<mat-toolbar class="mat-elevation-z8">
-  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+<mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
+  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Admin-dashboard" src="../../../assets/navbar/logo.png"/>
+
   <span class="spacer"></span>
   <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
 
 </mat-toolbar>
+
 
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
@@ -112,7 +114,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" style="margin-top:2%">
       <div class="col">
         <div class="card medicaldetails">
 <div class="row">

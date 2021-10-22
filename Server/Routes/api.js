@@ -319,7 +319,7 @@ router.post('/add-report', function (req, res) {
                 description:req.body.description,
                 date:req.body.date,
                 sign:req.body.sign,
-
+                nic:req.body.nic,
 
                 doctorid:req.body.doctorid,
                 patientid:req.body.patientid,
@@ -374,7 +374,7 @@ router.put('/updateReport/:id', function (req, res) {
                     description:req.body.description,
                     date:req.body.date,
                     sign:req.body.sign,
-
+                    nic:req.body.nic,
 
                     doctorid:req.body.doctorid,
                     patientid:req.body.patientid,
@@ -1025,6 +1025,49 @@ router.get('/getSingleReport/:id', function(req,res){
     })
 })
 
+router.put('/addreporttopatient-reportlist/:id', function(req, res){
+    Patient.findByIdAndUpdate(req.params.id,{
+        $push:{
+            reportList:[req.body]
+        },
+        new :true
+    },
+        function(error, Result){
+            if(error){
+                res.send("Error Update Report List" + error)
+            }else{
+                res.status(200).send(Result)
+            }
+        }
+    )
+})
+
+
+//delete reportid from patient report list
+router.put('/deleteReportfromList/:id', function(req,res){
+    Patient.findByIdAndUpdate(
+        {
+            _id:req.params.id
+        },
+        {
+            $pull:{
+                reportList:{
+                    reportid:req.body.reportid
+                }
+            }
+        },
+        function(error, Result){
+            if(error){
+                res.send("Error Deleting Report")
+            }else{
+                res.send(Result);
+
+            }
+        }
+        )
+})
+
+
 router.put('/update-doctor/:id', function (req, res) {
     console.log(req.body.displayImage)
     Doctor.findByIdAndUpdate(req.params.id,
@@ -1033,7 +1076,6 @@ router.put('/update-doctor/:id', function (req, res) {
                 title: req.body.title,
                 fullname: req.body.fullname,
                 email: req.body.email,
-                password: req.body.password,
                 age: req.body.age,
                 phone: req.body.phone,
                 currentHospital: req.body.currentHospital,
@@ -1518,6 +1560,7 @@ router.post('/addnewPharmacist', (req, res)=>{
 //Upload Pescription
 const prescriptionImageUpload= require('../healper/storagePrescription');
 const Notification = require('../Models/Notification');
+const Drug = require('../Models/Drug');
 router.post('/prescription/:postid/uploadPhoto', prescriptionImageUpload.uploadImage().single('prescriptionImage'), async (req, res, next) => {
 
     console.log("prescription Iamge Name" + req.file.filename);
@@ -1570,6 +1613,25 @@ router.get('/getsingleprescription/:id', function(req, res){
     })
 });
 
+//getallpatientprescriptions
+router.get('/allpatientprescriptions/:patientid', function(req,res){
+    Prescription.find({patientid:req.params.patientid}, function(error,result){
+        if(!error){
+            res.send(result)
+        }
+    })
+})
+
+//delete prescription
+
+router.delete('/deletePrescription/:id', function(req,res){
+    Prescription.deleteOne({_id:req.params.id}, function(err,result){
+        if(!err){
+            res.send(result)
+        }
+    })
+})
+
 //Notification
 router.post('/sendNotification', (req, res)=>{
     var data={
@@ -1607,6 +1669,15 @@ router.get('/seen/:id', (req, res)=>{
     Notification.findByIdAndUpdate(req.params.id, {seen:true}, function(error, docs){
         if(!error){
             res.send("seen");
+        }
+    })
+})
+
+//drugs
+router.get("/allDrugs", (req,res)=>{
+    Drug.find({}, (error,result)=>{
+        if(!error){
+            res.send(result);
         }
     })
 })

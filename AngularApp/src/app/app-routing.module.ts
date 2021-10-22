@@ -63,6 +63,8 @@ import { AllAppoinmentListComponent } from './admin/all-appoinment-list/all-appo
 import { CheckedAppointmentsComponent } from './doctor/checked-appointments/checked-appointments.component';
 import { AddprescrptionComponent } from './doctor/addprescrption/addprescrption.component';
 import { PrescriptionListComponent } from './patient/prescription-list/prescription-list.component';
+import { PatientPrescriptionComponent } from './patient/patient-prescription/patient-prescription.component';
+import { PatientBillComponent } from './patient/patient-bill/patient-bill.component';
 
 
 
@@ -78,9 +80,9 @@ const routes: Routes = [
   {path : 'Admin-show-doctorlist',component:DoctorlistComponent, canActivate:[AuthGuard]},
   {path : 'Admin-About', component:AdminAboutComponent, canActivate:[AuthGuard]},
   {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent, canActivate:[AuthGuard]},
-  {path : 'Admin-show-doctor-details/:id', component:ShowDoctorDetailsComponent, canActivate:[AuthGuard]},
-  {path : 'Admin-edit-doctor-detais/:id', component:EditDoctorDetailsComponent, canActivate:[AuthGuard]},
-  {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent, canActivate:[]},
+  {path : 'show-doctor-details/:id', component:ShowDoctorDetailsComponent},
+  {path : 'edit-doctor-detais/:id', component:EditDoctorDetailsComponent},
+  {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent},
   {path : 'Admin-edit-patient-details/:id', component:PatientEditProfileComponent},
   {path : 'Admin-show-all-patient-list', component:AllPatientListComponent},
   {path : 'Admin-show-all-appoinment-list', component:AllAppoinmentListComponent},
@@ -114,12 +116,12 @@ const routes: Routes = [
   {path :'report-list/:id', component:ReportlistComponent},
   {path :'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent, canActivate:[PatientGuard]},
   {path :'getcurrentAppoinment', component:AppoinmentlistComponent, canActivate:[PatientGuard]},
-
+  {path:'patient-bill/:id', component:PatientBillComponent},
   {path :'pharmacy', component:PharmacyComponent},
   {path: 'display-prescription', component:DisplayPrescriptionComponent},
   {path: 'show-prescription/:id', component:ShowPrescriptionComponent},
   {path: 'prescriptionList/:id', component:PrescriptionListComponent},
-
+  {path:'patient-prescriptions/:id', component:PatientPrescriptionComponent},
   {path: 'pharmacyMedicineList', component:MedicineListPatientComponent},
 
 

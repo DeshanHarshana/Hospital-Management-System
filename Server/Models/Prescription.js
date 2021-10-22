@@ -9,7 +9,8 @@ const prescription = mongoose.Schema({
     date:String,
     medicine:[{
         drugname:String,
-        quantity:String,
+        quantity:Number,
+        priceofone:Number,
         howtouse:String
     }]
 })

@@ -44,6 +44,7 @@ export class EditReportComponent implements OnInit {
     description:new FormControl(''),
     date:new FormControl(new Date()),
     sign:new FormControl(''),
+    nic:new FormControl(''),
 
 
     doctorid:new FormControl(''),
@@ -105,7 +106,7 @@ export class EditReportComponent implements OnInit {
         this.report.get('bromine')?.setValue(res.bromine);
         this.report.get('description')?.setValue(res.description);
         this.report.get('sign')?.setValue(res.sign);
-
+        this.report.get('nic')?.setValue(res.nic);
 
 
       })

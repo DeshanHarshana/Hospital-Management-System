@@ -34,4 +34,11 @@ export class PrescriptionService {
   getPrescrption(id:string){
     return this._http.get<any>("http://localhost:3000/getPrescription/"+id);
   }
+  getAllPatientPrescriptions(patientid:string){
+    return this._http.get<any>("http://localhost:3000/allpatientprescriptions/"+patientid);
+  }
+
+  deletePrescription(id:string){
+    return this._http.delete("http://localhost:3000/deletePrescription/"+id);
+  }
 }

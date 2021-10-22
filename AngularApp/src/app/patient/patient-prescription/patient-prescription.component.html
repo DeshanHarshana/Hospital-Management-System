@@ -1,0 +1,87 @@
+<mat-toolbar class="mat-elevation-z8">
+  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+  <span class="spacer"></span>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+      <h4 class="name">Deshan Harshana</h4>
+      <p class="designation">Hospital Admin</p>
+
+      <mat-divider></mat-divider>
+
+
+      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+      <mat-icon>account_circle</mat-icon>
+      <span>Profile</span>
+  </button>
+
+    <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+      <mat-icon>assignment</mat-icon>
+      <span>Appointments</span>
+  </button>
+
+
+  <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+    <mat-icon>add_alert</mat-icon>
+    <span>Reminder</span>
+  </button>
+
+
+  <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+  <mat-icon>feedback</mat-icon>
+  <span>Feedback</span>
+  </button>
+
+
+
+
+  </mat-sidenav>
+
+
+
+  <div [ngClass]="contentClass">
+      <h1 style="padding-left:3%; padding-top:2%; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif" >Your Prescriptions</h1>
+        <div class="row d-flex align-items-center d-flex justify-content-center" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size:1.4rem;  padding-bottom:3%">
+          Date: {{ presData.date }}
+        </div>
+        <div class="row d-flex align-items-center d-flex justify-content-center" style="font-size: 1.5rem; font-family:'joy'; margin-bottom:3%">
+          <div class="col-6 d-flex align-items-center d-flex justify-content-center">
+            Doctor Name : {{ presData.doctorname }}
+          </div>
+          <div class="col-6 d-flex align-items-center d-flex justify-content-center">
+            Patient Name : {{ presData.patientname }}
+          </div>
+        </div>
+
+        <div class="row d-flex align-items-center d-flex justify-content-center" style="color:blueviolet; font-family:'Mangas'; font-size:1.3rem">
+          <div class="col-4 d-flex align-items-center d-flex justify-content-center">Drug Name</div>
+          <div class="col-4 d-flex align-items-center d-flex justify-content-center">Quantity</div>
+          <div class="col-4 d-flex align-items-center d-flex justify-content-center">How to use</div>
+        </div>
+        <div class="row" style="padding-left:5%; padding-right:5%">
+          <hr>
+        </div>
+        <div class="row" *ngFor="let d of medicine" style="margin-bottom:4%; font-family:'Lemon'; height:4px" >
+          <div class="col-4 d-flex align-items-center d-flex justify-content-center">{{ d.drugname }}</div>
+          <div class="col-4 d-flex align-items-center d-flex justify-content-center">{{ d.quantity }}</div>
+          <div class="col-4 d-flex align-items-center d-flex justify-content-center">{{ d.howtouse }}</div>
+        </div>
+        <div class="row">
+          <div class="col d-flex justify-content-center pb-3" >
+          <button class="btn btn-danger" (click)="delete()">Delete</button>
+        </div>
+      </div>
+      </div>
+
+      </mat-sidenav-container>

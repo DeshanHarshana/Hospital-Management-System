@@ -9,7 +9,7 @@ import { DrugService } from 'src/app/services/drug.service';
 import { PatientService } from 'src/app/services/patient.service';
 import { PrescriptionService } from 'src/app/services/prescription.service';
 import Swal from 'sweetalert2';
-
+import { faTrashAlt, faCheckCircle, faMoneyCheckAlt } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-addprescrption',
   templateUrl: './addprescrption.component.html',
@@ -17,6 +17,9 @@ import Swal from 'sweetalert2';
   providers : [Methods]
 })
 export class AddprescrptionComponent implements OnInit {
+  faTrashAlt = faTrashAlt;
+  faMoneyCheckAlt=faMoneyCheckAlt;
+  faCheckCircle=faCheckCircle;
   productForm=new FormGroup({});
   patientName:string="";
   doctorName:string="";

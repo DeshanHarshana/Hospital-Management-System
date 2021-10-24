@@ -2,78 +2,106 @@
     <h1 routerLink="/Patient-dashboard" class="logoclass">Patient</h1>
     <span class="spacer"></span>
     <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
-  
+
   </mat-toolbar>
-  
+
   <mat-sidenav-container>
     <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
-  
+
         <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
-  
+
         <h4 class="name">Deshan Harshana</h4>
         <p class="designation">Hospital Admin</p>
-  
+
         <mat-divider></mat-divider>
-  
+
         <button mat-button class="menu-button" routerLink="/Patient-dashboard">
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </button>
+        <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+            <mat-icon>person_add</mat-icon>
+              <span>Add Doctor</span>
+          </button>
+          <button mat-button class="menu-button" routerLink="/Admin-show-all-patient-list">
+            <mat-icon>people</mat-icon>
+            <span>All Patient</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/Admin-show-doctorlist">
+          <mat-icon>person_outline</mat-icon>
+          <span>All Doctors</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/Admin-show-all-appoinment-list">
+        <mat-icon>book</mat-icon>
+        <span>Appoinments</span>
+    </button>
+
     </mat-sidenav>
 
     <div class="content mat-elevation-z8" style="height: fit-content;">
         <div class="container-fluid" style="padding: 2%;">
             <h1 style="font-family: 'Lemon'; margin-left: 30px;"><u>Show Hospital Unit Details</u></h1>
 
-            
+
             <div class="card imgCard" style="padding: 3%;">
                 <div class="row g-3">
                     <div class="col-md-12">
                         <label for="category">Hospital Unit Category:</label>
-                        <h3 id="category">Intensive Care Units</h3>
+                        <h3 id="category">{{data.catogary}}</h3>
                     </div>
                     <div class="col-md-4">
                         <label for="Intensive">Intensive Care Units:</label>
-                        <h3 id="Intensive">Pediatric intensive care units (PICUs)</h3>
+                        <h3 id="Intensive">{{data.Icu}}</h3>
+                        
                     </div>
+
                     <div class="col-md-4">
                         <label for="Non-Intensive">Non-Intensive Care Units:</label>
-                        <h3 id="Non-Intensive">None</h3>
+                        <h3 id="Non-Intensive">{{data.NIcu}}</h3>
                     </div>
                     <div class="col-md-4">
                         <label for="specialty">Specialty care Units:</label>
-                        <h3 id="specialty">None</h3>
+                        <h3 id="specialty">{{data.Scu}}</h3>
                     </div>
                     <div class="col-md-4">
                         <label for="dname">Mentor Name(Doctor):</label>
-                        <h3 id="dname">Dr.Nirojan</h3>
+                        <h3 id="dname">{{data.mentorDoc}}</h3>
                     </div>
                     <div class="col-md-4">
                         <label for="countdoc">Count Of Doctors:</label>
-                        <h3 id="countdoc">3</h3>
+                        <h3 id="countdoc">{{data.countOfDoc}}</h3>
                     </div>
                     <div class="col-md-4">
+
                         <label for="Nname">Mentor Name(Nurse):</label>
-                        <h3 id="Nname">R.Kamala(Nursing)</h3>
+                        <h3 id="Nname">{{data.mentorNur}}</h3>
+
                     </div>
                     <div class="col-md-4">
                         <label for="countnur">Count Of Nurses:</label>
-                        <h3 id="countnur">5</h3>
+                        <h3 id="countnur">{{data.countOfNur}}</h3>
                     </div>
                     <div class="col-md-4">
                         <label for="countbed">Total No Of Beds:</label>
-                        <h3 id="countbed">2</h3>
+                        <h3 id="countbed">{{data.TotalNoBed}}</h3>
                     </div>
                     <div class="col-md-4">
                         <label for="countequip">Total No Of Equipments:</label>
-                        <h3 id="countequip">5</h3>
+                        <h3 id="countequip">{{data.TotalNoEqu}}</h3>
                     </div>
+                    <div class="col-md-4">
+                      <label for="countequip">Total No Of Equipments:</label>
+                      <h3 id="countequip">5</h3>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="countequip">Total No Of Equipments:</label>
+                    <h3 id="countequip">5</h3>
+                </div>
                     <div class="col-12 d-flex justify-content-end">
-                        <button type="submit" class="myButton ">Edit</button>
+                        <button type="submit" class="myButton " (click)="gotoEdit()">Edit</button>
                       </div>
                 </div>
             </div>
-               
 
 
         </div>

@@ -3,23 +3,40 @@
     <h1 routerLink="/Patient-dashboard" class="logoclass">Patient</h1>
     <span class="spacer"></span>
     <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
-  
+
   </mat-toolbar>
-  
+
   <mat-sidenav-container>
     <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
-  
+
         <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
-  
+
         <h4 class="name">Deshan Harshana</h4>
         <p class="designation">Hospital Admin</p>
-  
+
         <mat-divider></mat-divider>
-  
+
         <button mat-button class="menu-button" routerLink="/Patient-dashboard">
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </button>
+        <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+          <mat-icon>person_add</mat-icon>
+            <span>Add Doctor</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/Admin-show-all-patient-list">
+          <mat-icon>people</mat-icon>
+          <span>All Patient</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/Admin-show-doctorlist">
+        <mat-icon>person_outline</mat-icon>
+        <span>All Doctors</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/Admin-show-all-appoinment-list">
+      <mat-icon>book</mat-icon>
+      <span>Appoinments</span>
+  </button>
+
     </mat-sidenav>
 
 
@@ -28,19 +45,19 @@
         <div class='container-fluid ' style="padding: 3%;">
             <h1 style="font-family: 'Lemon'; margin-left: 30px;"><u>Edit Hospital Unit</u></h1>
         
-            <form class="row g-3" style="margin-right: 10px; margin-left: 20px;">
+            <form class="row g-3" style="margin-right: 10px; margin-left: 20px;" [formGroup]="medical"> 
                 <div class="col-md-12">
                     <label for="category" class="form-label">Hospital Unit Category:</label>
-                    <select id="inputcategory" class="form-select">
+                    <select id="inputcategory" class="form-select" formControlName="catogary">
                         <option selected>ChooseCategory</option>
                         <option >Intensive Care Units</option>
                         <option >Non-Intensive Care Units</option>
                         <option > Specialty care Units</option>
-                    </select>      
+                    </select>
                 </div>
                 <div class="col-md-4">
                     <label for="intensive" class="form-label">Intensive Care Units:</label>
-                    <select id="inputintensive" class="form-select">
+                    <select id="inputintensive" class="form-select" formControlName="Icu">
                         <option selected>None</option>
                         <option >Neonatal intensive care units (NICUs)</option>
                         <option >Pediatric intensive care units (PICUs)</option>
@@ -48,11 +65,11 @@
                         <option >Surgical intensive care units (SICUs)</option>
                         <option >Medical intensive care units (MICUs)</option>
                         <option >Long term intensive care units (LTAC ICUs)</option>
-                    </select>  
+                    </select>
                 </div>
                 <div class="col-md-4">
                     <label for="Non-Intensive" class="form-label">Non-Intensive Care Units:</label>
-                    <select id="input Non-Intensive" class="form-select">
+                    <select id="input Non-Intensive" class="form-select" formControlName="NIcu">
                         <option selected>None</option>
                         <option >Neonatal units</option>
                         <option >Pediatric units</option>
@@ -62,47 +79,47 @@
                         <option >Medical units</option>
                         <option >Rehabilitation wards</option>
                         <option >Long-term care</option>
-                    </select>  
+                    </select>
                 </div>
                 <div class="col-md-4">
                     <label for="specialty" class="form-label">Specialty Care Units:</label>
-                    <select id="inputspecialty" class="form-select">
+                    <select id="inputspecialty" class="form-select" formControlName="Scu">
                         <option selected>None</option>
                         <option >Burn</option>
                         <option >Oncology Wards</option>
                         <option >Trauma ICUs</option>
                         <option >Neurologic ICUs</option>
                         <option >other types of units</option>
-                    </select>  
+                    </select>
                 </div>
 
                 <div class="col-md-6">
                     <label for="dname" class="form-label">Mentor Name(Doctor):</label>
-                    <input type="text" class="form-control" id="dname" placeholder="Dr.Nirojan">
+                    <input type="text" class="form-control" id="dname" placeholder="Dr.Nirojan" formControlName="mentorDoc">
                   </div>
                   <div class="col-md-6">
                     <label for="countdoc" class="form-label">Count Of Doctors:</label>
-                    <input type="text" class="form-control" id="countdoc" placeholder="3">
+                    <input type="text" class="form-control" id="countdoc" placeholder="3" formControlName="countOfDoc">
                   </div>
                   <div class="col-md-6">
                     <label for="Nname" class="form-label">Mentor Name(Nurse):</label>
-                    <input type="text" class="form-control" id="Nname" placeholder="R.Kamala(Nursing)">
+                    <input type="text" class="form-control" id="Nname" placeholder="R.Kamala(Nursing)" formControlName="mentorNur" >
                   </div>
 
                   <div class="col-md-6">
                     <label for="Nname" class="form-label">Count of Nurses:</label>
-                    <input type="text" class="form-control" id="Nname" placeholder="4">
+                    <input type="text" class="form-control" id="Nname" placeholder="4" formControlName="countOfNur">
                   </div>
                   <div class="col-md-6">
                     <label for="Nname" class="form-label">Total No of Beds:</label>
-                    <input type="text" class="form-control" id="Nname" placeholder="2">
+                    <input type="text" class="form-control" id="Nname" placeholder="2" formControlName="TotalNoBed">
                   </div>
                   <div class="col-md-6">
                     <label for="Nname" class="form-label">Total No of Equipments:</label>
-                    <input type="text" class="form-control" id="Nname" placeholder="5">
+                    <input type="text" class="form-control" id="Nname" placeholder="5" formControlName="TotalNoEqu">
                   </div>
                   <div class="col-12 d-flex justify-content-end">
-                    <button type="submit" class="myButton ">Update</button>
+                    <button type="submit" class="myButton" (click)="update(medical.value)">Update</button>
                   </div>
             </form>
         </div>

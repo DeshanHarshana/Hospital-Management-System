@@ -30,6 +30,12 @@ const report = mongoose.Schema({
     description:String,
     date:String,
     sign:String,
+    nic:String,
+    //For identify doctor and patient
+    doctorid:String,
+    patientid:String,
+    doctorname:String
+   
    
     });
 

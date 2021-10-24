@@ -20,7 +20,9 @@ const patient = mongoose.Schema({
     displayImage:String,
     wardno:String,
     phone:String,
-    reportList:[],
+    reportList:[{
+        reportid:String
+    }],
     healthAdditional:String,
     subscription:Boolean,
     nic:String,

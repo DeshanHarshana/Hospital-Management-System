@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/services/admin.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DoctorService } from 'src/app/services/doctor.service';
@@ -17,14 +18,16 @@ export class DoctorlistComponent implements OnInit {
     private router:Router,
     private route:ActivatedRoute,
     private auth:AuthenticationService,
-    private admin:AdminService
+    private admin:AdminService,
+    public toastr:ToastrService
   ) { }
 
   ngOnInit(): void {
-    this.admin.getAdmin().subscribe(res=>{
-      this.admindata=res;
-    });
+
     setTimeout(() => {
+      this.admin.getAdmin().subscribe(res=>{
+        this.admindata=res;
+      });
       this.doctorService.getAllDoctors().subscribe(
         res=>{
           this.data=res;
@@ -41,5 +44,26 @@ this.router.navigate(['Admin-edit-doctor-details'])
 
     this.auth.logout();
       }
-
+      available(available:boolean, id:string){
+        if(available){
+          var data={
+            available:false
+          }
+          this.doctorService.changeAvalilability(id, data).subscribe(res=>{
+            this.toast("");
+            this.ngOnInit();
+          })
+        }else{
+          var data={
+            available:true
+          }
+          this.doctorService.changeAvalilability(id, data).subscribe(res=>{
+            this.toast("")
+            this.ngOnInit();
+          })
+        }
+      }
+      toast(message:String) {
+        this.toastr.warning(message.toString(), "Change Availability");
+       }
 }

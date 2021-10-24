@@ -1,9 +1,12 @@
-<mat-toolbar class="mat-elevation-z8">
-  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+<mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
+  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Admin-dashboard" src="../../../assets/navbar/logo.png"/>
+
   <span class="spacer"></span>
   <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
 
 </mat-toolbar>
+
+
 
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
@@ -15,14 +18,51 @@
 
       <mat-divider></mat-divider>
 
+    
       <button mat-button class="menu-button" routerLink="/Patient-dashboard">
-          <mat-icon>home</mat-icon>
-          <span>Home</span>
-      </button>
-      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
-          <mat-icon>person</mat-icon>
-          <span>Add Doctor</span>
-      </button>
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+      <mat-icon>account_circle</mat-icon>
+      <span>Profile</span>
+  </button>
+
+  <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+    <mat-icon>person</mat-icon>
+    <span>Doctors</span>
+</button>
+
+  
+    <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+      <mat-icon>assignment</mat-icon>
+      <span>Appointments</span>
+  </button>
+
+  <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+    <mat-icon>insert_drive_file</mat-icon>
+     <span>Report</span>
+ </button>
+
+ <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+   <mat-icon>add_shopping_cart</mat-icon>
+     <span>E-Pharmacy</span>
+ </button>
+
+
+
+
+  <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+    <mat-icon>add_alert</mat-icon>
+    <span>Reminder</span>
+</button>
+
+
+<button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+  <mat-icon>feedback</mat-icon>
+  <span>Feedback</span>
+</button>
 
 
 
@@ -43,7 +83,7 @@
       <div class="col-4">
 
         <select id="type" class="form-control"  [(ngModel)]="catogory" (ngModelChange)="Catogorize()">
-
+          <option>All Doctors</option>
           <option>Audiologist</option>
           <option>Epidemiologist</option>
           <option>Podiatrist</option>
@@ -78,6 +118,9 @@
 
       <div class="col-4" *ngFor="let d of filterdData">
         <div  class="card cd  d-flex align-items-center">
+          <button class="available" *ngIf="d.available==true">Available</button>
+          <button class="notavailable"  *ngIf="d.available!=true">Not Available</button>
+
          <img src="{{ d.displayImage }}" class="rounded-circle r">
          <h4>{{ d.fullname }}</h4>
          <h3>{{ d.SLMC }}</h3>

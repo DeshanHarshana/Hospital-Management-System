@@ -1,7 +1,7 @@
 
 
 <mat-toolbar class="mat-elevation-z8">
-  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+  <h1 class="adminlogo" routerLink=""></h1>
   <span class="spacer"></span>
   <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
 
@@ -22,10 +22,21 @@
           <span>Home</span>
       </button>
       <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
-          <mat-icon>person</mat-icon>
+        <mat-icon>person_add</mat-icon>
           <span>Add Doctor</span>
       </button>
-
+      <button mat-button class="menu-button" routerLink="/Admin-show-all-patient-list">
+        <mat-icon>people</mat-icon>
+        <span>All Patient</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/Admin-show-doctorlist">
+      <mat-icon>person_outline</mat-icon>
+      <span>All Doctors</span>
+  </button>
+  <button mat-button class="menu-button" routerLink="/Admin-show-all-appoinment-list">
+    <mat-icon>book</mat-icon>
+    <span>Appoinments</span>
+ </button>
 
 
   </mat-sidenav>
@@ -55,7 +66,7 @@
 
                 </li>
                 <li class="d-flex justify-content-center">
-                  <button class="myButton" routerLink="/Admin-edit-doctor-detais/{{ data._id }}">Edit Details</button>
+                  <button class="myButton" routerLink="/edit-doctor-detais/{{ data._id }}">Edit Details</button>
                 </li>
 
 

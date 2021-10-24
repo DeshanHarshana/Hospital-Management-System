@@ -1,1 +1,112 @@
-<p>edit-ward-details works!</p>
+
+<mat-toolbar class="mat-elevation-z8">
+    <h1 routerLink="/Patient-dashboard" class="logoclass">Patient</h1>
+    <span class="spacer"></span>
+    <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container>
+    <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+
+        <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+        <h4 class="name">Deshan Harshana</h4>
+        <p class="designation">Hospital Admin</p>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+                <mat-icon>person_add</mat-icon>
+                  <span>Add Doctor</span>
+              </button>
+              <button mat-button class="menu-button" routerLink="/Admin-show-all-patient-list">
+                <mat-icon>people</mat-icon>
+                <span>All Patient</span>
+            </button>
+            <button mat-button class="menu-button" routerLink="/Admin-show-doctorlist">
+              <mat-icon>person_outline</mat-icon>
+              <span>All Doctors</span>
+          </button>
+          <button mat-button class="menu-button" routerLink="/Admin-show-all-appoinment-list">
+            <mat-icon>book</mat-icon>
+            <span>Appoinments</span>
+          </button>
+
+    </mat-sidenav>
+
+
+
+    <div class="content mat-elevation-z8 " style="height: fit-content;" >
+        <div class='container-fluid' style="padding: 3%;">
+            <h1 style="font-family: 'Lemon'; margin-left:30px;"><u>Edit Ward details</u></h1>
+            <form class="row g-3" style="margin-right: 10px; margin-left: 20px;" [formGroup]="ward">
+            <div class="col-6">
+                    <label for="wid" class="form-label">Ward Id</label>
+                    <input type="text" class="form-control" formControlName="wardid" id="wid">
+            </div>
+
+            <div class="col-6">
+                    <label for="wno" class="form-label">Ward No</label>
+                    <input type="number" class="form-control" formControlName="wardno" id="wno">
+            </div>
+
+            <div class="col-6">
+                    <label for="did" class="form-label">Department Id</label>
+                    <input type="text" class="form-control" formControlName="departmentid" id="did">
+            </div>
+
+            <div class="col-6">
+                    <label for="dname" class="form-label">Department name</label>
+                    <input type="text" class="form-control" formControlName="departmentname" id="dname">
+            </div>
+
+            <div class="col-6">
+                    <label for="nb" class="form-label">No of beds</label>
+                    <input type="number" class="form-control" formControlName="noofbeds" id="nb">
+            </div>
+
+            <div class="col-6">
+                    <label for="np" class="form-label">No of patients</label>
+                    <input type="number" class="form-control" formControlName="noofpatients" id="np">
+            </div>
+            <div class="col-6" *ngIf="assignDoctorfield">
+
+              <select class="form-select" formControlName="doctor" aria-label="Default select example">
+                <option selected>Select a doctor</option>
+                <option *ngFor="let x of doctorlist">Doctor {{ x.fullname }}</option>
+
+              </select>
+
+            </div>
+            <div class="col-6" *ngIf="!assignDoctorfield">
+              <label for="np" class="form-label">Main Doctor</label>
+              <input type="string" class="form-control" formControlName="doctor" id="np">
+              <button class="btn btn-outline-dark" (click)="assign()">Assign A Doctor</button>
+           </div>
+            <div class="col-6" *ngIf="!assignDoctorfield">
+
+          </div>
+
+
+
+
+
+
+
+            <div class="col-12 d-flex justify-content-end">
+                     <button class="myButton " (click)="update(ward.value)" >Update</button>
+            </div>
+
+
+            </form>
+        </div>
+
+    </div>
+
+ </mat-sidenav-container>
+

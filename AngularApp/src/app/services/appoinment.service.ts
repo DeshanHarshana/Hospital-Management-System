@@ -38,4 +38,8 @@ export class AppoinmentService {
 
     return this._http.get<any>("http://localhost:3000/calendarDataLoadingDoctor/"+id);
   }
+
+  getAllAppoinment(){
+    return this._http.get<Appoinment[]>("http://localhost:3000/getAllAppoinments")
+  }
 }

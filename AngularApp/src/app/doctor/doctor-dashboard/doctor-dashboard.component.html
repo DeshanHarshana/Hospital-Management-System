@@ -8,11 +8,18 @@
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
 
-      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+      <img class="avatar mat-elevation-z8" src="{{ doctordata.displayImage }}" />
 
-      <h4 class="name">Deshan Harshana</h4>
-      <p class="designation">Hospital Admin</p>
+      <h4 class="name">Dr {{ doctordata.fullname }}</h4>
+      <p class="designation">Hospital Doctor</p>
+      <div class="container d-flex justify-content-center d-flex align-items-center" style="font-size: 1rem;">
+        Available
+            <div class="form-check" style="margin-left:3%;">
+              <input class="form-check-input" (change)="available($event)"  type="checkbox" checked="{{ doctordata.available }}" id="flexCheckDefault">
 
+            </div>
+
+          </div>
       <mat-divider></mat-divider>
 
       <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
@@ -63,9 +70,10 @@
 
     <div class="content mat-elevation-z8" >
 <div class="container-fluid">
+
   <div class="row">
     <div class="col-4 x d-flex justify-content-center">
-      <div class="card doctor-profile zoom" routerLink="">
+      <div class="card doctor-profile zoom" routerLink="/show-doctor-details/{{ currentDoctor }}">
         <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">1</h1>
         <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:7%; font-size:3.0rem;">Profile</h1>
       </div>
@@ -86,9 +94,9 @@
     </div>
 
     <div class="col-4 x d-flex justify-content-center">
-      <div class="card checked zoom" routerLink="">
-        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">5</h1>
-        <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:7%; font-size:3.0rem;"> Checked Appointments</h1>
+      <div class="card checked zoom" routerLink="/Doctor-Notification/{{ currentDoctor }}">
+        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">{{ notification_count }}</h1>
+        <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:7%; font-size:3.0rem;">Notification</h1>
       </div>
     </div>
 

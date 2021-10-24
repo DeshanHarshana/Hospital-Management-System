@@ -1,7 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 //import { report } from 'process';
-import { AdminAboutComponent } from './admin/admin-about/admin-about.component';
+
 import { AdminAddDoctorComponent } from './admin/admin-add-doctor/admin-add-doctor.component';
 
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
@@ -10,7 +10,7 @@ import { DoctorlistComponent } from './admin/doctorlist/doctorlist.component';
 import { EditDoctorDetailsComponent } from './admin/edit-doctor-details/edit-doctor-details.component';
 import { ShowDoctorDetailsComponent } from './admin/show-doctor-details/show-doctor-details.component';
 
-import { DoctorAddPatientsComponent } from './doctor/doctor-add-patients/doctor-add-patients.component';
+
 import { DoctorDashboardComponent } from './doctor/doctor-dashboard/doctor-dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { DoctorGuard } from './guards/doctor.guard';
@@ -20,7 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AllPatientListComponent } from './patient/all-patient-list/all-patient-list.component';
 import { EditReportComponent } from './patient/edit-report/edit-report.component';
-import { PatientAboutComponent } from './patient/patient-about/patient-about.component';
+
 import { PatientDashboardComponent } from './patient/patient-dashboard/patient-dashboard.component';
 
 
@@ -64,7 +64,10 @@ import { CheckedAppointmentsComponent } from './doctor/checked-appointments/chec
 import { AddprescrptionComponent } from './doctor/addprescrption/addprescrption.component';
 import { PrescriptionListComponent } from './patient/prescription-list/prescription-list.component';
 import { PatientPrescriptionComponent } from './patient/patient-prescription/patient-prescription.component';
-import { PharmacyDashboardComponent } from './pharmacy2/pharmacy-dashboard/pharmacy-dashboard.component';
+import { PatientBillComponent } from './patient/patient-bill/patient-bill.component';
+
+
+
 
 const routes: Routes = [
 
@@ -75,18 +78,18 @@ const routes: Routes = [
 
   {path:'Admin-dashboard',component:DashboardComponent, canActivate:[AuthGuard]},
   {path : 'Admin-show-doctorlist',component:DoctorlistComponent, canActivate:[AuthGuard]},
-  {path : 'Admin-About', component:AdminAboutComponent, canActivate:[AuthGuard]},
+
   {path : 'Admin-Add-Doctor', component:AdminAddDoctorComponent, canActivate:[AuthGuard]},
-  {path : 'Admin-show-doctor-details/:id', component:ShowDoctorDetailsComponent, canActivate:[AuthGuard]},
-  {path : 'Admin-edit-doctor-detais/:id', component:EditDoctorDetailsComponent, canActivate:[AuthGuard]},
-  {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent, canActivate:[]},
+  {path : 'show-doctor-details/:id', component:ShowDoctorDetailsComponent},
+  {path : 'edit-doctor-detais/:id', component:EditDoctorDetailsComponent},
+  {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent},
   {path : 'Admin-edit-patient-details/:id', component:PatientEditProfileComponent},
   {path : 'Admin-show-all-patient-list', component:AllPatientListComponent},
   {path : 'Admin-show-all-appoinment-list', component:AllAppoinmentListComponent},
 
   //doctor
   {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},
-  {path:'Doctor-DoctorAddpatient', component:DoctorAddPatientsComponent, canActivate:[DoctorGuard]},
+
   {path:'DoctorAppoinmentList', component:DoctorAppoinmentlistComponent, canActivate:[DoctorGuard]},
   {path:'DoctorPatientList', component:PatientlistComponent, canActivate:[DoctorGuard]},
   {path:'calendarDoctor', component:DoctorCalendarComponent, canActivate:[DoctorGuard]},
@@ -107,13 +110,13 @@ const routes: Routes = [
 
   //patient
   {path:'Patient-dashboard',component:PatientDashboardComponent, canActivate:[PatientGuard]},
-  {path :'Patient-About', component:PatientAboutComponent, canActivate:[PatientGuard]},
+
   {path :'show-report/:id', component:ShowReportComponent},
   {path :'edit-report/:id', component:EditReportComponent},
   {path :'report-list/:id', component:ReportlistComponent},
   {path :'getAllDoctorAppoinment', component:AppoinmentDoctorListComponent, canActivate:[PatientGuard]},
   {path :'getcurrentAppoinment', component:AppoinmentlistComponent, canActivate:[PatientGuard]},
-
+  {path:'patient-bill/:id', component:PatientBillComponent},
   {path :'pharmacy', component:PharmacyComponent},
   {path: 'display-prescription', component:DisplayPrescriptionComponent},
   {path: 'show-prescription/:id', component:ShowPrescriptionComponent},
@@ -152,7 +155,7 @@ const routes: Routes = [
   { path : '**', component:PageNotFoundComponent },
 
   //Pharmacy2
-  { path : 'pharmacy-dashboard', component: PharmacyDashboardComponent }
+  //{ path : 'pharmacy-dashboard', component: PharmacyDashboardComponent }
 
 
 ];

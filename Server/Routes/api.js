@@ -6,10 +6,18 @@ const Doctor = require('../Models/Doctor');
 const Patient = require('../Models/Patient');
 const imageUpload = require('../healper/storageDoctor');
 const fs = require('fs')
+
+const Prescription = require('../Models/Prescription');
+
+const Ward=require('../Models/Ward');
+const Product=require('../Models/Product');
+
 //deshan harshana
 //power
 //database connection String
+
 const db = "mongodb+srv://deshan:deshan2233@cluster0.1ape7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
 
 //connect with database
 mongoose.connect(db, {
@@ -146,6 +154,28 @@ router.post('/login', function (req, res) {
             }
         });
     }
+    else if (userData.no == 4) {
+        Pharmacist.findOne({ email: userData.email }, function (error, result) {
+            if (error) {
+                console.log(error);
+            } else {
+                if (!result) {
+                    res.send({
+                        'user': 'no'
+                    })
+                } else if (result.password !== userData.password) {
+                    res.send({
+                        'password': 'no'
+                    })
+                } else {
+                    res.send({
+                        'success':'yes',
+                        'pharmacistid':result._id
+                    });
+                }
+            }
+        });
+    }
 
 });
 
@@ -256,41 +286,6 @@ router.get('/get-one-patient/:id', function(req,res){
     });
 });
 
-//edit-report
-/*router.put('/edit-report/:id', function (req, res) {
-    Report.findByIdAndUpdate(req, params, id,
-        {
-            $set: {
-                name: req.body.name,
-                dob: req.body.dob,
-                email: req.body.email,
-                gender: req.body.gender,
-                guardian: req.body.guardian,
-                maritalStatus: req.body.maritalStatus,
-                weight: req.body.weight,
-                height: req.body.height,
-                phone: req.body.phone,
-                taddress: req.body.taddress,
-                paddress: req.body.paddress,
-                occupation: req.body.occupation,
-                medicalHistory: req.body.medicalHistory,
-                surgeries: req.body.surgeries
-            }
-        }, {
-        function(error, result) {
-            if (error) {
-                console.log("Error Updating!");
-            }
-            else {
-                res.send(result);
-            }
-        }
-    
-        }
-
-);
-})*/
-
 
 //add report
 router.post('/add-report', function (req, res) {
@@ -324,7 +319,7 @@ router.post('/add-report', function (req, res) {
                 description:req.body.description,
                 date:req.body.date,
                 sign:req.body.sign,
-
+                nic:req.body.nic,
 
                 doctorid:req.body.doctorid,
                 patientid:req.body.patientid,
@@ -379,7 +374,7 @@ router.put('/updateReport/:id', function (req, res) {
                     description:req.body.description,
                     date:req.body.date,
                     sign:req.body.sign,
-
+                    nic:req.body.nic,
 
                     doctorid:req.body.doctorid,
                     patientid:req.body.patientid,
@@ -556,16 +551,19 @@ router.post('/doctor/:postid/updatePhoto', imageUpload.uploadImage().single('doc
 const patientimageUpload = require('../healper/storagePatient');
 const Report = require('../Models/Report');
 const Appoinment = require('../Models/Appoinment');
+const MedicalUnit = require('../Models/MedicalUnit');
+
 
 const { strictEqual } = require('assert');
 
-const MedicalUnit = require('../Models/MedicalUnit');
+
 
 
 router.post('/patient/:postid/updatePhoto', patientimageUpload.uploadImage().single('patientImage'), (req, res, next) => {
     const oldlink = "";
     Patient.findById(req.params.id), function (error, user) {
         if (error) {
+
             console.log(error)
         } else {
             console.log(user.displayImage)
@@ -715,7 +713,14 @@ router.delete('/delete-patient/:id', function (req, res) {
     }, 100);
      });
    
-
+//get all appoinment
+router.get('/getAllAppoinments', function(req,res){
+    Appoinment.find({}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
 
 router.post('/add-new-appoinment', function(req,res){
    
@@ -889,6 +894,70 @@ router.get('/getDoctorpatientlist/:id',  function(req,res){
     })
 });
 
+//Ward details
+router.post('/ward-details',function(req,res){
+    let warddata = {
+        wardid:req.body.wardid,
+        wardno:req.body.wardno,
+        departmentid:req.body.departmentid,
+        departmentname:req.body.departmentname,
+        noofbeds:req.body.noofbeds,
+        noofpatients:req.body.noofpatients
+    }
+    let ward=new Ward(warddata)
+    ward.save((error,result) => {
+        if(error){
+            console.log(error)
+        }
+
+        else{
+            res.send(result);
+        }
+    })
+});
+
+router.get("/get-ward-details/:id",function(req,res){
+    Ward.findById({_id:req.params.id},function(error,result){
+        if(error){
+            console.log(error)
+        }
+        else{
+            res.send(result)
+        }
+    })
+});
+
+router.put("/post-ward-details/:id",function(req,res){
+    Ward.findByIdAndUpdate(req.params.id,
+        {
+            $set:{
+                wardid:req.body.wardid,
+                doctor:req.body.doctor,
+                wardno:req.body.wardno,
+                departmentid:req.body.departmentid,
+                departmentname:req.body.departmentname,
+                noofbeds:req.body.noofbeds,
+                noofpatients:req.body.noofpatients
+
+
+            }
+        },{
+            new:true
+        }, function(error,result){
+            if(error){
+                res.send("Error updating");
+            }else {
+                res.send(result);
+            }
+        }
+        )
+
+
+});
+
+
+
+
 function getAllpatientinDoctor(data, callback){
     var patientids=[];
     for (var i = 0; i < data.length; i++){
@@ -956,32 +1025,47 @@ router.get('/getSingleReport/:id', function(req,res){
     })
 })
 
+router.put('/addreporttopatient-reportlist/:id', function(req, res){
+    Patient.findByIdAndUpdate(req.params.id,{
+        $push:{
+            reportList:[req.body]
+        },
+        new :true
+    },
+        function(error, Result){
+            if(error){
+                res.send("Error Update Report List" + error)
+            }else{
+                res.status(200).send(Result)
+            }
+        }
+    )
+})
 
 
+//delete reportid from patient report list
+router.put('/deleteReportfromList/:id', function(req,res){
+    Patient.findByIdAndUpdate(
+        {
+            _id:req.params.id
+        },
+        {
+            $pull:{
+                reportList:{
+                    reportid:req.body.reportid
+                }
+            }
+        },
+        function(error, Result){
+            if(error){
+                res.send("Error Deleting Report")
+            }else{
+                res.send(Result);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }
+        }
+        )
+})
 
 
 router.put('/update-doctor/:id', function (req, res) {
@@ -992,7 +1076,6 @@ router.put('/update-doctor/:id', function (req, res) {
                 title: req.body.title,
                 fullname: req.body.fullname,
                 email: req.body.email,
-                password: req.body.password,
                 age: req.body.age,
                 phone: req.body.phone,
                 currentHospital: req.body.currentHospital,
@@ -1119,15 +1202,20 @@ async function getAppoinmentlist(ids){
 
 
 
-
-//medical unit
-
-router.post('/add-medicalunit-data', function(req,res){
+//medicalunit
+router.post('/add-medical-data',function(req,res){
     let medicalUnitdata = {
 
-        catogory: req.body.catogory,
-        mentor: req.body.mentor,
-        countOfDoctor:req.body.countOfDoctor
+        catogary:req.body.catogary,
+        Icu:req.body.Icu,
+        NIcu:req.body.NIcu,
+        Scu:req.body.Scu,
+        mentorDoc:req.body.mentorDoc,
+        countOfDoc:req.body.countOfDoc,
+        mentorNur:req.body.mentorNur,
+        countOfNur:req.body.countOfNur,
+        TotalNoBed:req.body.TotalNoBed,
+        TotalNoEqu:req.body.TotalNoEqu
     }
     let medicalunit = new MedicalUnit(medicalUnitdata)
     medicalunit.save((error, result) => {
@@ -1137,29 +1225,37 @@ router.post('/add-medicalunit-data', function(req,res){
         else {
             res.send(result);
         }
-    })
-});
+    });
+})
 
-
-
-router.get("/get-medicalunit-data/:id", function(req,res){
-    MedicalUnit.findById({_id:req.params.id}, function(error, result){
+router.get('/get-medical-data/:id',function(req,res){
+    MedicalUnit.findById({_id:req.params.id},function(error,result){
         if(error){
             console.log(error)
         }
-        else{
+        else
+        {
             res.send(result)
         }
+
     })
 })
-router.put('/postmedicaldata/:id', function(req,res){
-   
+
+router.put('/postmedicaldata/:id',function(req,res){
+
     MedicalUnit.findByIdAndUpdate(req.params.id,
         {
             $set: {
-                catogory: req.body.catogory,
-                mentor: req.body.mentor,
-                countOfDoctor: req.body.countOfDoctor,
+                catogary:req.body.catogary,
+                Icu:req.body.Icu,
+                NIcu:req.body.NIcu,
+                Scu:req.body.Scu,
+                mentorDoc:req.body.mentorDoc,
+                countOfDoc:req.body.countOfDoc,
+                mentorNur:req.body.mentorNur,
+                countOfNur:req.body.countOfNur,
+                TotalNoBed:req.body.TotalNoBed,
+                TotalNoEqu:req.body.TotalNoEqu
             }
         }, {
         new: true
@@ -1171,49 +1267,7 @@ router.put('/postmedicaldata/:id', function(req,res){
         }
     }
     );
-    
-})
 
-router.put('/addreporttopatient-reportlist/:id', function(req, res){
-    Patient.findByIdAndUpdate(req.params.id,{
-        $push:{
-            reportList:[req.body]
-        },
-        new :true
-    },
-        function(error, Result){
-            if(error){
-                res.send("Error Update Report List" + error)
-            }else{
-                res.status(200).send(Result)
-            }
-        }
-    )
-})
-
-
-//delete reportid from patient report list
-router.put('/deleteReportfromList/:id', function(req,res){
-    Patient.findByIdAndUpdate(
-        {
-            _id:req.params.id
-        },
-        {
-            $pull:{
-                reportList:{
-                    reportid:req.body.reportid
-                }
-            }
-        },
-        function(error, Result){
-            if(error){
-                res.send("Error Deleting Report")
-            }else{
-                res.send(Result);
-
-            }
-        }
-        )
 })
 
 //delete report
@@ -1246,6 +1300,386 @@ router.put('/changeAvailability/:id', function(req,res){
         }
     }
     );
+})
+
+//product availablity
+router.put('/productAvailability/:id', function(req,res){
+    Product.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                availability:req.body.availability
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
+})
+
+
+//Post pharmacy data
+router.post('/add-Prescription', function(req, res){
+    let prescriptionData = {
+        patientid:req.body.patientid,
+        doctorid:req.body.doctorid,
+        patientname:req.body.patientname,
+        doctorname:req.body.doctorname,
+        date:req.body.date,
+        medicine:req.body.medicine
+
+    }
+    let prescription = new Prescription(prescriptionData)
+    prescription.save((error, result)=>{
+        if(error){
+            console.log(error);
+        }
+        else
+        {
+            res.send(result);
+        }
+       
+    })
+});
+
+router.get('/getPrescription/:id', (req, res)=>{
+    Prescription.find({patientid:req.params.id}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
+
+
+//getMedicine
+router.get('/getProducts', function(req,res){
+    Product.find({}, (error, result)=>{
+        if(error){
+            console.log(error)
+        }else{
+            res.send(result)
+        }
+    })
+});
+
+router.get('/getProduct/:id', function(req,res){
+    Product.findOne({_id:req.params.id}, (error, result)=>{
+        if(error){
+            console.log(error)
+        }else{
+            res.send(result)
+        }
+    })
+});
+
+router.post('/addProduct', function(req,res){
+    let productData={
+        name:req.body.name,
+        price:req.body.price,
+        quantity:req.body.quantity,
+        availability:req.body.availability,
+        displayImage:req.body.displayImage,
+        description:req.body.description,
+        category:req.body.category 
+  
+    }
+
+    let product =new Product(productData);
+    product.save((error, result)=>{
+        if(error){
+            console.log(error)
+        }else{
+            res.send({'message':"Product Added Successfully", 'id':result._id});
+        }
+    })
+})
+
+router.put('/editProduct/:id', function(req,res){
+    
+    Product.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                name:req.body.name,
+                price:req.body.price,
+                quantity:req.body.quantity,
+                availability:req.body.availability,
+                displayImage:req.body.displayImage,
+                description:req.body.description,
+                category:req.body.category 
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
+})
+router.delete('/deleteProduct/:id', function(req,res){
+    Product.deleteOne({_id:req.params.id}, function(err,data){
+        if(err){
+            res.send(err)
+        } else {
+            res.send(data);
+            console.log("delete success")
+        }
+     });
+    });
+
+//add product
+const productimageUpload = require('../healper/storageProduct');
+const Pharmacist = require('../Models/Pharmacist');
+
+
+router.post('/product/:postid/uploadPhoto', productimageUpload.uploadImage().single('productImage'), async (req, res, next) => {
+
+    console.log("Product Iamge Name" + req.file.filename);
+    let imagePath = 'http://localhost:3000/images/products/' + req.file.filename;
+
+
+    if (req.file) {
+        console.log("Image Found");
+        console.log(req.params.postid)
+        Product.findByIdAndUpdate(req.params.postid,
+            {
+                $set: {
+                    displayImage: imagePath
+                }
+            },
+            {
+                new: true
+            },
+            function (err, Postdata) {
+                if (err) {
+                    res.send("Error update displayImage field");
+                } else {
+                    res.json(Postdata);
+                    console.log("Product image upload successfully");
+
+                }
+            }
+
+        );
+
+    }
+});
+
+router.post('/product/:postid/updatePhoto', productimageUpload.uploadImage().single('productImage'), (req, res, next) => {
+    const oldlink = "";
+    Product.findById(req.params.id), function (error, user) {
+        if (error) {
+            console.log(error)
+        } else {
+            console.log(user.displayImage)
+            oldlink = user.displayImage.split('/')[5];
+            console.log(oldlink)
+        }
+    }
+
+
+
+    setTimeout(() => {
+        const path = "./images/products/" + oldlink;
+        console.log("THis is image " + path)
+        try {
+            fs.unlink(path, (err) => {
+                if (err) {
+                    console.error(err)
+                    return;
+                }
+
+                console.log("old image deleted");
+            })
+        } catch (error) {
+            console.log(error);
+        }
+
+
+
+
+        console.log("product Iamge Name " + req.file.filename);
+        const imagePath = 'http://localhost:3000/images/products/' + req.file.filename;
+        console.log(imagePath)
+
+
+        if (req.file) {
+            console.log("Image Found");
+            console.log(req.params.postid)
+            Product.findByIdAndUpdate(req.params.postid,
+                {
+                    $set: {
+                        displayImage: imagePath
+                    }
+                },
+                {
+                    new: true
+                },
+                function (err, Postdata) {
+                    if (err) {
+                        res.send("Error update displayImage field");
+                    } else {
+                        res.json(Postdata);
+                        console.log("product image upload successfully");
+
+                    }
+                }
+
+            );
+
+        }
+    }, 200)
+
+})
+
+router.post('/addnewPharmacist', (req, res)=>{
+    data={
+        email:req.body.email,
+        name:req.body.name,
+        password:req.body.password
+    }
+
+    var pharmacist = new Pharmacist(data);
+
+    pharmacist.save((error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
+
+
+
+
+//Upload Pescription
+const prescriptionImageUpload= require('../healper/storagePrescription');
+const Notification = require('../Models/Notification');
+const Drug = require('../Models/Drug');
+router.post('/prescription/:postid/uploadPhoto', prescriptionImageUpload.uploadImage().single('prescriptionImage'), async (req, res, next) => {
+
+    console.log("prescription Iamge Name" + req.file.filename);
+    let imagePath = 'http://localhost:3000/images/prescription/' + req.file.filename;
+
+
+    if (req.file) {
+        console.log("Image Found");
+        console.log(req.params.postid)
+        Prescription.findByIdAndUpdate(req.params.postid,
+            {
+                $set: {
+                    displayImage: imagePath
+                }
+            },
+            {
+                new: true
+            },
+            function (err, Postdata) {
+                if (err) {
+                    res.send("Error update displayImage field");
+                } else {
+                    res.json(Postdata);
+                    console.log("prescription profile image upload successfully");
+
+                }
+            }
+
+        );
+
+    }
+});
+
+//get all prescription
+
+router.get('/get-all-prescription', function(req, res){
+    Prescription.find({}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+});
+
+//get single presccription
+router.get('/getsingleprescription/:id', function(req, res){
+    Prescription.findOne({_id:req.params.id}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+});
+
+//getallpatientprescriptions
+router.get('/allpatientprescriptions/:patientid', function(req,res){
+    Prescription.find({patientid:req.params.patientid}, function(error,result){
+        if(!error){
+            res.send(result)
+        }
+    })
+})
+
+//delete prescription
+
+router.delete('/deletePrescription/:id', function(req,res){
+    Prescription.deleteOne({_id:req.params.id}, function(err,result){
+        if(!err){
+            res.send(result)
+        }
+    })
+})
+
+//Notification
+router.post('/sendNotification', (req, res)=>{
+    var data={
+        patientid:req.body.patientid,
+        doctorid:req.body.doctorid,
+        time:req.body.time,
+        content:req.body.content,
+        header:req.body.header,
+        seen:req.body.seen
+    }
+
+    var notification= new Notification(data);
+    notification.save((error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
+
+router.get('/getAllNotification', (req, res)=>{
+    Notification.find({}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
+router.get('/getSpecificAppoinment/:id', (req, res)=>{
+    Notification.find({doctorid:req.params.id}, (error, result)=>{
+        if(!error){
+            res.send(result)
+        }
+    })
+})
+router.get('/seen/:id', (req, res)=>{
+    Notification.findByIdAndUpdate(req.params.id, {seen:true}, function(error, docs){
+        if(!error){
+            res.send("seen");
+        }
+    })
+})
+
+//drugs
+router.get("/allDrugs", (req,res)=>{
+    Drug.find({}, (error,result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
 })
 
 //export model

@@ -31,6 +31,7 @@ export class ShowReportComponent implements OnInit {
   });
   reportData:any=[];
   currentReport:any="";
+  role:string='';
   constructor(
     private auth:AuthenticationService,
     private route:ActivatedRoute,
@@ -39,6 +40,7 @@ export class ShowReportComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentReport=this.route.snapshot.params.id;
+    this.role = localStorage.getItem('access') || '';
     setTimeout(() => {
       this.reports.getSingleReport(this.currentReport).subscribe(res=>{
         this.reportData=res;

@@ -1,8 +1,8 @@
-<mat-toolbar class="mat-elevation-z8">
-  <h1 routerLink="/Patient-dashboard" class="logoclass">Patient</h1>
+<mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
+  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Admin-dashboard" src="../../../assets/navbar/logo.png"/>
+
   <span class="spacer"></span>
-  <button (click)="logout()" class="btn"
-    style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
 
 </mat-toolbar>
 
@@ -16,10 +16,52 @@
 
     <mat-divider></mat-divider>
 
+
     <button mat-button class="menu-button" routerLink="/Patient-dashboard">
       <mat-icon>home</mat-icon>
       <span>Home</span>
-    </button>
+  </button>
+
+  <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+    <mat-icon>account_circle</mat-icon>
+    <span>Profile</span>
+</button>
+
+<button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+  <mat-icon>person</mat-icon>
+  <span>Doctors</span>
+</button>
+
+
+  <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+    <mat-icon>assignment</mat-icon>
+    <span>Appointments</span>
+</button>
+
+<button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+  <mat-icon>insert_drive_file</mat-icon>
+   <span>Report</span>
+</button>
+
+<button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+ <mat-icon>add_shopping_cart</mat-icon>
+   <span>E-Pharmacy</span>
+</button>
+
+
+
+
+<button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+  <mat-icon>add_alert</mat-icon>
+  <span>Reminder</span>
+</button>
+
+
+<button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+<mat-icon>feedback</mat-icon>
+<span>Feedback</span>
+</button>
+
 
 
 
@@ -45,50 +87,55 @@
                 </div>
 
                 <div class="form-group">
+                  <label class="col-md-4 control-label" for="nic" style="font-family:joy; font-size: 1.5rem;"> MIC Number:</label>
+                  <h3 id="nic" style="font-family: cursive;">{{ reportData.nic }}</h3>
+                </div>
+
+                <div class="form-group">
                   <label class="col-md-4 control-label" for="Age" style="font-family:joy; font-size: 1.5rem;"> Age:</label>
-                  <h3 id="fullname" style="font-family: cursive;" >23</h3>
+                  <h3 id="fullname" style="font-family: cursive;" >{{reportData.age }}</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="Gender" style="font-family:joy; font-size: 1.5rem;"> Gender:</label>
-                  <h3 id="fullname" style="font-family: cursive;"> Female</h3>
+                  <h3 id="fullname" style="font-family: cursive;"> {{ reportData.gender}}</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="Marital Status" style="font-family:joy; font-size: 1.5rem;"> Marital Status:</label>
-                  <h3 id="fullname" style="font-family: cursive;">Single</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{ reportData.relationship}}</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-4 control-label" for="Guardian Name" style="font-family:joy; font-size: 1.5rem;"> Guardian Name:</label>
-                  <h3 id="fullname" style="font-family: cursive;">Chandra</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{reportData.guardian}}</h3>
                 </div>
 
 
                 <div class="form-group">
                   <label class="col-md-8 control-label" for="Primary Occupation" style="font-family:joy; font-size: 1.5rem;"> Primary Occupation:</label>
-                  <h3 id="fullname" style="font-family: cursive;">Student</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{reportData.occupation}}</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-8 control-label" for="Phone number" style="font-family:joy; font-size: 1.5rem;"> Phone Number:</label>
-                  <h3 id="fullname" style="font-family: cursive;">123456789</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{reportData.phone}}</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-8 control-label" for="Email Address" style="font-family:joy; font-size: 1.5rem;"> Email Address:</label>
-                  <h3 id="fullname" style="font-family: cursive;">shalika@gmail.com</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{reportData.email}}</h3>
                 </div>
 
 
                 <div class="form-group">
                   <label class="col-md-8 control-label" for="Temporary Address" style="font-family:joy; font-size: 1.5rem;"> Temporary Address:</label>
-                  <h3 id="fullname" style="font-family: cursive;">No 21/2, Bogahakubura</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{reportData.taddress}}</h3>
                 </div>
 
                 <div class="form-group">
                   <label class="col-md-8 control-label" for="Permanent Address" style="font-family:joy; font-size: 1.5rem;"> Permanent Address:</label>
-                  <h3 id="fullname" style="font-family: cursive;">No 21/2, Bogahakubura</h3>
+                  <h3 id="fullname" style="font-family: cursive;">{{reportData.paddress}}</h3>
                 </div>
 
 
@@ -117,14 +164,14 @@
                             <div class="col">
                               <div class="form-group">
                                 <label class="col-md-8 control-label" for="Height" style="font-family:joy; font-size: 1.5rem;"> Height:</label>
-                                <h3 id="fullname" style="font-family: cursive;">55kg</h3>
+                                <h3 id="fullname" style="font-family: cursive;">{{reportData.weight}} m</h3>
                               </div>
 
                             </div>
                             <div class="col">
                               <div class="form-group">
                                 <label class="col-md-8 control-label" for="Weight" style="font-family:joy; font-size: 1.5rem;"> Weight:</label>
-                                <h3 id="fullname" style="font-family: cursive;">5'3m</h3>
+                                <h3 id="fullname" style="font-family: cursive;">{{reportData.height}} kg</h3>
                               </div>
 
                             </div>
@@ -140,16 +187,16 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-1">
-                                        <input type="checkbox" name="Medical History" id="Medical History-1" value="1" formControlName="heartDisease">
-                                        Heart disease &nbsp; &nbsp;
+                                        <input type="checkbox" name="heartDisease" id="Medical History-1" value="heartDisease" formControlName="heartDisease">
+                                        Heart Disease &nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-2">
-                                        <input type="checkbox" name="Medical History" id="Medical History-2" value="2" formControlName="diabetes"  >
-                                        Diabetes &nbsp; &nbsp;
+                                        <input type="checkbox" name="diabetes" id="Medical History-2" value="diabetes" formControlName="diabetes"  >
+                                        Diabetes&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -160,16 +207,16 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-3">
-                                        <input type="checkbox" name="Medical History" id="Medical History-3" value="3"  formControlName="hbp" >
-                                        High blood pressure &nbsp; &nbsp;
+                                        <input type="checkbox" name="hbp" id="Medical History-3" value="hbp"  formControlName="hbp" >
+                                        High blood pressure&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-4">
-                                        <input type="checkbox" name="Medical History" id="Medical History-4" formControlName="canser" value="4" >
-                                        Cancer
+                                        <input type="checkbox" name="canser" id="Medical History-4" formControlName="canser" value="canser" >
+                                        Canser &nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -178,7 +225,7 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-5">
-                                        <input type="checkbox" name="Medical History" id="Medical History-5" formControlName="hc" value="5" >
+                                        <input type="checkbox" name="hc" id="Medical History-5" formControlName="hc" value="hc" >
                                         High cholesterol &nbsp; &nbsp;
                                       </label>
                                     </div>
@@ -186,8 +233,8 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-6">
-                                        <input type="checkbox" name="Medical History" id="Medical History-6" formControlName="kidney" value="6"  [disabled]="true">
-                                        Kidney disease &nbsp; &nbsp;
+                                        <input type="checkbox" name="kidney" id="Medical History-6" formControlName="kidney" value="kidney" >
+                                        kidney&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -196,16 +243,16 @@
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-7">
-                                        <input type="checkbox" name="Medical History" id="Medical History-7" formControlName="stroke" value="7" >
-                                        Stroke &nbsp; &nbsp;
+                                        <input type="checkbox" name="Medical History" id="stroke" formControlName="stroke" value="stroke" >
+                                        Stroke&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
                                   <td>
                                     <div class="checkbox">
                                       <label for="Medical History-8">
-                                        <input type="checkbox" name="Medical History" id="Medical History-8" formControlName="dep" value="8" >
-                                        Depression &nbsp; &nbsp;
+                                        <input type="checkbox" name="Medical History" id="dep" formControlName="dep" value="dep" >
+                                        Depression&nbsp; &nbsp;
                                       </label>
                                     </div>
                                   </td>
@@ -226,23 +273,23 @@
                              <div class="row">
                               <div class="col md-4">
                                 <div class="checkbox">
-                                  <label for="Medical History-1">
-                                    <input type="checkbox" name="Medical History" id="Medical History-l" value="latex"  formControlName="latex" >
-                                    latex &nbsp; &nbsp;
+                                  <label for="Allergies1">
+                                    <input type="checkbox" name="Allergies" id="latex" value="latex"  formControlName="latex" >
+                                    Latex &nbsp; &nbsp;
                                   </label>
                                 </div>
 
                                 <div class="checkbox">
-                                  <label for="Medical History-2">
-                                    <input type="checkbox" name="Medical History" id="Medical History-2" value="Iodin" formControlName="iodine"  >
+                                  <label for="Allergies2">
+                                    <input type="checkbox" name="Allergies" id="Iodin" value="Iodin" formControlName="iodine"  >
                                     Iodine &nbsp; &nbsp;
                                   </label>
                                 </div>
 
 
                                 <div class="checkbox">
-                                  <label for="Medical History-3">
-                                    <input type="checkbox" name="Medical History" id="Medical History-3" value="bromine" formControlName="bromine"   >
+                                  <label for="Allergies3">
+                                    <input type="checkbox" name="Allergies" id="bromine" value="bromine" formControlName="bromine"   >
                                     Bromine &nbsp; &nbsp;
                                   </label>
                                 </div>
@@ -257,17 +304,17 @@
 
                           <div class="form-group">
                             <label class="col-md-8 control-label" for="Surgeries" style="font-family:joy; font-size: 1.5rem;"> Surgeries:</label>
-                            <h3 id="fullname" style="font-family: cursive;">No</h3>
+                            <h3 id="fullname" style="font-family: cursive;">{{reportData.surgeries}}</h3>
                           </div>
 
                           <div class="form-group">
                             <label class="col-md-8 control-label" for="Medications" style="font-family:joy; font-size: 1.5rem;"> Medications:</label>
-                            <h3 id="fullname" style="font-family: cursive;">Atorvastatin. Atorvastatin treats high cholesterol. </h3>
+                            <h3 id="fullname" style="font-family: cursive;">{{reportData.medications}} </h3>
                           </div>
 
                           <div class="form-group">
                             <label class="col-md-8 control-label" for="Medications" style="font-family:joy; font-size: 1.5rem;"> Description:</label>
-                            <h3 id="fullname" style="font-family: cursive;">Describe the problem in the patient's own words. </h3>
+                            <h3 id="fullname" style="font-family: cursive;">{{reportData.description}} </h3>
                           </div>
 
 
@@ -296,7 +343,7 @@
                           <div class="row">
                             <div class="form-group">
                               <label class="col-md-8 control-label" for="Date" style="font-family:joy; font-size: 1.5rem;"> Date:</label>
-                              <h3 id="fullname" style="font-family: cursive;">21/09/2021 </h3>
+                              <h3 id="fullname" style="font-family: cursive;">{{reportData.date}}</h3>
                             </div>
 
                           </div>
@@ -305,7 +352,7 @@
 
                           <div class="form-group">
                             <label class="col-md-8 control-label" for="Date" style="font-family:joy; font-size: 1.5rem;"> Signature:</label>
-                            <h3 id="fullname" style="font-family: cursive;">shalika </h3>
+                            <h3 id="fullname" style="font-family: cursive;">{{reportData.sign}} </h3>
                           </div>
                         </div>
                       </div>
@@ -321,9 +368,9 @@
 
               </div>
             </div> <br>
-            <div class="row">
+            <div class="row"  *ngIf = 'role === "doctor"'>
               <div class="col d-flex justify-content-center">
-                <button type="button" class="btn btn-success btn-lg active" routerLink="/edit-report/{{ reportData._id }}" >Edit Report</button>
+                <button type="button" class="btn btn-warning btn-lg active" routerLink="/edit-report/{{ reportData._id }}" >Edit Report</button>
 
               </div>
             </div>

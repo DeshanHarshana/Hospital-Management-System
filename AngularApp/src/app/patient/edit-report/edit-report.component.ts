@@ -44,6 +44,7 @@ export class EditReportComponent implements OnInit {
     description:new FormControl(''),
     date:new FormControl(new Date()),
     sign:new FormControl(''),
+    nic:new FormControl(''),
 
 
     doctorid:new FormControl(''),
@@ -79,6 +80,35 @@ export class EditReportComponent implements OnInit {
 
 
         this.report.get('name')?.setValue(res.name);
+        this.report.get('age')?.setValue(res.age);
+        this.report.get('guardian')?.setValue(res.guardian);
+        this.report.get('gender')?.setValue(res.gender);
+        this.report.get('relationship')?.setValue(res.relationship);
+        this.report.get('taddress')?.setValue(res.taddress);
+        this.report.get('paddress')?.setValue(res.paddress);
+        this.report.get('phone')?.setValue(res.phone);
+        this.report.get('email')?.setValue(res.email);
+        this.report.get('occupation')?.setValue(res.occupation);
+        this.report.get('weight')?.setValue(res.weight);
+        this.report.get('height')?.setValue(res.height);
+        this.report.get('heartDisease')?.setValue(res.heartDisease);
+        this.report.get('diabetes')?.setValue(res.diabetes);
+        this.report.get('hbp')?.setValue(res.hbp);
+        this.report.get('canser')?.setValue(res.canser);
+        this.report.get('hc')?.setValue(res.hc);
+        this.report.get('kidney')?.setValue(res.kidney);
+        this.report.get('stroke')?.setValue(res.stroke);
+        this.report.get('dep')?.setValue(res.dep);
+        this.report.get('surgeries')?.setValue(res.surgeries);
+        this.report.get('medications')?.setValue(res.medications);
+        this.report.get('latex')?.setValue(res.latex);
+        this.report.get('iodine')?.setValue(res.iodine);
+        this.report.get('bromine')?.setValue(res.bromine);
+        this.report.get('description')?.setValue(res.description);
+        this.report.get('sign')?.setValue(res.sign);
+        this.report.get('nic')?.setValue(res.nic);
+
+
       })
 
     }, 2);

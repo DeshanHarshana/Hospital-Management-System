@@ -19,7 +19,22 @@
           <mat-icon>home</mat-icon>
           <span>Home</span>
       </button>
-      
+      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
+        <mat-icon>person_add</mat-icon>
+          <span>Add Doctor</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/Admin-show-all-patient-list">
+        <mat-icon>people</mat-icon>
+        <span>All Patient</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/Admin-show-doctorlist">
+      <mat-icon>person_outline</mat-icon>
+      <span>All Doctors</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/Admin-show-all-appoinment-list">
+    <mat-icon>book</mat-icon>
+    <span>Appoinments</span>
+    </button>
 
 
 
@@ -27,42 +42,47 @@
    <div class="content mat-elevation-z8" style="height: fit-content;">
         <div class="container-fluid" style="padding: 2%;">
             <h1 style="font-family: 'Lemon'; margin-left: 30px;"><u>Ward Details</u></h1>
+
             <div class="row" style="padding: 3%;">
                 <div class="col-6">
                     <label for="name">Ward Id</label>
-                    <h2>A01-2</h2>
+                    <h2>{{data.wardid}}</h2>
 
                     <label for="name">Ward No</label>
-                    <h2>2</h2>
+                    <h2>{{data.wardno}}</h2>
 
                     <label for="name">Department Id</label>
-                    <h2>A01</h2>
+                    <h2>{{data.departmentid}}</h2>
 
                     <label for="name">Department Name</label>
-                    <h2>Accident and emergency</h2>
+                    <h2>{{data.departmentname}}</h2>
 
 
                 </div>
                 <div class="col-6">
                     <label for="name">No of beds</label>
-                    <h2>12</h2>
+                    <h2>{{data.noofbeds}}</h2>
 
                     <label for="name">No of patients</label>
-                    <h2>9</h2>
+                    <h2>{{data.noofpatients}}</h2>
 
-                   
+
+                    <label for="name">Main Doctror</label>
+                    <h2>{{data.doctor}}</h2>
+
+
                 </div>
 
 
                 <div class="col-12 d-flex justify-content-end">
-                     <button type="submit" class="myButton " routerLink="/Admin-edit-ward-details">Edit</button>
+                     <button type="submit" class="myButton " (click)="gotoEdit()">Edit</button>
                 </div>
-               
+
             </div>
         </div>
     </div>
 
 
-   
+
 </mat-sidenav-container>
 

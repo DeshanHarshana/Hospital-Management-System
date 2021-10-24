@@ -1,0 +1,70 @@
+<mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
+  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Admin-dashboard" src="../../../assets/navbar/logo.png"/>
+
+  <span class="spacer"></span>
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+</mat-toolbar>
+
+
+
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+
+      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+      <h4 class="name">Deshan Harshana</h4>
+      <p class="designation">Hospital Admin</p>
+
+      <mat-divider></mat-divider>
+
+
+      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+      <mat-icon>account_circle</mat-icon>
+      <span>Profile</span>
+  </button>
+
+    <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+      <mat-icon>assignment</mat-icon>
+      <span>Appointments</span>
+  </button>
+
+
+  <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+    <mat-icon>add_alert</mat-icon>
+    <span>Reminder</span>
+  </button>
+
+
+  <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+  <mat-icon>feedback</mat-icon>
+  <span>Feedback</span>
+  </button>
+
+
+
+
+  </mat-sidenav>
+
+
+    <div class="content mat-elevation-z8">
+      <h1 style="padding-left:3%; padding-top:2%; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif" >Your Prescriptions</h1>
+<div class="container-fluid " style="height: 100vh;">
+<div class="row" >
+  <div class="col-4" *ngFor="let d of prescriptionData">
+    <div class="card  zoom" style="padding: 2%;" routerLink="/patient-prescriptions/{{ d._id }}">
+      <h2 class="d-flex justify-content-center">{{ d.date }}</h2>
+      <h3 class="d-flex justify-content-center">Doctor name: {{ d.doctorname }}</h3>
+    </div>
+  </div>
+</div>
+
+  </div>
+  </div>
+
+</mat-sidenav-container>

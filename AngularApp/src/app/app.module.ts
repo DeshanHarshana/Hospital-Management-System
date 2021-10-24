@@ -120,6 +120,9 @@ import {NgxPrintModule} from 'ngx-print';
 import { AddprescrptionComponent } from './doctor/addprescrption/addprescrption.component';
 import { PrescriptionListComponent } from './patient/prescription-list/prescription-list.component';
 import { PatientPrescriptionComponent } from './patient/patient-prescription/patient-prescription.component';
+import { PharmacyDashboardComponent } from './pharmacy2/pharmacy-dashboard/pharmacy-dashboard.component';
+
+
 
 
 @NgModule({
@@ -194,6 +197,9 @@ import { PatientPrescriptionComponent } from './patient/patient-prescription/pat
     AddprescrptionComponent,
     PrescriptionListComponent,
     PatientPrescriptionComponent,
+    PharmacyDashboardComponent,
+
+
 
 
 

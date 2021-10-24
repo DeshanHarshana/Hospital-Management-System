@@ -64,9 +64,7 @@ import { CheckedAppointmentsComponent } from './doctor/checked-appointments/chec
 import { AddprescrptionComponent } from './doctor/addprescrption/addprescrption.component';
 import { PrescriptionListComponent } from './patient/prescription-list/prescription-list.component';
 import { PatientPrescriptionComponent } from './patient/patient-prescription/patient-prescription.component';
-
-
-
+import { PharmacyDashboardComponent } from './pharmacy2/pharmacy-dashboard/pharmacy-dashboard.component';
 
 const routes: Routes = [
 
@@ -151,7 +149,10 @@ const routes: Routes = [
   {path:'addMedicine', component:AddmedicineComponent},
 
     //pagenot found
-  { path : '**', component:PageNotFoundComponent }
+  { path : '**', component:PageNotFoundComponent },
+
+  //Pharmacy2
+  { path : 'pharmacy-dashboard', component: PharmacyDashboardComponent }
 
 
 ];

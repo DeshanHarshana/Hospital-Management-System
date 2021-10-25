@@ -44,7 +44,7 @@
       </div>
       <div class="col-6">
         <div class="form-group">
-          <label for="patientname">Doctor Name</label>
+          <label for="patientname"> Doctor Name</label>
           <input type="text" class="form-control" formControlName="doctorname" id="patientname" placeholder="Doctor Name">
           </div>
       </div>
@@ -53,10 +53,10 @@
     <div style="margin-top: 1%;">
       <label for="type" style="color: brown;">Select Drug You Want</label>
         <select id="type" class="form-control input-lg" style="width: 400px; margin-bottom:2%; color:blue; font-size:1.4rem; font-family:monospace" (change)=drugChange($event)>
-          <option *ngFor="let d of  tempDruglist" [value]="d.id" >{{ d.drugname }}</option>
+          <option *ngFor="let d of  tempDruglist" [value]="d.id" > {{ d.drugname }}</option>
         </select>
 
-    <table class="table"   formArrayName="medicine">
+    <table    formArrayName="medicine">
 
       <div *ngFor="let medicine of medicine().controls; let i=index" [formGroupName]="i">
 
@@ -82,14 +82,14 @@
           </div>
       </div>
         <div class="d-flex justify-content-end">
-          <button (click)="removeMedicine(i)" class="myButton2">Remove</button>
+          <button (click)="removeMedicine(i)" style="margin-top: 2%;" class="myButton2"><fa-icon [icon]="faTrashAlt"></fa-icon></button>
 
         </div>
         </div>
     </table>
   </div>
-    <button type="submit" class="btn btn-success">Submit</button>
-    <button type="button" class="btn btn-info" style="margin-left:2%" (click)="checkTotal()">Check total</button>
+    <button type="submit" class="btn btn-success"><fa-icon [icon]="faCheckCircle"></fa-icon> Submit</button>
+    <button type="button" class="btn btn-info" style="margin-left:2%;" (click)="checkTotal()"><fa-icon [icon]="faMoneyCheckAlt"></fa-icon> Check total</button>
 
   </div>
 </form>

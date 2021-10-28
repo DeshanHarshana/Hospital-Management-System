@@ -11,4 +11,16 @@
     "price":55,
     "description":"Albuterol is a 'rescue' or 'quick-relief' inhaler.Make sure you know how to use the inhaler properly. If you are not sure, ask your physician or pharmacist to show you. If after using the inhaler your symptoms do not improve, contact your physician for advice straightaway.The most common side-effect is feeling shaky. This should soon pass.Do not smoke. Smoking causes irritation to the lungs and will make your condition worse"
   },
+  {
+    "id":2,
+    "drugname":"Levothyroxine(100mg)",
+    "price":5,
+    "description":"Levothyroxine is a replacement or supplement thyroid hormone.You will need regular blood tests to check your thyroid levels, particularly at the beginning of your treatment.If you experience any side-effects, speak with your doctor as your dose may need adjusting."
+  },
+  {
+    "id":3,
+    "drugname":"Amoxicillin 500mg caps (spmc)",
+    "price":5.20,
+    "description":"Make sure you tell your doctor if you are allergic to penicillin. Amoxicillin is a type of penicillin - do not take it if you are allergic to penicillin.Space your doses out evenly over the day and complete the full course of the antibiotic, even if you feel your infection has cleared up. You can take amoxicillin either before or after food.If you have an allergic reaction (such as any swelling around your mouth, any difficulties breathing or a red rash) contact a doctor for advice straightaway."
+  },
 ]

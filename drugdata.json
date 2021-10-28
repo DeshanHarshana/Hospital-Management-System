@@ -1,0 +1,14 @@
+[
+  {
+    "id":0,
+    "drugname":"Aripiprazole",
+    "price":34,
+    "description":"Aripiprazole belongs to a group of medicines called antipsychotics. It is taken once daily.Keep your regular appointments with your doctor. This is so your progress can be checked. The most common side-effects include feeling shaky and restless"
+  },
+  {
+    "id":1,
+    "drugname":"Albuterol inhaler",
+    "price":55,
+    "description":"Albuterol is a 'rescue' or 'quick-relief' inhaler.Make sure you know how to use the inhaler properly. If you are not sure, ask your physician or pharmacist to show you. If after using the inhaler your symptoms do not improve, contact your physician for advice straightaway.The most common side-effect is feeling shaky. This should soon pass.Do not smoke. Smoking causes irritation to the lungs and will make your condition worse"
+  },
+]

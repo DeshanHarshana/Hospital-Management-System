@@ -14,9 +14,13 @@ import { ToastrService } from 'ngx-toastr';
 export class AppoinmentDoctorListComponent implements OnInit {
 
   p:number=1;
+  doctoridlist:string[]=[];
   tempdata:Doctor[]=[]
+  temp2data:Doctor[]=[];
+  mydoctors:Doctor[]=[]
   filterdData:any=[];
   name:any;
+  patient_id:string=''
   catogory:any="All Doctors";
   constructor(
     private doctorService:DoctorService,
@@ -28,16 +32,55 @@ export class AppoinmentDoctorListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    this.patient_id=this.route.snapshot.params.id;
     setTimeout(() => {
       this.doctorService.getAllDoctorAppoinment().subscribe(res=>{
         this.tempdata=res;
         this.filterdData=this.tempdata;
         this.catogory=="All Doctors";
       });
+      this.patient.getAlldoctorsList(this.patient_id).subscribe((res=>{
+        this.mydoctors=res
+        this.mydoctors.forEach((value, index)=>{
+          this.doctoridlist.push(value._id)
+        })
+        console.log(this.doctoridlist)
+      }))
+
 
 
     }, );
+  }
+
+  check(id:string){
+
+
+    if(this.doctoridlist.includes(id)){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  appoinment(id:string){
+    if(this.check(id)){
+      this.toastr.warning("This doctor already your doctor")
+    }else{
+      this.router.navigate(['appoinment/'+id])
+    }
+  }
+
+  myDoctors(event:any){
+    if(event.target.checked){
+      this.temp2data=this.tempdata;
+      this.tempdata=this.mydoctors;
+      this.filterdData=this.tempdata;
+    }else{
+      this.mydoctors=this.tempdata;
+      this.tempdata=this.temp2data
+      this.filterdData=this.tempdata
+
+    }
   }
 
 

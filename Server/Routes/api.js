@@ -873,6 +873,42 @@ router.delete('/deleteAppoinment2/:id', function(req,res){
         }
      });
     });
+    
+
+//get patient's doctor list
+var doctorData=[];
+router.get('/getPatientDoctorlist/:id',  function(req,res){
+    Patient.find({_id:req.params.id},'doctorlist', function(error,result){
+        if(error){
+            console.log("error");
+        }else{
+            var data=result[0].doctorlist;
+          
+            
+              
+             getAllDoctorsinPatient(data, getDoctorList);
+             setTimeout(()=>{
+                res.send(doctorData);
+             },1000);
+             
+        }
+    })
+});
+function getAllDoctorsinPatient(data, callback){
+    var doctorids=[];
+    for (var i = 0; i < data.length; i++){
+        var obj = data[i];
+        var value = obj['doctorid'];
+        doctorids.push(value);
+    }
+    callback(doctorids);
+}
+
+async function getDoctorList(ids){
+    const records = await Doctor.find({ '_id': { $in: ids } });
+    doctorData=records;
+}
+
 
 //get doctor's patient list
 var patientData=[];
@@ -1680,6 +1716,14 @@ router.get("/allDrugs", (req,res)=>{
             res.send(result);
         }
     })
+})
+
+router.get('/getAllmedicineofPatient/:id', (req,res)=>{
+    Prescription.find({patientid:req.params.id}, "medicine", (error,result)=>{
+        if(!error){
+            res.send(result)
+        }
+    } )
 })
 
 //export model

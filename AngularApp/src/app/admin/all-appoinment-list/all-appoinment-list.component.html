@@ -1,17 +1,18 @@
-<mat-toolbar class="mat-elevation-z8">
-  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+<mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
+  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Admin-dashboard" src="../../../assets/navbar/logo.png"/>
+
   <span class="spacer"></span>
   <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
 
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8" *ngFor="let d of admindata">
 
-      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+      <img class="avatar mat-elevation-z8" src="{{ d.displayImage }}" />
 
-      <h4 class="name">Deshan Harshana</h4>
-      <p class="designation">Hospital Admin</p>
+      <h4 class="name">{{ d.fullname }}</h4>
+      <p class="designation">{{ d.designation }}</p>
 
       <mat-divider></mat-divider>
 
@@ -31,15 +32,20 @@
       <mat-icon>person_outline</mat-icon>
       <span>All Doctors</span>
   </button>
-  <button mat-button class="menu-button" >
+  <button mat-button class="menu-button" routerLink="/Admin-show-all-appoinment-list" >
     <mat-icon>book</mat-icon>
     <span>Appoinments</span>
-  </button>
+</button>
+<button mat-button class="menu-button" (click)="addPhamasisit()" >
+  <mat-icon>open_with</mat-icon>
+  <span>Add Pharmacist</span>
+</button>
+
+
 
 
 
   </mat-sidenav>
-
 
     <div class="content mat-elevation-z8">
 <div class="container-fluid ">

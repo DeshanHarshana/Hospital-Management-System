@@ -1,0 +1,123 @@
+<mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
+  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Admin-dashboard"
+    src="../../../assets/navbar/logo.png" />
+
+  <span class="spacer"></span>
+  <button (click)="logout()" class="btn"
+    style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+
+</mat-toolbar>
+
+
+<mat-sidenav-container>
+  <mat-sidenav opened="true" mode="side" disableClose="true" class="mat-elevation-z8">
+
+
+    <h4 class="name">Deshan Harshana</h4>
+    <p class="designation">Pharmacy Admin</p>
+
+    <mat-divider></mat-divider>
+
+
+    <button mat-button class="menu-button" routerLink="/show-medicine">
+      <mat-icon>view_list</mat-icon>
+      <span>Show List </span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/add-drug">
+      <mat-icon>note_add</mat-icon>
+      <span>Add Items </span>
+    </button>
+
+
+
+  </mat-sidenav>
+  <div class="content mat-elevation-z8" style="height: fit-content;">
+    <div class="container-fluid" style="padding: 3%;">
+      <div class="col d-flex justify-content-center">
+        <h1 class="phaHead">Pharmacy</h1>
+      </div>
+      <div class="row">
+        <div class="col-6 d-flex justify-content-center">
+          <div class="card personalCard">
+            <h2><u><strong><i>Add new Drug</i></strong></u></h2>
+            <form [formGroup]="addForm">
+              <div class="col-6">
+                Drug Number
+                <input type="numbrer" class="form-control" placeholder="Drug Number" formControlName="drugID">
+              </div>
+              <br>
+              <div class="col-6">
+                Drug Name
+                <input type="text" class="form-control" placeholder="Drug Name" formControlName="drugname">
+              </div>
+              <br>
+              <div class="col-3">
+                Drug Price
+                <input type="number" class="form-control" placeholder="Price" min="0" formControlName="price">
+              </div>
+              <br>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="description">Description</label>
+                <div class="col">
+                  <div class="form-group">
+                    <textarea class="form-control" id="des" rows="3" placeholder="Description"
+                      formControlName="description"></textarea> <br>
+                  </div>
+                </div>
+              </div>
+              <div style=" padding: 2rem; padding-left: 30%; padding-top: 1rem;">
+                <button type="button" class="btn btn-success btn-lg" (click) = "addNewDrug($event)" [disabled] = "">Add Item</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="col-6 d-flex justify-content-center">
+          <div class="card personalCard">
+
+            <h2><u><strong><i>Edit existing Drug </i></strong></u></h2>
+            <div class="col-12" style="padding: 2%;">
+
+              <select id="type" class="form-control" (change)='getMedicine($event)'>
+                <option *ngFor="let item of tempdata">{{item.drugname}}</option>
+              </select>
+            </div>
+            <form [formGroup]="editForm">
+              <div class="col-6">
+                Drug Name
+                <input type="text" class="form-control" formControlName="drugname" placeholder="Drug Name">
+              </div>
+              <br>
+              <div class="col-3">
+                Drug Price
+                <input type="number" class="form-control" formControlName="price" placeholder="Price" min="0">
+              </div>
+              <br>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="description">Description</label>
+                <div class="col">
+                  <div class="form-group">
+                    <textarea class="form-control" id="des" rows="3" placeholder="Description"
+                      formControlName="description"></textarea> <br>
+                  </div>
+                </div>
+              </div>
+              <div style=" padding: 2rem; padding-left: 30%; padding-top: 1rem;">
+                <button type="submit" class="btn btn-warning btn-lg" (click)="updateDrug($event)"
+                  [disabled]='!isEditChange'>Update Item</button>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</mat-sidenav-container>

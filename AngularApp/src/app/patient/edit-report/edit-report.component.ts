@@ -45,15 +45,11 @@ export class EditReportComponent implements OnInit {
     date:new FormControl(new Date()),
     sign:new FormControl(''),
     nic:new FormControl(''),
-
-
     doctorid:new FormControl(''),
     patientid:new FormControl(''),
     doctorname:new FormControl('')
 
-
-
-  });
+});
 
   currentPatient:string="";
   currentDoctor:string="";

@@ -104,44 +104,35 @@ mat-toolbar {
     font-size:2rem;
     padding-top: 2.3%;
     font-style: italic;
+    font-weight: bold;
+    color: brown;
+   
+}
+.cardSet{
+  margin-left: 20%;
+
+  max-height: 70%;
+  max-height: fit-content;
+  justify-content: flex-start;
 }
 
+.container {
+  /*  not needed styles to reflect it */ 
+  padding: 10px;
+  width: 500px;
+  float: right;
+  /* needed styles below */
+  display: flex;
+  justify-content:flex-end;
+  align-items: right;
+}
 
-
-.phar{
-
- background-image: url("../../../assets/pharm/p1.gif");
-  height: 350px;
-    background-position: center;
-    background-repeat: no-repeat;
- }
-
-
- .phar h1{
- font-size:80px;
- }
-
-  .phar h3{
-       font-size:80px;
-       }
-
-       .link_p{
-  color: #fff!important;
-    padding: 10px 20px;
-    background: #39ac31;
-    margin: 55px 0;
-    display: inline-block;
+.fill {
+  flex: 1;
+}
+.phaHead{
+  font-family: "Lemon";
+  font-size: 2rem;
+  color: rgb(28, 49, 6);
+  
   }
-
-  .contant_box{
-     margin-top:-50px;
-    }
-    .go-back {
-      margin-top: -4px;
-      margin-right: -4px;
-      color: white;
-      font-family: courier, sans;
-      cursor: pointer;
-    }
-   
-

@@ -143,5 +143,24 @@ mat-toolbar {
       font-family: courier, sans;
       cursor: pointer;
     }
+    .phaHead{
+      font-family: "Lemon";
+      font-size: 2rem;
+      color: rgb(28, 49, 6);
+      
+      }
    
 
+.personalCard{
+    margin-top: 3%;
+    height: fit-content;
+    width: 50vw;
+    padding: 5%;
+    
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+    }
+    h2{
+        font-family: serif;
+        text-align: center;
+    }
+    

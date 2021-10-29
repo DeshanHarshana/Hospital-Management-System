@@ -1,1 +1,70 @@
-<p>pharmacy-dashboard works!</p>
+<mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
+    <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Admin-dashboard" src="../../../assets/navbar/logo.png"/>
+  
+    <span class="spacer"></span>
+    <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+  
+  </mat-toolbar>
+  
+  
+  <mat-sidenav-container>
+    <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+  
+  
+        <h4 class="name">Deshan Harshana</h4>
+        <p class="designation">Pharmacy Admin</p>
+  
+        <mat-divider></mat-divider>
+  
+        <button mat-button class="menu-button" routerLink = "/show-medicine"  >
+            <mat-icon>view_list</mat-icon>
+            <span>Show List </span>
+        </button>
+
+        <button mat-button class="menu-button"   routerLink="/add-drug">
+            <mat-icon>note_add</mat-icon>
+            <span>Add Items </span>
+        </button>
+
+       
+
+  </mat-sidenav>
+  <div class="content mat-elevation-z8" style="height: fit-content;" >
+    <div class="container-fluid" style="padding: 3%;">
+      <button type="button" class="btn btn-outline-dark go-corner go-arrow" [hidden] = 'inChild' routerLink="/pharmacy-home">Back </button>
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <h1 class="phaHead">Pharmacy</h1>
+        </div>
+        <div class="gif" [hidden] = '!inChild' >
+          <div class="container">
+            <div class="row">
+            <div class="col-sm-12">
+            <div class="col-sm-13 col-sm-offset-3 text-center">
+            <div class="phar">
+              
+        
+            </div>
+        
+            <div class="contant_box">
+           
+          
+        
+            <button  class="link_p" routerLink="show-medicine"  (click) = "clickList1()">Go to List</button>
+          </div>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div>
+          <router-outlet [hidden] = 'inChild'></router-outlet>
+      
+        </div>
+      
+      
+    </div>
+  </div>
+
+  </mat-sidenav-container>

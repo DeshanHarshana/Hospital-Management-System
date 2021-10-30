@@ -4,8 +4,10 @@ import { Router } from '@angular/router';
 
 import { ToastrService } from 'ngx-toastr';
 import { LoaderService } from 'src/app/loader/loader.service';
+import { AdminService } from 'src/app/services/admin.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DoctorService } from 'src/app/services/doctor.service';
+import { PharmacistService } from 'src/app/services/pharmacist.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,6 +16,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./admin-add-doctor.component.css']
 })
 export class AdminAddDoctorComponent implements OnInit {
+  admindata:any=[]
   doctor=new FormGroup({
     title:new FormControl(''),
     fullname:new FormControl(''),
@@ -38,13 +41,16 @@ export class AdminAddDoctorComponent implements OnInit {
   })
   imageData:string='';
   image:any;
+  cancel:boolean=false;
   isImageselected:boolean=false;
   constructor(
     private doctorService:DoctorService,
     public toastr:ToastrService,
     public router:Router,
+    private admin:AdminService,
     public loaderService:LoaderService,
-    private auth:AuthenticationService
+    private auth:AuthenticationService,
+    private pharmacyService:PharmacistService
 
   ) { }
 
@@ -56,6 +62,11 @@ this.auth.logout();
   ngOnInit(): void {
     this.isImageselected=false;
     this.imageData="../../../assets/add-doctor/nopic.png";
+    setTimeout(()=>{
+      this.admin.getAdmin().subscribe(res=>{
+        this.admindata=res;
+      });
+    })
   }
 
 
@@ -106,6 +117,51 @@ this.auth.logout();
   toast(message:String) {
     this.toastr.warning(message.toString(), "Adding Doctor");
    }
+   addPhamasisit(){
+    Swal.fire({
+      showDenyButton: true,
+      denyButtonText: 'No',
+      allowOutsideClick: false,
+      title: 'Assign New Pharmacist',
+      html: `
+      <input type="text"  name="name" class="swal2-input" placeholder="Pharmacist Name">
+      <input type="email"  name="email" class="swal2-input" placeholder="Pharmacist Email">
+      <input type="password"  name="password" class="swal2-input" placeholder="Type a Password">`,
+      confirmButtonText: 'Assign',
+      preDeny:()=>{
+        this.cancel=true;
+        console.log("dfdf")
+      },
+
+      preConfirm: () => {
+        const name =  Swal.getPopup()?.getElementsByTagName('input').namedItem('name')?.value
+        const email =  Swal.getPopup()?.getElementsByTagName('input').namedItem('email')?.value
+        const password = Swal.getPopup()?.getElementsByTagName('input').namedItem('password')?.value
+        if (!email || !password || !name) {
+          Swal.showValidationMessage(`Please enter login and password`)
+        }
+        return {name:name, email: email, password: password }
+      }
+
+    }).then((result) => {
+      console.log(result.value)
+      if(!this.cancel){
+      this.pharmacyService.addPharmacist(result.value).subscribe((res)=>{
+        Swal.fire(
+          'Success!',
+          'New Pharmacist Assigned',
+          'success'
+        )
+      })
+    }
+
+    }).catch((reason)=>{
+      console.log(reason)
+    }).finally(()=>{
+      this.cancel=false;
+    })
+
+  }
 
   onFileSelect(event : Event){
     const target= event.target as HTMLInputElement;

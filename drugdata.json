@@ -1,0 +1,141 @@
+[
+  {
+    "id":0,
+    "drugname":"Aripiprazole",
+    "price":34,
+    "description":"Aripiprazole belongs to a group of medicines called antipsychotics. It is taken once daily.Keep your regular appointments with your doctor. This is so your progress can be checked. The most common side-effects include feeling shaky and restless"
+  },
+  {
+    "id":1,
+    "drugname":"Albuterol inhaler",
+    "price":55,
+    "description":"Albuterol is a 'rescue' or 'quick-relief' inhaler.Make sure you know how to use the inhaler properly. If you are not sure, ask your physician or pharmacist to show you. If after using the inhaler your symptoms do not improve, contact your physician for advice straightaway.The most common side-effect is feeling shaky. This should soon pass.Do not smoke. Smoking causes irritation to the lungs and will make your condition worse"
+  },
+  {
+    "id":2,
+    "drugname":"Levothyroxine(100mg)",
+    "price":5,
+    "description":"Levothyroxine is a replacement or supplement thyroid hormone.You will need regular blood tests to check your thyroid levels, particularly at the beginning of your treatment.If you experience any side-effects, speak with your doctor as your dose may need adjusting."
+  },
+  {
+    "id":3,
+    "drugname":"Amoxicillin 500mg caps (spmc)",
+    "price":5.20,
+    "description":"Make sure you tell your doctor if you are allergic to penicillin. Amoxicillin is a type of penicillin - do not take it if you are allergic to penicillin.Space your doses out evenly over the day and complete the full course of the antibiotic, even if you feel your infection has cleared up. You can take amoxicillin either before or after food.If you have an allergic reaction (such as any swelling around your mouth, any difficulties breathing or a red rash) contact a doctor for advice straightaway."
+  },
+  {
+    "id":4,
+    "drugname":"VitaminC(500mg)",
+    "price":15,
+    "description":"One dose a day of 25-75 mg is sufficient to prevent vitamin C deficiency. Higher doses are sometimes prescribed by doctors to treat a condition called scurvy (although this occurs only rarely in the UK).Some ascorbic acid tablets should be chewed before they are swallowed and others need to be dissolved in water first. Check the label on the container and follow the directions given."
+  },
+  {
+    "id":5,
+    "drugname":"Clobazam for epilepsy",
+    "price":15,
+    "description":"Clobazam is prescribed to treat epilepsy. It can cause you to feel sleepy, particularly when you first start taking it, and it is likely to affect your reactions. These effects can last into the following day.Continue to take clobazam regularly until your doctor tells you to stop. You must not stop taking it without speaking with your doctor first, as stopping suddenly will cause problems.Do not drink alcohol whilst you are on clobazam."
+  },
+  {
+    "id":6,
+    "drugname":"Metronidazole gel and cream",
+    "price":540,
+    "description":"Unless you are told otherwise by your doctor, use the gel/cream twice a day after gently washing the affected area.Keep out of strong sunlight and do not use sunbeds, as the treated areas of your skin may become more sensitive than usual.If your skin becomes irritated or dry, reduce the number of times you apply the preparation for a few days until your skin recovers."
+  },
+  {
+    "id":7,
+    "drugname":"Mesalamine",
+    "price":400,
+    "description":"This means that your treatment could be affected by switching between some brands. Each time you collect a new supply from your pharmacy, check to see if it is the same brand as before. If it is different, discuss this with your pharmacist who will advise you.It is important that you keep your regular appointments with your physician so that your progress can be checked. You may require regular blood tests.Common side-effects include gastrointestinal symptoms and aches and pains. These tend to be minor.Rarely, mesalamine can cause problems with your blood. You should tell your physician immediately if you have any unexplained bleeding, bruising, red or purple discolorations of the skin, sore throat or a high temperature (fever), or if you feel generally unwell."
+  },
+  {
+    "id":8,
+    "drugname":"Metformin for diabetes",
+    "price":30,
+    "description":"Take metformin just after a meal or with a snack.The most common side-effects are feeling sick (nausea), diarrhoea and tummy (abdominal) pain. These symptoms usually pass after the first few days of treatment.Keep your regular appointments with your doctor and clinics. This is so your progress can be checked."
+  },
+  {
+    "id":9,
+    "drugname":"Iron supplements",
+    "price":310,
+    "description":"Iron supplements are best absorbed when they are taken an hour before meals. However, to reduce stomach upset, you may prefer to take your doses after meals.Common side-effects include stomach upset, constipation and diarrhoea.Remember to keep iron supplements out of the reach and sight of children - iron is a common cause of serious accidental ingestion in children."
+  },
+  {
+    "id":10,
+    "drugname":"Orlistat capsules",
+    "price":71,
+    "description":"Take one capsule three times daily with your main meals.If there is no fat in one of your meals, or if you miss a meal, there is no need for you to take a dose of orlistat.Common side-effects include wind, loose stools and back passage (rectal) spotting, particularly at the beginning of treatment. These effects can be reduced by eating less fat in your meals."
+  },
+  {
+    "id":11,
+    "drugname":"Umeclidinium inhaler",
+    "price":65,
+    "description":"Umeclidinium is prescribed to help ease the symptoms of cough, wheeze and breathlessness in adults with chronic obstructive pulmonary disease (COPD).Make sure you know how to use the inhaler device properly. Ask your nurse, doctor or pharmacist to show you, if you are unsure.Use the inhaler once every day."
+  },
+  {
+    "id":12,
+    "drugname":"Clozapine",
+    "price":48,
+    "description":"Clozapine is prescribed for mental health problems which affect the way you think, feel or behave.It is important that you have regular check-ups and blood tests.Make sure you read all the printed information you are given. If there is anything you are unsure about, ask your doctor or clinic for further advice."
+  },
+  {
+    "id":13,
+    "drugname":"Reboxetine tablets",
+    "price":145,
+    "description":"Reboxetine is prescribed to treat depression. It may take a week or two after starting the tablets before you start to feel the benefit. Do not stop taking it, thinking it is not helping.Reboxetine may make you feel dizzy. If this happens, do not drive and do not use tools or machines until you feel better.Discuss any troublesome side-effects with your doctor."
+  },
+  {
+    "id":14,
+    "drugname":"Tramadol for pain relief",
+    "price":215,
+    "description":"This medicine is an opioid painkiller. There is a serious risk of addiction when taking this medicine, especially if used long-term. The Medicines and Healthcare products Regulatory Agency (MHRA) has issued new guidance for people prescribed an opioid painkiller. If you have any questions or concerns about taking opioids safely please speak with your doctor or a pharmacis"
+  },
+  {
+    "id":15,
+    "drugname":"Isosorbide mononitrate",
+    "price":25,
+    "description":"Isosorbide mononitrate helps to prevent angina chest pain from developing.It is not suitable to take to treat an angina attack - you should always carry with you a short-acting nitrate, such as glyceryl trinitrate (GTN), for if you get angina pain.The most common side-effect is headache. This should pass after a few days."
+  },
+  {
+    "id":16,
+    "drugname":"Sodium fusidate for infections",
+    "price":67,
+    "description":"Sodium fusidate is an antibiotic. It can be taken by people who are allergic to penicillin.Space your doses out evenly over the day, and complete the full course of treatment.The most common side-effect is an upset stomach."
+  },
+  {
+    "id":17,
+    "drugname":"Mupirocin for skin infections",
+    "price":75,
+    "description":"Unless your doctor tells you otherwise, apply mupirocin 2-3 times a day for ten days.Your skin may sting a little at first but this should soon pass."
+  },
+  {
+    "id":18,
+    "drugname":"Hydrocortisone butyrate for severe inflammatory skin conditions",
+    "price":105,
+    "description":"You only need to use a small amount of this preparation. Apply it thinly just to the areas affected, and then massage it gently into the skin until it disappears.Topical corticosteroids should not be used for long periods of time or on large areas of the body, especially in children.Do not use the preparation on any infected areas of skin."
+  },
+ 
+  {
+    "id":19,
+    "drugname":"Calcium and ergocalciferol tablets",
+    "price":42,
+    "description":"Calcium and ergocalciferol tablets are a mineral and vitamin D supplement.The tablets promote bone strength and help to prevent 'thinning' of the bones (osteoporosis).The usual dose is one tablet each day. Chew or crush the tablet before swallowing."
+  },
+  {
+    "id":20,
+    "drugname":"Nitrazepam for sleeping problems",
+    "price":270,
+    "description":"Nitrazepam will help you to sleep. You will be prescribed a short course of treatment only.Take your dose just before you go to bed.The effects of nitrazepam can last into the following day; it is likely to impair your reactions and your ability to drive. Do not drive and do not use tools or machines while affected."
+  },
+  {
+    "id":21,
+    "drugname":"Fludroxycortide for inflammatory skin conditions",
+    "price":99,
+    "description":"You only need to use a small amount of cream or ointment. Apply it thinly just to the areas affected, and then massage it gently into the skin. It must not be applied more than twice a day, and once a day is often sufficient.Topical corticosteroids should not be used for long periods of time or on large areas of the body, especially in children.Do not use the cream on any infected areas of skin"
+  },
+  {
+    "id":22,
+    "drugname":"Hyoscine for travel sickness",
+    "price":88,
+    "description":"Follow the dosage directions on the label or pack. Do not take more than the recommended dose.If you are taking tablets, take a dose about 30 minutes before you travel.If you have been prescribed a patch, apply it to the skin behind your ear 5-6 hours before your journey starts.Hyoscine may make you sleepy. If this happens, do not drive and do not use tools or machines."
+  },
+]

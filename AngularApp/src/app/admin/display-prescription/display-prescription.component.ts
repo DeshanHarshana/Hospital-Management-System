@@ -13,7 +13,7 @@ import { PrescriptionService } from 'src/app/services/prescription.service';
   styleUrls: ['./display-prescription.component.css']
 })
 export class DisplayPrescriptionComponent implements OnInit {
-
+  cancel:boolean=false;
   tempdata: Pres[] = [];
   p: number = 1;
   filterdData: any = [];
@@ -28,7 +28,7 @@ export class DisplayPrescriptionComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-  
+
     setTimeout(() => {
       this.prescriptionService
         .getAllPrescription()

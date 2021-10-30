@@ -4,6 +4,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { WardService } from 'src/app/services/ward.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { DoctorService } from 'src/app/services/doctor.service';
 
 @Component({
   selector: 'app-edit-ward-details',
@@ -11,15 +12,16 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./edit-ward-details.component.css']
 })
 export class EditWardDetailsComponent implements OnInit {
-
+  assignDoctorfield:boolean=false;
+  doctorlist:any=[];
   ward=new FormGroup({
     wardid:new FormControl(''),
     wardno:new FormControl(''),
     departmentid:new FormControl(''),
     departmentname:new FormControl(''),
     noofbeds:new FormControl(''),
-    noofpatients:new FormControl('')
-
+    noofpatients:new FormControl(''),
+    doctor:new FormControl('')
   })
 
   constructor(
@@ -27,7 +29,8 @@ export class EditWardDetailsComponent implements OnInit {
     private route:ActivatedRoute,
     private auth:AuthenticationService,
     private wardservice:WardService,
-    public toastr:ToastrService
+    public toastr:ToastrService,
+    public doctorService:DoctorService
   ) { }
 
   ngOnInit(): void {
@@ -41,9 +44,10 @@ export class EditWardDetailsComponent implements OnInit {
         this.ward.get('departmentname')?.setValue(res.departmentname);
         this.ward.get('noofbeds')?.setValue(res.noofbeds);
         this.ward.get('noofpatients')?.setValue(res.noofpatients);
-        
+        this.ward.get('doctor')?.setValue(res.doctor);
 
-        
+
+
 
       })
     },10)
@@ -61,7 +65,7 @@ export class EditWardDetailsComponent implements OnInit {
   }*/
 
   update(ward:any){
-    
+
     this.wardservice.updatewarddetails(ward,this.route.snapshot.params.id).subscribe(res=>{
       this.toastr.success("Update Successfully", "Updating Ward details");
       setTimeout(()=>{
@@ -69,5 +73,14 @@ export class EditWardDetailsComponent implements OnInit {
       });
     })
   }
+  assign(){
+    setTimeout(() => {
+      this.doctorService.getAllDoctors().subscribe(res=>{
+        this.doctorlist=res;
+        this.assignDoctorfield=true;
+        console.log(this.doctorlist)
+      })
+    },);
 
+  }
 }

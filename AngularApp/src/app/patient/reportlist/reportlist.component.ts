@@ -10,7 +10,9 @@ import { ReportsService } from 'src/app/services/reports.service';
 })
 export class ReportlistComponent implements OnInit {
   data:any=[];
-currentPatient:string=""
+  currentPatient:string="";
+  role : string = '';
+  canAccess : boolean = false; 
   constructor(
     private auth:AuthenticationService,
     private route:ActivatedRoute,
@@ -19,11 +21,19 @@ currentPatient:string=""
 
   ngOnInit(): void {
     this.currentPatient=this.route.snapshot.params.id;
+    this.role = localStorage.getItem('access') || '';
     setTimeout(() => {
       this.report.getPatientReports(this.currentPatient).subscribe(res=>{
         this.data=res;
       })
     }, 20);
+
+    if(this.role == 'doctor'){
+      this.canAccess = true;
+    }
+    else{
+      this.canAccess = false;
+    }
 
   }
   logout(){

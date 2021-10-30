@@ -1,20 +1,9 @@
-<mat-form-field appearance="outline">
-  <mat-label>Pick A Time</mat-label>
-  <input
-    type="text"
-    matInput
-    [ngxMatTimepicker]="timepicker"
+<div  id="print-section">
+<h1 style="font-family: 'Courier New', Courier, monospace; font-size:3rem">Deshan</h1>
+</div>
 
-    [required]="required"
-    readonly
-    [formControl]="formControlItem"
-  />
+  <button
+  [useExistingCss]="true"
 
-
-
-  <mat-icon matSuffix *ngIf="!formControlItem.disabled" (click)="openFromIcon(timepicker)">schedule</mat-icon>
-
-</mat-form-field>
-
-<ngx-mat-timepicker #timepicker></ngx-mat-timepicker>
-<button (click)="l()">clcik</button>
+    printSectionId="print-section"
+    ngxPrint>print</button>

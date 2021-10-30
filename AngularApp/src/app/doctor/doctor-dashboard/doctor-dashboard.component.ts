@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DoctorService } from 'src/app/services/doctor.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-doctor-dashboard',
@@ -12,12 +13,14 @@ import { DoctorService } from 'src/app/services/doctor.service';
 export class DoctorDashboardComponent implements OnInit {
 doctordata:any=[];
 currentDoctor:string=""
+notification_count:number=0;
   constructor(
     private router:Router,
     private route:ActivatedRoute,
     private auth:AuthenticationService,
     private doctor:DoctorService,
     public toastr:ToastrService,
+    private notification:NotificationService
 
   ) { }
 
@@ -26,6 +29,10 @@ currentDoctor:string=""
     setTimeout(() => {
       this.doctor.getoneDoctor(this.currentDoctor).subscribe(res=>{
         this.doctordata=res;
+      });
+      this.notification.getSpecificNotofication(this.currentDoctor).subscribe((res)=>{
+        console.log("Notification", Object.keys(res).length)
+        this.notification_count=Object.keys(res).filter(k=>res[k].seen==false).length
       })
     });
 

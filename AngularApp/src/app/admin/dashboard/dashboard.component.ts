@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 export class DashboardComponent implements OnInit {
   main:boolean=true;
   admindata:any=[]
+  cancel:boolean=false;
   Doctor_count=0;
   Patient_count=0;
   Appoinment_count=0;
@@ -56,8 +57,10 @@ setTimeout(() => {
       <input type="password"  name="password" class="swal2-input" placeholder="Type a Password">`,
       confirmButtonText: 'Assign',
       preDeny:()=>{
-        console.log("Nothing added");
+        this.cancel=true;
+        console.log("dfdf")
       },
+
       preConfirm: () => {
         const name =  Swal.getPopup()?.getElementsByTagName('input').namedItem('name')?.value
         const email =  Swal.getPopup()?.getElementsByTagName('input').namedItem('email')?.value
@@ -67,8 +70,10 @@ setTimeout(() => {
         }
         return {name:name, email: email, password: password }
       }
+
     }).then((result) => {
       console.log(result.value)
+      if(!this.cancel){
       this.pharmacyService.addPharmacist(result.value).subscribe((res)=>{
         Swal.fire(
           'Success!',
@@ -76,8 +81,14 @@ setTimeout(() => {
           'success'
         )
       })
+    }
 
+    }).catch((reason)=>{
+      console.log(reason)
+    }).finally(()=>{
+      this.cancel=false;
     })
+
   }
 
 }

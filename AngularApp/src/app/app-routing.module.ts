@@ -84,8 +84,8 @@ const routes: Routes = [
   {path : 'edit-doctor-detais/:id', component:EditDoctorDetailsComponent},
   {path : 'Admin-show-patient-details/:id', component:PatientShowProfileComponent},
   {path : 'Admin-edit-patient-details/:id', component:PatientEditProfileComponent},
-  {path : 'Admin-show-all-patient-list', component:AllPatientListComponent},
-  {path : 'Admin-show-all-appoinment-list', component:AllAppoinmentListComponent},
+  {path : 'Admin-show-all-patient-list', component:AllPatientListComponent, canActivate:[AuthGuard]},
+  {path : 'Admin-show-all-appoinment-list', component:AllAppoinmentListComponent, canActivate:[AuthGuard]},
 
   //doctor
   {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},
@@ -93,14 +93,14 @@ const routes: Routes = [
   {path:'DoctorAppoinmentList', component:DoctorAppoinmentlistComponent, canActivate:[DoctorGuard]},
   {path:'DoctorPatientList', component:PatientlistComponent, canActivate:[DoctorGuard]},
   {path:'calendarDoctor', component:DoctorCalendarComponent, canActivate:[DoctorGuard]},
-  {path:'Doctor-AddReport/:id', component:AddReportComponent},
+  {path:'Doctor-AddReport/:id', component:AddReportComponent, canActivate:[DoctorGuard]},
   {path:'Doctor-Notification/:id', component:CheckedAppointmentsComponent, canActivate:[DoctorGuard]},
   {path:'Doctor-Add-Prescription/:id', component:AddprescrptionComponent, canActivate:[DoctorGuard]},
 
 
   //ward
-  {path : 'Admin-show-wardpage/:id',component:ShowWardpageComponent},
-  {path : 'Admin-edit-ward-details/:id',component:EditWardDetailsComponent},
+  {path : 'Admin-show-wardpage/:id',component:ShowWardpageComponent, canActivate:[AuthGuard]},
+  {path : 'Admin-edit-ward-details/:id',component:EditWardDetailsComponent, canActivate:[AuthGuard]},
 
 
 

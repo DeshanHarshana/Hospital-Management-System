@@ -11,7 +11,7 @@ const Prescription = require('../Models/Prescription');
 
 const Ward=require('../Models/Ward');
 const Product=require('../Models/Product');
-
+const bcrypt = require("bcrypt");
 //deshan harshana
 //power
 //database connection String
@@ -44,11 +44,14 @@ router.get('/', function (req, res) {
 
 
 // add admin details -- seeding
-router.get('/add-admin-data', function (req, res) {
+router.get('/add-admin-data', async function (req, res) {
+    const salt = await bcrypt.genSalt(5)
+    const x= await bcrypt.hash("1234", salt);
+    console.log(x);
     let adminData = {
 
-        email: "admin@gmail.com",
-        password: "1234",
+        email: "deshan@gmail.com",
+        password: x,
     }
     let admin = new Admin(adminData)
     admin.save((error, result) => {
@@ -83,14 +86,15 @@ router.get('/add-patient-data', function (req, res) {
 
 
 //login
-router.post('/login', function (req, res) {
+router.post('/login',  function (req, res) {
+    console.log(req.body)
     let userData = {
         no: req.body.no,
         email: req.body.email,
         password: req.body.password
     }
     if (userData.no == 1) {
-        Admin.findOne({ email: userData.email }, function (error, result) {
+        Admin.findOne({ email: userData.email },async function (error, result) {
             if (error) {
                 console.log(error);
             } else {
@@ -98,20 +102,24 @@ router.post('/login', function (req, res) {
                     res.send({
                         'user': 'no'
                     })
-                } else if (result.password !== userData.password) {
+                } else{
+                    const validPassword = await bcrypt.compare(userData.password, result.password);
+                    
+                    if(!validPassword){
                     res.send({
                         'password': 'no'
-                    })
-                } else {
-                    res.send({
-                        'success': 'yes'
-                    });
-                }
+                    })}
+                    else{
+                        res.send({
+                            'success': 'yes'
+                        });
+                    }
+                } 
             }
         });
     }
     else if (userData.no == 2) {
-        Doctor.findOne({ email: userData.email }, function (error, result) {
+        Doctor.findOne({ email: userData.email }, async function (error, result) {
             if (error) {
                 console.log(error);
             } else {
@@ -119,21 +127,25 @@ router.post('/login', function (req, res) {
                     res.send({
                         'user': 'no'
                     })
-                } else if (result.password !== userData.password) {
+                } else{
+                    const validPassword = await bcrypt.compare(userData.password, result.password);
+                    
+                    if(!validPassword){
                     res.send({
                         'password': 'no'
-                    })
-                } else {
-                    res.send({
-                        'success': 'yes',
-                        'doctorid':result._id
-                    });
-                }
+                    })}
+                    else{
+                        res.send({
+                            'success': 'yes',
+                            'doctorid':result._id
+                        });
+                    }
+                } 
             }
         });
     }
     else if (userData.no == 3) {
-        Patient.findOne({ email: userData.email }, function (error, result) {
+        Patient.findOne({ email: userData.email }, async function (error, result) {
             if (error) {
                 console.log(error);
             } else {
@@ -141,21 +153,25 @@ router.post('/login', function (req, res) {
                     res.send({
                         'user': 'no'
                     })
-                } else if (result.password !== userData.password) {
+                }else{
+                    const validPassword = await bcrypt.compare(userData.password, result.password);
+                    
+                    if(!validPassword){
                     res.send({
                         'password': 'no'
-                    })
-                } else {
-                    res.send({
-                        'success':'yes',
-                        'patientid':result._id
-                    });
-                }
+                    })}
+                    else{
+                        res.send({
+                            'success': 'yes',
+                            'patientid':result._id
+                        });
+                    }
+                } 
             }
         });
     }
     else if (userData.no == 4) {
-        Pharmacist.findOne({ email: userData.email }, function (error, result) {
+        Pharmacist.findOne({ email: userData.email }, async function (error, result) {
             if (error) {
                 console.log(error);
             } else {
@@ -163,16 +179,20 @@ router.post('/login', function (req, res) {
                     res.send({
                         'user': 'no'
                     })
-                } else if (result.password !== userData.password) {
+                } else{
+                    const validPassword = await bcrypt.compare(userData.password, result.password);
+                    
+                    if(!validPassword){
                     res.send({
                         'password': 'no'
-                    })
-                } else {
-                    res.send({
-                        'success':'yes',
-                        'pharmacistid':result._id
-                    });
-                }
+                    })}
+                    else{
+                        res.send({
+                            'success': 'yes',
+                            'pharmacistid':result._id
+                        });
+                    }
+                } 
             }
         });
     }
@@ -184,17 +204,19 @@ router.post('/login', function (req, res) {
 // Register Patient
 
 router.post('/signup', function (req, res) {
-    Patient.findOne({ email: req.body.email }, (error, result) => {
+    Patient.findOne({ email: req.body.email }, async (error, result) => {
         if (error) {
             console.log(error);
         } else {
             if (result) {
                 res.send({ 'exist': 'yes' })
             } else {
+                const salt = await bcrypt.genSalt(5)
+                const x= await bcrypt.hash(req.body.password, salt);
                 let patientData = {
                     name: req.body.name,
                     email: req.body.email,
-                    password: req.body.password,
+                    password: x,
 
                     title: "",
 
@@ -405,18 +427,20 @@ router.put('/updateReport/:id', function (req, res) {
 
 //Add Doctor
 router.post('/add-new-doctor', function (req, res, next) {
-    Doctor.findOne({ email: req.body.email }, (error, result) => {
+    Doctor.findOne({ email: req.body.email }, async (error, result) => {
         if (error) {
             res.send(error);
         } else {
             if (result) {
                 res.send({ 'exist': 'yes' })
             } else {
+                const salt = await bcrypt.genSalt(5)
+                const x= await bcrypt.hash("1234", salt);
                 let doctorData = {
                     title: req.body.title,
                     fullname: req.body.fullname,
                     email: req.body.email,
-                    password: req.body.password,
+                    password: x,
                     age: req.body.age,
                     phone: req.body.phone,
                     currentHospital: req.body.currentHospital,
@@ -1574,11 +1598,13 @@ router.post('/product/:postid/updatePhoto', productimageUpload.uploadImage().sin
 
 })
 
-router.post('/addnewPharmacist', (req, res)=>{
+router.post('/addnewPharmacist', async (req, res)=>{
+    const salt = await bcrypt.genSalt(5)
+    const x= await bcrypt.hash(req.body.password, salt);
     data={
         email:req.body.email,
         name:req.body.name,
-        password:req.body.password
+        password:x
     }
 
     var pharmacist = new Pharmacist(data);

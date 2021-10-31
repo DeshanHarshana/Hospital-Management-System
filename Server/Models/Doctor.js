@@ -10,8 +10,7 @@ const doctor = mongoose.Schema({
         date:String
     }],
     password:{
-        type:String,
-        default:'1234'
+        type:String
     },
     age:String,
     phone:String,

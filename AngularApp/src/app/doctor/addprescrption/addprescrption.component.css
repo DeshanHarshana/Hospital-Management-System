@@ -1,6 +1,4 @@
-mat-sidenav-container {
-  height: calc(100vh - 65px);
-}
+
 
 mat-toolbar {
   background: #004a9f;
@@ -31,6 +29,13 @@ mat-sidenav {
 
 .content {
   height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 2.5rem;
+}
+
+.content2 {
+  height: fit-content;
   border-radius: 10px;
   margin: 16px;
   margin-left: 2.5rem;

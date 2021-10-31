@@ -18,7 +18,7 @@ const patient = mongoose.Schema({
     cholestrol:String,
     bloodpresure:String,
     displayImage:String,
-    wardno:String,
+    wardno:Number,
     phone:String,
     reportList:[{
         reportid:String

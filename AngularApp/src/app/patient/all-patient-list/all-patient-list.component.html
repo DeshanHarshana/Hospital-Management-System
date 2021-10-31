@@ -6,18 +6,17 @@
 
 </mat-toolbar>
 
-
 <mat-sidenav-container>
-  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
+  <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8" *ngFor="let d of admindata">
 
-      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+      <img class="avatar mat-elevation-z8" src="{{ d.displayImage }}" />
 
-      <h4 class="name">Deshan Harshana</h4>
-      <p class="designation">Hospital Admin</p>
+      <h4 class="name">{{ d.fullname }}</h4>
+      <p class="designation">{{ d.designation }}</p>
 
       <mat-divider></mat-divider>
 
-      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+      <button mat-button class="menu-button" routerLink="/Admin-dashboard">
           <mat-icon>home</mat-icon>
           <span>Home</span>
       </button>
@@ -36,7 +35,13 @@
   <button mat-button class="menu-button" routerLink="/Admin-show-all-appoinment-list" >
     <mat-icon>book</mat-icon>
     <span>Appoinments</span>
-  </button>
+</button>
+<button mat-button class="menu-button" (click)="addPhamasisit()" >
+  <mat-icon>open_with</mat-icon>
+  <span>Add Pharmacist</span>
+</button>
+
+
 
 
 

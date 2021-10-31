@@ -11,7 +11,7 @@ import { MedicalunitService } from '../services/medicalunit.service';
   styleUrls: ['./edit-medical-unit.component.css']
 })
 export class EditMedicalUnitComponent implements OnInit {
-
+  cancel:boolean=false;
   medical=new FormGroup({
 
 
@@ -27,7 +27,7 @@ export class EditMedicalUnitComponent implements OnInit {
     TotalNoEqu:new FormControl(''),
 
   })
-  
+
 
   constructor(
     private router:Router,

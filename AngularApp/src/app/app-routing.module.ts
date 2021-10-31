@@ -116,13 +116,13 @@ const routes: Routes = [
   {path :'report-list/:id', component:ReportlistComponent},
   {path :'getAllDoctorAppoinment/:id', component:AppoinmentDoctorListComponent, canActivate:[PatientGuard]},
   {path :'getcurrentAppoinment', component:AppoinmentlistComponent, canActivate:[PatientGuard]},
-  {path:'patient-bill/:id', component:PatientBillComponent},
+  {path:'patient-bill/:id', component:PatientBillComponent, canActivate:[PatientGuard]},
   {path :'pharmacy', component:PharmacyComponent},
-  {path: 'display-prescription', component:DisplayPrescriptionComponent},
-  {path: 'show-prescription/:id', component:ShowPrescriptionComponent},
-  {path: 'prescriptionList/:id', component:PrescriptionListComponent},
-  {path:'patient-prescriptions/:id', component:PatientPrescriptionComponent},
-  {path: 'pharmacyMedicineList', component:MedicineListPatientComponent},
+  {path: 'display-prescription', component:DisplayPrescriptionComponent, canActivate:[PatientGuard]},
+  {path: 'show-prescription/:id', component:ShowPrescriptionComponent, canActivate:[PatientGuard]},
+  {path: 'prescriptionList/:id', component:PrescriptionListComponent, canActivate:[PatientGuard]},
+  {path:'patient-prescriptions/:id', component:PatientPrescriptionComponent,canActivate:[PatientGuard]},
+  {path: 'pharmacyMedicineList', component:MedicineListPatientComponent,canActivate:[PatientGuard]},
 
 
 
@@ -141,11 +141,11 @@ const routes: Routes = [
 
 
   //medicalunit
-  {path:'edit-medical-unit/:id',component:EditMedicalUnitComponent},
-  {path:'show-medical-unit/:id',component:ShowMedicalUnitComponent},
+  {path:'edit-medical-unit/:id',component:EditMedicalUnitComponent,canActivate:[AuthGuard]},
+  {path:'show-medical-unit/:id',component:ShowMedicalUnitComponent,canActivate:[AuthGuard]},
 
   //doctor time table
-  {path:'doctor-timetable', component:DoctorTimetableComponent},
+  {path:'doctor-timetable', component:DoctorTimetableComponent,canActivate:[DoctorGuard]},
 
   //pharmacy
   {path:'allMedicineList', component:MedicineListComponent},

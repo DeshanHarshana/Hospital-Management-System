@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Doctor } from '../appdata/Doctor';
 import { Patient } from '../appdata/Patient';
 
 @Injectable({
@@ -35,5 +36,11 @@ export class PatientService {
   }
   addreportlist(report:any, patientId:string){
     return this._http.put<any>("http://localhost:3000/addreporttopatient-reportlist/"+patientId, report)
+  }
+  getAlldoctorsList(patientid:string):Observable<Doctor[]>{
+    return this._http.get<Doctor[]>("http://localhost:3000/getPatientDoctorlist/"+patientid)
+  }
+  getAllmedicinelist(patientid:string){
+    return this._http.get<any>("http://localhost:3000/getAllmedicineofPatient/"+patientid);
   }
 }

@@ -18,7 +18,7 @@
 
       <mat-divider></mat-divider>
 
-    
+
       <button mat-button class="menu-button" routerLink="/Patient-dashboard">
         <mat-icon>home</mat-icon>
         <span>Home</span>
@@ -34,7 +34,7 @@
     <span>Doctors</span>
 </button>
 
-  
+
     <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
       <mat-icon>assignment</mat-icon>
       <span>Appointments</span>
@@ -75,10 +75,18 @@
   <div class='container-fluid' style="margin-top: 2%; margin-bottom:5%">
     <div class="card" style="padding: 2%;">
     <div class="row">
-      <div class="col-8">
+      <div class="col-6">
 
           <input class="form-control" type="text" name="name" [(ngModel)]="name" (ngModelChange)="Search()" placeholder="Enter doctor name to search">
 
+      </div>
+      <div class="col-2">
+        <div class="form-check">
+          <input class="form-check-input" style="font-size: 1.2em;" type="checkbox" (change)="myDoctors($event)" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            My Doctors
+          </label>
+        </div>
       </div>
       <div class="col-4">
 
@@ -125,7 +133,7 @@
          <h4>{{ d.fullname }}</h4>
          <h3>{{ d.SLMC }}</h3>
         <h2 class="strokeme">{{ d.type }}</h2>
-        <button class="myButton" routerLink="/appoinment/{{ d._id }}">Appoinment</button>
+        <button class="myButton" (click)="appoinment(d._id)" >Appoinment</button>
         </div>
       </div>
     </div>

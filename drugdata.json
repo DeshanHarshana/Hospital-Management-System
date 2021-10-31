@@ -10,7 +10,8 @@
     "drugname":"Albuterol inhaler",
     "price":55,
     "description":"Albuterol is a 'rescue' or 'quick-relief' inhaler.Make sure you know how to use the inhaler properly. If you are not sure, ask your physician or pharmacist to show you. If after using the inhaler your symptoms do not improve, contact your physician for advice straightaway.The most common side-effect is feeling shaky. This should soon pass.Do not smoke. Smoking causes irritation to the lungs and will make your condition worse"
-  },
+  }
+  ,
   {
     "id":2,
     "drugname":"Levothyroxine(100mg)",
@@ -137,5 +138,5 @@
     "drugname":"Hyoscine for travel sickness",
     "price":88,
     "description":"Follow the dosage directions on the label or pack. Do not take more than the recommended dose.If you are taking tablets, take a dose about 30 minutes before you travel.If you have been prescribed a patch, apply it to the skin behind your ear 5-6 hours before your journey starts.Hyoscine may make you sleepy. If this happens, do not drive and do not use tools or machines."
-  },
+  }
 ]

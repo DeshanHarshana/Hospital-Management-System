@@ -5,12 +5,16 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { Location } from '@angular/common'
+import { AdminService } from 'src/app/services/admin.service';
+import { PharmacistService } from 'src/app/services/pharmacist.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-edit-doctor-details',
   templateUrl: './edit-doctor-details.component.html',
   styleUrls: ['./edit-doctor-details.component.css']
 })
 export class EditDoctorDetailsComponent implements OnInit {
+  admindata:any=[]
   doctor=new FormGroup({
     title:new FormControl(''),
     fullname:new FormControl(''),
@@ -39,13 +43,16 @@ export class EditDoctorDetailsComponent implements OnInit {
   image:any;
   isImageselected:boolean=false;
   data:any=[];
+  cancel:boolean=false;
   constructor(
     private doctorService:DoctorService,
     public toastr:ToastrService,
     public router:Router,
     public route:ActivatedRoute,
     private auth:AuthenticationService,
-    private location: Location
+    private location: Location,
+    private admin:AdminService,
+    private pharmacyService:PharmacistService
 
   ) { }
 
@@ -58,6 +65,7 @@ export class EditDoctorDetailsComponent implements OnInit {
     this.isImageselected=false;
     this.imageData="../../../assets/add-doctor/nopic.png";
     setTimeout(()=>{
+
       this.doctorService.getoneDoctor(this.route.snapshot.params.id).subscribe(
         res=>{
           this.data=res;
@@ -83,12 +91,60 @@ export class EditDoctorDetailsComponent implements OnInit {
           this.doctor.get('position')?.setValue(res.position);
           this.doctor.get('type')?.setValue(res.type);
         }
-      )
+      );
+
+      this.admin.getAdmin().subscribe(res=>{
+        this.admindata=res;
+      });
 
     });
 
   }
+  addPhamasisit(){
+    Swal.fire({
+      showDenyButton: true,
+      denyButtonText: 'No',
+      allowOutsideClick: false,
+      title: 'Assign New Pharmacist',
+      html: `
+      <input type="text"  name="name" class="swal2-input" placeholder="Pharmacist Name">
+      <input type="email"  name="email" class="swal2-input" placeholder="Pharmacist Email">
+      <input type="password"  name="password" class="swal2-input" placeholder="Type a Password">`,
+      confirmButtonText: 'Assign',
+      preDeny:()=>{
+        this.cancel=true;
+        console.log("dfdf")
+      },
 
+      preConfirm: () => {
+        const name =  Swal.getPopup()?.getElementsByTagName('input').namedItem('name')?.value
+        const email =  Swal.getPopup()?.getElementsByTagName('input').namedItem('email')?.value
+        const password = Swal.getPopup()?.getElementsByTagName('input').namedItem('password')?.value
+        if (!email || !password || !name) {
+          Swal.showValidationMessage(`Please enter login and password`)
+        }
+        return {name:name, email: email, password: password }
+      }
+
+    }).then((result) => {
+      console.log(result.value)
+      if(!this.cancel){
+      this.pharmacyService.addPharmacist(result.value).subscribe((res)=>{
+        Swal.fire(
+          'Success!',
+          'New Pharmacist Assigned',
+          'success'
+        )
+      })
+    }
+
+    }).catch((reason)=>{
+      console.log(reason)
+    }).finally(()=>{
+      this.cancel=false;
+    })
+
+  }
 
   addDoctor(doctor:any){
     if(this.isImageselected){

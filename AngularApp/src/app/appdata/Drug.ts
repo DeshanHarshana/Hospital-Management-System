@@ -5,6 +5,7 @@ export class Drug{
   drugname:string="";
   price:number=0;
   description:string="";
+  type: any;
 
 
 

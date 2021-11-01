@@ -93,9 +93,8 @@
 
   </div>
   <div class="col-6 " style="margin-top: 5%;">
-    <p style="font-weight:bold; font-size:1rem; line-height: 4px;" class="d-flex justify-content-end">Mr Deshan Harshana,</p><br>
-    <p style="font-weight:normal; font-size:1rem; line-height: 4px;" class="d-flex justify-content-end">Word No 3,</p><br>
-    <p style="font-weight:normal; font-size:1rem; line-height: 4px;" class="d-flex justify-content-end">Addmission Date : 2021-3</p><br>
+    <p style="font-weight:bold; font-size:1rem; line-height: 4px;" class="d-flex justify-content-end"> {{ patientData.name }},</p><br>
+    <p style="font-weight:normal; font-size:1rem; line-height: 4px;" class="d-flex justify-content-end">Date : {{ todayDate }}</p><br>
   </div>
 </div>
 <div class="row mt-3">
@@ -103,100 +102,66 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col-1" style="width: 15%; text-align:center">ID</th>
+        <th scope="col-1" style="width: 15%; text-align:center">SLMC</th>
         <th scope="col-6"style="width: 35%; text-align:center">Doctor Name</th>
         <th scope="col-4"style="width: 35%; text-align:center">Doctor Type</th>
         <th scope="col-1"style="width: 15%; text-align:center">Doctor Charge (Rs.)</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+      <tr *ngFor="let d of patientDoctors">
+        <th scope="row">{{ d.SLMC }}</th>
+        <td>Dr {{ d.fullname }}</td>
+        <td>{{ d.type }}</td>
+        <td>Rs. 1200</td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+
     </tbody>
   </table>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-end">
+      <h2 style="font-weight: bold;">Total for Doctors : Rs {{ doctorTotal }}</h2>
+    </div>
+  </div>
 </div>
 <div class="row mt-3">
   <label for="doc">Medicine Details</label>
   <table class="table">
     <thead>
-      <tr>
-        <th scope="col-1" style="width: 15%; text-align:center">ID</th>
-        <th scope="col-6"style="width: 35%; text-align:center">Doctor Name</th>
-        <th scope="col-4"style="width: 35%; text-align:center">Doctor Type</th>
-        <th scope="col-1"style="width: 15%; text-align:center">Doctor Charge (Rs.)</th>
+      <tr >
+        <th scope="col-1" style="width: 10%; text-align:center">ID</th>
+        <th scope="col-6"style="width: 45%; text-align:center">Drug Name</th>
+        <th scope="col-4"style="width: 15%; text-align:center">Quantity</th>
+        <th scope="col-1"style="width: 15%; text-align:center">Price Rs.</th>
+        <th scope="col-1"style="width: 15%; text-align:center">Total Rs.</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+      <tr *ngFor="let d of medicineList; let i = index">
+        <th scope="row">{{ i+1 }}</th>
+        <td>{{ d.drugname }}</td>
+        <td>{{ d.quantity }}</td>
+        <td>Rs. {{ d.priceofone }}</td>
+        <td>Rs. {{ d.priceofone * d.quantity  }}</td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+
     </tbody>
   </table>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-end">
+      <h2 style="font-weight: bold;">Total for Medicine : Rs {{ total }}</h2>
+    </div>
+  </div>
 </div>
 <div class="row">
   <div class="col-12">
-    <h2 class="d-flex justify-content-end">Total Rs. 32403.00</h2>
+    <h1 style="font-weight: bold;" class="d-flex justify-content-end">Total Rs. {{ total + doctorTotal }}</h1>
   </div>
   <div class="col-6">
-    <h4>Admin sign : .....................</h4>
+    <h4 style="font-weight: bold;">Admin sign : .....................</h4>
   </div>
   <div class="col-6  d-flex justify-content-end">
-   <h4>Patient sign : .....................</h4>
+   <h4 style="font-weight: bold;">Patient sign : .....................</h4>
   </div>
 </div>
 </div>
@@ -206,7 +171,12 @@
 
   </div>
 </div>
-<button (click)="printDiv()">Print only the above div</button>
+<div class="row">
+  <div class="col-12 d-flex justify-content-end p-3">
+    <button class="btn btn-success " (click)="printDiv()">Print Bill</button>
+  </div>
+</div>
+
 </div>
 
 

@@ -33,7 +33,7 @@ export class PatientEditProfileComponent implements OnInit {
     bloodpresure:new FormControl(''),
     cholestrol:new FormControl(''),
     gender:new FormControl(''),
-    wardno:new FormControl(''),
+    wardno:new FormControl(1),
     subscription:new FormControl(false),
     nic:new FormControl('')
 

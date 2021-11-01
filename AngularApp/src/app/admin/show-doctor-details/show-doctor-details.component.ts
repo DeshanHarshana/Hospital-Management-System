@@ -11,6 +11,7 @@ import { DoctorService } from 'src/app/services/doctor.service';
 export class ShowDoctorDetailsComponent implements OnInit {
   data:any=[];
   id:string=""
+  cancel:boolean=false;
   constructor(
     private router:Router,
     private route:ActivatedRoute,

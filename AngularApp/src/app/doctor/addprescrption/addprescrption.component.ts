@@ -23,6 +23,8 @@ export class AddprescrptionComponent implements OnInit {
   productForm=new FormGroup({});
   patientName:string="";
   doctorName:string="";
+  contentClass="content mat-elevation-z8";
+  count:number=0;
   name:any="";
   drugList:any=[];
   drugname="";
@@ -85,10 +87,18 @@ export class AddprescrptionComponent implements OnInit {
   }
   addMedicine() {
     this.medicine().push(this.newQuantity());
+    this.count++;
+    if(this.count>=2){
+      this.contentClass="content2 mat-elevation-z8";
+    }
   }
 
   removeMedicine(i:number) {
     this.medicine().removeAt(i);
+    this.count--;
+    if(this.count<2){
+      this.contentClass="content mat-elevation-z8";
+    }
   }
 
   onSubmit() {

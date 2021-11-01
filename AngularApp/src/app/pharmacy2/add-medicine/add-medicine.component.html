@@ -40,7 +40,7 @@
       <div class="row">
         <div class="col-6 d-flex justify-content-center">
           <div class="card personalCard">
-            <h2><u><strong><i>Add new Drug</i></strong></u></h2>
+            <h2  style="font-size:1.5rem;"><u><strong><i>Add new Drug</i></strong></u></h2>
             <form [formGroup]="addForm" style="padding-top: 1.5rem;">
               <div class="col-6">
                 Drug Number
@@ -66,7 +66,7 @@
                   </div>
                 </div>
               </div>
-              <div style=" padding: 2rem; padding-left: 30%; padding-top: 1rem;">
+              <div style=" padding: 2rem; padding-left: 30%; padding-top: 1rem; padding-bottom: 1rem;">
                 <button type="submit" class="btn btn-success btn-lg" (click) = "addNewDrug($event)">Add Item</button>
               </div>
             </form>
@@ -77,7 +77,7 @@
         <div class="col-6 d-flex justify-content-center">
           <div class="card personalCard">
 
-            <h2><u><strong><i>Edit existing Drug </i></strong></u></h2>
+            <h2 style="font-size:1.5rem;"><u><strong><i>Edit existing Drug </i></strong></u></h2>
             <div class="col-12" style="padding: 2%;">
               
               <label for="type" style="color: rgb(7, 5, 10);"><i><b>Select Drug You Want to editing</b></i></label>
@@ -106,7 +106,7 @@
                   </div>
                 </div>
               </div>
-              <div style=" padding: 2rem; padding-left: 30%; padding-top: 1rem;">
+              <div style=" padding: 2rem; padding-left: 30%; padding-top: 1rem; padding-bottom: 1.5rem;">
                 <button type="submit" class="btn btn-warning btn-lg" (click)="updateDrug($event)"
                   [disabled]='!isEditChange'>Update Item</button>
               </div>

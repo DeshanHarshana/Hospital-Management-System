@@ -1761,7 +1761,7 @@ router.put('/updateDrug/:id', function (req, res) {
             $set: {
                     drugname: req.body.drugname,
                     price: req.body.price,
-                    dedescriptionc: req.body.description
+                    description: req.body.description
                     
             }
         }, {
@@ -1781,7 +1781,7 @@ router.put('/updateDrug/:id', function (req, res) {
 //add new drug
 router.post('/addNewDrug', (req, res)=>{
     data={
-        drugId : req.body.drugId,
+        id : req.body.id,
        drugname: req.body.drugname,
        price : req.body.price,
        description : req.body.description,
@@ -1795,11 +1795,6 @@ router.post('/addNewDrug', (req, res)=>{
         }
     })
 })
-
-
-    
-
-    
 
 router.get('/getAllmedicineofPatient/:id', (req,res)=>{
     Prescription.find({patientid:req.params.id}, "medicine", (error,result)=>{

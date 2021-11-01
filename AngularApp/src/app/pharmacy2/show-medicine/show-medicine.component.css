@@ -101,7 +101,7 @@ mat-toolbar {
     }
 .selectDrug{
     padding-left: 10%;
-    font-size:2rem;
+    font-size:1.85rem;
     padding-top: 2.3%;
     font-style: italic;
     font-weight: bold;
@@ -110,7 +110,7 @@ mat-toolbar {
 }
 .cardSet{
   margin-left: 20%;
-
+ 
   max-height: 70%;
   max-height: fit-content;
   justify-content: flex-start;

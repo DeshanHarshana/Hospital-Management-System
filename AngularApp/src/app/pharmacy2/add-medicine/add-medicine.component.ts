@@ -16,6 +16,7 @@ import { Drug } from 'src/app/appdata/Drug';
 })
 export class AddMedicineComponent implements OnInit {
 
+  num = [1, 2, 3];
   tempdata:Drug[]=[]
   drugData:any;
   selectedDrugdata:any = [];
@@ -24,13 +25,14 @@ export class AddMedicineComponent implements OnInit {
   currentDrug: string = '';
   isEditChange : boolean = false;
   isAddChange : boolean = false;
+  drugId :number = 0;
   editForm = new FormGroup({
     drugname : new FormControl(''),
     price : new FormControl(''),
     description : new FormControl('')
   })
   addForm = new FormGroup({
-    drugID : new FormControl(''),
+    id : new FormControl({value: 0, disabled: true}),
     drugname : new FormControl(''),
     price : new FormControl(''),
     description : new FormControl('')
@@ -49,25 +51,14 @@ export class AddMedicineComponent implements OnInit {
 
   ngOnInit(): void {
  
-    // setTimeout(() => {
-
-    //   this.drugService.getSingleDrug(this.currentDrug).subscribe(res=>{
-    //     this.currentDrug = res.id;
-    //     this.drug.get('drugname')?.setValue(res.drugname);
-    //     this.drug.get('price')?.setValue(res.price);
-    //     this.drug.get('des')?.setValue(res.description);
-
-
-
-    //   })
-
-    // }, 2);
-    //get the drug one by one
+  
     setTimeout(() => {
       this.drugService.allDrugs().subscribe(res=>{
         this.tempdata=res;
-        console.log(this.tempdata);
-      });
+        console.log(this.getMax());
+        this.addForm.get('id')?.setValue(this.getMax()+1);
+        this.drugId = this.getMax()+1;
+            });
     }, );
 
   }
@@ -76,20 +67,28 @@ export class AddMedicineComponent implements OnInit {
 
     this.drugService.updateDrug(this.editForm.value, this.currentDrug).subscribe(res=>{
       console.log(res);
-      this.toast("Updating Drug Successfull")
+      this.toast("Updating Drug Successfully")
       this.router.navigate(['show-medicine']);
      
     })
    
+   
   }
 
   addNewDrug(event:any){
-    this.drugService.addNewDrug(this.addForm.value).subscribe(res=>{
-      console.log(res);
-      this.toast("Adding Drug Successfully!")
-      this.router.navigate(['show-medicine']);
-      
-    })
+    console.log(this.addForm.valid)
+    if(this.addForm.valid)
+    {
+      this.addForm.value['id'] = this.drugId;
+      console.log(this.addForm.value);
+      this.drugService.addNewDrug(this.addForm.value).subscribe(res=>{
+        console.log(res);
+        this.toastr.warning( "Adding Succesfull", "Added");
+        this.router.navigate(['show-medicine']);
+        
+      })
+    }
+   
   }
   toast(message:String) {
     this.toastr.warning(message.toString(), "Updating Drug");
@@ -113,5 +112,16 @@ export class AddMedicineComponent implements OnInit {
     
 
   }
+  getMax()
+  {
+    var max = 0;
+    this.tempdata.forEach((value, index)=>{
+      if(value.id >= max ){
+        max = value.id;
+      }
+    })
+   return max;
+  }
+ 
 
 }

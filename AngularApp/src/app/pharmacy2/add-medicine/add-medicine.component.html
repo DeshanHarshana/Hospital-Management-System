@@ -41,20 +41,20 @@
         <div class="col-6 d-flex justify-content-center">
           <div class="card personalCard">
             <h2><u><strong><i>Add new Drug</i></strong></u></h2>
-            <form [formGroup]="addForm">
+            <form [formGroup]="addForm" style="padding-top: 1.5rem;">
               <div class="col-6">
                 Drug Number
-                <input type="numbrer" class="form-control" placeholder="Drug Number" formControlName="drugID">
+                <input type="number" class="form-control" placeholder="Drug Number" formControlName="id" required >
               </div>
               <br>
               <div class="col-6">
                 Drug Name
-                <input type="text" class="form-control" placeholder="Drug Name" formControlName="drugname">
+                <input type="text" class="form-control" placeholder="Drug Name" formControlName="drugname" required>
               </div>
               <br>
               <div class="col-3">
                 Drug Price
-                <input type="number" class="form-control" placeholder="Price" min="0" formControlName="price">
+                <input type="number" class="form-control" placeholder="Price" min="0" formControlName="price" required>
               </div>
               <br>
               <div class="form-group">
@@ -62,12 +62,12 @@
                 <div class="col">
                   <div class="form-group">
                     <textarea class="form-control" id="des" rows="3" placeholder="Description"
-                      formControlName="description"></textarea> <br>
+                      formControlName="description" required></textarea> <br>
                   </div>
                 </div>
               </div>
               <div style=" padding: 2rem; padding-left: 30%; padding-top: 1rem;">
-                <button type="button" class="btn btn-success btn-lg" (click) = "addNewDrug($event)" [disabled] = "">Add Item</button>
+                <button type="submit" class="btn btn-success btn-lg" (click) = "addNewDrug($event)">Add Item</button>
               </div>
             </form>
           </div>
@@ -79,8 +79,10 @@
 
             <h2><u><strong><i>Edit existing Drug </i></strong></u></h2>
             <div class="col-12" style="padding: 2%;">
-
-              <select id="type" class="form-control" (change)='getMedicine($event)'>
+              
+              <label for="type" style="color: rgb(7, 5, 10);"><i><b>Select Drug You Want to editing</b></i></label>
+            
+              <select id="type" class="form-control input-lg" style="width: 400px; margin-bottom:2%; color:rgb(216, 97, 76); font-size:1.4rem; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" (change)='getMedicine($event)'>
                 <option *ngFor="let item of tempdata">{{item.drugname}}</option>
               </select>
             </div>

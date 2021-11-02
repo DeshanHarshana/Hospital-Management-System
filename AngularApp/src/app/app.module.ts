@@ -80,8 +80,6 @@ import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/
 import { AppoinmentlistComponent } from './patient/appoinmentlist/appoinmentlist.component';
 
 import { CheckedAppointmentsComponent } from './doctor/checked-appointments/checked-appointments.component';
-import { ShowPatientbookComponent } from './doctor/show-patientbook/show-patientbook.component';
-import { EditPatientbookComponent } from './doctor/edit-patientbook/edit-patientbook.component';
 
 import { DoctorAppoinmentlistComponent } from './doctor/doctor-appoinmentlist/doctor-appoinmentlist.component';
 import { PatientlistComponent } from './doctor/patientlist/patientlist.component';
@@ -158,9 +156,7 @@ import { PatientBillComponent } from './patient/patient-bill/patient-bill.compon
 
 
     CheckedAppointmentsComponent,
-    ShowPatientbookComponent,
-    EditPatientbookComponent,
-
+   
     DoctorAppoinmentlistComponent,
     PatientlistComponent,
     CalenderComponent,

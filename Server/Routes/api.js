@@ -296,6 +296,13 @@ router.get('/admin-data', function(req,res){
         }
     });
 })
+router.get('/doctor-data', function(req,res){
+    Doctor.find({}, function(error,result){
+        if(!error){
+            res.send(result);
+        }
+    });
+})
 router.get('/get-one-patient/:id', function(req,res){
 
     Patient.findById({ _id: req.params.id }, function (error, result) {

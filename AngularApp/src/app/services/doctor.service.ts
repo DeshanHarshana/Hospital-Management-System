@@ -59,4 +59,7 @@ export class DoctorService {
   changeAvalilability(id:string, data:any){
     return this._http.put<any>("http://localhost:3000/changeAvailability/"+id, data)
   }
+  dashboardData(){
+    return this._http.get<any>("http://localhost:3000/getDashboardData")
+  }
 }

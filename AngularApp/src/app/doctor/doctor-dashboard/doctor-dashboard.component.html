@@ -1,5 +1,5 @@
-<mat-toolbar class="mat-elevation-z8">
-  <h1 routerLink="/Doctor-dashboard" class="logo">Doctor</h1>
+<mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
+  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Doctor-dashboard" src="../../../assets/navbar/logo.png"/>
   <span class="spacer"></span>
   <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
 
@@ -45,11 +45,6 @@
       <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
           <mat-icon>check_box</mat-icon>
           <span>Checked</span>
-      </button>
-
-      <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
-          <mat-icon>assignment_ind</mat-icon>
-          <span>Patient Book</span>
       </button>
 
       <button mat-button class="menu-button" routerLink="/Doctor-dashboard">

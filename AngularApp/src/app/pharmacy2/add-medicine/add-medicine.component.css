@@ -1,0 +1,166 @@
+mat-toolbar {
+    background: #004a9f;
+    color: white;
+  }
+  
+  mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: #002b5c;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 2.5rem;
+  }
+  
+  mat-sidenav-container {
+    height: calc(100vh - 65px);
+  }
+  
+  .menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+  }
+  mat-icon {
+    margin-right: 8px;
+  }
+  
+  .avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .name {
+    margin-top: 8px;
+    font-weight: normal;
+  }
+  
+  .designation {
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: rgb(8, 3, 3);
+  }
+  
+  mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  mat-sidenav-container {
+    height: calc(100vh - 65px);
+  }
+  .content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 2.5rem;
+  padding: 2%;
+    display: flex;
+    justify-content: center;
+  
+  }
+  .header-details{
+    font-family: 'Lemon';
+    color: rgb(221, 105, 27);
+  }
+  .list{
+    padding: 1%;
+  
+  }
+  .heading{
+    font-family: 'Lemon';
+    font-size: 1.1rem;
+    color: rgb(46, 87, 6);
+  }
+  .patientImage{
+    width: 20%;
+    border-radius: 50%;
+  }
+  .phaHead{
+    font-family: "Lemon";
+    font-size: 2rem;
+    color: rgb(28, 49, 6);
+    
+    }
+.selectDrug{
+    padding-left: 10%;
+    font-size:2rem;
+    padding-top: 2.3%;
+    font-style: italic;
+}
+
+
+
+.phar{
+
+ background-image: url("../../../assets/pharm/p1.gif");
+  height: 350px;
+    background-position: center;
+    background-repeat: no-repeat;
+ }
+
+
+ .phar h1{
+ font-size:80px;
+ }
+
+  .phar h3{
+       font-size:80px;
+       }
+
+       .link_p{
+  color: #fff!important;
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 55px 0;
+    display: inline-block;
+  }
+
+  .contant_box{
+     margin-top:-50px;
+    }
+    .go-back {
+      margin-top: -4px;
+      margin-right: -4px;
+      color: white;
+      font-family: courier, sans;
+      cursor: pointer;
+    }
+    .phaHead{
+      font-family: "Lemon";
+      font-size: 2rem;
+      color: rgb(28, 49, 6);
+      
+      }
+   
+
+.personalCard{
+    margin-top: 3%;
+    height: fit-content;
+    width: 50vw;
+    padding: 5%;
+    
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+    }
+    h2{
+        font-family: serif;
+        text-align: center;
+    }
+    

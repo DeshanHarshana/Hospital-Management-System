@@ -106,7 +106,7 @@
 
     <div class="col d-flex align-items-center d-flex justify-content-center" >
       <button class="myButton" routerLink="/Admin-edit-patient-details/{{ patientData._id }}">Edit Details</button>
-      <button class="myButton" style="margin-left: 4%;" routerLink="/Doctor-Add-Prescription/{{ patientData._id }}">Add Prescription</button>
+      <button [hidden]="access" class="myButton" style="margin-left: 4%;" routerLink="/Doctor-Add-Prescription/{{ patientData._id }}">Add Prescription</button>
 
     </div>
 

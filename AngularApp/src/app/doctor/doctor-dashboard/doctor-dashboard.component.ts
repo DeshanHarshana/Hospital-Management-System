@@ -16,6 +16,7 @@ currentDoctor:string=""
 cancel:boolean=false;
 Doctor_count=0;
 Patient_count=0;
+displayImage="";
 Appoinment_count=0;
 notification_count:number=0;
   constructor(
@@ -33,6 +34,7 @@ notification_count:number=0;
     setTimeout(() => {
       this.doctor.getoneDoctor(this.currentDoctor).subscribe(res=>{
         this.doctordata=res;
+        this.displayImage=this.doctordata.displayImage;
       });
       this.notification.getSpecificNotofication(this.currentDoctor).subscribe((res)=>{
         console.log("Notification", Object.keys(res).length)

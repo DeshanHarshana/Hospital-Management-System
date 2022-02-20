@@ -66,8 +66,7 @@ import { ReportlistComponent } from './patient/reportlist/reportlist.component';
 import { AppoinmentDoctorListComponent } from './patient/appoinment-doctor-list/appoinment-doctor-list.component';
 import { AppoinmentlistComponent } from './patient/appoinmentlist/appoinmentlist.component';
 import { CheckedAppointmentsComponent } from './doctor/checked-appointments/checked-appointments.component';
-import { ShowPatientbookComponent } from './doctor/show-patientbook/show-patientbook.component';
-import { EditPatientbookComponent } from './doctor/edit-patientbook/edit-patientbook.component';
+
 import { DoctorAppoinmentlistComponent } from './doctor/doctor-appoinmentlist/doctor-appoinmentlist.component';
 import { PatientlistComponent } from './doctor/patientlist/patientlist.component';
 import { CalenderComponent } from './test/calender/calender.component';
@@ -93,6 +92,7 @@ import { PatientBillComponent } from './patient/patient-bill/patient-bill.compon
 import { PharmacyDashboardComponent } from './pharmacy2/pharmacy-dashboard/pharmacy-dashboard.component';
 import { AddMedicineComponent } from './pharmacy2/add-medicine/add-medicine.component';
 import { ShowMedicineComponent } from './pharmacy2/show-medicine/show-medicine.component';
+
 
 @NgModule({
   declarations: [
@@ -125,8 +125,7 @@ import { ShowMedicineComponent } from './pharmacy2/show-medicine/show-medicine.c
     AppoinmentDoctorListComponent,
     AppoinmentlistComponent,
     CheckedAppointmentsComponent,
-    ShowPatientbookComponent,
-    EditPatientbookComponent,
+
     DoctorAppoinmentlistComponent,
     PatientlistComponent,
     CalenderComponent,
@@ -147,7 +146,19 @@ import { ShowMedicineComponent } from './pharmacy2/show-medicine/show-medicine.c
     AddMedicineComponent,
     ShowMedicineComponent,
 
-],
+
+
+
+
+
+
+
+
+
+
+
+    ],
+
   imports: [
     ImageCropperModule,
     MatAutocompleteModule,

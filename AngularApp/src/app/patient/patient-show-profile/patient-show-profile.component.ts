@@ -16,7 +16,7 @@ export class PatientShowProfileComponent implements OnInit {
   cholestrolLevel:number=0;
   sugerLevel:number=0;
   presureLevel:number=0;
-
+  access=false;
   patientData:any=[]
   constructor(
     private router:Router,
@@ -28,6 +28,8 @@ export class PatientShowProfileComponent implements OnInit {
   ngOnInit(): void {
 
     const id=this.route.snapshot.params.id;
+    this.access=localStorage.getItem('access')=="admin";
+
     console.log(id)
     setTimeout(() => {
       this.patient.getonePatient(id).subscribe(res=>{

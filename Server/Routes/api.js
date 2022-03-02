@@ -296,6 +296,13 @@ router.get('/admin-data', function(req,res){
         }
     });
 })
+router.get('/doctor-data', function(req,res){
+    Doctor.find({}, function(error,result){
+        if(!error){
+            res.send(result);
+        }
+    });
+})
 router.get('/get-one-patient/:id', function(req,res){
 
     Patient.findById({ _id: req.params.id }, function (error, result) {
@@ -1738,6 +1745,58 @@ router.get('/seen/:id', (req, res)=>{
 //drugs
 router.get("/allDrugs", (req,res)=>{
     Drug.find({}, (error,result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
+
+//get single drug
+router.get('/getSingleDrug/:id', function(req, res){
+    Drug.findOne({_id:req.params.id}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+});
+
+//update drug
+
+router.put('/updateDrug/:id', function (req, res) {
+    Drug.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                    drugname: req.body.drugname,
+                    price: req.body.price,
+                    description: req.body.description
+                    
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
+
+
+});
+
+//add new drug
+router.post('/addNewDrug', (req, res)=>{
+    data={
+        id : req.body.id,
+       drugname: req.body.drugname,
+       price : req.body.price,
+       description : req.body.description,
+    }
+
+    var drug = new Drug(data);
+
+    drug.save((error, result)=>{
         if(!error){
             res.send(result);
         }

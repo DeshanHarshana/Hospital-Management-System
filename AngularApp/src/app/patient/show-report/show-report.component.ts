@@ -11,8 +11,6 @@ import { ReportsService } from 'src/app/services/reports.service';
 })
 export class ShowReportComponent implements OnInit {
   report = new FormGroup({
-
-
     heartDisease:new FormControl({value: false, disabled: true}),
     diabetes:new FormControl({value: false, disabled: true}),
     hbp: new FormControl({value: false, disabled: true}),
@@ -25,10 +23,7 @@ export class ShowReportComponent implements OnInit {
     latex:new FormControl({value: false, disabled: true}),
     iodine:new FormControl({value: false, disabled: true}),
     bromine:new FormControl({value: false, disabled: true}),
-
-
-
-  });
+});
   reportData:any=[];
   currentReport:any="";
   role:string='';

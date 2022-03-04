@@ -17,6 +17,8 @@ export class PatientlistComponent implements OnInit {
   p: number = 1;
   filterdData: any = [];
   currentDoctor: any;
+  displayImage="";
+  doctordata:any=[];
   constructor(
     private router: Router,
     private auth: AuthenticationService,
@@ -28,6 +30,12 @@ export class PatientlistComponent implements OnInit {
   ngOnInit(): void {
     this.currentDoctor = String(localStorage.getItem('doctorid') || '');
     setTimeout(() => {
+      this.currentDoctor=String(localStorage.getItem('doctorid') || '');
+
+      this.doctorService.getoneDoctor(this.currentDoctor).subscribe(res=>{
+        this.doctordata=res;
+        this.displayImage=this.doctordata.displayImage;
+      })
       this.doctorService.getPatientList(this.currentDoctor).subscribe(res=>{
         this.filterdData=res;
         console.log(this.filterdData)

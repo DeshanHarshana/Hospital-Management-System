@@ -8,10 +8,15 @@
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
 
-      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+    <img class="avatar mat-elevation-z8" src="{{ displayImage }}" />
 
-      <h4 class="name">Deshan Harshana</h4>
-      <p class="designation">Hospital Admin</p>
+    <h4 class="name">Dr {{ doctordata.fullname }}</h4>
+    <p class="designation">Hospital Doctor</p>
+    <div class="container d-flex justify-content-center d-flex align-items-center" style="font-size: 1rem;">
+      Available
+
+
+        </div>
 
       <mat-divider></mat-divider>
 

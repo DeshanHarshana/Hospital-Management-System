@@ -21,6 +21,8 @@ export class AddprescrptionComponent implements OnInit {
   faMoneyCheckAlt=faMoneyCheckAlt;
   faCheckCircle=faCheckCircle;
   productForm=new FormGroup({});
+  displayImage="";
+doctordata:any=[];
   patientName:string="";
   doctorName:string="";
   contentClass="content mat-elevation-z8";

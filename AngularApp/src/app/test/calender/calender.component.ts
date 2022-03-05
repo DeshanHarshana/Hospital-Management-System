@@ -27,6 +27,7 @@ import { Component,
     CalendarView,
   } from 'angular-calendar';
 import { AppoinmentService } from 'src/app/services/appoinment.service';
+import { DoctorService } from 'src/app/services/doctor.service';
 
   const colors: any = {
     red: {
@@ -51,6 +52,9 @@ import { AppoinmentService } from 'src/app/services/appoinment.service';
 })
 export class CalenderComponent implements OnInit {
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any> | undefined;
+  currentDoctor: any;
+  displayImage="";
+  doctordata:any=[];
 
   view: CalendarView = CalendarView.Month;
 
@@ -80,12 +84,19 @@ export class CalenderComponent implements OnInit {
     private route:ActivatedRoute,
     private auth:AuthenticationService,
     private admin:AdminService,
-    private appoinment:AppoinmentService
+    private appoinment:AppoinmentService,
+    private doctorService:DoctorService
     ) {
 
     }
   ngOnInit(): void {
 setTimeout(()=>{
+  this.currentDoctor=String(localStorage.getItem('doctorid') || '');
+
+      this.doctorService.getoneDoctor(this.currentDoctor).subscribe(res=>{
+        this.doctordata=res;
+        this.displayImage=this.doctordata.displayImage;
+      })
   this.admin.getAdmin().subscribe(res=>{
     this.admindata=res;
     console.log(res);

@@ -22,32 +22,28 @@
           </div>
       <mat-divider></mat-divider>
 
-      <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+   <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
           <mat-icon>home</mat-icon>
           <span>Home</span>
       </button>
 
-      <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+      <button mat-button class="menu-button" routerLink="/show-doctor-details/:id">
           <mat-icon>account_circle</mat-icon>
           <span>Profile</span>
       </button>
 
-      <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+      <button mat-button class="menu-button" routerLink="/DoctorPatientList">
           <mat-icon>people</mat-icon>
           <span>Patients</span>
       </button>
 
-      <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+      <button mat-button class="menu-button" routerLink="/DoctorAppoinmentList">
           <mat-icon>assignment</mat-icon>
           <span>Appointments</span>
       </button>
 
-      <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
-          <mat-icon>check_box</mat-icon>
-          <span>Checked</span>
-      </button>
 
-      <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+      <button mat-button class="menu-button" routerLink="/calendarDoctor">
           <mat-icon>add_alert</mat-icon>
           <span>Reminder</span>
       </button>
@@ -95,13 +91,7 @@
       </div>
     </div>
 
-    <div class="col-4 x d-flex justify-content-center">
-      <div class="card patient-book zoom" routerLink="">
-        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">10</h1>
-        <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:7%; font-size:3.0rem;">Patient Book</h1>
-      </div>
-    </div>
-
+  
      <div class="col-4 x d-flex justify-content-center">
       <div class="card reminder zoom" routerLink="/calendarDoctor">
         <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">3</h1>

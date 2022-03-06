@@ -11,8 +11,14 @@ import { NotificationService } from 'src/app/services/notification.service';
   styleUrls: ['./doctor-dashboard.component.css']
 })
 export class DoctorDashboardComponent implements OnInit {
-doctordata:any=[];
+
 currentDoctor:string=""
+cancel:boolean=false;
+Doctor_count=0;
+Patient_count=0;
+displayImage="";
+doctordata:any=[];
+Appoinment_count=0;
 notification_count:number=0;
   constructor(
     private router:Router,
@@ -29,14 +35,24 @@ notification_count:number=0;
     setTimeout(() => {
       this.doctor.getoneDoctor(this.currentDoctor).subscribe(res=>{
         this.doctordata=res;
+        this.displayImage=this.doctordata.displayImage;
       });
       this.notification.getSpecificNotofication(this.currentDoctor).subscribe((res)=>{
         console.log("Notification", Object.keys(res).length)
         this.notification_count=Object.keys(res).filter(k=>res[k].seen==false).length
+      });
+      this.doctor.getAllDoctors().subscribe(res=>{
+        this.doctordata=res;
+      });
+      this.doctor.dashboardData().subscribe(res=>{
+        this.Doctor_count=res.doctor;
+        this.Appoinment_count=res.appoinment;
+        this.Patient_count=res.patient;
       })
     });
 
   }
+
 
   logout(){
 

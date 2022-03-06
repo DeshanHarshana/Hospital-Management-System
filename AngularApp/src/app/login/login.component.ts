@@ -99,7 +99,7 @@ export class LoginComponent implements OnInit {
           else if(this.id==4){
             localStorage.setItem("access",'pharmacist');
             localStorage.setItem("pharmacistid", res.pharmacistid);
-            this.router.navigate(['display-prescription'])
+            this.router.navigate(['pharmacy-home'])
           }
         }
       }

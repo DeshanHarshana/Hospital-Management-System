@@ -1,7 +1,7 @@
 
 
-<mat-toolbar class="mat-elevation-z8">
-  <h1 class="adminlogo" routerLink=""></h1>
+<mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
+  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Doctor-dashboard" src="../../../assets/navbar/logo.png"/>
   <span class="spacer"></span>
   <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
 
@@ -10,33 +10,39 @@
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
 
-      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+    <img class="avatar mat-elevation-z8" src="{{ displayImage }}" />
 
-      <h4 class="name">Deshan Harshana</h4>
-      <p class="designation">Hospital Admin</p>
+    <h4 class="name">Dr {{ doctordata.fullname }}</h4>
+    <p class="designation">Hospital Doctor</p>
+    <div class="container d-flex justify-content-center d-flex align-items-center" style="font-size: 1rem;">
+      Available
+
+
+        </div>
 
       <mat-divider></mat-divider>
 
-      <button mat-button class="menu-button" routerLink="/Admin-dashboard">
-          <mat-icon>home</mat-icon>
-          <span>Home</span>
-      </button>
-      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
-        <mat-icon>person_add</mat-icon>
-          <span>Add Doctor</span>
-      </button>
-      <button mat-button class="menu-button" routerLink="/Admin-show-all-patient-list">
-        <mat-icon>people</mat-icon>
-        <span>All Patient</span>
+<button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
     </button>
-    <button mat-button class="menu-button" routerLink="/Admin-show-doctorlist">
-      <mat-icon>person_outline</mat-icon>
-      <span>All Doctors</span>
-  </button>
-  <button mat-button class="menu-button" routerLink="/Admin-show-all-appoinment-list">
-    <mat-icon>book</mat-icon>
-    <span>Appoinments</span>
- </button>
+
+
+    <button mat-button class="menu-button" routerLink="/DoctorPatientList">
+        <mat-icon>people</mat-icon>
+        <span>Patients</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/DoctorAppoinmentList">
+        <mat-icon>assignment</mat-icon>
+        <span>Appointments</span>
+    </button>
+
+
+    <button mat-button class="menu-button" routerLink="/calendarDoctor">
+        <mat-icon>add_alert</mat-icon>
+        <span>Reminder</span>
+    </button>
 
 
   </mat-sidenav>
@@ -79,30 +85,16 @@
                <div class="row">
                  <div class="col-6">
                   <label for="name">Current Patient</label>
-                  <h3 id="name">10</h3>
-
+                  <h3 id="name">{{ patient }}</h3>
+</div>
+<div class="col-6">
                   <label for="name">Current Ward</label>
-                  <h3 id="name">Ward 10</h3>
+                  <h3 id="name">{{ ward }}</h3>
 
-
-                  <label for="name">Current Ward</label>
-                  <h3 id="name">Ward 10</h3>
 
 
                  </div>
-                 <div class="col-6">
-                  <label for="name">Pending Appoinment</label>
-                  <h3 id="name">4</h3>
 
-                  <label for="name">Availabe Time</label>
-                  <h3 id="name">10AM - 13PM</h3>
-
-
-                  <label for="name">Current Ward</label>
-                  <h3 id="name">Ward 10</h3>
-
-
-                 </div>
                </div>
 
              </div>
@@ -196,66 +188,32 @@
         <div class="card-body">
           <div class="row" style="font-size: 1.1rem; border-bottom:black solid 1px">
             <div class="col-3">
+              Patient Image
+            </div>
+            <div class="col-3">
               Patient Name
             </div>
-            <div class="col-3">
-              Disease
-            </div>
-            <div class="col-3">
-              Appointment Time
-            </div>
+
             <div class="col-3">
               More Details
             </div>
 
           </div>
-          <div class="row d-flex align-items-center d-flex justify-content-center" style="font-size: 1rem; margin-top:1%;  ">
-            <div class="col-3">
-              <img class="patientImage" src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg">
+          <div *ngFor="let data of patientList">
+          <div class="row d-flex align-items-center d-flex justify-content-center"  style="font-size: 1rem; margin-top:1%;  ">
+            <div class="col-3" >
+              <img class="patientImage" src="{{ data.displayImage }}">
 
             </div>
-            <div class="col-3">
-              Fever
-            </div>
-            <div class="col-3">
-              10.30 AM
-            </div>
-            <div class="col-3">
-              <a href="">Show More</a>
+            <div class="col-5">
+              <h1>{{ data.name }}</h1>
             </div>
 
-          </div>
-          <div class="row d-flex align-items-center d-flex justify-content-center" style="font-size: 1rem; margin-top:1%;  ">
-            <div class="col-3">
-              <img class="patientImage" src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg">
-
-            </div>
-            <div class="col-3">
-              Fever
-            </div>
-            <div class="col-3">
-              10.30 AM
-            </div>
-            <div class="col-3">
-              <a href="">Show More</a>
+            <div class="col-4">
+              <a href="" routerLink="/Admin-show-patient-details/{{ data._id }}">Show More</a>
             </div>
 
           </div>
-          <div class="row d-flex align-items-center d-flex justify-content-center" style="font-size: 1rem; margin-top:1%;  ">
-            <div class="col-3">
-              <img class="patientImage" src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg">
-
-            </div>
-            <div class="col-3">
-              Fever
-            </div>
-            <div class="col-3">
-              10.30 AM
-            </div>
-            <div class="col-3">
-              <a href="">Show More</a>
-            </div>
-
           </div>
           <div class="row " style="font-size: 1rem; margin-top:1%; margin-bottom:1%  ">
             <div class=" d-flex align-items-center d-flex justify-content-center"><a href="">Show All Patient</a></div>

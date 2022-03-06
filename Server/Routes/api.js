@@ -196,7 +196,7 @@ router.post('/login',  function (req, res) {
             }
         });
     }
-
+console.log(res);
 });
 
 
@@ -231,7 +231,7 @@ router.post('/signup', function (req, res) {
                     bloodsuger: "",
                     cholestrol: "",
                     bloodpresure: "",
-                    displayImage: "https://www.premierbandsusa.com/pub/media/wysiwyg/smartwave/300.gif",
+                    displayImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png",
                     wardno: "",
                     phone: "",
                     reportList: [],
@@ -291,6 +291,13 @@ router.get('/get-one-doctor/:id', function (req, res) {
 //get admin data
 router.get('/admin-data', function(req,res){
     Admin.find({}, function(error,result){
+        if(!error){
+            res.send(result);
+        }
+    });
+})
+router.get('/doctor-data', function(req,res){
+    Doctor.find({}, function(error,result){
         if(!error){
             res.send(result);
         }
@@ -1738,6 +1745,58 @@ router.get('/seen/:id', (req, res)=>{
 //drugs
 router.get("/allDrugs", (req,res)=>{
     Drug.find({}, (error,result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
+
+//get single drug
+router.get('/getSingleDrug/:id', function(req, res){
+    Drug.findOne({_id:req.params.id}, (error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+});
+
+//update drug
+
+router.put('/updateDrug/:id', function (req, res) {
+    Drug.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                    drugname: req.body.drugname,
+                    price: req.body.price,
+                    description: req.body.description
+                    
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
+
+
+});
+
+//add new drug
+router.post('/addNewDrug', (req, res)=>{
+    data={
+        id : req.body.id,
+       drugname: req.body.drugname,
+       price : req.body.price,
+       description : req.body.description,
+    }
+
+    var drug = new Drug(data);
+
+    drug.save((error, result)=>{
         if(!error){
             res.send(result);
         }

@@ -1,5 +1,5 @@
-<mat-toolbar class="mat-elevation-z8">
-  <h1 class="adminlogo" routerLink="/Admin-dashboard">Admin</h1>
+<mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
+  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Doctor-dashboard" src="../../../assets/navbar/logo.png"/>
   <span class="spacer"></span>
   <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
 
@@ -8,21 +8,43 @@
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
 
-      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+    <img class="avatar mat-elevation-z8" src="{{ displayImage }}" />
 
-      <h4 class="name">Deshan Harshana</h4>
-      <p class="designation">Hospital Admin</p>
+    <h4 class="name">Dr {{ doctordata.fullname }}</h4>
+    <p class="designation">Hospital Doctor</p>
+    <div class="container d-flex justify-content-center d-flex align-items-center" style="font-size: 1rem;">
+      Available
+
+
+        </div>
+
 
       <mat-divider></mat-divider>
 
-      <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
-          <mat-icon>home</mat-icon>
-          <span>Home</span>
-      </button>
-      <button mat-button class="menu-button" routerLink="/Admin-Add-Doctor">
-          <mat-icon>person</mat-icon>
-          <span>Add Doctor</span>
-      </button>
+
+       <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/show-doctor-details/:id">
+        <mat-icon>account_circle</mat-icon>
+        <span>Profile</span>
+    </button>
+
+    
+
+    <button mat-button class="menu-button" routerLink="/DoctorAppoinmentList">
+        <mat-icon>assignment</mat-icon>
+        <span>Appointments</span>
+    </button>
+
+
+    <button mat-button class="menu-button" routerLink="/calendarDoctor">
+        <mat-icon>add_alert</mat-icon>
+        <span>Reminder</span>
+    </button>
+
 
 
 

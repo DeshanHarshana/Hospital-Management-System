@@ -3,6 +3,47 @@ export class Methods {
 
   }
 
+  doctorWard(data:string){
+    var ward=0;
+    switch(data){
+      case "Epidemiologist":
+        ward=1;
+        break;
+      case "Dentist":
+        ward=2;
+        break;
+      case "Pediatrician":
+        ward=3;
+        break;
+      case "Podiatrist":
+        ward=4;
+        break;
+      case "Dermatologist":
+        ward=5;
+        break;
+      case "Radiologist":
+        ward=6;
+        break;
+
+      case "Neonatologist":
+        ward=7;
+        break;
+      case "Dentist":
+        ward=8;
+        break;
+      case "Cardiologist":
+        ward=10;
+        break;
+      case "Plastic surgeon":
+        ward=12;
+        break;
+      default:
+        ward=9;
+        break;
+    }
+    return ward;
+  }
+
  convert(date:string){
 
 var day=date.toString().split(" ")[2];

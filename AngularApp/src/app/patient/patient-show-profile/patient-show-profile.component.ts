@@ -18,6 +18,7 @@ export class PatientShowProfileComponent implements OnInit {
   presureLevel:number=0;
   access=false;
   patientData:any=[]
+  routePath="";
   constructor(
     private router:Router,
     private auth:AuthenticationService,
@@ -29,6 +30,12 @@ export class PatientShowProfileComponent implements OnInit {
 
     const id=this.route.snapshot.params.id;
     this.access=localStorage.getItem('access')=="admin";
+    if(localStorage.getItem('access')=="patient"){
+      this.routePath="Patient-dashboard";
+    }
+    else if(this.access){
+      this.routePath="Admin-dashboard";
+    }
 
     console.log(id)
     setTimeout(() => {

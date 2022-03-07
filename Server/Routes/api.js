@@ -196,7 +196,7 @@ router.post('/login',  function (req, res) {
             }
         });
     }
-
+console.log(res);
 });
 
 
@@ -231,7 +231,7 @@ router.post('/signup', function (req, res) {
                     bloodsuger: "",
                     cholestrol: "",
                     bloodpresure: "",
-                    displayImage: "https://www.premierbandsusa.com/pub/media/wysiwyg/smartwave/300.gif",
+                    displayImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png",
                     wardno: "",
                     phone: "",
                     reportList: [],

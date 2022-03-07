@@ -16,17 +16,26 @@ export class DoctorAppoinmentlistComponent implements OnInit {
   p: number = 1;
   filterdData: any = [];
   currentDoctor: any;
+  displayImage="";
+doctordata:any=[];
   constructor(
     private router: Router,
     private auth: AuthenticationService,
     private patient: PatientService,
     private apt: AppoinmentService,
+    private doctor:DoctorService,
     private doctorService:DoctorService
   ) {}
 
   ngOnInit(): void {
     this.currentDoctor = String(localStorage.getItem('doctorid') || '');
-    setTimeout(() => {
+
+      this.currentDoctor=String(localStorage.getItem('doctorid') || '');
+
+      this.doctor.getoneDoctor(this.currentDoctor).subscribe(res=>{
+        this.doctordata=res;
+        this.displayImage=this.doctordata.displayImage;
+
       this.apt
         .getPatienthisAppoinmentsDoctor(this.currentDoctor)
         .subscribe((res) => {

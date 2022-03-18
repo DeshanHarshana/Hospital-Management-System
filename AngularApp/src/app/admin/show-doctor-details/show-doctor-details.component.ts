@@ -16,19 +16,28 @@ export class ShowDoctorDetailsComponent implements OnInit {
   id:string="";
   ward=0;
   patient=0;
-
+  displayImage="";
+  doctordata:any=[];
   cancel:boolean=false;
+  currentDoctor="";
   constructor(
     private router:Router,
     private route:ActivatedRoute,
     private doctorService:DoctorService,
     private auth:AuthenticationService,
     private method:Methods,
+    private doctor:DoctorService
 
   ) { }
 
   ngOnInit(): void {
     setTimeout(() => {
+      this.currentDoctor=String(localStorage.getItem('doctorid') || '');
+
+      this.doctor.getoneDoctor(this.currentDoctor).subscribe(res=>{
+        this.doctordata=res;
+        this.displayImage=this.doctordata.displayImage;
+      })
       this.id=this.route.snapshot.params.id;
       this.doctorService.getoneDoctor(this.id).subscribe((res)=>{
         this.data=res;

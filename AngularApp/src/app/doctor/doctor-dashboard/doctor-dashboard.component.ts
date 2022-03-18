@@ -11,12 +11,13 @@ import { NotificationService } from 'src/app/services/notification.service';
   styleUrls: ['./doctor-dashboard.component.css']
 })
 export class DoctorDashboardComponent implements OnInit {
-doctordata:any=[];
+
 currentDoctor:string=""
 cancel:boolean=false;
 Doctor_count=0;
 Patient_count=0;
 displayImage="";
+doctordata:any=[];
 Appoinment_count=0;
 notification_count:number=0;
   constructor(

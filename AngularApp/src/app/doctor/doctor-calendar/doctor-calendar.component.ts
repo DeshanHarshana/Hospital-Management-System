@@ -27,6 +27,7 @@ import { Component,
     CalendarView,
   } from 'angular-calendar';
 import { AppoinmentService } from 'src/app/services/appoinment.service';
+import { DoctorService } from 'src/app/services/doctor.service';
 
   const colors: any = {
     red: {
@@ -56,6 +57,8 @@ export class DoctorCalendarComponent implements OnInit {
 
   viewDate: Date = new Date();
 
+  displayImage="";
+  doctordata:any=[];
   modalData: {
     action: string;
     event: CalendarEvent;
@@ -79,7 +82,8 @@ export class DoctorCalendarComponent implements OnInit {
     private route:ActivatedRoute,
     private auth:AuthenticationService,
     private admin:AdminService,
-    private appoinment:AppoinmentService
+    private appoinment:AppoinmentService,
+    private doctorService:DoctorService
     ) {
 
     }
@@ -92,6 +96,12 @@ setTimeout(()=>{
   });
 });
 setTimeout(()=>{
+  this.currentDoctor=String(localStorage.getItem('doctorid') || '');
+
+  this.doctorService.getoneDoctor(this.currentDoctor).subscribe(res=>{
+    this.doctordata=res;
+    this.displayImage=this.doctordata.displayImage;
+  })
   this.appoinment.getDoctorAppoinments(this.currentDoctor).subscribe(res=>{
 
     res.forEach((element: any) => {

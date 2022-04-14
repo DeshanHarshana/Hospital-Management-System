@@ -15,4 +15,8 @@ export class PharmacistService {
   addPharmacist(data:any){
    return  this._http.post<any>("http://localhost:3000/addnewPharmacist",data)
   }
+
+  getPharmacist(id:any){
+    return this._http.get<any>("http://localhost:3000/getPhamasisit/"+id);
+  }
 }

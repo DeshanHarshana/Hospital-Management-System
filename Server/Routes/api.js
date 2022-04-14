@@ -1433,6 +1433,16 @@ router.get('/getProducts', function(req,res){
     })
 });
 
+router.get('/getPhamasisit/:id', function(req,res){
+    Pharmacist.findOne({_id:req.params.id}, (error, result)=>{
+        if(error){
+            res.send({message:"error"})
+        }else{
+            res.send(result);
+        }
+    })
+})
+
 router.get('/getProduct/:id', function(req,res){
     Product.findOne({_id:req.params.id}, (error, result)=>{
         if(error){

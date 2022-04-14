@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DrugService } from 'src/app/services/drug.service';
 import { Drug } from 'src/app/appdata/Drug';
+import { PharmacistService } from 'src/app/services/pharmacist.service';
 
 
 
@@ -15,7 +16,7 @@ import { Drug } from 'src/app/appdata/Drug';
   styleUrls: ['./add-medicine.component.css']
 })
 export class AddMedicineComponent implements OnInit {
-
+  name:string="";
   num = [1, 2, 3];
   tempdata:Drug[]=[]
   drugData:any;
@@ -45,6 +46,7 @@ export class AddMedicineComponent implements OnInit {
     public route: ActivatedRoute,
     private auth: AuthenticationService,
     private drugService: DrugService,
+    private pharmasisit:PharmacistService
 
 
   ) { }
@@ -60,6 +62,10 @@ export class AddMedicineComponent implements OnInit {
         this.drugId = this.getMax()+1;
             });
     }, );
+    this.pharmasisit.getPharmacist(localStorage.getItem("pharmacistid")||" ").subscribe(res=>{
+      this.name=res.name;
+      //console.log(res);
+    })
 
   }
 

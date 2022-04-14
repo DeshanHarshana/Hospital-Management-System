@@ -15,6 +15,8 @@ import { ReportsService } from 'src/app/services/reports.service';
   providers:[Methods]
 })
 export class EditReportComponent implements OnInit {
+  displayImage="";
+  doctordata:any=[];
   report = new FormGroup({
     name:new FormControl(''),
     age:new FormControl(''),
@@ -108,6 +110,11 @@ export class EditReportComponent implements OnInit {
       })
 
     }, 2);
+    this.doctor.getoneDoctor(localStorage.getItem('doctorid')||"").subscribe(res=>{
+      this.doctordata=res;
+      this.displayImage=res.displayImage;
+      
+    })
 
   }
 
@@ -145,4 +152,10 @@ export class EditReportComponent implements OnInit {
            })
          })
        }
+       profile(){
+        this.router.navigate(['show-doctor-details/'+localStorage.getItem('doctorid')])
+      }
+      patientload(){
+        this.router.navigate(['DoctorPatientList/'+localStorage.getItem('doctorid')])
+      }
 }

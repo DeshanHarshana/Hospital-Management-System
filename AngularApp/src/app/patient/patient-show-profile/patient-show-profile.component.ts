@@ -51,6 +51,13 @@ export class PatientShowProfileComponent implements OnInit {
 
 
   }
+  addPrescription(){
+    const access=localStorage.getItem('access')
+    if(access=="doctor"){
+      return false;
+    }
+    return true;
+  }
   goHome(){
     const access=localStorage.getItem('access')
     console.log(access);

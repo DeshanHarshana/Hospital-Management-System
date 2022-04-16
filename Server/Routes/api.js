@@ -196,7 +196,7 @@ router.post('/login',  function (req, res) {
             }
         });
     }
-console.log(res);
+
 });
 
 

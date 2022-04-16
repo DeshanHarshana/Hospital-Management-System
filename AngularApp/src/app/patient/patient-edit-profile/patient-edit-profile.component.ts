@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { DoctorService } from 'src/app/services/doctor.service';
 import { PatientService } from 'src/app/services/patient.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-patient-edit-profile',
   templateUrl: './patient-edit-profile.component.html',
@@ -119,7 +119,11 @@ export class PatientEditProfileComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
-
+  alert(){
+    Swal.fire(
+     "Choose Image 300x300"
+    )
+  }
 
   editpatient(patient:any){
     if(this.isImageselected){

@@ -15,6 +15,9 @@ export class AppoinmentlistComponent implements OnInit {
   p: number = 1;
   filterdData: any = [];
   currentPatient: any;
+  patientname:string="";
+  displayImage:string="";
+  patient_id : string = '';
   constructor(
     private router: Router,
     private auth: AuthenticationService,
@@ -32,6 +35,15 @@ export class AppoinmentlistComponent implements OnInit {
           this.filterdData = this.tempdata;
         });
     });
+    this.patient_id = localStorage.getItem('patientid') || '';
+    console.log(this.patient_id);
+
+    this.patient.getonePatient(this.patient_id).subscribe(res=>{
+      this.patientname=res.name;
+      this.displayImage=res.displayImage;
+    })
+
+
   }
   logout() {
     this.auth.logout();

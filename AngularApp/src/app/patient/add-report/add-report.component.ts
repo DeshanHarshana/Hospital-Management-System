@@ -18,6 +18,8 @@ import { ReportsService } from 'src/app/services/reports.service';
   providers:[Methods]
 })
 export class AddReportComponent implements OnInit {
+  displayImage="";
+  doctordata:any=[];
   report = new FormGroup({
     name:new FormControl(''),
     age:new FormControl(''),
@@ -75,6 +77,8 @@ export class AddReportComponent implements OnInit {
 
     setTimeout(() => {
       this.doctor.getoneDoctor(this.currentDoctor).subscribe(res=>{
+        this.doctordata=res;
+        this.displayImage=res.displayImage;
         this.doctorName=res.fullname;
       })
     }, 2);
@@ -107,4 +111,12 @@ export class AddReportComponent implements OnInit {
     toast(message:String) {
       this.toastr.warning(message.toString(), "Adding Report");
      }
+
+     profile(){
+      this.router.navigate(['show-doctor-details/'+localStorage.getItem('doctorid')])
+    }
+    patientload(){
+      this.router.navigate(['DoctorPatientList/'+localStorage.getItem('doctorid')])
+    }
+  
 }

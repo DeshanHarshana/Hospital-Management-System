@@ -10,38 +10,18 @@
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
 
-      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+      <img class="avatar mat-elevation-z8" [src]="imageData" />
 
-      <h4 class="name">Deshan Harshana</h4>
-      <p class="designation">Hospital Admin</p>
+      <h4 class="name">{{name}}</h4>
+      <p class="designation">Hospital Patient</p>
 
       <mat-divider></mat-divider>
 
-      <button mat-button class="menu-button" routerLink="/Admin-dashboard">
+      <button mat-button class="menu-button" (click)="goHome()">
           <mat-icon>home</mat-icon>
           <span>Home</span>
       </button>
-      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
-        <mat-icon>account_circle</mat-icon>
-        <span>Profile</span>
-    </button>
-
-      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
-        <mat-icon>assignment</mat-icon>
-        <span>Appointments</span>
-    </button>
-
-
-    <button mat-button class="menu-button" routerLink="/Patient-dashboard">
-      <mat-icon>add_alert</mat-icon>
-      <span>Reminder</span>
-    </button>
-
-
-    <button mat-button class="menu-button" routerLink="/Patient-dashboard">
-    <mat-icon>feedback</mat-icon>
-    <span>Feedback</span>
-    </button>
+      
 
 
 
@@ -196,7 +176,7 @@
 
     <div class="row">
       <section class="d-flex justify-content-center">
-        <input style="display: none" type="file" (change)="onFileSelect($event)" #hiddenfileinput>
+        <input style="display: none" type="file" (change)="onFileSelect($event)" (click)="alert()" #hiddenfileinput>
 
         <button (click)="hiddenfileinput.click()"  class="btn btn-warning d-flex justify-content-center"><i class="material-icons left"></i>Select New Image</button>
       </section>

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Drug } from 'src/app/appdata/Drug';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DrugService } from 'src/app/services/drug.service';
+import { PharmacistService } from 'src/app/services/pharmacist.service';
 
 @Component({
   selector: 'app-show-medicine',
@@ -13,6 +14,7 @@ import { DrugService } from 'src/app/services/drug.service';
 export class ShowMedicineComponent implements OnInit {
   tempdata:Drug[]=[]
   drugData:any;
+  name:string="";
   selectedDrugdata:any = [];
   firstTime : boolean = true;
   inEdit : boolean = true;
@@ -22,6 +24,7 @@ export class ShowMedicineComponent implements OnInit {
     private route:ActivatedRoute,
     private auth:AuthenticationService,
     private drugService:DrugService, 
+    private pharmasisit:PharmacistService
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +38,13 @@ export class ShowMedicineComponent implements OnInit {
 
 
     }, );
+
+    this.pharmasisit.getPharmacist(localStorage.getItem("pharmacistid")||" ").subscribe(res=>{
+      this.name=res.name;
+      //console.log(res);
+    })
+
+
   }
   getMedicine(event:any){
     this.firstTime = false;

@@ -10,28 +10,17 @@
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
 
-      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
-
-      <h4 class="name">Deshan Harshana</h4>
-      <p class="designation">Hospital Admin</p>
+     
+      <p class="designation">Hospital Patient</p>
 
       <mat-divider></mat-divider>
 
 
-      <button mat-button class="menu-button" routerLink="/{{ routePath }}">
+      <button mat-button class="menu-button" (click)="goHome()">
         <mat-icon>home</mat-icon>
         <span>Home</span>
     </button>
 
-    <button mat-button class="menu-button" routerLink="" *ngIf="!access">
-      <mat-icon>account_circle</mat-icon>
-      <span>Profile</span>
-  </button>
-
-    <button mat-button class="menu-button"  *ngIf="!access" routerLink="/Patient-dashboard">
-      <mat-icon>assignment</mat-icon>
-      <span>Appointments</span>
-  </button>
 
 
 
@@ -100,7 +89,7 @@
 
     <div class="col d-flex align-items-center d-flex justify-content-center" >
       <button class="myButton" routerLink="/Admin-edit-patient-details/{{ patientData._id }}">Edit Details</button>
-      <button [hidden]="access" class="myButton" style="margin-left: 4%;" routerLink="/Doctor-Add-Prescription/{{ patientData._id }}">Add Prescription</button>
+      <button [hidden]="addPrescription()" class="myButton" style="margin-left: 4%;" routerLink="/Doctor-Add-Prescription/{{ patientData._id }}">Add Prescription</button>
 
     </div>
 

@@ -101,7 +101,7 @@ this.apt.deleteAppoinmentinDoctorlist(doctorid,appoinmentdata).subscribe(res=>{
   this.apt.deleteAppoinment(appointmnetid).subscribe(res2=>{
     console.log(res2);
 
-    this.router.navigate(['Admin-show-all-appoinment-list']);
+    this.ngOnInit();
   })
 })
   }

@@ -12,7 +12,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./appoinment-doctor-list.component.css']
 })
 export class AppoinmentDoctorListComponent implements OnInit {
-
+  patientname:string="";
+  displayImage:string="";
   p:number=1;
   doctoridlist:string[]=[];
   tempdata:Doctor[]=[]
@@ -44,8 +45,12 @@ export class AppoinmentDoctorListComponent implements OnInit {
         this.mydoctors.forEach((value, index)=>{
           this.doctoridlist.push(value._id)
         })
-        console.log(this.doctoridlist)
+        
       }))
+      this.patient.getonePatient(this.patient_id).subscribe(res=>{
+        this.patientname=res.name;
+        this.displayImage=res.displayImage;
+      })
 
 
 

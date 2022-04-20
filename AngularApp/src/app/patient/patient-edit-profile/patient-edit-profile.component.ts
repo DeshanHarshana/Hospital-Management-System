@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { DoctorService } from 'src/app/services/doctor.service';
 import { PatientService } from 'src/app/services/patient.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-patient-edit-profile',
   templateUrl: './patient-edit-profile.component.html',
@@ -44,6 +44,7 @@ export class PatientEditProfileComponent implements OnInit {
   imageData:string='';
   oldimage:string='';
   imagename:string="";
+  name:string="";
   image:any;
   isImageselected:boolean=false;
   data:any=[];
@@ -75,6 +76,7 @@ export class PatientEditProfileComponent implements OnInit {
           this.data=res;
           this.imageData=res.displayImage;
           this.oldimage=res.displayImage;
+          this.name=res.fullname;
           console.log(this.oldimage)
           console.log(res.displayImage)
           this.patient.get('title')?.setValue(res.title);
@@ -104,6 +106,24 @@ export class PatientEditProfileComponent implements OnInit {
 
   }
 
+  goHome(){
+    const access=localStorage.getItem('access')
+    console.log(access);
+    if(access=="admin"){
+      this.router.navigate(['Admin-dashboard'])
+    }else if(access=='doctor'){
+      this.router.navigate(['Doctor-dashboard/'+localStorage.getItem('doctorid')])
+    }else if(access=='patient'){
+      this.router.navigate(['Patient-dashboard'])
+    }else{
+      this.router.navigate(['/']);
+    }
+  }
+  alert(){
+    Swal.fire(
+     "Choose Image 300x300"
+    )
+  }
 
   editpatient(patient:any){
     if(this.isImageselected){
@@ -117,7 +137,7 @@ export class PatientEditProfileComponent implements OnInit {
               this.router.navigate(['Admin-show-all-patient-list']);
             }
             else if(localStorage.getItem('access')=="doctor"){
-              this.router.navigate(['DoctorPatientList']);
+              this.router.navigate(['DoctorPatientList/'+localStorage.getItem('doctorid')]);
             }
             else if(localStorage.getItem('access')=="patient"){
               this.router.navigate(['Patient-dashboard']);
@@ -140,7 +160,7 @@ export class PatientEditProfileComponent implements OnInit {
             this.router.navigate(['Admin-show-all-patient-list']);
           }
           else if(localStorage.getItem('access')=="doctor"){
-            this.router.navigate(['DoctorPatientList']);
+            this.router.navigate(['DoctorPatientList/'+localStorage.getItem('doctorid')]);
           }
           else if(localStorage.getItem('access')=="patient"){
             this.router.navigate(['Patient-dashboard']);
@@ -164,7 +184,7 @@ export class PatientEditProfileComponent implements OnInit {
         this.router.navigate(['Admin-show-all-patient-list']);
       }
       else if(localStorage.getItem('access')=="doctor"){
-        this.router.navigate(['DoctorPatientList']);
+        this.router.navigate(['DoctorPatientList/'+localStorage.getItem('doctorid')]);
       }
       else if(localStorage.getItem('access')=="patient"){
         this.router.navigate(['Patient-dashboard']);

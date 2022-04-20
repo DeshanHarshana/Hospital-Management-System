@@ -66,8 +66,25 @@ export class ShowDoctorDetailsComponent implements OnInit {
     })
 
   }
+  goHome(){
+    const access=localStorage.getItem('access')
+    console.log(access);
+    if(access=="admin"){
+      this.router.navigate(['Admin-dashboard'])
+    }else if(access=='doctor'){
+      this.router.navigate(['Doctor-dashboard'])
+    }else if(access=='patient'){
+      this.router.navigate(['Patient-dashboard'])
+    }else{
+      this.router.navigate(['/']);
+    }
+  }
   logout(){
     localStorage.removeItem('access');
     this.router.navigate(['/']);
+  }
+  AllPatient(){
+    
+    this.router.navigate(["DoctorPatientList/"+this.route.snapshot.params.id])
   }
 }

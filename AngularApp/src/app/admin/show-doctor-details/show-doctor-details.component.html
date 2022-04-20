@@ -10,9 +10,9 @@
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
 
-    <img class="avatar mat-elevation-z8" src="{{ displayImage }}" />
+ 
 
-    <h4 class="name">Dr {{ doctordata.fullname }}</h4>
+    
     <p class="designation">Hospital Doctor</p>
     <div class="container d-flex justify-content-center d-flex align-items-center" style="font-size: 1rem;">
       Available
@@ -22,26 +22,9 @@
 
       <mat-divider></mat-divider>
 
-<button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+<button mat-button class="menu-button" (click)="goHome()">
         <mat-icon>home</mat-icon>
         <span>Home</span>
-    </button>
-
-
-    <button mat-button class="menu-button" routerLink="/DoctorPatientList">
-        <mat-icon>people</mat-icon>
-        <span>Patients</span>
-    </button>
-
-    <button mat-button class="menu-button" routerLink="/DoctorAppoinmentList">
-        <mat-icon>assignment</mat-icon>
-        <span>Appointments</span>
-    </button>
-
-
-    <button mat-button class="menu-button" routerLink="/calendarDoctor">
-        <mat-icon>add_alert</mat-icon>
-        <span>Reminder</span>
     </button>
 
 
@@ -215,9 +198,7 @@
 
           </div>
           </div>
-          <div class="row " style="font-size: 1rem; margin-top:1%; margin-bottom:1%  ">
-            <div class=" d-flex align-items-center d-flex justify-content-center"><a href="">Show All Patient</a></div>
-          </div>
+          
           </div>
       </div>
 

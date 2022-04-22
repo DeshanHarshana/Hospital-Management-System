@@ -46,7 +46,13 @@ doctordata:any=[];
   }
   logout() {
     this.auth.logout();
+  }profile(){
+    this.router.navigate(['show-doctor-details/'+localStorage.getItem('doctorid')])
   }
+  patientload(){
+    this.router.navigate(['DoctorPatientList/'+localStorage.getItem('doctorid')])
+  }
+
   deleteAppoinment(appointmnetid: string, doctorid: string) {
     let appoinmentdata = {
       appointmentid: appointmnetid,

@@ -27,12 +27,12 @@
           <span>Home</span>
       </button>
 
-      <button mat-button class="menu-button" routerLink="/show-doctor-details/:id">
+      <button mat-button class="menu-button" (click)="profile()">
           <mat-icon>account_circle</mat-icon>
           <span>Profile</span>
       </button>
 
-      <button mat-button class="menu-button" routerLink="/DoctorPatientList">
+      <button mat-button class="menu-button" (click)="patient()">
           <mat-icon>people</mat-icon>
           <span>Patients</span>
       </button>
@@ -71,7 +71,7 @@
     </div>
 
     <div class="col-4 x d-flex justify-content-center">
-      <div class="card patients zoom" routerLink="/DoctorPatientList">
+      <div class="card patients zoom" (click)="patient()">
         <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'"></h1>
         <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:7%; font-size:3.0rem;">Patients</h1>
       </div>

@@ -37,6 +37,7 @@ notification_count:number=0;
         this.doctordata=res;
         this.displayImage=this.doctordata.displayImage;
       });
+    });
       this.notification.getSpecificNotofication(this.currentDoctor).subscribe((res)=>{
         console.log("Notification", Object.keys(res).length)
         this.notification_count=Object.keys(res).filter(k=>res[k].seen==false).length
@@ -49,8 +50,15 @@ notification_count:number=0;
         this.Appoinment_count=res.appoinment;
         this.Patient_count=res.patient;
       })
-    });
+   
 
+  }
+
+  profile(){
+    this.router.navigate(['show-doctor-details/'+localStorage.getItem('doctorid')])
+  }
+  patient(){
+    this.router.navigate(['DoctorPatientList/'+localStorage.getItem('doctorid')])
   }
 
 

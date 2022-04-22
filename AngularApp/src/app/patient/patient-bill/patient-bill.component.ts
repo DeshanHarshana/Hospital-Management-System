@@ -17,6 +17,10 @@ export class PatientBillComponent implements OnInit {
   medicineList:any[]=[];
   doctorTotal:number=0;
 
+  patientname:string="";
+  displayImage:string="";
+  
+
   total:number=0;
   todayDate = new Date().toISOString().slice(0, 10);
   @ViewChild('myDiv') myDiv!: ElementRef;
@@ -48,6 +52,14 @@ setTimeout(()=>{
   })
 
 })
+this.patient_id = localStorage.getItem('patientid') || '';
+console.log(this.patient_id);
+
+this.patient.getonePatient(this.patient_id).subscribe(res=>{
+  this.patientname=res.name;
+  this.displayImage=res.displayImage;
+})
+
   }
 
   calculate(list:any[]){

@@ -15,6 +15,9 @@ import { PatientService } from 'src/app/services/patient.service';
   providers:[Methods]
 })
 export class AppoinmentComponent implements OnInit {
+  patientname:string="";
+  displayImage:string="";
+  patient_id : string = '';
   appoinment = new FormGroup({
     firstname:new FormControl(''),
     lastname:new FormControl(''),
@@ -69,6 +72,14 @@ export class AppoinmentComponent implements OnInit {
         this.appoinment.get('displayImage')?.setValue(res.displayImage)
       })
     });
+
+    this.patient_id = localStorage.getItem('patientid') || '';
+    console.log(this.patient_id);
+
+    this.patient.getonePatient(this.patient_id).subscribe(res=>{
+      this.patientname=res.name;
+      this.displayImage=res.displayImage;
+    })
   }
 
   logout() {

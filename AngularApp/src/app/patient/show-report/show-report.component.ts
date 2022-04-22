@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { DoctorService } from 'src/app/services/doctor.service';
 import { ReportsService } from 'src/app/services/reports.service';
 
 @Component({
@@ -27,10 +28,14 @@ export class ShowReportComponent implements OnInit {
   reportData:any=[];
   currentReport:any="";
   role:string='';
+  displayImage="";
+  doctordata:any=[];
   constructor(
     private auth:AuthenticationService,
     private route:ActivatedRoute,
-    private reports:ReportsService
+    private reports:ReportsService,
+    private router:Router,
+    private doctor:DoctorService
   ) { }
 
   ngOnInit(): void {
@@ -53,10 +58,21 @@ export class ShowReportComponent implements OnInit {
         this.report.get('bromine')?.setValue(res.bromine);
       })
     }, 20);
+    this.doctor.getoneDoctor(localStorage.getItem('doctorid')||"").subscribe(res=>{
+      this.doctordata=res;
+      this.displayImage=res.displayImage;
+      
+    })
   }
   logout(){
 
     this.auth.logout();
       }
-
+      profile(){
+        this.router.navigate(['show-doctor-details/'+localStorage.getItem('doctorid')])
+      }
+      patientload(){
+        this.router.navigate(['DoctorPatientList/'+localStorage.getItem('doctorid')])
+      }
 }
+

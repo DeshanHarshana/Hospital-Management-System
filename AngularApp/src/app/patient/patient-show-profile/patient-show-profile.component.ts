@@ -51,6 +51,26 @@ export class PatientShowProfileComponent implements OnInit {
 
 
   }
+  addPrescription(){
+    const access=localStorage.getItem('access')
+    if(access=="doctor"){
+      return false;
+    }
+    return true;
+  }
+  goHome(){
+    const access=localStorage.getItem('access')
+    console.log(access);
+    if(access=="admin"){
+      this.router.navigate(['Admin-dashboard'])
+    }else if(access=='doctor'){
+      this.router.navigate(['Doctor-dashboard'])
+    }else if(access=='patient'){
+      this.router.navigate(['Patient-dashboard'])
+    }else{
+      this.router.navigate(['/']);
+    }
+  }
   logout(){
 
     this.auth.logout();

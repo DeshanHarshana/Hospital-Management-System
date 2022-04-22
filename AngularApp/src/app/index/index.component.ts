@@ -25,5 +25,7 @@ export class IndexComponent implements OnInit {
     this.router.navigate(['login/'+3])
   }
 
+  
+
 
 }

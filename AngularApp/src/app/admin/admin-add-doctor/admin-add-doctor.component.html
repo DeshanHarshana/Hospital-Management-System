@@ -172,7 +172,7 @@
 
     <div class="row">
       <section class="d-flex justify-content-center">
-        <input style="display: none" type="file" (change)="onFileSelect($event)" #hiddenfileinput>
+        <input style="display: none" type="file" (change)="onFileSelect($event)" (click)="alert()" #hiddenfileinput>
 
         <button (click)="hiddenfileinput.click()"  class="btn btn-warning d-flex justify-content-center"><i class="material-icons left"></i>Select Image</button>
       </section>

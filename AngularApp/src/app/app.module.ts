@@ -92,6 +92,8 @@ import { PatientBillComponent } from './patient/patient-bill/patient-bill.compon
 import { PharmacyDashboardComponent } from './pharmacy2/pharmacy-dashboard/pharmacy-dashboard.component';
 import { AddMedicineComponent } from './pharmacy2/add-medicine/add-medicine.component';
 import { ShowMedicineComponent } from './pharmacy2/show-medicine/show-medicine.component';
+import { PasswordResetComponent } from './doctor/password-reset/password-reset.component';
+import { PatientPasswordResetComponent } from './patient/patient-password-reset/patient-password-reset.component';
 
 
 @NgModule({
@@ -145,6 +147,8 @@ import { ShowMedicineComponent } from './pharmacy2/show-medicine/show-medicine.c
     PharmacyDashboardComponent,
     AddMedicineComponent,
     ShowMedicineComponent,
+    PasswordResetComponent,
+    PatientPasswordResetComponent,
 
 
 

@@ -1,5 +1,5 @@
 <mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
-  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Admin-dashboard" src="../../../assets/navbar/logo.png"/>
+  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Patient-dashboard" src="../../../assets/navbar/logo.png"/>
 
   <span class="spacer"></span>
   <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
@@ -176,7 +176,7 @@
 
     <div class="row">
       <section class="d-flex justify-content-center">
-        <input style="display: none" type="file" (change)="onFileSelect($event)" (click)="alert()" #hiddenfileinput>
+        <input style="display: none" type="file" (change)="onFileSelect($event)"  #hiddenfileinput>
 
         <button (click)="hiddenfileinput.click()"  class="btn btn-warning d-flex justify-content-center"><i class="material-icons left"></i>Select New Image</button>
       </section>

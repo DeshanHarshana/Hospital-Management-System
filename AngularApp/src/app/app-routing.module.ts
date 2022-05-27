@@ -53,6 +53,8 @@ import { PharmacyDashboardComponent } from './pharmacy2/pharmacy-dashboard/pharm
 
 import { AddMedicineComponent } from './pharmacy2/add-medicine/add-medicine.component';
 import { ShowMedicineComponent } from './pharmacy2/show-medicine/show-medicine.component';
+import { PasswordResetComponent } from './doctor/password-reset/password-reset.component';
+import { PatientPasswordResetComponent } from './patient/patient-password-reset/patient-password-reset.component';
 
 
 const routes: Routes = [
@@ -129,6 +131,9 @@ const routes: Routes = [
   //doctor time table
   {path:'doctor-timetable', component:DoctorTimetableComponent,canActivate:[DoctorGuard]},
 
+  {path:'doctor-password-reset', component:PasswordResetComponent,canActivate:[DoctorGuard]},
+
+  {path:'patient-password-reset', component:PatientPasswordResetComponent,canActivate:[PatientGuard]},
   //pharmacy
   {path:'allMedicineList', component:MedicineListComponent},
   //{path:'addMedicine', component:AddmedicineComponent},

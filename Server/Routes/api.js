@@ -41,6 +41,87 @@ router.get('/', function (req, res) {
     res.send('From api route!');
 })
 
+router.post('/doctor-reset-password', async function(req,res){
+    var doctorid=req.body.doctorid;
+
+    Doctor.findById(doctorid, async (error,result)=>{
+        if(error){
+            res.send({"message":"no user"})
+        }else{
+           
+            const validPassword = await bcrypt.compare(req.body.currentPassword, result.password);
+            if(validPassword){
+                const salt = await bcrypt.genSalt(5)
+                const x= await bcrypt.hash(req.body.newpassword, salt);
+                Doctor.findByIdAndUpdate(doctorid,
+                    {
+                        $set: {
+                            password: x,
+                            
+                        }
+                    }, {
+                    new: true
+                }, function (error, result) {
+                    if (error) {
+                        res.send({"message":"Error updating"});
+                    } else {
+                        console.log("successfully uodated")
+                        res.send({"message":"successfully updated"});
+                    }
+                }
+                );
+                //res.send({"message":x})
+
+            }else{
+                res.send({"message":"wrong password"})
+            }
+        }
+    })
+    //res.send(req.body)
+    //const validPassword = await bcrypt.compare(userData.password, result.password);
+                    
+})
+router.post('/patient-reset-password', async function(req,res){
+    var patientid=req.body.patientid;
+
+    Patient.findById(patientid, async (error,result)=>{
+        if(error){
+            res.send({"message":"no user"})
+        }else{
+            
+           
+            const validPassword = await bcrypt.compare(req.body.currentPassword, result.password);
+            if(validPassword){
+                const salt = await bcrypt.genSalt(5)
+                const x= await bcrypt.hash(req.body.newpassword, salt);
+                Patient.findByIdAndUpdate(patientid,
+                    {
+                        $set: {
+                            password: x,
+                            
+                        }
+                    }, {
+                    new: true
+                }, function (error, result) {
+                    if (error) {
+                        res.send({"message":"Error updating"});
+                    } else {
+                        console.log("successfully uodated")
+                        res.send({"message":"successfully updated"});
+                    }
+                }
+                );
+                //res.send({"message":x})
+
+            }else{
+                res.send({"message":"wrong password"})
+            }
+        }
+    })
+    //res.send(req.body)
+    //const validPassword = await bcrypt.compare(userData.password, result.password);
+                    
+})
 
 
 // add admin details -- seeding

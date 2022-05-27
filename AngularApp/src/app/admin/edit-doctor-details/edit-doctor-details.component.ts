@@ -145,11 +145,8 @@ export class EditDoctorDetailsComponent implements OnInit {
     })
 
   }
-  alert(){
-    Swal.fire(
-     "Choose Image 300x300"
-    )
-  }
+  
+  
   addDoctor(doctor:any){
     if(this.isImageselected){
 

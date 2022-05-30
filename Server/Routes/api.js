@@ -17,6 +17,7 @@ const bcrypt = require("bcrypt");
 //database connection String
 
 const db = "mongodb+srv://deshan:deshan2233@cluster0.1ape7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+//const db = "mongodb+srv://deshan:deshan2233@cluster0.1ape7.mongodb.net/Host?retryWrites=true&w=majority"
 
 
 //connect with database

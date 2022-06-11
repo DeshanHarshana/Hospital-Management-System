@@ -15,6 +15,10 @@ export class DoctorService {
 
   ) { }
 
+  resetPassword(reset:any){
+    return this._http.post<any>("http://localhost:3000/doctor-reset-password",reset);
+  }
+
   addDoctor(doctor:any){
     return this._http.post<any>("http://localhost:3000/add-new-doctor", doctor);
   }

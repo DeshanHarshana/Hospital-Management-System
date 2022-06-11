@@ -119,11 +119,7 @@ export class PatientEditProfileComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
-  alert(){
-    Swal.fire(
-     "Choose Image 300x300"
-    )
-  }
+ 
 
   editpatient(patient:any){
     if(this.isImageselected){

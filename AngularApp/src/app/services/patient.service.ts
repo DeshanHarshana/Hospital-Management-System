@@ -15,6 +15,10 @@ export class PatientService {
 
   ) { }
 
+  resetPassword(reset:any){
+    return this._http.post<any>("http://localhost:3000/patient-reset-password",reset);
+  }
+
   getAllPatients():Observable<Patient[]>{
     return this._http.get<Patient[]>("http://localhost:3000/get-all-patients");
   }

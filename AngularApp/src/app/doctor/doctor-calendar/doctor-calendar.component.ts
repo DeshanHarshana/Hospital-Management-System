@@ -1,29 +1,20 @@
 
-import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { AdminService } from 'src/app/services/admin.service';
 import { Component,
-  ChangeDetectionStrategy,
   ViewChild,
   TemplateRef,
   OnInit,} from '@angular/core';
   import {
     startOfDay,
-    endOfDay,
-    subDays,
-    addDays,
-    endOfMonth,
     isSameDay,
     isSameMonth,
-    addHours,
   } from 'date-fns';
 
   import { Subject } from 'rxjs';
-  import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
   import {
     CalendarEvent,
-    CalendarEventAction,
-    CalendarEventTimesChangedEvent,
     CalendarView,
   } from 'angular-calendar';
 import { AppoinmentService } from 'src/app/services/appoinment.service';
@@ -78,8 +69,6 @@ export class DoctorCalendarComponent implements OnInit {
   ];
   currentDoctor:string=""
   constructor(
-    private router:Router,
-    private route:ActivatedRoute,
     private auth:AuthenticationService,
     private admin:AdminService,
     private appoinment:AppoinmentService,
@@ -105,6 +94,7 @@ setTimeout(()=>{
   this.appoinment.getDoctorAppoinments(this.currentDoctor).subscribe(res=>{
 
     res.forEach((element: any) => {
+      console.log(element.appoinmentDate)
       this.events.push({
         start: startOfDay(new Date(element.appoinmentDate)),
         title: element.firstname + ' Appoinment ',

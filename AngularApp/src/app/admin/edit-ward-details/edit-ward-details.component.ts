@@ -108,7 +108,19 @@ export class EditWardDetailsComponent implements OnInit {
     })
 
   }
-
+  goHome(){
+    const access=localStorage.getItem('access')
+    console.log(access);
+    if(access=="admin"){
+      this.router.navigate(['Admin-dashboard'])
+    }else if(access=='doctor'){
+      this.router.navigate(['Doctor-dashboard'])
+    }else if(access=='patient'){
+      this.router.navigate(['Patient-dashboard'])
+    }else{
+      this.router.navigate(['/']);
+    }
+  }
   logout(){
 
     this.auth.logout();
@@ -125,7 +137,7 @@ export class EditWardDetailsComponent implements OnInit {
     this.wardservice.updatewarddetails(ward,this.route.snapshot.params.id).subscribe(res=>{
       this.toastr.success("Update Successfully", "Updating Ward details");
       setTimeout(()=>{
-        this.router.navigate(['Admin-dashboard']);
+        this.goHome();
       });
     })
   }

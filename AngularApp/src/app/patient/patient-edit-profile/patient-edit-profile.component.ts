@@ -112,7 +112,7 @@ export class PatientEditProfileComponent implements OnInit {
     if(access=="admin"){
       this.router.navigate(['Admin-dashboard'])
     }else if(access=='doctor'){
-      this.router.navigate(['Doctor-dashboard/'+localStorage.getItem('doctorid')])
+      this.router.navigate(['Doctor-dashboard'])
     }else if(access=='patient'){
       this.router.navigate(['Patient-dashboard'])
     }else{

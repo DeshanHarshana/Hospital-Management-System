@@ -11,7 +11,7 @@ export class AdminService {
     public router:Router
   ) { }
 
-
+//x
   getAdmin(){
     return this._http.get<any>("http://localhost:3000/admin-data/")
   }

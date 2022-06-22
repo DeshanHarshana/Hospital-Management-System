@@ -162,11 +162,7 @@ this.auth.logout();
     })
 
   }
-  alert(){
-    Swal.fire(
-     "Choose Image 300x300"
-    )
-  }
+ 
 
   onFileSelect(event : Event){
     

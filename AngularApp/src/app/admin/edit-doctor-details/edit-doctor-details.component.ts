@@ -145,11 +145,21 @@ export class EditDoctorDetailsComponent implements OnInit {
     })
 
   }
-  alert(){
-    Swal.fire(
-     "Choose Image 300x300"
-    )
+  goHome(){
+    const access=localStorage.getItem('access')
+    console.log(access);
+    if(access=="admin"){
+      this.router.navigate(['Admin-dashboard'])
+    }else if(access=='doctor'){
+      this.router.navigate(['Doctor-dashboard'])
+    }else if(access=='patient'){
+      this.router.navigate(['Patient-dashboard'])
+    }else{
+      this.router.navigate(['/']);
+    }
   }
+  
+  
   addDoctor(doctor:any){
     if(this.isImageselected){
 
@@ -158,7 +168,7 @@ export class EditDoctorDetailsComponent implements OnInit {
 
           this.uploadImage(this.route.snapshot.params.id);
           setTimeout(()=>{
-            this.router.navigate(['Admin-dashboard']);
+            this.goHome();
           });
 
 

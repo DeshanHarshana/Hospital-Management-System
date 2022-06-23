@@ -1903,5 +1903,22 @@ router.get('/getAllmedicineofPatient/:id', (req,res)=>{
     } )
 })
 
+router.get('/getAllPhamasist', (req,res)=>{
+    Pharmacist.find({},(error, result)=>{
+        if(!error){
+            res.send(result);
+        }
+    })
+})
+router.get('/deletePhamasist/:id', (req,res)=>{
+    Pharmacist.deleteOne({_id:req.params.id}, function(err,result){
+        if(!err){
+            console.log("Deleted");
+            res.send(result);
+
+        }
+    })
+})
+
 //export model
 module.exports = router;

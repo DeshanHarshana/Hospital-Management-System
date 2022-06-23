@@ -55,6 +55,7 @@ import { AddMedicineComponent } from './pharmacy2/add-medicine/add-medicine.comp
 import { ShowMedicineComponent } from './pharmacy2/show-medicine/show-medicine.component';
 import { PasswordResetComponent } from './doctor/password-reset/password-reset.component';
 import { PatientPasswordResetComponent } from './patient/patient-password-reset/patient-password-reset.component';
+import { PhamasistListComponent } from './admin/phamasist-list/phamasist-list.component';
 
 
 const routes: Routes = [
@@ -72,6 +73,7 @@ const routes: Routes = [
   {path : 'Admin-edit-patient-details/:id', component:PatientEditProfileComponent},
   {path : 'Admin-show-all-patient-list', component:AllPatientListComponent, canActivate:[AuthGuard]},
   {path : 'Admin-show-all-appoinment-list', component:AllAppoinmentListComponent, canActivate:[AuthGuard]},
+  {path : 'Admin-show-all-phamasisit', component:PhamasistListComponent, canActivate:[AuthGuard]},
 
   //doctor
   {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},

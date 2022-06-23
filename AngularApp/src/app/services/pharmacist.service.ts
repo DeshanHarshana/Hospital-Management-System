@@ -19,4 +19,10 @@ export class PharmacistService {
   getPharmacist(id:any){
     return this._http.get<any>("http://localhost:3000/getPhamasisit/"+id);
   }
+  getAllPhamasisit(){
+    return this._http.get<any>('http://localhost:3000/getAllPhamasist');
+  }
+  deletePhamasist(id:any){
+    return this._http.get<any>('http://localhost:3000/deletePhamasist/'+id);
+  }
 }

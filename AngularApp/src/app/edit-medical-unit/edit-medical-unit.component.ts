@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AdminService } from '../services/admin.service';
 import { MedicalunitService } from '../services/medicalunit.service';
-
+import { PharmacistService } from '../services/pharmacist.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-medical-unit',
@@ -11,7 +13,19 @@ import { MedicalunitService } from '../services/medicalunit.service';
   styleUrls: ['./edit-medical-unit.component.css']
 })
 export class EditMedicalUnitComponent implements OnInit {
+  data:any=[];
   cancel:boolean=false;
+  admindata:any=[]
+  constructor(
+    private router:Router,
+    private route:ActivatedRoute,
+    private auth:AuthenticationService,
+    private medicalUnit:MedicalunitService,
+    private admin:AdminService,
+    private pharmacyService:PharmacistService
+
+  ) { }
+  
   medical=new FormGroup({
 
 
@@ -29,16 +43,7 @@ export class EditMedicalUnitComponent implements OnInit {
   })
 
 
-  constructor(
-    private router:Router,
-    private route:ActivatedRoute,
-    private auth:AuthenticationService,
-    private medicalUnit:MedicalunitService
-
-
-  ) { }
-
-
+  
   ngOnInit(
 
   ): void {
@@ -57,10 +62,60 @@ export class EditMedicalUnitComponent implements OnInit {
         this.medical.get('countOfNur')?.setValue(res.countOfNur);
         this.medical.get('TotalNoBed')?.setValue(res.TotalNoBed);
         this.medical.get('TotalNoEqu')?.setValue(res.TotalNoEqu);
-      })
+      });
+
+      this.admin.getAdmin().subscribe(res=>{
+        this.admindata=res;
+      });
 
 
     },10)
+
+  }
+
+  addPhamasisit(){
+    Swal.fire({
+      showDenyButton: true,
+      denyButtonText: 'No',
+      allowOutsideClick: false,
+      title: 'Assign New Pharmacist',
+      html: `
+      <input type="text"  name="name" class="swal2-input" placeholder="Pharmacist Name">
+      <input type="email"  name="email" class="swal2-input" placeholder="Pharmacist Email">
+      <input type="password"  name="password" class="swal2-input" placeholder="Type a Password">`,
+      confirmButtonText: 'Assign',
+      preDeny:()=>{
+        this.cancel=true;
+        console.log("dfdf")
+      },
+
+      preConfirm: () => {
+        const name =  Swal.getPopup()?.getElementsByTagName('input').namedItem('name')?.value
+        const email =  Swal.getPopup()?.getElementsByTagName('input').namedItem('email')?.value
+        const password = Swal.getPopup()?.getElementsByTagName('input').namedItem('password')?.value
+        if (!email || !password || !name) {
+          Swal.showValidationMessage(`Please enter login and password`)
+        }
+        return {name:name, email: email, password: password }
+      }
+
+    }).then((result) => {
+      console.log(result.value)
+      if(!this.cancel){
+      this.pharmacyService.addPharmacist(result.value).subscribe((res)=>{
+        Swal.fire(
+          'Success!',
+          'New Pharmacist Assigned',
+          'success'
+        )
+      })
+    }
+
+    }).catch((reason)=>{
+      console.log(reason)
+    }).finally(()=>{
+      this.cancel=false;
+    })
 
   }
 

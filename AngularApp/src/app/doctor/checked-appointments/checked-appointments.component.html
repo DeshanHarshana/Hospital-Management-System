@@ -25,7 +25,7 @@
         <span>Home</span>
     </button>
 
-    <button mat-button class="menu-button" routerLink="/DoctorPatientList">
+    <button mat-button class="menu-button" (click)="patientload()">
       <mat-icon>people</mat-icon>
       <span>Patients</span>
   </button>
@@ -33,7 +33,10 @@
   <mat-icon>book</mat-icon>
   <span>Appoinments</span>
 </button>
-
+<button mat-button class="menu-button" routerLink="/doctor-password-reset">
+  <mat-icon>vpn_key</mat-icon>
+  <span>Change Password</span>
+</button>
 
 
   </mat-sidenav>

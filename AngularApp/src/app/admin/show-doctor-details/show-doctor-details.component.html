@@ -10,9 +10,9 @@
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
 
-    <img class="avatar mat-elevation-z8" src="{{ displayImage }}" />
+ 
 
-    <h4 class="name">Dr {{ doctordata.fullname }}</h4>
+    
     <p class="designation">Hospital Doctor</p>
     <div class="container d-flex justify-content-center d-flex align-items-center" style="font-size: 1rem;">
       Available
@@ -44,6 +44,10 @@
         <span>Reminder</span>
     </button>
 
+<button mat-button class="menu-button" (click)="goHome()">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+    </button>
 
 
   </mat-sidenav>
@@ -216,9 +220,7 @@
 
           </div>
           </div>
-          <div class="row " style="font-size: 1rem; margin-top:1%; margin-bottom:1%  ">
-            <div class=" d-flex align-items-center d-flex justify-content-center"><a href="">Show All Patient</a></div>
-          </div>
+          
           </div>
       </div>
 

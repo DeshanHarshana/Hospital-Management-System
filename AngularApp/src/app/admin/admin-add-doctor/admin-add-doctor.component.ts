@@ -162,12 +162,16 @@ this.auth.logout();
     })
 
   }
+ 
 
   onFileSelect(event : Event){
+    
+    
     const target= event.target as HTMLInputElement;
     const file: File = (target.files as FileList)[0];
     this.image=file;
     this.isImageselected=true;
+    console.log("sds")
     const allowedFileTypes=["image/png", "image/jpeg", "image/jpg"];
     if(this.image && allowedFileTypes.includes(this.image.type)){
       const reader=new FileReader();

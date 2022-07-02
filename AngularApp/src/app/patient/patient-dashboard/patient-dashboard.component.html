@@ -1,6 +1,5 @@
 <mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
-  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Admin-dashboard" src="../../../assets/navbar/logo.png"/>
-
+  <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Doctor-dashboard" src="../../../assets/navbar/logo.png"/>
   <span class="spacer"></span>
   <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
 
@@ -9,10 +8,10 @@
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
 
-      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+      <img class="avatar mat-elevation-z8" [src]="displayImage" />
 
-      <h4 class="name">Deshan Harshana</h4>
-      <p class="designation">Hospital Admin</p>
+      <h4 class="name">{{patientname}}</h4>
+      <p class="designation">Hospital patient</p>
 
       <mat-divider></mat-divider>
 
@@ -26,7 +25,7 @@
         <span>Profile</span>
     </button>
 
-    <button mat-button class="menu-button" routerLink="/getAllDoctorAppoinment">
+    <button mat-button class="menu-button" routerLink="/getAllDoctorAppoinment/{{ patient_id }}">
       <mat-icon>person</mat-icon>
       <span>Doctors</span>
   </button>
@@ -42,10 +41,7 @@
        <span>Report</span>
    </button>
 
-   <button mat-button class="menu-button" routerLink="/pharmacyMedicineList">
-     <mat-icon>add_shopping_cart</mat-icon>
-       <span>E-Pharmacy</span>
-   </button>
+   
 
 
 
@@ -55,12 +51,12 @@
       <span>Your Bill</span>
   </button>
 
-
-  <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
-    <mat-icon>feedback</mat-icon>
-    <span>Feedback</span>
+  <button mat-button class="menu-button" routerLink="/patient-password-reset">
+    <mat-icon>vpn_key</mat-icon>
+    <span>Change Key</span>
 </button>
 
+  
 
 
 
@@ -77,50 +73,44 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-4 x d-flex justify-content-center d-flex align-items-center">
+    <div class="col-4 x d-flex justify-content-center ">
       <div class="card  profile zoom" routerLink="/Admin-show-patient-details/{{ patient_id }}">
-        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">1</h1>
-        <h1 class="d-flex justify-content-center" style="font-family:'Quartzo;'; padding-top:7%; font-size:3.0rem;">Profile</h1>
+        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'"></h1>
+        <h1 class="d-flex justify-content-center" style="font-family:'Quartzo;'; padding-top:14%; font-size:3.5rem;">Profile</h1>
       </div>
     </div>
 
     <div class="col-4 x d-flex justify-content-center">
       <div class="card doctor zoom" routerLink="/getAllDoctorAppoinment/{{ patient_id }}">
-        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">2</h1>
-        <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:7%; font-size:3.0rem;">Doctors</h1>
+        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'"></h1>
+        <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:14%; font-size:3.0rem;">Doctors</h1>
       </div>
     </div>
 
     <div class="col-4 x d-flex justify-content-center">
       <div class="card appointment-patient zoom" routerLink="/getcurrentAppoinment">
-        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">3</h1>
-        <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:0%; font-size:3.0rem;">My <br>Appointment</h1>
+        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'"></h1>
+        <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:10%; font-size:3.0rem;">My <br>Appointment</h1>
       </div>
     </div>
 
-    <div class="col-4 x d-flex justify-content-center">
+    <div class="col-4 x d-flex justify-content-center" >
       <div class="card report zoom" routerLink="/report-list/{{ patient_id }}">
-        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">4</h1>
-        <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:7%; font-size:3.0rem;">My Report</h1>
+        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'"></h1>
+        <h1 class="d-flex justify-content-center" style="font-family:'Quartzo'; padding-top:14%; font-size:3.0rem;">My Report</h1>
       </div>
     </div>
 
 
 
 
-    <div class="col-4 x d-flex justify-content-center d-flex align-items-center" >
-      <div class="card  pharmacy zoom" routerLink="/pharmacyMedicineList" >
-        <h1 class="d-flex align-items-end flex-column"  style="padding: 5%; font-size:3rem; font-family:'Lemon'">4</h1>
-
-        <h1 class="d-flex justify-content-center" style="font-family:'Quartzo;'; padding-top:7%; font-size:3.0rem;">E-Pharmacy </h1>
-      </div>
-    </div>
+ 
 
     <div class="col-4 x d-flex justify-content-center d-flex align-items-center">
 
       <div class="card corona zoom" routerLink="/prescriptionList/{{ patient_id }}">
-        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'">6</h1>
-        <h1 class="d-flex justify-content-center" style="font-family:'Meteor'; padding-top:7%; font-size:3.2rem;">Prescription</h1>
+        <h1 class="d-flex align-items-end flex-column" style="padding: 5%; font-size:3rem; font-family:'Lemon'"></h1>
+        <h1 class="d-flex justify-content-center" style="font-family:'Meteor'; padding-top:14%; font-size:3.2rem;">Prescription</h1>
 
 
       </div>

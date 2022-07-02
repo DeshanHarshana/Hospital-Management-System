@@ -22,7 +22,7 @@ export class AddprescrptionComponent implements OnInit {
   faCheckCircle=faCheckCircle;
   productForm=new FormGroup({});
   displayImage="";
-doctordata:any=[];
+  doctordata:any=[];
   patientName:string="";
   doctorName:string="";
   contentClass="content mat-elevation-z8";
@@ -148,7 +148,11 @@ doctordata:any=[];
       this.drug.allDrugs().subscribe(res=>{
         this.tempDruglist=res;
         console.log(this.drugList);
-      })
+      });
+      this.patient.getonePatient(this.route.snapshot.params.id).subscribe(res=>{
+        this.doctordata=res;
+        this.displayImage=this.doctordata.displayImage;
+      });
 
     })
 

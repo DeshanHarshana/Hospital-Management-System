@@ -16,6 +16,9 @@ export class PatientShowProfileComponent implements OnInit {
   cholestrolLevel:number=0;
   sugerLevel:number=0;
   presureLevel:number=0;
+  rcholestrolLevel:number=0;
+  rsugerLevel:number=0;
+  rpresureLevel:number=0;
   access=false;
   patientData:any=[]
   routePath="";
@@ -45,11 +48,34 @@ export class PatientShowProfileComponent implements OnInit {
         this.cholestrolLevel=res.cholestrol;
         this.sugerLevel=res.bloodsuger;
         this.presureLevel=res.bloodpresure;
+        this.rcholestrolLevel=Math.round((res.cholestrol * 100)/110);
+        this.rsugerLevel=Math.round((res.bloodsuger*100)/200);
+        this.rpresureLevel=Math.round((res.bloodpresure*100)/200);
       })
     },100);
 
 
 
+  }
+  addPrescription(){
+    const access=localStorage.getItem('access')
+    if(access=="doctor"){
+      return false;
+    }
+    return true;
+  }
+  goHome(){
+    const access=localStorage.getItem('access')
+    console.log(access);
+    if(access=="admin"){
+      this.router.navigate(['Admin-dashboard'])
+    }else if(access=='doctor'){
+      this.router.navigate(['Doctor-dashboard'])
+    }else if(access=='patient'){
+      this.router.navigate(['Patient-dashboard'])
+    }else{
+      this.router.navigate(['/']);
+    }
   }
   logout(){
 

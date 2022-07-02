@@ -11,46 +11,61 @@
 <mat-sidenav-container>
   <mat-sidenav opened="true" mode="side"  disableClose="true" class="mat-elevation-z8">
 
-      <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+    <img class="avatar mat-elevation-z8" [src]="displayImage" />
 
-      <h4 class="name">Deshan Harshana</h4>
-      <p class="designation">Hospital Admin</p>
+    <h4 class="name">{{patientname}}</h4>
+    <p class="designation">Hospital patient</p>
 
-      <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
 
-
-      <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+    <button mat-button class="menu-button" routerLink="/Patient-dashboard">
         <mat-icon>home</mat-icon>
         <span>Home</span>
     </button>
 
-    <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+    <button mat-button class="menu-button" routerLink="/Admin-show-patient-details/{{ patientid }}">
       <mat-icon>account_circle</mat-icon>
       <span>Profile</span>
   </button>
 
-    <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+  <button mat-button class="menu-button" routerLink="/getAllDoctorAppoinment/{{ patientid }}">
+    <mat-icon>person</mat-icon>
+    <span>Doctors</span>
+</button>
+
+
+    <button mat-button class="menu-button" routerLink="/getcurrentAppoinment">
       <mat-icon>assignment</mat-icon>
       <span>Appointments</span>
   </button>
 
+  <button mat-button class="menu-button" routerLink="/report-list/{{ patientid }}">
+    <mat-icon>insert_drive_file</mat-icon>
+     <span>Report</span>
+ </button>
 
-  <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+ 
+
+
+
+
+  <button mat-button class="menu-button" routerLink="/patient-bill/{{ patientid }}">
     <mat-icon>add_alert</mat-icon>
-    <span>Reminder</span>
-  </button>
-
-
-  <button mat-button class="menu-button" routerLink="/Patient-dashboard">
-  <mat-icon>feedback</mat-icon>
-  <span>Feedback</span>
-  </button>
+    <span>Your Bill</span>
+</button>
 
 
 
 
-  </mat-sidenav>
 
+
+
+
+
+
+
+
+</mat-sidenav>
 
     <div class="content mat-elevation-z8">
       <h1 style="padding-left:3%; padding-top:2%; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif" >Your Prescriptions</h1>

@@ -49,4 +49,10 @@ export class CheckedAppointmentsComponent implements OnInit {
     this.notification.seen(id).subscribe((res)=>{});
     this.router.navigate(['DoctorAppoinmentList'])
   }
+  profile(){
+    this.router.navigate(['show-doctor-details/'+localStorage.getItem('doctorid')])
+  }
+  patientload(){
+    this.router.navigate(['DoctorPatientList/'+localStorage.getItem('doctorid')])
+  }
 }

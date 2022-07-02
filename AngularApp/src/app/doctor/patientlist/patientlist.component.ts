@@ -45,5 +45,9 @@ export class PatientlistComponent implements OnInit {
   logout() {
     this.auth.logout();
   }
+  profile(){
+    this.router.navigate(['show-doctor-details/'+localStorage.getItem('doctorid')])
+  }
+  
 
 }

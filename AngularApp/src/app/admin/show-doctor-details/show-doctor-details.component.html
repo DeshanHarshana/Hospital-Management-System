@@ -22,6 +22,28 @@
 
       <mat-divider></mat-divider>
 
+      <button mat-button class="menu-button" routerLink="/Doctor-dashboard">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+    </button>
+
+
+    <button mat-button class="menu-button" routerLink="/DoctorPatientList">
+        <mat-icon>people</mat-icon>
+        <span>Patients</span>
+    </button>
+
+    <button mat-button class="menu-button" routerLink="/DoctorAppoinmentList">
+        <mat-icon>assignment</mat-icon>
+        <span>Appointments</span>
+    </button>
+
+
+    <button mat-button class="menu-button" routerLink="/calendarDoctor">
+        <mat-icon>add_alert</mat-icon>
+        <span>Reminder</span>
+    </button>
+
 <button mat-button class="menu-button" (click)="goHome()">
         <mat-icon>home</mat-icon>
         <span>Home</span>

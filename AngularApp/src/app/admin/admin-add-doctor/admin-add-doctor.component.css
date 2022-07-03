@@ -74,6 +74,7 @@ mat-sidenav-container {
 
   display: flex;
   justify-content: center;
+  font-family: 'Times New Roman';
 
 }
 .pic-div{

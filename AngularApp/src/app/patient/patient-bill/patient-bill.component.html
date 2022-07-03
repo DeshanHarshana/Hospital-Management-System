@@ -16,28 +16,28 @@
 
     <mat-divider></mat-divider>
 
-    <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+    <button mat-button class="menu-button" (click)="goHome()">
         <mat-icon>home</mat-icon>
         <span>Home</span>
     </button>
 
-    <button mat-button class="menu-button" routerLink="/Admin-show-patient-details/{{ patient_id }}">
+    <button *ngIf="otherButton" mat-button class="menu-button" routerLink="/Admin-show-patient-details/{{ patient_id }}">
       <mat-icon>account_circle</mat-icon>
       <span>Profile</span>
   </button>
 
-  <button mat-button class="menu-button" routerLink="/getAllDoctorAppoinment/{{ patient_id }}">
+  <button *ngIf="otherButton" mat-button class="menu-button" routerLink="/getAllDoctorAppoinment/{{ patient_id }}">
     <mat-icon>person</mat-icon>
     <span>Doctors</span>
 </button>
 
 
-    <button mat-button class="menu-button" routerLink="/getcurrentAppoinment">
+    <button *ngIf="otherButton" mat-button class="menu-button" routerLink="/getcurrentAppoinment">
       <mat-icon>assignment</mat-icon>
       <span>Appointments</span>
   </button>
 
-  <button mat-button class="menu-button" routerLink="/report-list/{{ patient_id }}">
+  <button *ngIf="otherButton" mat-button class="menu-button" routerLink="/report-list/{{ patient_id }}">
     <mat-icon>insert_drive_file</mat-icon>
      <span>Report</span>
  </button>
@@ -47,7 +47,7 @@
 
 
 
-  <button mat-button class="menu-button" routerLink="/patient-bill/{{ patient_id }}">
+  <button *ngIf="otherButton" mat-button class="menu-button" routerLink="/patient-bill/{{ patient_id }}">
     <mat-icon>add_alert</mat-icon>
     <span>Your Bill</span>
 </button>
@@ -158,7 +158,9 @@
   <div class="col-12">
     <h1 style="font-weight: bold;" class="d-flex justify-content-end">Total Rs. {{ total + doctorTotal+1000 }}</h1>
   </div>
+ <img src="../../../assets/sign/signature.jpeg" style="height:10vh; width: 10vw;"/>
   <div class="col-6">
+    
     <h4 style="font-weight: bold;">Admin sign : .....................</h4>
   </div>
   <div class="col-6  d-flex justify-content-end">
@@ -174,7 +176,7 @@
 </div>
 <div class="row">
   <div class="col-12 d-flex justify-content-end p-3">
-    <button class="btn btn-success " (click)="printDiv()">Print Bill</button>
+    <button class="btn btn-success" (click)="printDiv()">Print Bill</button>
   </div>
 </div>
 

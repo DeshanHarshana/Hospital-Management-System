@@ -95,6 +95,10 @@ import { ShowMedicineComponent } from './pharmacy2/show-medicine/show-medicine.c
 import { PasswordResetComponent } from './doctor/password-reset/password-reset.component';
 import { PatientPasswordResetComponent } from './patient/patient-password-reset/patient-password-reset.component';
 import { PhamasistListComponent } from './admin/phamasist-list/phamasist-list.component';
+import { RequestResetComponentComponent } from './request-reset-component/request-reset-component.component';
+import { ResponseResetComponent } from './response-reset/response-reset.component';
+import { ResponseResetPatientComponent } from './response-reset-patient/response-reset-patient.component';
+import { RequeestResetPatientComponent } from './requeest-reset-patient/requeest-reset-patient.component';
 
 
 @NgModule({
@@ -151,6 +155,10 @@ import { PhamasistListComponent } from './admin/phamasist-list/phamasist-list.co
     PasswordResetComponent,
     PatientPasswordResetComponent,
     PhamasistListComponent,
+    RequestResetComponentComponent,
+    ResponseResetComponent,
+    ResponseResetPatientComponent,
+    RequeestResetPatientComponent,
 
 
 

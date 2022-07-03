@@ -70,6 +70,14 @@ export class LoginComponent implements OnInit {
   toast(message:String) {
     this.toastr.warning(message.toString(), "Login Failed");
    }
+   forgotPassword(){
+     if(this.role=="Doctor"){
+        this.router.navigate(['request-reset-password']);
+     }
+     else if(this.role=="Patient"){
+       this.router.navigate(['request-reset-password-patient']);
+     }
+   }
 
 
   loginUser(user:any){

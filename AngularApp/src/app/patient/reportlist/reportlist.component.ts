@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { PatientService } from 'src/app/services/patient.service';
 import { ReportsService } from 'src/app/services/reports.service';
@@ -16,12 +17,15 @@ export class ReportlistComponent implements OnInit {
   canAccess : boolean = false; 
   image:string="";
   name:string=""
+  restrict:boolean=false;
+  canChange:boolean=false;
   constructor(
     private auth:AuthenticationService,
     private route:ActivatedRoute,
     private report:ReportsService,
     private patient:PatientService,
-    private router:Router
+    private router:Router,
+    public toastr:ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -30,7 +34,12 @@ export class ReportlistComponent implements OnInit {
     setTimeout(() => {
       this.report.getPatientReports(this.currentPatient).subscribe(res=>{
         this.data=res;
+        
       });
+      this.patient.getonePatient(this.currentPatient).subscribe(res=>{
+        this.restrict=res.subscription;
+        //console.log(res)
+      })
       this.patient.getonePatient(this.currentPatient).subscribe(res=>{
         this.name=res.name;
         console.log(name)
@@ -47,7 +56,27 @@ export class ReportlistComponent implements OnInit {
       this.canAccess = false;
     }
 
+    if(this.role=="patient"){
+      this.canChange=true;
+    }else{
+      this.canChange=false;
+    }
+
   }
+  available(value:any){
+    console.log(value.target.checked)
+    var data={
+      subscription:value.target.checked
+    }
+    this.patient.restriction(this.currentPatient,data).subscribe(res=>{
+      this.toast("Changed")
+    })
+    
+
+  }
+  toast(message:String) {
+    this.toastr.warning(message.toString(), "Change Restriction");
+   }
   goHome(){
     const access=localStorage.getItem('access')
     console.log(access);

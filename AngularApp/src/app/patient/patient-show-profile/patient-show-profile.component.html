@@ -82,8 +82,8 @@
     <h2>{{ patientData.phone }}</h2>
 
 
-    <label for="icon">Reports</label>
-<a routerLink="/report-list/{{ patientData._id }}"><h2>See Reports</h2></a>
+    <label for="icon">Reports</label><br>
+    <button class="myButton" (click)="restrict(patientData._id)">See Reports</button>
 
 
   </div>

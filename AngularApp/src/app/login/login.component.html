@@ -24,6 +24,7 @@
 								<button class="btn" (click)="loginUser(loginForm.value)" [disabled]="!loginForm.valid">Login</button>
                 <button class="btn" [hidden]="!isAdmin" (click)="Pharmacist()">Sign In As Pharmacist</button>
                 <button class="btn" [hidden]="isPatient" routerLink="/signup">Signup</button>
+				<button class="btn" [hidden]="isAdmin" (click)="forgotPassword()">Fogot Password</button>
 							</div>
 						</form>
 					</div>

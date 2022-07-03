@@ -16,10 +16,10 @@ export class PatientBillComponent implements OnInit {
   medicine:any[]=[];
   medicineList:any[]=[];
   doctorTotal:number=0;
-
+  otherButton:boolean=true;
   patientname:string="";
   displayImage:string="";
-  
+  src="./signature.jpeg";
 
   total:number=0;
   todayDate = new Date().toISOString().slice(0, 10);
@@ -33,6 +33,10 @@ export class PatientBillComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    const access=localStorage.getItem('access');
+    if(!(access=="patient")){
+      this.otherButton=false;
+    }
     this.patient_id = localStorage.getItem('patientid') || '';
     console.log(this.patient_id);
 setTimeout(()=>{
@@ -82,7 +86,19 @@ this.patient.getonePatient(this.patient_id).subscribe(res=>{
       },30)
     })
   }
-
+  goHome(){
+    const access=localStorage.getItem('access')
+    console.log(access);
+    if(access=="admin"){
+      this.router.navigate(['Admin-dashboard'])
+    }else if(access=='doctor'){
+      this.router.navigate(['Doctor-dashboard'])
+    }else if(access=='patient'){
+      this.router.navigate(['Patient-dashboard'])
+    }else{
+      this.router.navigate(['/']);
+    }
+  }
 
 
   logout(){

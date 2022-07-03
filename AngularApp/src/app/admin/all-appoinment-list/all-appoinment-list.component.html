@@ -88,18 +88,18 @@ Status
 <div class="row" style="padding-bottom:6px; padding-top:6px" *ngFor="let d of filterdData |orderBy | paginate:{itemsPerPage:8, currentPage:p}">
   <div class="col-3 d-flex align-items-center ">
     <img class="patientImage d-flex align-items-center " src="{{ d.displayImage }}"/>
-    <h4 style="margin-left: 5%; font-size:1.3rem; font-family:'Abas'" >{{ d.doctorname }}</h4>
+    <h4 style="margin-left: 5%; font-size:1.3rem; font-family:'Times New Roman'" >{{ d.doctorname }}</h4>
 
   </div>
   <div class="col-3 d-flex align-items-center d-flex justify-content-center">
-    <h4 style="font-size:1.3rem; font-family:'Abas'">{{ d.appoinmentDate }}</h4>
+    <h4 style="font-size:1.3rem; font-family:'Times New Roman'">{{ d.appoinmentDate }}</h4>
   </div>
   <div class="col-3 d-flex align-items-center d-flex justify-content-center">
-    <h4 style="font-size:1.3rem; font-family:'Abas'">{{ d.appoinmentTime }}</h4>
+    <h4 style="font-size:1.3rem; font-family:'Times New Roman'">{{ d.appoinmentTime }}</h4>
 
   </div>
   <div class="col-2 d-flex align-items-center d-flex justify-content-center" >
-<h4 [ngClass]="d.status=='Pending' ? 'pending' : 'accept' " style="font-size:1.3rem; font-family:'Abas'">{{ d.status }}</h4>
+<h4 [ngClass]="d.status=='Pending' ? 'pending' : 'accept' " style="font-size:1.3rem; font-family:'Times New Roman'">{{ d.status }}</h4>
   </div>
   <div class="col-1 d-flex align-items-center d-flex justify-content-center">
     <button class="btn btn-outline-danger" (click)="deleteAppoinment(d._id, d.doctorid )">Delete</button>

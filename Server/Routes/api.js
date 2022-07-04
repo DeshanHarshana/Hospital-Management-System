@@ -1498,6 +1498,25 @@ router.put('/changeAvailability/:id', function(req,res){
     );
 })
 
+router.put('/adminSign/:id', function(req,res){
+    Prescription.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                adminSign:req.body.adminSign
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
+})
+
+
 //product availablity
 router.put('/productAvailability/:id', function(req,res){
     Product.findByIdAndUpdate(req.params.id,
@@ -1943,7 +1962,7 @@ router.post('/addNewDrug', (req, res)=>{
 })
 
 router.get('/getAllmedicineofPatient/:id', (req,res)=>{
-    Prescription.find({patientid:req.params.id}, "medicine", (error,result)=>{
+    Prescription.find({patientid:req.params.id}, "medicine adminSign _id", (error,result)=>{
         if(!error){
             res.send(result)
         }

@@ -52,3 +52,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-family: "broad";
   src: url(./assets/fonts/BroadwayRegular-7Bpow.ttf);
 }
+@font-face {
+  font-family: "zafani";
+  src: url(./assets/fonts/Zefani.otf);
+}

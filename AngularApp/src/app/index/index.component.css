@@ -35,7 +35,9 @@ body {
   margin-right: 40px;
   transition: all .5s;
 }
-
+.spacer {
+  flex: 1 1 auto;
+}
 
 .box {
   background-image: url("../../assets/index/admin.png");

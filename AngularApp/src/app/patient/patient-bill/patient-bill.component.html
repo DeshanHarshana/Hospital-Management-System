@@ -16,28 +16,36 @@
 
     <mat-divider></mat-divider>
 
-    <button mat-button class="menu-button" routerLink="/Patient-dashboard">
+    <button mat-button class="menu-button" (click)="goHome()">
         <mat-icon>home</mat-icon>
         <span>Home</span>
     </button>
 
-    <button mat-button class="menu-button" routerLink="/Admin-show-patient-details/{{ patient_id }}">
+    <button *ngIf="otherButton" mat-button class="menu-button" routerLink="/Admin-show-patient-details/{{ patient_id }}">
       <mat-icon>account_circle</mat-icon>
       <span>Profile</span>
   </button>
+  <div class="container d-flex justify-content-center d-flex align-items-center" style="font-size: 1rem;">
+    Sign Admin
+        <div class="form-check" style="margin-left:3%;">
+          <input class="form-check-input" (change)="available($event)"  type="checkbox" checked="{{ adminSign }}" id="flexCheckDefault">
 
-  <button mat-button class="menu-button" routerLink="/getAllDoctorAppoinment/{{ patient_id }}">
+        </div>
+
+      </div>
+
+  <button *ngIf="otherButton" mat-button class="menu-button" routerLink="/getAllDoctorAppoinment/{{ patient_id }}">
     <mat-icon>person</mat-icon>
     <span>Doctors</span>
 </button>
 
 
-    <button mat-button class="menu-button" routerLink="/getcurrentAppoinment">
+    <button *ngIf="otherButton" mat-button class="menu-button" routerLink="/getcurrentAppoinment">
       <mat-icon>assignment</mat-icon>
       <span>Appointments</span>
   </button>
 
-  <button mat-button class="menu-button" routerLink="/report-list/{{ patient_id }}">
+  <button *ngIf="otherButton" mat-button class="menu-button" routerLink="/report-list/{{ patient_id }}">
     <mat-icon>insert_drive_file</mat-icon>
      <span>Report</span>
  </button>
@@ -47,7 +55,7 @@
 
 
 
-  <button mat-button class="menu-button" routerLink="/patient-bill/{{ patient_id }}">
+  <button *ngIf="otherButton" mat-button class="menu-button" routerLink="/patient-bill/{{ patient_id }}">
     <mat-icon>add_alert</mat-icon>
     <span>Your Bill</span>
 </button>
@@ -158,8 +166,11 @@
   <div class="col-12">
     <h1 style="font-weight: bold;" class="d-flex justify-content-end">Total Rs. {{ total + doctorTotal+1000 }}</h1>
   </div>
+ 
   <div class="col-6">
+    
     <h4 style="font-weight: bold;">Admin sign : .....................</h4>
+    <img src="../../../assets/sign/signature.png" *ngIf="sign" style="height:10vh; width: 10vw;"/>
   </div>
   <div class="col-6  d-flex justify-content-end">
    <h4 style="font-weight: bold;">Patient sign : .....................</h4>
@@ -174,7 +185,7 @@
 </div>
 <div class="row">
   <div class="col-12 d-flex justify-content-end p-3">
-    <button class="btn btn-success " (click)="printDiv()">Print Bill</button>
+    <button class="btn btn-success" *ngIf="canPrint" (click)="printDiv()">Print Bill</button>
   </div>
 </div>
 

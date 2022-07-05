@@ -1,0 +1,47 @@
+<mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
+    <img style="height:100%;  margin-right:5%; cursor:pointer"  src="../../../assets/navbar/logo.png"/>
+  
+    <span class="spacer"></span>
+    
+  </mat-toolbar>
+<div *ngIf="hasData" class="d-flex justify-content-center" style="padding-top: 39vh ;">
+    <div *ngIf="validity" style="width: 35%;">
+        <div class="container card">
+            <form [formGroup]="resetForm">
+            <div class="row">
+                <div class="col-12">
+                    
+                    
+                    <label>New Password</label>
+                    <div class="form-group pass_show"> 
+                        <input type="password" formControlName="newPassword" class="form-control" placeholder="New Password"> 
+                    </div> 
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                       <label>Confirm Password</label>
+                    <div class="form-group pass_show"> 
+                        <input type="password" (keyup)="check()" formControlName="confirmPassword" class="form-control" placeholder="Confirm Password"> 
+                    </div> 
+                 </div>
+                 </div>
+                </form>
+                 <div class="row">
+            
+                    <div class="col-12" style="color: red;" *ngIf="hasError">
+                        <h3>{{message}}</h3> 
+                </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12">
+                        <button class="btn btn-success" (click)="Test(resetForm.value)" style="width: 100%; padding-top: 3%;">Change</button>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+    <div *ngIf="!validity">
+        <h1>Invalid</h1>
+    </div>
+</div>

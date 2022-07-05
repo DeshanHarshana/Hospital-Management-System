@@ -6,6 +6,10 @@ const prescription = mongoose.Schema({
     doctorid:String,
     patientname:String,
     doctorname:String,
+    adminSign:{
+        type:Boolean,
+        default:false
+    },
     date:String,
     medicine:[{
         drugname:String,

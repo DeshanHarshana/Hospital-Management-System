@@ -55,6 +55,11 @@ import { AddMedicineComponent } from './pharmacy2/add-medicine/add-medicine.comp
 import { ShowMedicineComponent } from './pharmacy2/show-medicine/show-medicine.component';
 import { PasswordResetComponent } from './doctor/password-reset/password-reset.component';
 import { PatientPasswordResetComponent } from './patient/patient-password-reset/patient-password-reset.component';
+import { PhamasistListComponent } from './admin/phamasist-list/phamasist-list.component';
+import { RequestResetComponentComponent } from './request-reset-component/request-reset-component.component';
+import { ResponseResetComponent } from './response-reset/response-reset.component';
+import { RequeestResetPatientComponent } from './requeest-reset-patient/requeest-reset-patient.component';
+import { ResponseResetPatientComponent } from './response-reset-patient/response-reset-patient.component';
 
 
 const routes: Routes = [
@@ -72,6 +77,7 @@ const routes: Routes = [
   {path : 'Admin-edit-patient-details/:id', component:PatientEditProfileComponent},
   {path : 'Admin-show-all-patient-list', component:AllPatientListComponent, canActivate:[AuthGuard]},
   {path : 'Admin-show-all-appoinment-list', component:AllAppoinmentListComponent, canActivate:[AuthGuard]},
+  {path : 'Admin-show-all-phamasisit', component:PhamasistListComponent, canActivate:[AuthGuard]},
 
   //doctor
   {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},
@@ -94,7 +100,7 @@ const routes: Routes = [
   {path :'report-list/:id', component:ReportlistComponent},
   {path :'getAllDoctorAppoinment/:id', component:AppoinmentDoctorListComponent, canActivate:[PatientGuard]},
   {path :'getcurrentAppoinment', component:AppoinmentlistComponent, canActivate:[PatientGuard]},
-  {path:'patient-bill/:id', component:PatientBillComponent, canActivate:[PatientGuard]},
+  {path:'patient-bill/:id', component:PatientBillComponent},
   {path :'pharmacy', component:PharmacyComponent},
   {path: 'display-prescription', component:DisplayPrescriptionComponent, canActivate:[PatientGuard]},
   {path: 'show-prescription/:id', component:ShowPrescriptionComponent, canActivate:[PatientGuard]},
@@ -138,6 +144,24 @@ const routes: Routes = [
   {path:'allMedicineList', component:MedicineListComponent},
   //{path:'addMedicine', component:AddmedicineComponent},
 
+  //forgot password
+
+  {
+    path: 'request-reset-password',
+    component: RequestResetComponentComponent,
+  },
+  {
+      path: 'response-reset-password/:token',
+      component: ResponseResetComponent
+    },
+    {
+      path: 'request-reset-password-patient',
+      component: RequeestResetPatientComponent,
+    },
+    {
+        path: 'response-reset-password-patient/:token',
+        component: ResponseResetPatientComponent
+      },
     //pagenot found
   { path : '**', component:PageNotFoundComponent },
 

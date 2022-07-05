@@ -47,4 +47,24 @@ export class PatientService {
   getAllmedicinelist(patientid:string){
     return this._http.get<any>("http://localhost:3000/getAllmedicineofPatient/"+patientid);
   }
+  restriction(id:string, data:any){
+    return this._http.put<any>("http://localhost:3000/restrictReport/"+id, data)
+  }
+  requestReset(body:any): Observable<any> {
+    return this._http.post('http://localhost:3000/req-reset-password-patient', body);
+  }
+
+  newPassword(body:any): Observable<any> {
+    return this._http.post('http://localhost:3000/new-password-patient', body);
+  }
+
+  ValidPasswordToken(body:any): Observable<any> {
+    return this._http.post('http://localhost:3000/valid-password-token-patient', body);
+  }
+
+  forgotPassword(forgot:any){
+    return this._http.post<any>("http://localhost:3000/patient-fogot-password",forgot);
+  }
+
+  
 }

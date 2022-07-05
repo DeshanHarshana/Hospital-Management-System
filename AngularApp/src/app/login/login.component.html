@@ -1,6 +1,6 @@
 
 	<!-- Main Content -->
-<div class="container x d-flex justify-content-center d-flex align-items-center">
+<div class="container x d-flex justify-content-center d-flex align-items-center" >
   		<div class="row main-content align-middle bg-success text-center">
 			<div class="col-md-4 text-center company__info">
 				<span class="company__logo"></span>
@@ -24,6 +24,7 @@
 								<button class="btn" (click)="loginUser(loginForm.value)" [disabled]="!loginForm.valid">Login</button>
                 <button class="btn" [hidden]="!isAdmin" (click)="Pharmacist()">Sign In As Pharmacist</button>
                 <button class="btn" [hidden]="isPatient" routerLink="/signup">Signup</button>
+				<button class="btn" [hidden]="isAdmin" (click)="forgotPassword()">Fogot Password</button>
 							</div>
 						</form>
 					</div>

@@ -14,7 +14,7 @@
 
     <h4 class="name">{{name}}</h4>
     <p class="designation">Hospital Patient</p>
-
+    
     <mat-divider></mat-divider>
 
 
@@ -22,7 +22,14 @@
       <mat-icon>home</mat-icon>
       <span>Home</span>
     </button>
-    
+    <div *ngIf="canChange" class="container d-flex justify-content-center d-flex align-items-center" style="font-size: 1rem; padding-top: 3vh;">
+      Restriction
+          <div class="form-check" style="margin-left:3%;">
+            <input class="form-check-input" (change)="available($event)"  type="checkbox" checked="{{restrict}}" id="flexCheckDefault">
+
+          </div>
+
+        </div>
 
 
 

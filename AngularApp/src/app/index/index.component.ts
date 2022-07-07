@@ -25,6 +25,19 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const access= localStorage.getItem('access') || "";
+   if(access=="admin"){
+    this.router.navigate(['Admin-dashboard'])
+   }
+   else if(access=="patient"){
+    this.router.navigate(['Patient-dashboard'])
+   }
+   else if(access=="doctor"){
+    this.router.navigate(['Doctor-dashboard'])
+   }
+   else{
+    this.router.navigate(['index'])
+   }
   }
 
   Admin(){

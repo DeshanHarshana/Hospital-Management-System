@@ -38,6 +38,53 @@ mongoose.connect(db, {
 
 //routes
 
+router.post('/patient-fogot-password', async function(req,res){
+    const salt = await bcrypt.genSalt(5)
+    const x= await bcrypt.hash(req.body.newpassword, salt);
+    Patient.findOneAndUpdate({email:req.body.email},
+                    {
+                        $set: {
+                            password: x,
+                            
+                        }
+                    }, {
+                    new: true
+                }, function (error, result) {
+                    if (error) {
+                        res.send({"message":"Error updating"});
+                    } else {
+                        console.log("successfully uodated")
+                        res.send({"message":"successfully updated"});
+                    }
+                }
+                );
+                //res.send({"message":x})
+
+});
+router.post('/doctor-fogot-password', async function(req,res){
+    const salt = await bcrypt.genSalt(5)
+    const x= await bcrypt.hash(req.body.newpassword, salt);
+    Doctor.findOneAndUpdate({email:req.body.email},
+                    {
+                        $set: {
+                            password: x,
+                            
+                        }
+                    }, {
+                    new: true
+                }, function (error, result) {
+                    if (error) {
+                        res.send({"message":"Error updating"});
+                    } else {
+                        console.log("successfully uodated")
+                        res.send({"message":"successfully updated"});
+                    }
+                }
+                );
+                //res.send({"message":x})
+
+})
+
 router.get('/', function (req, res) {
     res.send('From api route!');
 })
@@ -1451,6 +1498,25 @@ router.put('/changeAvailability/:id', function(req,res){
     );
 })
 
+router.put('/adminSign/:id', function(req,res){
+    Prescription.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                adminSign:req.body.adminSign
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
+})
+
+
 //product availablity
 router.put('/productAvailability/:id', function(req,res){
     Product.findByIdAndUpdate(req.params.id,
@@ -1896,7 +1962,7 @@ router.post('/addNewDrug', (req, res)=>{
 })
 
 router.get('/getAllmedicineofPatient/:id', (req,res)=>{
-    Prescription.find({patientid:req.params.id}, "medicine", (error,result)=>{
+    Prescription.find({patientid:req.params.id}, "medicine adminSign _id", (error,result)=>{
         if(!error){
             res.send(result)
         }
@@ -1918,6 +1984,208 @@ router.get('/deletePhamasist/:id', (req,res)=>{
 
         }
     })
+});
+
+
+
+//password reset part
+const passwordResetToken = require('../Models/ResetToken');
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
+const ResetToken = require('../Models/ResetToken');
+router.post('/req-reset-password-patient', async function(req,res){
+    if (!req.body.email) {
+        return res.status(500).json({ message: 'Email is required' });
+        }
+        const user = await Patient.findOne({
+        email:req.body.email
+        });
+        if (!user) {
+            console.log("sdfsd")
+        return res.status(409).json({ message: 'Email does not exist' });
+        }
+        var mytoken=crypto.randomBytes(16).toString('hex');
+        ResetToken.findOne({email:req.body.email}, function(error, result){
+            if(result==null){
+                var data={
+                    email:req.body.email,
+                    token:'notoken'
+                }
+                var token=new ResetToken(data);
+                token.save();
+            }
+        })
+        
+        
+        setTimeout(()=>{
+            ResetToken.findOneAndUpdate({email:req.body.email},
+                {
+                    $set: {
+                            token:mytoken
+                            
+                    }
+                }, {
+                new: true
+            }, function (error, result) {
+                if (error) {
+                    res.send("Error updating");
+                } else {
+                    res.send(result);
+                }
+            }
+            );
+            
+            const transporter = nodemailer.createTransport({
+                host: 'smtp.office365.com',
+                port: 587,
+                secure:false,
+                auth: {
+                    user: 'deshanharshana@outlook.com',
+                    pass: 'Harshana5566',
+                }
+            });
+            var mailOptions = {
+            to: user.email,
+            from: 'deshanharshana@outlook.com',
+            subject: 'Node.js Password Reset',
+            text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+            'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+            'http://localhost:4200/response-reset-password-patient/'+mytoken+'\n\n'+
+            'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+            }
+            transporter.sendMail(mailOptions, (err, info) => {
+                console.log(err)
+            })
+        },2000)
+        
+        });
+
+
+router.post('/req-reset-password', async function(req,res){
+    if (!req.body.email) {
+        return res.status(500).json({ message: 'Email is required' });
+        }
+        const user = await Doctor.findOne({
+        email:req.body.email
+        });
+        if (!user) {
+            console.log("sdfsd")
+        return res.status(409).json({ message: 'Email does not exist' });
+        }
+        var mytoken=crypto.randomBytes(16).toString('hex');
+        ResetToken.findOne({email:req.body.email}, function(error, result){
+            if(result==null){
+                var data={
+                    email:req.body.email,
+                    token:'notoken'
+                }
+                var token=new ResetToken(data);
+                token.save();
+            }
+        })
+        
+        
+        setTimeout(()=>{
+            ResetToken.findOneAndUpdate({email:req.body.email},
+                {
+                    $set: {
+                            token:mytoken
+                            
+                    }
+                }, {
+                new: true
+            }, function (error, result) {
+                if (error) {
+                    res.send("Error updating");
+                } else {
+                    res.send(result);
+                }
+            }
+            );
+            
+            const transporter = nodemailer.createTransport({
+                host: 'smtp.office365.com',
+                port: 587,
+                secure:false,
+                auth: {
+                    user: 'deshanharshana@outlook.com',
+                    pass: 'Harshana5566',
+                }
+            });
+            var mailOptions = {
+            to: user.email,
+            from: 'deshanharshana@outlook.com',
+            subject: 'Node.js Password Reset',
+            text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+            'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+            'http://localhost:4200/response-reset-password/'+mytoken+'\n\n'+
+            'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+            }
+            transporter.sendMail(mailOptions, (err, info) => {
+                console.log(err)
+            })
+        },2000)
+        
+        });
+
+
+router.get('/getDoctorIDfromEmail/:email', function(req,res){
+    Doctor.findOne({email:req.params.email}, '_id', function(error,result){
+        if(!error){
+            res.send(result);
+        }
+        
+    })
+});
+
+
+
+router.post('/valid-password-token',async function(req,res){
+    if (!req.body.token) {
+        return res.json({ message: 'Token is required' });
+        }
+        const user = await passwordResetToken.findOne({
+        token: req.body.token
+        });
+        if (!user) {
+        return res.json({ message: 'invalid' });
+        }else{
+            return res.json({message:"valid"})
+        }
+        
+    })
+       
+    router.post('/valid-password-token-patient',async function(req,res){
+        if (!req.body.token) {
+            return res.json({ message: 'Token is required' });
+            }
+            const user = await passwordResetToken.findOne({
+            token: req.body.token
+            });
+            if (!user) {
+            return res.json({ message: 'invalid' });
+            }else{
+                return res.json({message:"valid"})
+            }
+            
+        })
+//restrict patient
+router.put('/restrictReport/:id', function(req,res){
+    Patient.findByIdAndUpdate(req.params.id,
+        {
+            $set: {
+                subscription:req.body.subscription
+            }
+        }, {
+        new: true
+    }, function (error, result) {
+        if (error) {
+            res.send("Error updating");
+        } else {
+            res.send(result);
+        }
+    }
+    );
 })
 
 //export model

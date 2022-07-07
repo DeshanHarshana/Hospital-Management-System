@@ -19,6 +19,10 @@ export class DoctorService {
     return this._http.post<any>("http://localhost:3000/doctor-reset-password",reset);
   }
 
+  forgotPassword(forgot:any){
+    return this._http.post<any>("http://localhost:3000/doctor-fogot-password",forgot);
+  }
+
   addDoctor(doctor:any){
     return this._http.post<any>("http://localhost:3000/add-new-doctor", doctor);
   }
@@ -65,5 +69,21 @@ export class DoctorService {
   }
   dashboardData(){
     return this._http.get<any>("http://localhost:3000/getDashboardData")
+  }
+
+  requestReset(body:any): Observable<any> {
+    return this._http.post('http://localhost:3000/req-reset-password', body);
+  }
+
+  newPassword(body:any): Observable<any> {
+    return this._http.post('http://localhost:3000/new-password', body);
+  }
+
+  ValidPasswordToken(body:any): Observable<any> {
+    return this._http.post('http://localhost:3000/valid-password-token', body);
+  }
+
+  getIdusingEmail(email:any){
+    return this._http.get<any>("http://localhost:3000/getDoctorIDfromEmail/"+email);
   }
 }

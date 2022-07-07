@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { PatientService } from 'src/app/services/patient.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-patient-show-profile',
   templateUrl: './patient-show-profile.component.html',
@@ -21,12 +22,14 @@ export class PatientShowProfileComponent implements OnInit {
   rpresureLevel:number=0;
   access=false;
   patientData:any=[]
+  restriction:boolean=false;
   routePath="";
   constructor(
     private router:Router,
     private auth:AuthenticationService,
     private route:ActivatedRoute,
-    private patient:PatientService
+    private patient:PatientService,
+    public toastr:ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -44,8 +47,10 @@ export class PatientShowProfileComponent implements OnInit {
     setTimeout(() => {
       this.patient.getonePatient(id).subscribe(res=>{
         console.log(res)
+
         this.patientData=res;
         this.cholestrolLevel=res.cholestrol;
+        this.restriction=res.subscription;
         this.sugerLevel=res.bloodsuger;
         this.presureLevel=res.bloodpresure;
         this.rcholestrolLevel=Math.round((res.cholestrol * 100)/110);
@@ -80,6 +85,17 @@ export class PatientShowProfileComponent implements OnInit {
   logout(){
 
     this.auth.logout();
+      }
+      toast(message:String) {
+        this.toastr.warning(message.toString(), "warning");
+       }
+      restrict(id:any){
+        if(this.restriction){
+          this.toast("This reports are restricted");
+        }else{
+          this.router.navigate(['report-list/'+id])
+        }
+        //console.log(id);
       }
 
 }

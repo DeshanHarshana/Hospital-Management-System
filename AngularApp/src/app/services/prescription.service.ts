@@ -41,4 +41,8 @@ export class PrescriptionService {
   deletePrescription(id:string){
     return this._http.delete("http://localhost:3000/deletePrescription/"+id);
   }
+
+  changeAvalilability(id:string, data:any){
+    return this._http.put<any>("http://localhost:3000/adminSign/"+id, data)
+  }
 }

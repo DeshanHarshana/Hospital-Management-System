@@ -14,6 +14,53 @@
   opacity: 0.8;
 
 }
+.x-sign {
+	--interval: 10s;
+	display: block;
+	text-shadow: 
+	  0 0 10px var(--color1),
+	  0 0 20px var(--color2),
+	  0 0 40px var(--color3),
+	  0 0 80px var(--color4);
+	will-change: filter, color;
+	filter: saturate(60%);
+	animation: flicker steps(100) var(--interval) 1s infinite;
+  }
+  
+  .x-sign:nth-of-type(1) {
+	color: rgba(254, 254, 254, 0);
+	--color1: rgb(255, 255, 255);
+	--color2: rgb(255, 255, 255);
+	--color3: rgb(0, 253, 232);
+	--color4: rgb(0, 162, 255);
+	font-family: Sriracha;
+  }
+  
+  
+  @keyframes flicker {
+	50% {
+	  color: rgb(129, 218, 204);
+	  filter: saturate(200%) hue-rotate(20deg);
+	}
+  }
+.spacer {
+	flex: 1 1 auto;
+  }
+  body {
+	background-image: url("../../assets/background/background.jpeg");
+  
+	/* Full height */
+	height: 100%;
+  
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+  
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	text-align: center;
+  }
 
 .x{
   padding-top: 15vh;

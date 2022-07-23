@@ -16,6 +16,7 @@ const bcrypt = require("bcrypt");
 //power
 //database connection String
 
+//const db="mongodb://localhost:2717/myFirstDatabase?retryWrites=true&w=majority"; // for docker running
 const db = "mongodb+srv://deshan:deshan2233@cluster0.1ape7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 //const db = "mongodb+srv://deshan:deshan2233@cluster0.1ape7.mongodb.net/Host?retryWrites=true&w=majority"
 

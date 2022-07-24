@@ -32,6 +32,7 @@ export class PatientBillComponent implements OnInit {
   adminSign:boolean=false;
   sign:boolean=false;
   canPrint:boolean=false;
+  isAdmin:boolean=false;
 
   total:number=0;
   todayDate = new Date().toISOString().slice(0, 10);
@@ -104,15 +105,15 @@ setTimeout(()=>{
    this.sign=res.map(function(a:any) {return a.adminSign;})[0];
    this.calculate(res)
 
-   console.log(res.map(function(a:any) {return a.adminSign;})[0]);
-    if(localStorage.getItem('access')=="admin"){
+   console.log("Admin sign " + res.map(function(a:any) {return a.adminSign;})[0]);
+    
       if(this.adminSign==true){
         this.canPrint=true;
       }
       else{
         this.canPrint=false;
       }
-    }
+    
   })
 
 })
@@ -167,11 +168,16 @@ this.patient.getonePatient(this.patient_id).subscribe(res=>{
     var data={
       adminSign:value.target.checked
     }
+    console.log(this.prescriptionID)
     this.prescription.changeAvalilability(this.prescriptionID, data).subscribe(res=>{
-        if(res.available==true){
+        
+        if(res.adminSign){
           this.toast("Added Admin Sign");
+          this.canPrint=true;
         }else{
           this.toast("Remove Admin Sign")
+
+          this.canPrint=false;
         }
     })
 

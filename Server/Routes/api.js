@@ -1500,6 +1500,7 @@ router.put('/changeAvailability/:id', function(req,res){
 })
 
 router.put('/adminSign/:id', function(req,res){
+    console.log(req.body)
     Prescription.findByIdAndUpdate(req.params.id,
         {
             $set: {

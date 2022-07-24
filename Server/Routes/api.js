@@ -16,6 +16,7 @@ const bcrypt = require("bcrypt");
 //power
 //database connection String
 
+//const db="mongodb://localhost:2717/myFirstDatabase?retryWrites=true&w=majority"; // for docker running
 const db = "mongodb+srv://deshan:deshan2233@cluster0.1ape7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 //const db = "mongodb+srv://deshan:deshan2233@cluster0.1ape7.mongodb.net/Host?retryWrites=true&w=majority"
 
@@ -1499,6 +1500,7 @@ router.put('/changeAvailability/:id', function(req,res){
 })
 
 router.put('/adminSign/:id', function(req,res){
+    console.log(req.body)
     Prescription.findByIdAndUpdate(req.params.id,
         {
             $set: {

@@ -12,6 +12,12 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./patient-bill.component.css']
 })
 export class PatientBillComponent implements OnInit {
+  title = 'clock-greets';
+  time:any;
+  hours:any;
+  msg:any;
+  link:any;
+  today = new Date().toISOString().slice(0, 10);
   patient_id : string = '';
   patientData:any=[]
   patientDoctors:Doctor[]=[]
@@ -26,6 +32,7 @@ export class PatientBillComponent implements OnInit {
   adminSign:boolean=false;
   sign:boolean=false;
   canPrint:boolean=false;
+  isAdmin:boolean=false;
 
   total:number=0;
   todayDate = new Date().toISOString().slice(0, 10);
@@ -38,7 +45,37 @@ export class PatientBillComponent implements OnInit {
     private prescription:PrescriptionService,
     public toastr:ToastrService,
 
-  ) { }
+  ) { 
+    setInterval(() => {
+      this.time = new Date();
+   }, 1000);
+
+   this.decide();
+     }
+
+     decide() {
+      this.hours = new Date().getHours();
+      console.log("this.hours",this.hours)
+      if(this.hours < 10){
+        this.msg = "Good Morning"
+        this.link = "wwww.google.com"
+        console.log("selamat Pagi")
+      }else if(this.hours < 16){
+        this.msg = "Good Afternoon"
+        this.link = "wwww.tokopedia.com"
+        console.log("selamat siang")
+      }else if(this.hours < 19){
+        this.msg = "Good Evening"
+      }else if(this.hours < 24){
+        this.msg = "Good Night"
+        this.link = "wwww.sprout.co.id"
+        console.log("selamat malam")
+      }else if(this.hours < 6){
+        this.msg = "Sleep lah"
+        this.link = "www.mangabat.com"
+        console.log("selamat subuh")
+      }
+  }
 
   ngOnInit(): void {
     const access=localStorage.getItem('access');
@@ -68,15 +105,15 @@ setTimeout(()=>{
    this.sign=res.map(function(a:any) {return a.adminSign;})[0];
    this.calculate(res)
 
-   console.log(res.map(function(a:any) {return a.adminSign;})[0]);
-    if(localStorage.getItem('access')=="admin"){
+   console.log("Admin sign " + res.map(function(a:any) {return a.adminSign;})[0]);
+    
       if(this.adminSign==true){
         this.canPrint=true;
       }
       else{
         this.canPrint=false;
       }
-    }
+    
   })
 
 })
@@ -131,11 +168,16 @@ this.patient.getonePatient(this.patient_id).subscribe(res=>{
     var data={
       adminSign:value.target.checked
     }
+    console.log(this.prescriptionID)
     this.prescription.changeAvalilability(this.prescriptionID, data).subscribe(res=>{
-        if(res.available==true){
+        
+        if(res.adminSign){
           this.toast("Added Admin Sign");
+          this.canPrint=true;
         }else{
           this.toast("Remove Admin Sign")
+
+          this.canPrint=false;
         }
     })
 

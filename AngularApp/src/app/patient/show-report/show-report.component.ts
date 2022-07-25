@@ -11,6 +11,12 @@ import { ReportsService } from 'src/app/services/reports.service';
   styleUrls: ['./show-report.component.css']
 })
 export class ShowReportComponent implements OnInit {
+  title = 'clock-greets';
+  time:any;
+  hours:any;
+  msg:any;
+  link:any;
+  today = new Date().toISOString().slice(0, 10);
   report = new FormGroup({
     heartDisease:new FormControl({value: false, disabled: true}),
     diabetes:new FormControl({value: false, disabled: true}),
@@ -36,7 +42,37 @@ export class ShowReportComponent implements OnInit {
     private reports:ReportsService,
     private router:Router,
     private doctor:DoctorService
-  ) { }
+  ) { 
+    setInterval(() => {
+      this.time = new Date();
+   }, 1000);
+
+   this.decide();
+     }
+
+     decide() {
+      this.hours = new Date().getHours();
+      console.log("this.hours",this.hours)
+      if(this.hours < 10){
+        this.msg = "Good Morning"
+        this.link = "wwww.google.com"
+        console.log("selamat Pagi")
+      }else if(this.hours < 16){
+        this.msg = "Good Afternoon"
+        this.link = "wwww.tokopedia.com"
+        console.log("selamat siang")
+      }else if(this.hours < 19){
+        this.msg = "Good Evening"
+      }else if(this.hours < 24){
+        this.msg = "Good Night"
+        this.link = "wwww.sprout.co.id"
+        console.log("selamat malam")
+      }else if(this.hours < 6){
+        this.msg = "Sleep lah"
+        this.link = "www.mangabat.com"
+        console.log("selamat subuh")
+      }
+  }
 
   ngOnInit(): void {
     this.currentReport=this.route.snapshot.params.id;

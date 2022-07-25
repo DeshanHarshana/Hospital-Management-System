@@ -126,7 +126,7 @@ padding: 0 10px;
 }
 
 .x-sign:nth-of-type(1) {
-  color: rgba(254, 254, 254, 0);
+  color: rgb(252, 0, 0);
   --color1: rgb(255, 255, 255);
   --color2: rgb(255, 255, 255);
   --color3: rgb(0, 253, 232);

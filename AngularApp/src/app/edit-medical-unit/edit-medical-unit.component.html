@@ -1,9 +1,10 @@
 
 <mat-toolbar class="mat-elevation-z8" style="color: white;background: linear-gradient(45deg, #64e2e6, #3a408b);">
   <img style="height:100%;  margin-right:5%; cursor:pointer" routerLink="/Admin-dashboard" src="../../assets/navbar/logo.png"/>
-
+  <h1 style="font-size: 7vh; color: rgb(244, 38, 34); padding-left: 14vw; font-family: Lemon; letter-spacing: 2vw;" class="x-sign" >LIFE CARE</h1>
   <span class="spacer"></span>
-  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;">Logout</button>
+  <p class="txt-time" style="padding-top: 1%;">  {{time | date:'mediumTime'}}
+  <button (click)="logout()" class="btn" style="background-color: transparent; color:white; font-size:1.5rem;"><mat-icon>power_settings_new</mat-icon></button>
 
 </mat-toolbar>
 

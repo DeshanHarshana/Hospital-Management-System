@@ -20,12 +20,17 @@ export class ShowDoctorDetailsComponent implements OnInit {
   data:any=[];
   patientList:any=[];
   id:string="";
+  time:any;
+  hours:any;
+  msg:any;
+  link:any;
   ward=0;
   patient=0;
   displayImage="";
   doctordata:any=[];
   cancel:boolean=false;
   currentDoctor="";
+  today = new Date().toISOString().slice(0, 10);
   constructor(
     private router:Router,
     private route:ActivatedRoute,
@@ -34,6 +39,7 @@ export class ShowDoctorDetailsComponent implements OnInit {
     private method:Methods,
     private doctor:DoctorService
 
+
   ) { 
     setInterval(() => {
       this.time = new Date();
@@ -41,7 +47,9 @@ export class ShowDoctorDetailsComponent implements OnInit {
 
    this.decide();
   }
+  
   decide() {
+
     this.hours = new Date().getHours();
     console.log("this.hours",this.hours)
     if(this.hours < 10){

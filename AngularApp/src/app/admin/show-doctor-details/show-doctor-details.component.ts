@@ -16,14 +16,11 @@ export class ShowDoctorDetailsComponent implements OnInit {
   hours:any;
   msg:any;
   link:any;
-  today = new Date().toISOString().slice(0, 10);
+  
   data:any=[];
   patientList:any=[];
   id:string="";
-  time:any;
-  hours:any;
-  msg:any;
-  link:any;
+  
   ward=0;
   patient=0;
   displayImage="";

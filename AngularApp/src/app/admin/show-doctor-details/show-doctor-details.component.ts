@@ -11,6 +11,12 @@ import { Patient } from 'src/app/appdata/Patient';
   providers : [Methods]
 })
 export class ShowDoctorDetailsComponent implements OnInit {
+  title = 'clock-greets';
+  time:any;
+  hours:any;
+  msg:any;
+  link:any;
+  today = new Date().toISOString().slice(0, 10);
   data:any=[];
   patientList:any=[];
   id:string="";
@@ -33,13 +39,17 @@ export class ShowDoctorDetailsComponent implements OnInit {
     private method:Methods,
     private doctor:DoctorService
 
-  ) {
+
+  ) { 
     setInterval(() => {
       this.time = new Date();
    }, 1000);
+
    this.decide();
-   }
-   decide() {
+  }
+  
+  decide() {
+
     this.hours = new Date().getHours();
     console.log("this.hours",this.hours)
     if(this.hours < 10){

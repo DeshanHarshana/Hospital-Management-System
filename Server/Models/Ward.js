@@ -7,11 +7,7 @@ const ward = mongoose.Schema({
    departmentid:String,
    departmentname:String,
    noofbeds:String,
-   noofpatients:String
-
-
-
-    
+   noofpatients:String 
 });
 
 module.exports=mongoose.model('Ward', ward, "Ward");

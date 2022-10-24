@@ -80,7 +80,7 @@ const routes: Routes = [
   {path : 'Admin-show-all-phamasisit', component:PhamasistListComponent, canActivate:[AuthGuard]},
 
   //doctor
-  {path:'Doctor-dashboard', component:DoctorDashboardComponent, canActivate:[DoctorGuard]},
+  {path:'Doctor-dashboard', component:DoctorDashboardComponent, canLoad:[DoctorGuard]},
   {path:'DoctorAppoinmentList', component:DoctorAppoinmentlistComponent, canActivate:[DoctorGuard]},
   {path:'DoctorPatientList/:id', component:PatientlistComponent},
   {path:'calendarDoctor', component:DoctorCalendarComponent, canActivate:[DoctorGuard]},
